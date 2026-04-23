@@ -43,6 +43,7 @@ export type Company = {
 
   branding: {
     logo: string;
+    navLogo: string;
     primaryColor: string;
     secondaryColor: string;
     accentColor: string;
@@ -134,6 +135,7 @@ export const companies: Company[] = [
 
     branding: {
       logo: "/companies/tso-texas/tso-texas-logo.webp",
+      navLogo: "/companies/tso-texas/tso-texas-hor-logo.png",
       primaryColor: "#0B1F4D",
       secondaryColor: "#C62828",
       accentColor: "#F3F4F6",

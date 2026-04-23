@@ -17,7 +17,7 @@ export function Footer({ company }: FooterProps) {
         {/* Column 1 — Logo + short description */}
         <div className="flex flex-col gap-5">
           <div className="relative h-16 w-48">
-            <Image src={branding.logo} alt={name} fill className="object-contain object-left" />
+            <Image src={branding.navLogo} alt={name} fill className="object-contain object-left" />
           </div>
           <p className="text-white/55 text-sm leading-relaxed">{footer.shortDescription}</p>
           <p className="text-white/40 text-xs">{footer.serviceArea}</p>

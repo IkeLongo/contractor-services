@@ -192,7 +192,7 @@ const MobileNav = ({ company }: NavbarProps) => {
 
 const CompanyLogo = ({ company }: NavbarProps) => (
   <Link href="/" className="relative h-18 w-44 shrink-0 block">
-    <Image src={company.branding.logo} alt={`${company.name} logo`} fill className="object-contain object-left" />
+    <Image src={company.branding.navLogo} alt={`${company.name} logo`} fill className="object-contain object-left" />
   </Link>
 );
 
