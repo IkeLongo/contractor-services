@@ -1,6 +1,7 @@
 import Image from "next/image";
 import { headers } from "next/headers";
 import { TwoColumnHeroSection } from "./components/sections/HeroSection";
+import { WhyChooseUs } from "./components/sections/WhyChooseUs";
 import { companies, getCompanyBySlug } from "@/data/companies";
 
 const FALLBACK_SLUG = "tso-texas";
@@ -17,6 +18,7 @@ export default async function Home() {
   return (
     <main className="font-sans text-gray-900">
       <TwoColumnHeroSection company={company} />
+      <WhyChooseUs />
     </main>
   );
 }
