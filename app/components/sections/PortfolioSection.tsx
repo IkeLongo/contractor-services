@@ -228,11 +228,17 @@ interface PortfolioSectionProps {
 }
 
 export function PortfolioSection({ company }: PortfolioSectionProps) {
+  const s = company.portfolio.styles;
+  const t = company.theme;
+  const sectionBg = s?.background || t.background;
+  const sectionTitle = s?.title || t.text;
+  const sectionDescription = s?.description || t.mutedText;
+
   return (
     <section
       id="portfolio"
       className="py-16 md:py-20 lg:py-24 px-4 sm:px-6 lg:px-8"
-      style={{ backgroundColor: company.theme.primary }}
+      style={{ background: sectionBg }}
     >
       <div className="max-w-7xl mx-auto">
         {/* Section header */}
@@ -245,13 +251,16 @@ export function PortfolioSection({ company }: PortfolioSectionProps) {
               {company.portfolio.eyebrow}
             </p>
           )}
-          <h2 className="text-3xl md:text-4xl font-black mb-3 text-white">
+          <h2 
+            className="text-3xl md:text-4xl font-black mb-3 text-white"
+            style={{ color: sectionTitle }}
+          >
             {company.portfolio.title}
           </h2>
           {company.portfolio.description && (
             <p
               className="max-w-2xl mx-auto text-base leading-relaxed"
-              style={{ color: "rgba(255,255,255,0.55)" }}
+              style={{ color: sectionDescription }}
             >
               {company.portfolio.description}
             </p>

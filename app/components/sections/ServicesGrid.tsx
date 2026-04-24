@@ -64,7 +64,10 @@ function ServiceCard({
       </div>
 
       {/* Content */}
-      <div className="flex flex-col gap-2 p-5 pb-6">
+      <div
+        className="flex flex-col gap-2 p-5 pb-6"
+        style={{ background: "var(--card-bg)" }}
+      >
         <h3
           className="text-lg font-bold tracking-tight"
           style={{ color: "var(--card-title)" }}

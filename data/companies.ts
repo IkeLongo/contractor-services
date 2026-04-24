@@ -456,6 +456,9 @@ export const companies: Company[] = [
           icon: "shield",
         },
       ],
+      styles: {
+        cardBackground: "#eff3fa",
+      }
     },
 
     portfolio: {
@@ -514,6 +517,11 @@ export const companies: Company[] = [
           layout: { colSpan: 2 },
         },
       ],
+      styles: {
+        background: "linear-gradient(135deg, #F8FAFC 0%, #EEF4FF 55%, #FFF1F1 100%)",
+        title: "#0B1F4D",
+        description: "#475569",
+      }
     },
 
     testimonials: {
