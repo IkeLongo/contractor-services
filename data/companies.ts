@@ -155,8 +155,8 @@ export const companies: Company[] = [
     state: "TX",
 
     branding: {
-      logo: "/companies/tso-texas/tso-texas-logo.webp",
-      navLogo: "/companies/tso-texas/tso-texas-hor-logo.png",
+      logo: "/companies/tso-texas/logos/tso-texas-logo.webp",
+      navLogo: "/companies/tso-texas/logos/tso-texas-hor-logo.png",
       primaryColor: "#0B1F4D",
       secondaryColor: "#C62828",
       accentColor: "#F3F4F6",
@@ -226,12 +226,12 @@ export const companies: Company[] = [
         "Fast-Response Service",
       ],
       images: [
-        "/office-renovation-modern-workspace.jpeg",
-        "/commercial-drywall-and-construction.png",
-        "/office-remodeling-construction-workers-interior.jpg",
-        "/cat6-cable-installation-commercial-building.webp",
-        "/commercial-interior-build-out-construction.png",
-        "/photo-metal-fabrication-shop-with-welding-equipment-sparks-flying.png",
+        "/companies/tso-texas/hero-images/office-renovation-modern-workspace.jpeg",
+        "/companies/tso-texas/hero-images/commercial-drywall-and-construction.png",
+        "/companies/tso-texas/hero-images/office-remodeling-construction-workers-interior.jpg",
+        "/companies/tso-texas/hero-images/cat6-cable-installation-commercial-building.webp",
+        "/companies/tso-texas/hero-images/commercial-interior-build-out-construction.png",
+        "/companies/tso-texas/hero-images/photo-metal-fabrication-shop-with-welding-equipment-sparks-flying.png",
       ],
     },
 

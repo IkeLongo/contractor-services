@@ -14,12 +14,12 @@ export function TwoColumnHeroSection({ company }: HeroSectionProps) {
     const images = company.hero.images && company.hero.images.length > 0
       ? company.hero.images
     : [
-        "/office-renovation-modern-workspace.jpeg",
-        "/commercial-drywall-and-construction.png",
-        "/office-remodeling-construction-workers-interior.jpg",
-        "/cat6-cable-installation-commercial-building.webp",
-        "/commercial-interior-build-out-construction.png",
-        "/photo-metal-fabrication-shop-with-welding-equipment-sparks-flying.png",
+        "/companies/tso-texas/hero-images/office-renovation-modern-workspace.jpeg",
+        "/companies/tso-texas/hero-images/commercial-drywall-and-construction.png",
+        "/companies/tso-texas/hero-images/office-remodeling-construction-workers-interior.jpg",
+        "/companies/tso-texas/hero-images/cat6-cable-installation-commercial-building.webp",
+        "/companies/tso-texas/hero-images/commercial-interior-build-out-construction.png",
+        "/companies/tso-texas/hero-images/photo-metal-fabrication-shop-with-welding-equipment-sparks-flying.png",
       ];  
 
   return (
