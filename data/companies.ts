@@ -22,6 +22,8 @@ export type PortfolioItem = {
   description: string;
   image: string;
   category?: string;
+  href?: string;
+  icon?: string;
 };
 
 export type TestimonialItem = {
@@ -106,6 +108,7 @@ export type Company = {
   };
 
   portfolio: {
+    eyebrow?: string;
     title: string;
     description?: string;
     items: PortfolioItem[];
@@ -338,30 +341,46 @@ export const companies: Company[] = [
     },
 
     portfolio: {
-      title: "Featured Work",
+      eyebrow: "Our Work",
+      title: "Featured Projects",
       description:
-        "Example project categories that show the range of work TSO Texas can support.",
+        "A sample of the work TSO Texas delivers across maintenance, renovations, networking, and fabrication.",
       items: [
         {
           title: "Office Renovation & Repairs",
           description:
             "Interior updates, repairs, and finishing work for a cleaner, more functional workspace.",
-          image: "/images/portfolio-office-renovation.jpg",
+          image: "/companies/tso-texas/hero-images/office-renovation-modern-workspace.jpeg",
           category: "Renovation",
+          icon: "Hammer",
+          href: "/case-studies/office-renovation",
         },
         {
           title: "Structured Cabling Upgrade",
           description:
-            "Improved network organization with data drops, cabling, and rack cleanup.",
-          image: "/images/portfolio-cabling.jpg",
+            "Improved network organization with data drops, cabling, and rack cleanup across a commercial facility.",
+          image: "/companies/tso-texas/hero-images/cat6-cable-installation-commercial-building.webp",
           category: "Low Voltage",
+          icon: "Network",
+          href: "/case-studies/structured-cabling",
+        },
+        {
+          title: "Commercial Build-Out",
+          description:
+            "Multi-trade interior build-out from framing and drywall to finish work and paint.",
+          image: "/companies/tso-texas/hero-images/commercial-interior-build-out-construction.png",
+          category: "Renovation",
+          icon: "Layers",
+          href: "/case-studies/commercial-build-out",
         },
         {
           title: "Custom Fabrication Installation",
           description:
-            "Fabricated mounting and support solutions tailored to site needs.",
-          image: "/images/portfolio-fabrication.jpg",
+            "Fabricated mounting and support solutions designed and installed entirely in-house.",
+          image: "/companies/tso-texas/hero-images/photo-metal-fabrication-shop-with-welding-equipment-sparks-flying.png",
           category: "Fabrication",
+          icon: "Wrench",
+          href: "/case-studies/custom-fabrication",
         },
       ],
     },

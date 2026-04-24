@@ -3,6 +3,7 @@ import { headers } from "next/headers";
 import { TwoColumnHeroSection } from "./components/sections/HeroSection";
 import { WhyChooseUs } from "./components/sections/WhyChooseUs";
 import { ServicesGrid } from "./components/sections/ServicesGrid";
+import { PortfolioSection } from "./components/sections/PortfolioSection";
 import { companies, getCompanyBySlug } from "@/data/companies";
 
 const FALLBACK_SLUG = "tso-texas";
@@ -21,6 +22,7 @@ export default async function Home() {
       <TwoColumnHeroSection company={company} />
       <WhyChooseUs company={company} />
       <ServicesGrid company={company} />
+      <PortfolioSection company={company} />
     </main>
   );
 }
