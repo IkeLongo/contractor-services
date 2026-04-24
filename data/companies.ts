@@ -109,6 +109,13 @@ export type ServicesStyles = {
   imageOverlay?: string;
 };
 
+export type LogoSectionStyles = {
+  background?: string;
+  eyebrow?: string;
+  title?: string;
+  description?: string;
+};
+
 export type Company = {
   slug: string;
   subdomain: string;
@@ -213,6 +220,12 @@ export type Company = {
       label: string;
       href: string;
     };
+  };
+  logoSection?: {
+    eyebrow?: string;
+    title: string;
+    description?: string;
+    styles?: LogoSectionStyles;
   };
   footer: {
     shortDescription: string;
@@ -357,7 +370,7 @@ export const companies: Company[] = [
         },
       ],
       styles: {
-        background: "#d8e6f3",
+        background: "#e0e4e7",
       },
     },
 
@@ -484,6 +497,18 @@ export const companies: Company[] = [
       styles: {
         background: "#e2e8f0",
         cardBorder: "#0B1F4D",
+      },
+    },
+
+    logoSection: {
+      eyebrow: "Trusted Capability",
+      title: "Built to Support Residential and Commercial Projects",
+      description:
+        "One team. Multiple trades. Done right.",
+      styles: {
+        background: "#081636",
+        title: "#eff0f3",
+        description: "#99a3b1",
       },
     },
 

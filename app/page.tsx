@@ -5,6 +5,7 @@ import { WhyChooseUs } from "./components/sections/WhyChooseUs";
 import { ServicesGrid } from "./components/sections/ServicesGrid";
 import { PortfolioSection } from "./components/sections/PortfolioSection";
 import { TestimonialsSection } from "./components/sections/TestimonialsSection";
+import { LogoSection } from "./components/sections/LogoSection";
 import { companies, getCompanyBySlug } from "@/data/companies";
 
 const FALLBACK_SLUG = "tso-texas";
@@ -22,6 +23,7 @@ export default async function Home() {
     <main className="font-sans text-gray-900">
       <TwoColumnHeroSection company={company} />
       <WhyChooseUs company={company} />
+      <LogoSection company={company} />
       <ServicesGrid company={company} />
       <PortfolioSection company={company} />
       <TestimonialsSection company={company} />
