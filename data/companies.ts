@@ -24,6 +24,12 @@ export type PortfolioItem = {
   category?: string;
   href?: string;
   icon?: string;
+  layout?: {
+    colSpan?: 1 | 2 | 3;
+    rowSpan?: 1 | 2 | 3;
+    colStart?: 1 | 2 | 3;
+    rowStart?: 1 | 2 | 3;
+  };
 };
 
 export type TestimonialItem = {
@@ -354,6 +360,7 @@ export const companies: Company[] = [
           category: "Renovation",
           icon: "Hammer",
           href: "/case-studies/office-renovation",
+          layout: { colStart: 1, rowStart: 1, colSpan: 2, rowSpan: 2 },
         },
         {
           title: "Structured Cabling Upgrade",
@@ -363,6 +370,7 @@ export const companies: Company[] = [
           category: "Low Voltage",
           icon: "Network",
           href: "/case-studies/structured-cabling",
+          layout: { colSpan: 1 },
         },
         {
           title: "Commercial Build-Out",
@@ -372,6 +380,7 @@ export const companies: Company[] = [
           category: "Renovation",
           icon: "Layers",
           href: "/case-studies/commercial-build-out",
+          layout: { colSpan: 1 },
         },
         {
           title: "Custom Fabrication Installation",
@@ -381,6 +390,16 @@ export const companies: Company[] = [
           category: "Fabrication",
           icon: "Wrench",
           href: "/case-studies/custom-fabrication",
+          layout: { colSpan: 1 },
+        },
+        {
+          title: "Drywall & Patching",
+          description:
+            "Patch, texture, and paint for commercial and residential walls after repairs or renovations.",
+          image: "/companies/tso-texas/hero-images/commercial-drywall-and-construction.png",
+          category: "Maintenance",
+          icon: "Hammer",
+          layout: { colSpan: 2 },
         },
       ],
     },

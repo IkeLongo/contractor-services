@@ -24,16 +24,17 @@ const ICON_MAP: Record<string, LucideIcon> = {
   FolderOpen,
 };
 
-/** Returns Tailwind grid-span classes based on card index for the bento layout. */
-function getBentoClass(index: number): string {
-  switch (index) {
-    case 0:
-      return "md:col-span-2 md:row-span-2";
-    case 3:
-      return "md:col-span-2";
-    default:
-      return "";
-  }
+/** Returns Tailwind grid-span/start classes from a PortfolioItem's layout field. */
+function getBentoClass(item: PortfolioItem): string {
+  if (!item.layout) return "";
+  return [
+    item.layout.colSpan  ? `md:col-span-${item.layout.colSpan}`  : "",
+    item.layout.rowSpan  ? `md:row-span-${item.layout.rowSpan}`  : "",
+    item.layout.colStart ? `md:col-start-${item.layout.colStart}` : "",
+    item.layout.rowStart ? `md:row-start-${item.layout.rowStart}` : "",
+  ]
+    .filter(Boolean)
+    .join(" ");
 }
 
 // -- Featured card: full-bleed image with gradient + overlaid text -------------
@@ -50,43 +51,54 @@ function FeaturedCard({
       : FolderOpen;
 
   return (
-    <div className="group relative h-full min-h-[280px] overflow-hidden rounded-xl">
-      <Image
-        src={item.image}
-        alt={item.title}
-        fill
-        sizes="(min-width: 1024px) 66vw, (min-width: 640px) 66vw, 100vw"
-        className="object-cover transition-transform duration-500 group-hover:scale-105"
-        priority
-      />
-      {/* Gradient overlay */}
-      <div className="absolute inset-0 bg-gradient-to-t from-black/85 via-black/30 to-black/10" />
+    <div
+      className="group relative flex flex-col h-full overflow-hidden rounded-xl"
+      style={{ background: company.theme.surface, borderColor: company.theme.border }}
+    >
+      {/* Image */}
+      <div className="p-3 pb-0 flex-shrink-0">
+        <div className="relative h-48 md:h-108 overflow-hidden rounded-lg">
+          <Image
+            src={item.image}
+            alt={item.title}
+            fill
+            sizes="(min-width: 1024px) 66vw, (min-width: 640px) 66vw, 100vw"
+            className="object-cover transition-transform duration-500 group-hover:scale-105"
+            priority
+          />
+          <div className="absolute inset-0 bg-black/20" />
+          {item.category && (
+            <span
+              className="absolute top-4 left-4 rounded-full px-3 py-1 text-[11px] font-bold uppercase tracking-wider text-white"
+              style={{ backgroundColor: company.theme.secondary }}
+            >
+              {item.category}
+            </span>
+          )}
+        </div>
+      </div>
 
-      {/* Category badge */}
-      {item.category && (
-        <span
-          className="absolute top-4 left-4 rounded-full px-3 py-1 text-[11px] font-bold uppercase tracking-wider text-white"
-          style={{ backgroundColor: company.theme.secondary }}
-        >
-          {item.category}
-        </span>
-      )}
-
-      {/* Content overlaid at bottom */}
-      <div className="absolute bottom-0 left-0 right-0 p-6">
-        <div className="flex items-center gap-2 mb-2">
-          <Icon className="size-5 flex-shrink-0" style={{ color: company.theme.background }} />
-          <h3 className="text-xl font-black text-white leading-snug" style={{marginBottom: 0}}>
+      {/* Content */}
+      <div className="flex flex-col gap-1.5 p-5 pt-4 pb-6 flex-1">
+        <div className="flex items-center gap-2 mb-1">
+          <Icon className="size-5 flex-shrink-0" style={{ color: company.theme.secondary }} />
+          <h3
+            className="text-lg font-bold leading-snug truncate"
+            style={{ color: company.theme.text, marginBottom: 0 }}
+          >
             {item.title}
           </h3>
         </div>
-        <p className="text-sm leading-relaxed" style={{ color: "rgba(255,255,255,0.65)" }}>
+        <p
+          className="text-sm leading-relaxed truncate"
+          style={{ color: company.theme.mutedText }}
+        >
           {item.description}
         </p>
         {item.href && (
           <span
             className="mt-4 inline-block text-xs font-bold uppercase tracking-wider"
-            style={{ color: company.theme.background }}
+            style={{ color: company.theme.secondary }}
           >
             View Project →
           </span>
@@ -180,11 +192,23 @@ function PortfolioCard({
   company: Company;
   featured: boolean;
 }) {
-  const card = featured ? (
-    <FeaturedCard item={item} company={company} />
-  ) : (
-    <StandardCard item={item} company={company} />
-  );
+  let card: React.ReactNode;
+  if (featured) {
+    card = (
+      <>
+        {/* StandardCard for mobile */}
+        <div className="block md:hidden h-full">
+          <StandardCard item={item} company={company} />
+        </div>
+        {/* FeaturedCard for md+ */}
+        <div className="hidden md:block h-full">
+          <FeaturedCard item={item} company={company} />
+        </div>
+      </>
+    );
+  } else {
+    card = <StandardCard item={item} company={company} />;
+  }
 
   if (item.href) {
     return (
@@ -236,7 +260,7 @@ export function PortfolioSection({ company }: PortfolioSectionProps) {
         {/* Bento grid — 3 cols on sm+, auto-rows of 280px */}
         <ul className="grid grid-cols-1 md:grid-cols-3 md:auto-rows-[280px] gap-4">
           {company.portfolio.items.map((item, idx) => (
-            <li key={item.title + idx} className={getBentoClass(idx)}>
+            <li key={item.title + idx} className={getBentoClass(item)}>
               <PortfolioCard
                 item={item}
                 company={company}
