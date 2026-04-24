@@ -8,14 +8,14 @@ export function ContactSection({ company }: ContactSectionProps) {
   const { contact } = company;
 
   return (
-    <section className="isolate grid h-full w-full flex-1 grid-cols-1 overflow-x-hidden overflow-y-auto overscroll-y-contain md:min-h-0 lg:grid-cols-2 lg:overflow-hidden">
+    <section id="contact" className="isolate grid w-full min-h-screen grid-cols-1 overflow-hidden lg:grid-cols-2">
       <div
         className="relative order-last flex min-h-72 items-center justify-center overflow-hidden bg-cover bg-left px-4 py-8 sm:min-h-64 sm:px-6 sm:py-12 lg:order-first lg:min-h-full lg:py-0"
         style={{ backgroundImage: `url(${contact.backgroundImage})` }}
       >
         <div
           className="absolute inset-0"
-          aria-hidden
+          aria-hidden="true"
           style={{
             background:
               contact.styles?.overlayGradient ||

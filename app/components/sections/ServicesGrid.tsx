@@ -127,6 +127,7 @@ export function ServicesGrid({ company }: ServicesGridProps) {
 
   return (
     <section
+      id="services"
       className="py-16 md:py-20 lg:py-24 px-4 sm:px-6 lg:px-8 bg-[var(--section-bg)]"
       style={cssVars}
     >

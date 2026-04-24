@@ -351,6 +351,9 @@ export const companies: Company[] = [
         "/companies/tso-texas/hero-images/commercial-interior-build-out-construction.png",
         "/companies/tso-texas/hero-images/photo-metal-fabrication-shop-with-welding-equipment-sparks-flying.png",
       ],
+      styles: {
+        primaryCtaBg: "linear-gradient(to bottom, #6c98f8, #2563eb)",
+      }
     },
 
     differentiators: {
