@@ -30,6 +30,17 @@ export type TestimonialItem = {
   quote: string;
 };
 
+export type CompanyTheme = {
+  primary: string;
+  secondary: string;
+  accent: string;
+  background: string;
+  surface: string;
+  text: string;
+  mutedText: string;
+  border: string;
+};
+
 export type Company = {
   slug: string;
   subdomain: string;
@@ -48,6 +59,8 @@ export type Company = {
     secondaryColor: string;
     accentColor: string;
   };
+
+  theme: CompanyTheme;
 
   seo: {
     title: string;
@@ -143,6 +156,17 @@ export const companies: Company[] = [
       primaryColor: "#0B1F4D",
       secondaryColor: "#C62828",
       accentColor: "#F3F4F6",
+    },
+
+    theme: {
+      primary: "#0B1F4D",
+      secondary: "#C62828",
+      accent: "#F8FAFC",
+      background: "#F8FAFC",
+      surface: "#FFFFFF",
+      text: "#111827",
+      mutedText: "#475569",
+      border: "#E2E8F0",
     },
 
     seo: {
