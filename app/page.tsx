@@ -23,9 +23,9 @@ export default async function Home() {
   return (
     <main className="font-sans text-gray-900">
       <TwoColumnHeroSection company={company} />
-      <WhyChooseUs company={company} />
-      <LogoSection company={company} />
       <ServicesGrid company={company} />
+      <LogoSection company={company} />
+      <WhyChooseUs company={company} />
       <PortfolioSection company={company} />
       <TestimonialsSection company={company} />
       <ContactSection company={company} />

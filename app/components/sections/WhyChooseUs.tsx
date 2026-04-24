@@ -59,9 +59,15 @@ export function WhyChooseUs({ company }: WhyChooseUsProps) {
     <section
       id="features"
       style={cssVars as any}
-      className="bg-[var(--section-bg)] px-4 py-10 md:py-24 lg:py-32"
+      className="relative overflow-hidden bg-[var(--section-bg)] px-4 py-10 md:py-24 lg:py-32"
     >
-      <div className="mx-auto max-w-7xl">
+      <div className="pointer-events-none absolute inset-0">
+        <div className="absolute inset-0 bg-gradient-to-b from-white/70 via-transparent to-slate-200/60" />
+        <div className="absolute inset-0 opacity-[0.1] bg-[radial-gradient(circle_at_1px_1px,_#0B1F4D_1px,_transparent_0)] [background-size:22px_22px]" />
+        <div className="absolute -top-24 left-1/2 h-72 w-72 -translate-x-1/2 rounded-full bg-[var(--icon)]/10 blur-3xl" />
+      </div>
+
+      <div className="relative z-10 mx-auto max-w-7xl">
         <div className="flex flex-col items-center justify-center font-sans">
           {company.differentiators.eyebrow && (
             <p
