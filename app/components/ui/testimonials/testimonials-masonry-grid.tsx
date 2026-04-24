@@ -3,8 +3,11 @@
 import { useState } from "react";
 import { cn } from "@/lib/utils";
 import { FaQuoteLeft, FaStar, FaUserCircle } from "react-icons/fa";
-import { ReviewModal } from "./ReviewModal";
+import { ReviewModal } from "./review-modal";
 import { dummyTestimonials } from "./testimonials-data";
+import type { TestimonialItem } from "@/data/companies";
+import type { Company } from "@/data/companies";
+import test from "node:test";
 
 const TRUNCATE_MAX = 220;
 
@@ -15,36 +18,35 @@ function truncateReview(text: string, max: number): { display: string; isTruncat
 }
 
 export function TestimonialsMasonryGrid({
-  testimonials: reviewsProp,
-  primaryColor,
-  accentColor,
+  testimonials,
 }: {
-  testimonials?: Testimonial[];
-  primaryColor?: string;
-  accentColor?: string;
-} = {}) {
-  const data = reviewsProp ?? dummyTestimonials;
-  const [selected, setSelected] = useState<Testimonial | null>(null);
+  testimonials?: Company["testimonials"];
+}) {
+  const data: TestimonialItem[] =
+  testimonials?.items && testimonials.items.length > 0
+    ? testimonials.items
+    : dummyTestimonials;
+  const [selected, setSelected] = useState<TestimonialItem | null>(null);
 
   const first = data.slice(0, 3);
   const second = data.slice(3, 6);
   const third = data.slice(6, 9);
   const fourth = data.slice(9, 12);
-
   const grid = [first, second, third, fourth];
+
   return (
-    <div className="">
-      <div className="mx-auto mt-10 grid max-w-7xl grid-cols-1 items-start gap-4 px-4 md:grid-cols-2 md:px-8 lg:grid-cols-4">
+    <div>
+      <div 
+        className="mx-auto mt-10 grid max-w-7xl grid-cols-1 items-start gap-4 px-4 md:grid-cols-2 md:px-8 lg:grid-cols-4"
+        style={{ background: testimonials?.styles?.background }}
+      >
         {grid.map((testimonialsCol, index) => (
-          <div
-            key={`testimonials-col-${index}`}
-            className="grid items-start gap-4"
-          >
-            {testimonialsCol.map((testimonial) => {
+          <div key={`testimonials-col-${index}`} className="grid items-start gap-4">
+            {testimonialsCol.map((testimonial, idx) => {
               const { display, isTruncated } = truncateReview(testimonial.quote, TRUNCATE_MAX);
               return (
                 <Card
-                  key={`testimonial-${testimonial.src}-${index}`}
+                  key={`testimonial-${testimonial.name}-${index}-${idx}`}
                   onClick={() => setSelected(testimonial)}
                   clickable
                 >
@@ -52,7 +54,8 @@ export function TestimonialsMasonryGrid({
                     {display}
                     {isTruncated && (
                       <button
-                        className="ml-1 text-xs font-semibold not-italic text-white/50 hover:text-white/80 transition-colors"
+                        className="ml-1 text-xs font-semibold not-italic"
+                        style={{ color: "var(--description)" }}
                         onClick={(e) => { e.stopPropagation(); setSelected(testimonial); }}
                         aria-label="Read full review"
                       >
@@ -65,30 +68,29 @@ export function TestimonialsMasonryGrid({
                       <FaStar
                         key={i}
                         size={12}
-                        className={i < (testimonial.rating ?? 5) ? "text-yellow-400" : "text-white/20"}
+                        style={{ color: i < (testimonial.rating ?? 5) ? "var(--star)" : "var(--muted-star)" }}
                       />
                     ))}
                   </div>
                   <div className="mt-8 flex items-center gap-2">
-                    {testimonial.src ? (
+                    {testimonial.image ? (
                       <img
-                        src={testimonial.src}
+                        src={testimonial.image}
                         alt={testimonial.name}
                         width={40}
                         height={40}
                         className="rounded-full shrink-0"
                         onError={(e) => {
                           e.currentTarget.style.display = "none";
-                          e.currentTarget.nextElementSibling?.removeAttribute("hidden");
                         }}
                       />
                     ) : (
-                      <FaUserCircle size={40} className="text-white/30 shrink-0" />
+                      <FaUserCircle size={40} style={{ color: "var(--card-border)" }} className="shrink-0" />
                     )}
                     <div className="flex flex-col">
                       <QuoteDescription>{testimonial.name}</QuoteDescription>
                       <QuoteDescription className="text-[10px]">
-                        {testimonial.designation}
+                        {testimonial.role || testimonial.company}
                       </QuoteDescription>
                     </div>
                   </div>
@@ -103,8 +105,6 @@ export function TestimonialsMasonryGrid({
         <ReviewModal
           testimonial={selected}
           onClose={() => setSelected(null)}
-          primaryColor={primaryColor}
-          accentColor={accentColor}
         />
       )}
     </div>
@@ -125,12 +125,16 @@ export const Card = ({
     <div
       onClick={onClick}
       className={cn(
-        "group relative rounded-xl border border-white/20 bg-white/10 p-8",
-        clickable && "cursor-pointer hover:bg-white/15 transition-colors",
+        "group relative rounded-xl border p-8",
+        clickable && "cursor-pointer transition-colors hover:bg-[var(--card-bg)] hover:border-[var(--card-border)]",
         className,
       )}
+      style={{
+        background: "var(--card-bg)",
+        borderColor: "var(--card-border)",
+      }}
     >
-      <FaQuoteLeft className="absolute top-2 left-2 text-white/30" />
+      <FaQuoteLeft className="absolute top-2 left-2" style={{ color: "var(--quote-icon)" }} />
       {children}
     </div>
   );
@@ -146,9 +150,10 @@ export const Quote = ({
   return (
     <h3
       className={cn(
-        "relative py-2 text-base font-normal text-white/80 italic",
+        "relative py-2 text-base font-normal italic",
         className,
       )}
+      style={{ color: "var(--quote)" }}
     >
       {children}
     </h3>
@@ -165,19 +170,14 @@ export const QuoteDescription = ({
   return (
     <p
       className={cn(
-        "max-w-sm text-xs font-normal text-white/60",
+        "max-w-sm text-xs font-normal",
         className,
       )}
+      style={{ color: "var(--role)" }}
     >
       {children}
     </p>
   );
 };
 
-export interface Testimonial {
-  src?: string;
-  quote: string;
-  name: string;
-  designation?: string;
-  rating?: number;
-}
+

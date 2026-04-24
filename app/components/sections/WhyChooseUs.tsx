@@ -72,7 +72,7 @@ export function WhyChooseUs({ company }: WhyChooseUsProps) {
             </p>
           )}
           <h2
-            className="text-2xl font-bold tracking-tight md:text-4xl text-[var(--title)]"
+            className="text-2xl font-black tracking-tight md:text-4xl text-[var(--title)]"
             style={{ color: "var(--title)" }}
           >
             {company.differentiators.title}

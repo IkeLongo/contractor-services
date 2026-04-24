@@ -54,6 +54,8 @@ export type TestimonialItem = {
   role?: string;
   company?: string;
   quote: string;
+  rating?: number;
+  image?: string;
 };
 
 export type HeroStyles = {
@@ -117,6 +119,7 @@ export type Company = {
   email: string;
   city: string;
   state: string;
+  googlePlaceId?: string;
   branding: {
     logo: string;
     navLogo: string;
@@ -173,9 +176,26 @@ export type Company = {
     items: PortfolioItem[];
   };
   testimonials: {
+    eyebrow?: string;
     title: string;
     description?: string;
-    items: TestimonialItem[];
+    styles?: {
+      background?: string;
+      eyebrow?: string;
+      title?: string;
+      description?: string;
+      cardBackground?: string;
+      cardBorder?: string;
+      quote?: string;
+      name?: string;
+      role?: string;
+      star?: string;
+      mutedStar?: string;
+      quoteIcon?: string;
+      ctaBackground?: string;
+      ctaText?: string;
+    };
+    items?: TestimonialItem[];
   };
   about: {
     title: string;
@@ -336,6 +356,9 @@ export const companies: Company[] = [
           icon: "ShieldCheck",
         },
       ],
+      styles: {
+        background: "#d8e6f3",
+      },
     },
 
     services: {
@@ -454,29 +477,14 @@ export const companies: Company[] = [
     },
 
     testimonials: {
+      eyebrow: "Trusted by Real Clients",
       title: "What Clients Value",
       description:
-        "Demo testimonial content for presentation purposes until final client reviews are collected.",
-      items: [
-        {
-          name: "Commercial Client",
-          role: "Facility Manager",
-          quote:
-            "TSO Texas handled multiple scopes without us having to coordinate several different vendors.",
-        },
-        {
-          name: "Property Representative",
-          role: "Operations Lead",
-          quote:
-            "Fast response, professional communication, and quality work from start to finish.",
-        },
-        {
-          name: "Project Contact",
-          role: "Business Owner",
-          quote:
-            "Their team brought practical solutions and helped us keep the project moving.",
-        },
-      ],
+        "Feedback from clients who have relied on TSO Texas to handle repairs, renovations, and specialized work without the hassle of managing multiple vendors.",
+      styles: {
+        background: "#e2e8f0",
+        cardBorder: "#0B1F4D",
+      },
     },
 
     about: {

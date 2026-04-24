@@ -138,7 +138,7 @@ export function ServicesGrid({ company }: ServicesGridProps) {
             </p>
           )}
           <h2
-            className="text-3xl md:text-4xl font-bold mb-3"
+            className="text-3xl md:text-4xl font-black mb-3"
             style={{ color: "var(--title)" }}
           >
             {company.services.title}
