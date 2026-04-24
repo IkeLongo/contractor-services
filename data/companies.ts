@@ -69,7 +69,7 @@ export type Company = {
       href: string;
     };
     highlights: string[];
-    backgroundImage?: string;
+    images?: string[];
   };
 
   differentiators: {
@@ -176,7 +176,7 @@ export const companies: Company[] = [
 
     hero: {
       eyebrow: "Fast Response • Reliable Service • Quality Workmanship",
-      title: "One Team for Repairs, Renovations, Low Voltage, and Fabrication",
+      title: "One Team for Repairs, Renovations, and Low Voltage Work",
       subtitle:
         "TSO Texas helps residential and commercial clients solve more with one reliable vendor for maintenance, improvements, networking, and custom fabrication.",
       primaryCta: {
@@ -193,7 +193,14 @@ export const companies: Company[] = [
         "Residential & Commercial",
         "Fast-Response Service",
       ],
-      backgroundImage: "/images/tso-hero.jpg",
+      images: [
+        "/office-renovation-modern-workspace.jpeg",
+        "/commercial-drywall-and-construction.png",
+        "/office-remodeling-construction-workers-interior.jpg",
+        "/cat6-cable-installation-commercial-building.webp",
+        "/commercial-interior-build-out-construction.png",
+        "/photo-metal-fabrication-shop-with-welding-equipment-sparks-flying.png",
+      ],
     },
 
     differentiators: {
