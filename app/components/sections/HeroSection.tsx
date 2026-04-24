@@ -85,7 +85,7 @@ export function TwoColumnHeroSection({ company }: HeroSectionProps) {
           )}
         </div>
         {company.hero.highlights && company.hero.highlights.length > 0 && (
-          <div className="flex flex-wrap justify-center gap-2 mt-4">
+          <div className="hidden md:flex flex-wrap justify-center gap-2 mt-4">
             {company.hero.highlights.map((highlight, idx) => (
               <motion.span
                 key={idx}

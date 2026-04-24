@@ -78,7 +78,7 @@ export function LogoSection({ company }: LogoSectionProps) {
         style={{ color: section.styles?.title || undefined }}
       >
         {section.title}{" "}
-        <br className="hidden sm:block" />{" "}
+        <br className="block" />{" "}
         <span
           className="text-neutral-400 dark:text-neutral-600"
           style={{ color: section.styles?.description || undefined }}

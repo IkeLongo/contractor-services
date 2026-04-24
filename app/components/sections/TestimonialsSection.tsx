@@ -27,7 +27,8 @@ export function TestimonialsSection({ company }: TestimonialsSectionProps) {
 
   return (
     <section
-      className="bg-[var(--section-bg)] py-16 md:py-20 lg:py-24 px-4 sm:px-6 lg:px-8"
+      id="testimonials"
+      className="scroll-mt-16 bg-[var(--section-bg)] py-16 md:py-20 lg:py-24 px-4 sm:px-6 lg:px-8"
       style={cssVars}
     >
       <div className="max-w-6xl mx-auto">

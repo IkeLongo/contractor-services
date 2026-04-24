@@ -298,7 +298,7 @@ export const companies: Company[] = [
     },
 
     navigation: [
-      { label: "Home", href: "#" },
+      { label: "Reviews", href: "#testimonials" },
       {
         label: "Services",
         href: "#services",
