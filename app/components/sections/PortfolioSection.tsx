@@ -25,13 +25,14 @@ const ICON_MAP: Record<string, LucideIcon> = {
 };
 
 /** Returns Tailwind grid-span/start classes from a PortfolioItem's layout field. */
-function getBentoClass(item: PortfolioItem): string {
-  if (!item.layout) return "";
+function getBentoClass(item: import("@/data/companies").PortfolioItem): string {
+  if (!item || !('layout' in item) || !item.layout) return "";
+  const layout = item.layout as NonNullable<typeof item.layout>;
   return [
-    item.layout.colSpan  ? `md:col-span-${item.layout.colSpan}`  : "",
-    item.layout.rowSpan  ? `md:row-span-${item.layout.rowSpan}`  : "",
-    item.layout.colStart ? `md:col-start-${item.layout.colStart}` : "",
-    item.layout.rowStart ? `md:row-start-${item.layout.rowStart}` : "",
+    layout.colSpan  ? `md:col-span-${layout.colSpan}`  : "",
+    layout.rowSpan  ? `md:row-span-${layout.rowSpan}`  : "",
+    layout.colStart ? `md:col-start-${layout.colStart}` : "",
+    layout.rowStart ? `md:row-start-${layout.rowStart}` : "",
   ]
     .filter(Boolean)
     .join(" ");

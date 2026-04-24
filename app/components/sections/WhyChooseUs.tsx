@@ -25,41 +25,61 @@ interface WhyChooseUsProps {
 }
 
 export function WhyChooseUs({ company }: WhyChooseUsProps) {
+  // Section-level style overrides with fallbacks
+  const s = company.differentiators.styles;
+  const t = company.theme;
+  // Fallbacks for theme in case it's missing
+  const fallback = {
+    background: "#fff",
+    primary: "#0B1F4D",
+    secondary: "#C62828",
+    surface: "#fff",
+    text: "#111827",
+    mutedText: "#475569",
+    border: "#E2E8F0",
+  };
+  const theme = t || fallback;
+
+  // Compose CSS variables for section and cards
+  const cssVars = {
+    "--section-bg": s?.background || theme.background,
+    "--eyebrow": s?.eyebrow || theme.primary,
+    "--title": s?.title || theme.text,
+    "--description": s?.description || theme.mutedText,
+    "--card-bg": s?.cardBackground || theme.surface,
+    "--card-border": s?.cardBorder || theme.border,
+    "--card-title": s?.cardTitle || theme.text,
+    "--card-description": s?.cardDescription || theme.mutedText,
+    "--icon": s?.icon || theme.primary,
+    "--icon-bg": s?.iconBackground || `${theme.primary}1A`,
+    "--hover-border": s?.hoverBorder || theme.secondary,
+  } as any;
+
   return (
     <section
       id="features"
-      style={
-        {
-          "--primary": company.theme.primary,
-          "--secondary": company.theme.secondary,
-          "--background": company.theme.background,
-          "--surface": company.theme.surface,
-          "--text": company.theme.text,
-          "--muted": company.theme.mutedText,
-          "--border": company.theme.border,
-        } as React.CSSProperties
-      }
-      className="bg-[var(--background)] px-4 py-10 md:py-24 lg:py-32"
+      style={cssVars as any}
+      className="bg-[var(--section-bg)] px-4 py-10 md:py-24 lg:py-32"
     >
       <div className="mx-auto max-w-7xl">
         <div className="flex flex-col items-center justify-center font-sans">
           {company.differentiators.eyebrow && (
             <p
               className="text-xs font-bold uppercase tracking-widest mb-2"
-              style={{ color: company.theme.primary }}
+              style={{ color: "var(--eyebrow)" }}
             >
               {company.differentiators.eyebrow}
             </p>
           )}
           <h2
-            className="text-2xl font-bold tracking-tight text-[var(--primary)] md:text-4xl"
-            style={{ color: company.theme.text }}
+            className="text-2xl font-bold tracking-tight md:text-4xl text-[var(--title)]"
+            style={{ color: "var(--title)" }}
           >
             {company.differentiators.title}
           </h2>
 
           {company.differentiators.description && (
-            <p className="mx-auto mt-4 max-w-2xl text-center text-lg text-[var(--muted)]">
+            <p className="mx-auto mt-4 max-w-2xl text-center text-lg text-[var(--description)]">
               {company.differentiators.description}
             </p>
           )}
@@ -74,22 +94,32 @@ export function WhyChooseUs({ company }: WhyChooseUsProps) {
             return (
               <div
                 key={item.title}
-                className="rounded-xl border border-[var(--border)] bg-[var(--surface)] p-6 shadow-sm transition-all duration-200 hover:-translate-y-1 hover:border-[var(--secondary)]/40 hover:shadow-md"
+                className="rounded-xl border p-6 shadow-sm transition-all duration-200 hover:-translate-y-1 hover:shadow-md bg-[var(--card-bg)] border-[var(--card-border)] hover:border-[var(--hover-border)]"
               >
                 <div className="mb-4 flex items-center gap-4">
-                  <div className="inline-flex size-11 items-center justify-center rounded-lg bg-[var(--primary)]/10">
+                  <div
+                    className="inline-flex size-11 items-center justify-center rounded-lg"
+                    style={{ background: "var(--icon-bg)" }}
+                  >
                     <Icon
-                      className="size-5 text-[var(--primary)]"
+                      className="size-5"
                       strokeWidth={1.75}
+                      style={{ color: "var(--icon)" }}
                     />
                   </div>
 
-                  <h3 className="m-0 text-lg font-semibold tracking-tight text-[var(--text)]">
+                  <h3
+                    className="m-0 text-lg font-semibold tracking-tight"
+                    style={{ color: "var(--card-title)" }}
+                  >
                     {item.title}
                   </h3>
                 </div>
 
-                <p className="mt-2 text-sm leading-relaxed text-[var(--muted)]">
+                <p
+                  className="mt-2 text-sm leading-relaxed"
+                  style={{ color: "var(--card-description)" }}
+                >
                   {item.description}
                 </p>
               </div>

@@ -17,6 +17,23 @@ export type ServiceItem = {
   icon?: string;
 };
 
+export type PortfolioStyles = {
+  background?: string;
+  eyebrow?: string;
+  title?: string;
+  description?: string;
+  cardBackground?: string;
+  cardBorder?: string;
+  cardTitle?: string;
+  cardDescription?: string;
+  icon?: string;
+  iconBackground?: string;
+  categoryBackground?: string;
+  categoryText?: string;
+  accent?: string;
+  link?: string;
+};
+
 export type PortfolioItem = {
   title: string;
   description: string;
@@ -39,6 +56,19 @@ export type TestimonialItem = {
   quote: string;
 };
 
+export type HeroStyles = {
+  overlay?: string;
+  eyebrow?: string;
+  title?: string;
+  subtitle?: string;
+  primaryCtaBg?: string;
+  primaryCtaText?: string;
+  secondaryCtaText?: string;
+  highlightBg?: string;
+  highlightBorder?: string;
+  highlightText?: string;
+};
+
 export type CompanyTheme = {
   primary: string;
   secondary: string;
@@ -48,6 +78,33 @@ export type CompanyTheme = {
   text: string;
   mutedText: string;
   border: string;
+};
+
+export type DifferentiatorStyles = {
+  background?: string;
+  eyebrow?: string;
+  title?: string;
+  description?: string;
+  cardBackground?: string;
+  cardBorder?: string;
+  cardTitle?: string;
+  cardDescription?: string;
+  icon?: string;
+  iconBackground?: string;
+  hoverBorder?: string;
+};
+
+export type ServicesStyles = {
+  background?: string;
+  eyebrow?: string;
+  title?: string;
+  description?: string;
+  cardBackground?: string;
+  cardBorder?: string;
+  cardTitle?: string;
+  cardDescription?: string;
+  accent?: string;
+  imageOverlay?: string;
 };
 
 export type Company = {
@@ -60,7 +117,6 @@ export type Company = {
   email: string;
   city: string;
   state: string;
-
   branding: {
     logo: string;
     navLogo: string;
@@ -68,16 +124,12 @@ export type Company = {
     secondaryColor: string;
     accentColor: string;
   };
-
   theme: CompanyTheme;
-
   seo: {
     title: string;
     description: string;
   };
-
   navigation: NavItem[];
-
   hero: {
     eyebrow?: string;
     title: string;
@@ -92,46 +144,44 @@ export type Company = {
     };
     highlights: string[];
     images?: string[];
+    styles?: HeroStyles;
   };
-
   differentiators: {
     eyebrow?: string;
     title: string;
     description?: string;
+    styles?: DifferentiatorStyles;
     items: {
       title: string;
       description: string;
       icon?: string;
     }[];
   };
-
   services: {
     eyebrow?: string;
     title: string;
     description?: string;
+    styles?: ServicesStyles;
     columns?: 2 | 3 | 4;
     items: ServiceItem[];
   };
-
   portfolio: {
     eyebrow?: string;
     title: string;
     description?: string;
+    styles?: PortfolioStyles;
     items: PortfolioItem[];
   };
-
   testimonials: {
     title: string;
     description?: string;
     items: TestimonialItem[];
   };
-
   about: {
     title: string;
     description: string;
     stats?: string[];
   };
-
   finalCta: {
     title: string;
     description: string;
@@ -144,7 +194,6 @@ export type Company = {
       href: string;
     };
   };
-
   footer: {
     shortDescription: string;
     serviceArea: string;
