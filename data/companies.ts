@@ -75,7 +75,11 @@ export type Company = {
   differentiators: {
     title: string;
     description?: string;
-    items: string[];
+    items: {
+      title: string;
+      description: string;
+      icon?: string;
+    }[];
   };
 
   services: {
@@ -208,13 +212,42 @@ export const companies: Company[] = [
       description:
         "A dependable partner for multiple scopes of work without the hassle of coordinating multiple vendors.",
       items: [
-        "Multi-trade single vendor solution",
-        "25+ years of renovation, telecom, and project management experience",
-        "In-house welding & fabrication",
-        "Low voltage & networking capability",
-        "Fast-response service",
-        "Military-trained personnel",
-        "Clean, professional execution",
+        {
+          title: "Multi-Trade Single Vendor",
+          description:
+            "Handle maintenance, renovations, networking, and fabrication through one reliable team — no vendor coordination headaches.",
+          icon: "Layers",
+        },
+        {
+          title: "25+ Years of Experience",
+          description:
+            "Decades of hands-on expertise in renovation, telecom, and project management ensures quality work from day one.",
+          icon: "BadgeCheck",
+        },
+        {
+          title: "In-House Welding & Fabrication",
+          description:
+            "Custom metal fabrication, structural supports, and equipment mounting solutions completed entirely in-house.",
+          icon: "Hammer",
+        },
+        {
+          title: "Low Voltage & Networking",
+          description:
+            "Structured cabling, fiber optic repair, and network infrastructure support from a certified in-house team.",
+          icon: "Network",
+        },
+        {
+          title: "Fast-Response Service",
+          description:
+            "Quick turnaround on repairs and urgent requests so your operations stay on schedule with minimal disruption.",
+          icon: "Clock",
+        },
+        {
+          title: "Military-Trained Professionalism",
+          description:
+            "Personnel with military backgrounds bring discipline, precision, and accountability to every project they execute.",
+          icon: "ShieldCheck",
+        },
       ],
     },
 
