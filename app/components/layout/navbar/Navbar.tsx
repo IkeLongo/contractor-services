@@ -13,16 +13,25 @@ interface NavbarProps {
 
 export function Navbar({ company }: NavbarProps) {
   const { branding } = company;
+  // CSS variables for branding colors
+  const cssVars = {
+    '--primary': branding.primaryColor,
+    '--secondary': branding.secondaryColor,
+    '--accent': branding.accentColor,
+  } as React.CSSProperties;
   return (
-    <header className="relative z-50 w-full" style={{ backgroundColor: branding.primaryColor }}>
-      {/* Top info bar */}
-      <div className="hidden md:flex items-center justify-between px-6 py-2 text-xs border-b border-white/10">
-        <span className="text-white/50">
+    <header
+      className="sticky top-0 z-50 bg-white/95 backdrop-blur-md border-b border-neutral-200 shadow-[0_1px_3px_rgba(0,0,0,0.08)] w-full"
+      style={cssVars}
+    >
+      {/* Top info bar (navy) */}
+      <div className="hidden md:flex items-center justify-between px-6 py-2 text-xs border-b border-neutral-100 bg-white text-[var(--primary)]">
+        <span>
           Serving {company.city} &nbsp;&amp;&nbsp; surrounding areas &nbsp;&middot;&nbsp; Licensed &amp; Insured
         </span>
         <a
           href={`mailto:${company.email}`}
-          className="text-white/50 hover:text-white/80 transition"
+          className="text-[var(--primary)] hover:text-[var(--secondary)] transition"
         >
           {company.email}
         </a>
@@ -41,8 +50,7 @@ const DesktopNav = ({ company }: NavbarProps) => {
 
   return (
     <nav
-      className="hidden lg:flex w-full items-center justify-between px-6 py-3"
-      style={{ backgroundColor: branding.primaryColor }}
+      className="hidden lg:flex w-full items-center justify-between px-6 py-3 bg-white/95"
     >
       <CompanyLogo company={company} />
 
@@ -67,18 +75,17 @@ const DesktopNav = ({ company }: NavbarProps) => {
       <div className="flex items-center gap-4">
         <a
           href={`tel:${company.phone}`}
-          className="flex items-center gap-1.5 text-sm font-semibold text-white/80 hover:text-white transition"
+          className="flex items-center gap-1.5 text-sm font-semibold text-neutral-800 hover:text-red-800 transition"
         >
-          <IconPhone className="w-4 h-4" />
+          <IconPhone className="w-4 h-4 text-neutral-600" />
           {company.phone}
         </a>
-        <Link
+        {/* <Link
           href="/request-service"
-          className="rounded px-5 py-2 text-sm font-bold transition hover:opacity-90"
-          style={{ backgroundColor: branding.accentColor, color: branding.primaryColor }}
+          className="rounded px-5 py-2 text-sm font-bold transition bg-[var(--primary)] text-white hover:bg-[var(--secondary)]"
         >
           Book Service
-        </Link>
+        </Link> */}
       </div>
     </nav>
   );
@@ -95,14 +102,14 @@ const MobileNav = ({ company }: NavbarProps) => {
     setOpenAccordion((prev) => (prev === label ? null : label));
 
   return (
-    <div className="lg:hidden w-full" style={{ backgroundColor: branding.primaryColor }}>
+    <div className="lg:hidden w-full bg-white/95 border-b border-neutral-200">
       {/* Mobile bar */}
       <div className="flex items-center justify-between px-4 py-3">
         <CompanyLogo company={company} />
         <button
           aria-label={open ? "Close menu" : "Open menu"}
           onClick={() => setOpen(!open)}
-          className="text-white"
+          className="text-neutral-800"
         >
           {open ? <IconX className="w-6 h-6" /> : <IconMenu2 className="w-6 h-6" />}
         </button>
@@ -114,7 +121,7 @@ const MobileNav = ({ company }: NavbarProps) => {
             initial={{ opacity: 0, height: 0 }}
             animate={{ opacity: 1, height: "auto" }}
             exit={{ opacity: 0, height: 0 }}
-            className="overflow-hidden border-t border-white/10"
+            className="overflow-hidden border-t border-neutral-100"
           >
             <div className="flex flex-col px-4 py-4 gap-1">
               {navigation.map((item) =>
@@ -122,12 +129,12 @@ const MobileNav = ({ company }: NavbarProps) => {
                   <div key={item.label}>
                     <button
                       onClick={() => toggleAccordion(item.label)}
-                      className="flex items-center justify-between w-full py-2.5 text-sm font-semibold text-white/90"
+                      className="flex items-center justify-between w-full py-2.5 text-sm font-semibold text-neutral-800"
                     >
                       {item.label}
                       <IconChevronDown
                         className={cn(
-                          "w-4 h-4 text-white/60 transition-transform",
+                          "w-4 h-4 text-neutral-600 transition-transform",
                           openAccordion === item.label && "rotate-180",
                         )}
                       />
@@ -138,7 +145,7 @@ const MobileNav = ({ company }: NavbarProps) => {
                           initial={{ height: 0, opacity: 0 }}
                           animate={{ height: "auto", opacity: 1 }}
                           exit={{ height: 0, opacity: 0 }}
-                          className="overflow-hidden pl-3 border-l border-white/20"
+                          className="overflow-hidden pl-3 border-l border-neutral-100"
                         >
                           {item.children.map((child) => (
                             <MobileNavLink
@@ -163,19 +170,18 @@ const MobileNav = ({ company }: NavbarProps) => {
                 )
               )}
 
-              <div className="border-t border-white/10 pt-4 mt-2 flex flex-col gap-3">
+              <div className="border-t border-neutral-100 pt-4 mt-2 flex flex-col gap-3">
                 <a
                   href={`tel:${company.phone}`}
-                  className="flex items-center gap-2 text-sm font-semibold text-white/80"
+                  className="flex items-center gap-2 text-sm font-semibold text-neutral-800"
                 >
-                  <IconPhone className="w-4 h-4" />
+                  <IconPhone className="w-4 h-4 text-neutral-600" />
                   {company.phone}
                 </a>
                 <Link
                   href="/request-service"
                   onClick={() => setOpen(false)}
-                  className="block text-center rounded px-5 py-3 text-sm font-bold transition hover:opacity-90"
-                  style={{ backgroundColor: branding.accentColor, color: branding.primaryColor }}
+                  className="block text-center rounded px-5 py-3 text-sm font-bold transition bg-[var(--primary)] text-white hover:bg-[var(--secondary)]"
                 >
                   Book Service
                 </Link>
@@ -199,7 +205,7 @@ const CompanyLogo = ({ company }: NavbarProps) => (
 const NavLink = ({ href, label }: { href: string; label: string }) => (
   <Link
     href={href}
-    className="px-3 py-2 text-sm font-semibold text-white/80 hover:text-white transition"
+    className="px-3 py-2 text-sm font-semibold text-neutral-800 hover:text-red-800 transition"
   >
     {label}
   </Link>
@@ -221,7 +227,7 @@ const MobileNavLink = ({
     onClick={onClick}
     className={cn(
       "block py-2.5 text-sm font-semibold transition",
-      muted ? "text-white/60 hover:text-white/90" : "text-white/90 hover:text-white",
+      muted ? "text-neutral-600 hover:text-[var(--primary)]" : "text-neutral-800 hover:text-[var(--primary)]",
     )}
   >
     {label}
@@ -254,7 +260,7 @@ export const MenuItem = ({
     <div onMouseEnter={() => setActive(item)} className="relative">
       <motion.p
         transition={{ duration: 0.3 }}
-        className="cursor-pointer px-3 py-2 text-sm font-semibold text-white/80 hover:text-white transition"
+        className="cursor-pointer px-3 py-2 text-sm font-semibold text-neutral-800 hover:text-red-800 transition"
       >
         {item}
       </motion.p>
@@ -305,7 +311,7 @@ export const HoveredLink = ({ children, href, ...rest }: { children: React.React
     <Link
       href={href}
       {...rest}
-      className="text-sm text-gray-700 hover:text-gray-900 hover:font-semibold transition"
+      className="text-sm text-neutral-800 hover:text-red-800 hover:font-semibold transition"
     >
       {children}
     </Link>

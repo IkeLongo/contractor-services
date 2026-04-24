@@ -237,7 +237,7 @@ export function PortfolioSection({ company }: PortfolioSectionProps) {
   return (
     <section
       id="portfolio"
-      className="py-16 md:py-20 lg:py-24 px-4 sm:px-6 lg:px-8"
+      className="scroll-mt-16 py-16 md:py-20 lg:py-24 px-4 sm:px-6 lg:px-8"
       style={{ background: sectionBg }}
     >
       <div className="max-w-7xl mx-auto">

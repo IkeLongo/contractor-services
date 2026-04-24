@@ -111,7 +111,7 @@ export function ServicesGrid({ company }: ServicesGridProps) {
 
   const cssVars = {
     "--section-bg": s?.background || "#FFFFFF",
-    "--eyebrow": s?.eyebrow || theme.primary,
+    "--eyebrow": s?.eyebrow || theme.secondary,
     "--title": s?.title || theme.text,
     "--description": s?.description || theme.mutedText,
     "--card-bg": s?.cardBackground || theme.surface,

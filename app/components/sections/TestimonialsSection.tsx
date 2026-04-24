@@ -10,7 +10,7 @@ export function TestimonialsSection({ company }: TestimonialsSectionProps) {
   const t = company.theme;
   const cssVars = {
     "--section-bg": s?.background || t.background,
-    "--eyebrow": s?.eyebrow || t.primary,
+    "--eyebrow": s?.eyebrow || t.secondary,
     "--title": s?.title || t.text,
     "--description": s?.description || t.mutedText,
     "--card-bg": s?.cardBackground || t.surface,

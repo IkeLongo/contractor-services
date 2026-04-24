@@ -330,8 +330,8 @@ export const companies: Company[] = [
       subtitle:
         "TSO Texas helps residential and commercial clients solve more with one reliable vendor for maintenance, improvements, networking, and custom fabrication.",
       primaryCta: {
-        label: "Request a Quote",
-        href: "#contact",
+        label: "View Our Work",
+        href: "#portfolio",
       },
       secondaryCta: {
         label: "View Services",
@@ -521,7 +521,7 @@ export const companies: Company[] = [
         },
       ],
       styles: {
-        background: "linear-gradient(135deg, #F8FAFC 0%, #EEF4FF 55%, #FFF1F1 100%)",
+        background: "transparent",
         title: "#0B1F4D",
         description: "#475569",
       }
@@ -533,7 +533,7 @@ export const companies: Company[] = [
       description:
         "Feedback from clients who have relied on TSO Texas to handle repairs, renovations, and specialized work without the hassle of managing multiple vendors.",
       styles: {
-        background: "#e2e8f0",
+        background: "transparent",
         cardBorder: "#0B1F4D",
       },
     },

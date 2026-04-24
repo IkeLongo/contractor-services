@@ -43,15 +43,15 @@ export function WhyChooseUs({ company }: WhyChooseUsProps) {
   // Compose CSS variables for section and cards
   const cssVars = {
     "--section-bg": s?.background || theme.background,
-    "--eyebrow": s?.eyebrow || theme.primary,
+    "--eyebrow": s?.eyebrow || theme.secondary,
     "--title": s?.title || theme.text,
     "--description": s?.description || theme.mutedText,
     "--card-bg": s?.cardBackground || theme.surface,
     "--card-border": s?.cardBorder || theme.border,
     "--card-title": s?.cardTitle || theme.text,
     "--card-description": s?.cardDescription || theme.mutedText,
-    "--icon": s?.icon || theme.primary,
-    "--icon-bg": s?.iconBackground || `${theme.primary}1A`,
+    "--icon": s?.icon || theme.secondary,
+    "--icon-bg": s?.iconBackground || `${theme.secondary}1A`,
     "--hover-border": s?.hoverBorder || theme.secondary,
   } as any;
 

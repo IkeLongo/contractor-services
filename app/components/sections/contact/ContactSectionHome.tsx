@@ -10,7 +10,7 @@ export function ContactSection({ company }: ContactSectionProps) {
   return (
     <section id="contact" className="isolate grid w-full min-h-screen grid-cols-1 overflow-hidden lg:grid-cols-2">
       <div
-        className="relative order-last flex min-h-72 items-center justify-center overflow-hidden bg-cover bg-left px-4 py-8 sm:min-h-64 sm:px-6 sm:py-12 lg:order-first lg:min-h-full lg:py-0"
+        className="relative order-last flex min-h-80 items-center justify-center overflow-hidden bg-cover bg-no-repeat bg-[position:10%_center] px-4 py-8 sm:min-h-64 sm:px-6 sm:py-12 lg:order-first lg:min-h-full lg:py-0"
         style={{ backgroundImage: `url(${contact.backgroundImage})` }}
       >
         <div
@@ -22,7 +22,7 @@ export function ContactSection({ company }: ContactSectionProps) {
               "linear-gradient(to right, rgba(0,0,0,0.7), rgba(0,0,0,0.5), rgba(0,0,0,0.2))",
           }}
         />
-        <div className="relative z-10 w-full max-w-md rounded-2xl bg-white/95 p-6 shadow-2xl ring-1 shadow-black/30 ring-black/5 backdrop-blur-sm sm:p-8">
+        {/* <div className="relative z-10 w-full max-w-md rounded-2xl bg-white/95 p-6 shadow-2xl ring-1 shadow-black/30 ring-black/5 backdrop-blur-sm sm:p-8">
           <div className="flex flex-col gap-6">
             <p className="text-xl/8 font-medium tracking-tight text-balance text-neutral-900">
               {`\u201C${contact.testimonial.quote}\u201D`}
@@ -46,7 +46,7 @@ export function ContactSection({ company }: ContactSectionProps) {
               </div>
             </div>
           </div>
-        </div>
+        </div> */}
       </div>
 
       <div
