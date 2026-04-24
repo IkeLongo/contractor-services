@@ -12,7 +12,8 @@ export type NavItem = {
 export type ServiceItem = {
   title: string;
   description: string;
-  bullets: string[];
+  image?: string;
+  bullets?: string[];
   icon?: string;
 };
 
@@ -86,6 +87,7 @@ export type Company = {
   };
 
   differentiators: {
+    eyebrow?: string;
     title: string;
     description?: string;
     items: {
@@ -96,8 +98,10 @@ export type Company = {
   };
 
   services: {
+    eyebrow?: string;
     title: string;
     description?: string;
+    columns?: 2 | 3 | 4;
     items: ServiceItem[];
   };
 
@@ -232,9 +236,10 @@ export const companies: Company[] = [
     },
 
     differentiators: {
-      title: "Why Businesses Choose TSO Texas",
+      eyebrow: "Why Choose TSO Texas",
+      title: "Why Businesses Trust TSO Texas",
       description:
-        "A dependable partner for multiple scopes of work without the hassle of coordinating multiple vendors.",
+        "From repairs and renovations to networking and fabrication, TSO Texas handles multiple scopes under one reliable team.",
       items: [
         {
           title: "Multi-Trade Single Vendor",
@@ -276,14 +281,17 @@ export const companies: Company[] = [
     },
 
     services: {
+      eyebrow: "What We Do",
       title: "Core Services",
       description:
         "Built to support both ongoing needs and one-time projects across residential and commercial properties.",
+      columns: 2,
       items: [
         {
           title: "Facility Maintenance & Repairs",
           description:
             "Reliable repair and upkeep services to keep properties clean, functional, and presentable.",
+          image: "/companies/tso-texas/service-cards/construction-workers-installing-drywall-in-a-new-building-photo.png",
           bullets: [
             "Drywall, patching, texture, and paint",
             "Doors, hardware, trim, and carpentry",
@@ -294,6 +302,7 @@ export const companies: Company[] = [
           title: "Renovations & Improvements",
           description:
             "Interior upgrades and multi-trade project support for offices and other spaces.",
+          image: "/companies/tso-texas/service-cards/office-build-out-construction-modern-workspace-renovation.png",
           bullets: [
             "Office build-outs and upgrades",
             "Interior renovations and repairs",
@@ -305,6 +314,7 @@ export const companies: Company[] = [
           title: "Low Voltage & Networking",
           description:
             "Structured cabling and network support for organized, functional infrastructure.",
+          image: "/companies/tso-texas/service-cards/cat6-cable-installation-commercial-building-technician.png",
           bullets: [
             "Cat5e / Cat6 structured cabling",
             "Fiber optic repair & troubleshooting",
@@ -316,6 +326,7 @@ export const companies: Company[] = [
           title: "Welding & Fabrication",
           description:
             "Custom fabrication and structural support solutions completed in-house.",
+          image: "/companies/tso-texas/service-cards/metal-fabrication-welding-sparks-industrial-shop.webp",
           bullets: [
             "Custom metal fabrication",
             "Structural repairs and supports",

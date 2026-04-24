@@ -43,7 +43,18 @@ export function WhyChooseUs({ company }: WhyChooseUsProps) {
     >
       <div className="mx-auto max-w-7xl">
         <div className="flex flex-col items-center justify-center font-sans">
-          <h2 className="text-2xl font-bold tracking-tight text-[var(--primary)] md:text-4xl">
+          {company.differentiators.eyebrow && (
+            <p
+              className="text-xs font-bold uppercase tracking-widest mb-2"
+              style={{ color: company.theme.primary }}
+            >
+              {company.differentiators.eyebrow}
+            </p>
+          )}
+          <h2
+            className="text-2xl font-bold tracking-tight text-[var(--primary)] md:text-4xl"
+            style={{ color: company.theme.text }}
+          >
             {company.differentiators.title}
           </h2>
 
