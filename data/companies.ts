@@ -221,6 +221,33 @@ export type Company = {
       href: string;
     };
   };
+  contact: {
+    backgroundImage: string;
+    testimonial: {
+      quote: string;
+      name: string;
+      title: string;
+      avatar?: string;
+    };
+    form: {
+      title: string;
+      description: string;
+      email: string;
+      services: {
+        label: string;
+        value: string;
+      }[];
+    };
+    styles?: {
+      sectionBg?: string;
+      formBg?: string;
+      text?: string;
+      mutedText?: string;
+      buttonBg?: string;
+      buttonText?: string;
+      overlayGradient?: string;
+    };
+  };
   logoSection?: {
     eyebrow?: string;
     title: string;
@@ -535,6 +562,36 @@ export const companies: Company[] = [
         label: "Call Now",
         href: "tel:2104655077",
       },
+    },
+
+    contact: {
+      backgroundImage:
+        "/companies/tso-texas/contact/tso-texas-truck-at-site-at-sunrise.png",
+      testimonial: {
+        quote:
+          "TSO Texas handled our office renovation and low voltage work at the same time. One call, one team, zero headaches.",
+        name: "Marcus R.",
+        title: "Facilities Manager",
+        avatar: "https://assets.aceternity.com/avatars/manu.webp",
+      },
+      form: {
+        title: "Contact Us",
+        description:
+          "We\u2019re here to help with any questions. Email us at",
+        email: "tsotservices@gmail.com",
+        services: [
+          { label: "Facility Maintenance & Repairs", value: "maintenance" },
+          { label: "Renovations & Improvements", value: "renovations" },
+          { label: "Low Voltage & Networking", value: "networking" },
+          { label: "Welding & Fabrication", value: "fabrication" },
+          { label: "Other", value: "other" },
+        ],
+      },
+      styles: {
+        formBg: "rgba(250, 250, 250, 1)",
+        text: "#0B1F4D",
+        mutedText: "#1d2838",
+      }
     },
 
     footer: {

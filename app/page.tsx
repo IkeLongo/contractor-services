@@ -6,6 +6,7 @@ import { ServicesGrid } from "./components/sections/ServicesGrid";
 import { PortfolioSection } from "./components/sections/PortfolioSection";
 import { TestimonialsSection } from "./components/sections/TestimonialsSection";
 import { LogoSection } from "./components/sections/LogoSection";
+import { ContactSection } from "./components/sections/contact/ContactSectionHome";
 import { companies, getCompanyBySlug } from "@/data/companies";
 
 const FALLBACK_SLUG = "tso-texas";
@@ -27,6 +28,7 @@ export default async function Home() {
       <ServicesGrid company={company} />
       <PortfolioSection company={company} />
       <TestimonialsSection company={company} />
+      <ContactSection company={company} />
     </main>
   );
 }
