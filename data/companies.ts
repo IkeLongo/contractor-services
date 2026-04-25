@@ -272,6 +272,7 @@ export type Company = {
       quoteIcon?: string;
       ctaBackground?: string;
       ctaText?: string;
+      modalBackground?: string;
     };
     items?: TestimonialItem[];
   };
@@ -1029,6 +1030,7 @@ export const companies: Company[] = [
       styles: {
         background: "transparent",
         cardBorder: "#0B1F4D",
+        modalBackground: "white",
       },
     },
 

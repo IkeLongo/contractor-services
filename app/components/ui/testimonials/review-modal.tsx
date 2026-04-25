@@ -2,14 +2,16 @@
 
 import { useEffect, useRef } from "react";
 import { FaStar, FaTimes, FaUserCircle, FaQuoteLeft } from "react-icons/fa";
-import type { TestimonialItem } from "@/data/companies";
+import type { TestimonialItem, Company } from "@/data/companies";
 
 interface ReviewModalProps {
   testimonial: TestimonialItem;
   onClose: () => void;
+  testimonials?: Company["testimonials"];
 }
 
-export function ReviewModal({ testimonial, onClose }: ReviewModalProps) {
+export function ReviewModal({ testimonial, onClose, testimonials }: ReviewModalProps) {
+  const { styles } = testimonials ?? {};
   const dialogRef = useRef<HTMLDivElement>(null);
 
   // Close on Escape
@@ -31,7 +33,7 @@ export function ReviewModal({ testimonial, onClose }: ReviewModalProps) {
     // Backdrop
     <div
       className="fixed inset-0 z-50 flex items-center justify-center p-4"
-      style={{ backgroundColor: "rgba(0,0,0,0.6)" }}
+      style={{ backgroundColor: "rgba(255, 255, 255, 0.6)" }}
       onClick={(e) => { if (e.target === e.currentTarget) onClose(); }}
     >
       {/* Dialog */}
@@ -40,7 +42,7 @@ export function ReviewModal({ testimonial, onClose }: ReviewModalProps) {
         role="dialog"
         aria-modal="true"
         className="relative flex flex-col w-full max-w-lg max-h-[85vh] rounded-2xl shadow-2xl"
-        style={{ background: "var(--section-bg)", border: "1px solid var(--card-border)" }}
+        style={{ background: styles?.modalBackground || "var(--section-bg)", border: "1px solid var(--card-border)" }}
       >
         {/* Header — fixed, never scrolls */}
         <div className="flex-shrink-0 flex items-center gap-3 px-8 py-3 border-b" style={{ borderColor: "var(--card-border)" }}>

@@ -105,6 +105,7 @@ export function TestimonialsMasonryGrid({
         <ReviewModal
           testimonial={selected}
           onClose={() => setSelected(null)}
+          testimonials={testimonials}
         />
       )}
     </div>
