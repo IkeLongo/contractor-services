@@ -40,6 +40,22 @@ export type SnapshotItem = {
   icon?: string;
 };
 
+export type CaseStudyCard = {
+  label: string;
+  title: string;
+  description: string;
+  icon?: string;
+};
+
+export type CaseStudyContent = {
+  eyebrow?: string;
+  title: string;
+  description?: string;
+  challenge: CaseStudyCard;
+  solution: CaseStudyCard;
+  result: CaseStudyCard;
+};
+
 export type PortfolioItem = {
   slug?: string;
   title: string;
@@ -50,6 +66,7 @@ export type PortfolioItem = {
   href?: string;
   icon?: string;
   snapshot?: SnapshotItem[];
+  caseStudy?: CaseStudyContent;
   layout?: {
     colSpan?: 1 | 2 | 3;
     rowSpan?: 1 | 2 | 3;
@@ -495,6 +512,29 @@ export const companies: Company[] = [
             { label: "Timeline", value: "Demo Project", icon: "Clock" },
             { label: "Scope", value: "Multi-trade support", icon: "Layers" },
           ],
+          caseStudy: {
+            eyebrow: "Case Study",
+            title: "How We Transformed a Dated Office Into a Functional Workspace",
+            description: "A downtown client needed their office updated quickly without disrupting ongoing operations.",
+            challenge: {
+              label: "Challenge",
+              title: "Aging Space, Tight Timeline",
+              description: "The office had outdated finishes, damaged drywall, and worn hardware — all needing replacement while the team continued working on-site.",
+              icon: "AlertTriangle",
+            },
+            solution: {
+              label: "Solution",
+              title: "Phased Multi-Trade Execution",
+              description: "TSO Texas coordinated repairs, paint, and hardware replacement in phases to minimize downtime, completing each zone before moving to the next.",
+              icon: "Wrench",
+            },
+            result: {
+              label: "Result",
+              title: "Refreshed Space, Zero Disruption",
+              description: "The office was fully updated on schedule. Staff experienced no interruptions and the client reported a noticeably improved working environment.",
+              icon: "CheckCircle",
+            },
+          },
           layout: { colStart: 1, rowStart: 1, colSpan: 2, rowSpan: 2 },
         },
         {
@@ -513,6 +553,29 @@ export const companies: Company[] = [
             { label: "Timeline", value: "Demo Project", icon: "Clock" },
             { label: "Scope", value: "Cabling & infrastructure", icon: "Layers" },
           ],
+          caseStudy: {
+            eyebrow: "Case Study",
+            title: "Bringing Order to a Tangled Network Infrastructure",
+            description: "A commercial facility needed a full cabling overhaul to support growing network demands.",
+            challenge: {
+              label: "Challenge",
+              title: "Disorganized, Unreliable Cabling",
+              description: "Years of ad-hoc additions left the facility with unlabeled runs, poor rack organization, and frequent connectivity failures across departments.",
+              icon: "AlertTriangle",
+            },
+            solution: {
+              label: "Solution",
+              title: "Structured Cabling Overhaul",
+              description: "TSO Texas replaced and organized all runs with Cat6 cabling, installed proper rack management, and labeled every data drop for easy future maintenance.",
+              icon: "Network",
+            },
+            result: {
+              label: "Result",
+              title: "Stable Network, Clean Infrastructure",
+              description: "Connectivity issues were eliminated. The facility now has a fully documented, organized network that supports current operations and future growth.",
+              icon: "CheckCircle",
+            },
+          },
           layout: { colSpan: 1 },
         },
         {
@@ -531,6 +594,29 @@ export const companies: Company[] = [
             { label: "Timeline", value: "Demo Project", icon: "Clock" },
             { label: "Scope", value: "Interior build-out", icon: "Hammer" },
           ],
+          caseStudy: {
+            eyebrow: "Case Study",
+            title: "Turning an Empty Shell Into a Move-In-Ready Retail Space",
+            description: "A retail tenant needed a full interior build-out completed before their lease start date.",
+            challenge: {
+              label: "Challenge",
+              title: "Raw Space, Hard Deadline",
+              description: "The space was an unfinished shell requiring framing, drywall, paint, and finish work — all within a fixed move-in window.",
+              icon: "AlertTriangle",
+            },
+            solution: {
+              label: "Solution",
+              title: "Single-Vendor Multi-Trade Execution",
+              description: "TSO Texas handled framing, drywall, texture, paint, and finish carpentry under one contract, coordinating all trades internally to hit the deadline.",
+              icon: "Layers",
+            },
+            result: {
+              label: "Result",
+              title: "On-Time, Move-In Ready",
+              description: "The tenant moved in on schedule with a fully finished, professional space ready for business from day one.",
+              icon: "CheckCircle",
+            },
+          },
           layout: { colSpan: 1 },
         },
         {
@@ -549,6 +635,29 @@ export const companies: Company[] = [
             { label: "Timeline", value: "Demo Project", icon: "Clock" },
             { label: "Scope", value: "Custom metalwork", icon: "Layers" },
           ],
+          caseStudy: {
+            eyebrow: "Case Study",
+            title: "Building a Custom Mounting Solution No Off-the-Shelf Product Could Match",
+            description: "An industrial client needed secure, custom mounting for oversized equipment in a non-standard facility layout.",
+            challenge: {
+              label: "Challenge",
+              title: "No Standard Solution Available",
+              description: "The facility's equipment dimensions and anchor points didn't match any available commercial mounting products, requiring a fully custom approach.",
+              icon: "AlertTriangle",
+            },
+            solution: {
+              label: "Solution",
+              title: "In-House Design and Fabrication",
+              description: "TSO Texas designed, fabricated, and installed a custom steel mounting system built to the exact specifications of the client's equipment and facility.",
+              icon: "Wrench",
+            },
+            result: {
+              label: "Result",
+              title: "Secure Fit, Long-Term Stability",
+              description: "The equipment is securely mounted and has operated without issue since installation. The client has since requested additional fabrication work.",
+              icon: "CheckCircle",
+            },
+          },
           layout: { colSpan: 1 },
         },
         {
@@ -566,6 +675,29 @@ export const companies: Company[] = [
             { label: "Timeline", value: "Demo Project", icon: "Clock" },
             { label: "Scope", value: "Patch, texture & paint", icon: "Layers" },
           ],
+          caseStudy: {
+            eyebrow: "Case Study",
+            title: "Restoring Walls Across a Multi-Unit Residential Property",
+            description: "A property management company needed wall repairs completed across multiple units to prepare for new tenants.",
+            challenge: {
+              label: "Challenge",
+              title: "Damage Across Multiple Units",
+              description: "Walls across several units had holes, cracks, and inconsistent texture from previous repairs — all requiring matching and repainting.",
+              icon: "AlertTriangle",
+            },
+            solution: {
+              label: "Solution",
+              title: "Systematic Unit-by-Unit Restoration",
+              description: "TSO Texas worked through each unit methodically, patching, matching texture, and repainting to a consistent finish across the entire property.",
+              icon: "Hammer",
+            },
+            result: {
+              label: "Result",
+              title: "Tenant-Ready Units, On Budget",
+              description: "All units were completed within the turnaround window and passed inspection. The property manager has since retained TSO Texas for ongoing maintenance.",
+              icon: "CheckCircle",
+            },
+          },
           layout: { colSpan: 2 },
         },
       ],
