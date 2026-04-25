@@ -34,6 +34,12 @@ export type PortfolioStyles = {
   link?: string;
 };
 
+export type SnapshotItem = {
+  label: string;
+  value: string;
+  icon?: string;
+};
+
 export type PortfolioItem = {
   slug?: string;
   title: string;
@@ -43,6 +49,7 @@ export type PortfolioItem = {
   category?: string;
   href?: string;
   icon?: string;
+  snapshot?: SnapshotItem[];
   layout?: {
     colSpan?: 1 | 2 | 3;
     rowSpan?: 1 | 2 | 3;
@@ -482,6 +489,12 @@ export const companies: Company[] = [
           category: "Renovation",
           icon: "Hammer",
           href: "/case-studies/office-renovation",
+          snapshot: [
+            { label: "Service", value: "Renovation", icon: "Hammer" },
+            { label: "Location", value: "San Antonio, TX", icon: "MapPin" },
+            { label: "Timeline", value: "Demo Project", icon: "Clock" },
+            { label: "Scope", value: "Multi-trade support", icon: "Layers" },
+          ],
           layout: { colStart: 1, rowStart: 1, colSpan: 2, rowSpan: 2 },
         },
         {
@@ -494,6 +507,12 @@ export const companies: Company[] = [
           category: "Low Voltage",
           icon: "Network",
           href: "/case-studies/structured-cabling",
+          snapshot: [
+            { label: "Service", value: "Low Voltage", icon: "Network" },
+            { label: "Location", value: "San Antonio, TX", icon: "MapPin" },
+            { label: "Timeline", value: "Demo Project", icon: "Clock" },
+            { label: "Scope", value: "Cabling & infrastructure", icon: "Layers" },
+          ],
           layout: { colSpan: 1 },
         },
         {
@@ -506,6 +525,12 @@ export const companies: Company[] = [
           category: "Renovation",
           icon: "Layers",
           href: "/case-studies/commercial-build-out",
+          snapshot: [
+            { label: "Service", value: "Renovation", icon: "Layers" },
+            { label: "Location", value: "San Antonio, TX", icon: "MapPin" },
+            { label: "Timeline", value: "Demo Project", icon: "Clock" },
+            { label: "Scope", value: "Interior build-out", icon: "Hammer" },
+          ],
           layout: { colSpan: 1 },
         },
         {
@@ -518,6 +543,12 @@ export const companies: Company[] = [
           category: "Fabrication",
           icon: "Wrench",
           href: "/case-studies/custom-fabrication",
+          snapshot: [
+            { label: "Service", value: "Fabrication", icon: "Wrench" },
+            { label: "Location", value: "San Antonio, TX", icon: "MapPin" },
+            { label: "Timeline", value: "Demo Project", icon: "Clock" },
+            { label: "Scope", value: "Custom metalwork", icon: "Layers" },
+          ],
           layout: { colSpan: 1 },
         },
         {
@@ -529,6 +560,12 @@ export const companies: Company[] = [
           image: "/companies/tso-texas/hero-images/commercial-drywall-and-construction.png",
           category: "Maintenance",
           icon: "Hammer",
+          snapshot: [
+            { label: "Service", value: "Maintenance", icon: "Hammer" },
+            { label: "Location", value: "San Antonio, TX", icon: "MapPin" },
+            { label: "Timeline", value: "Demo Project", icon: "Clock" },
+            { label: "Scope", value: "Patch, texture & paint", icon: "Layers" },
+          ],
           layout: { colSpan: 2 },
         },
       ],
