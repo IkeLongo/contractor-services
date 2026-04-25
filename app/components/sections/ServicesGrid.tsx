@@ -1,5 +1,6 @@
 
 import Image from "next/image";
+import Link from "next/link";
 import type { Company } from "@/data/companies";
 
 const COLS_CLASS: Record<number, string> = {
@@ -30,9 +31,11 @@ function ServiceCard({
   };
   const theme = t || fallback;
 
-  return (
+  const href = service.slug ? `/services/${service.slug}` : undefined;
+
+  const card = (
     <div
-      className="group relative flex flex-col overflow-hidden rounded-xl border shadow-sm transition-all duration-300 hover:shadow-lg hover:-translate-y-1 hover:cursor-pointer"
+      className={`group relative flex flex-col overflow-hidden rounded-xl border shadow-sm transition-all duration-300 hover:shadow-lg hover:-translate-y-1${href ? " cursor-pointer" : ""}`}
       style={{
         background: "var(--card-bg)",
         borderColor: "var(--card-border)",
@@ -89,6 +92,16 @@ function ServiceCard({
       />
     </div>
   );
+
+  if (href) {
+    return (
+      <Link href={href} className="block">
+        {card}
+      </Link>
+    );
+  }
+
+  return card;
 }
 
 interface ServicesGridProps {

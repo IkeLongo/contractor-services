@@ -12,10 +12,49 @@ export type NavItem = {
 
 export type ServiceItem = {
   title: string;
+  slug?: string;
   description: string;
   image?: string;
   bullets?: string[];
   icon?: string;
+
+  eyebrow?: string;
+  heroTitle?: string;
+  heroDescription?: string;
+
+  overview?: {
+    title: string;
+    description: string;
+    image?: string;
+  };
+
+  includes?: {
+    title?: string;
+    description?: string;
+    items: string[];
+  };
+
+  process?: {
+    title?: string;
+    description?: string;
+    steps: {
+      title: string;
+      description: string;
+    }[];
+  };
+
+  whyItMatters?: {
+    title: string;
+    description: string;
+  };
+
+  cta?: {
+    title?: string;
+    description?: string;
+    primaryLabel?: string;
+    image?: string;
+    primaryHref?: string;
+  };
 };
 
 export type PortfolioStyles = {
@@ -365,10 +404,10 @@ export const companies: Company[] = [
         label: "Services",
         href: "/#services",
         children: [
-          { label: "Facility Maintenance", href: "/#services" },
-          { label: "Renovations", href: "/#services" },
-          { label: "Low Voltage", href: "/#services" },
-          { label: "Welding & Fabrication", href: "/#services" },
+          { label: "Facility Maintenance", href: "/services/facility-maintenance-repairs" },
+          { label: "Renovations", href: "/services/renovations-improvements" },
+          { label: "Low Voltage", href: "/services/low-voltage-networking" },
+          { label: "Welding & Fabrication", href: "/services/welding-fabrication" },
         ],
       },
       {
@@ -475,6 +514,11 @@ export const companies: Company[] = [
       items: [
         {
           title: "Facility Maintenance & Repairs",
+          slug: "facility-maintenance-repairs",
+          eyebrow: "Multi-Trade Maintenance",
+          heroTitle: "Facility Maintenance & Repair Services",
+          heroDescription:
+            "Keep your property safe, functional, and presentable with reliable maintenance and repair services from a single, experienced crew.",
           description:
             "Reliable repair and upkeep services to keep properties clean, functional, and presentable.",
           image: "/companies/tso-texas/service-cards/construction-workers-installing-drywall-in-a-new-building-photo.png",
@@ -483,9 +527,63 @@ export const companies: Company[] = [
             "Doors, hardware, trim, and carpentry",
           ],
           icon: "wrench",
+          overview: {
+            title: "One Team for All Your Maintenance Needs",
+            description:
+              "TSO Texas handles the full scope of facility maintenance — from drywall and carpentry to doors, hardware, and paint. Instead of coordinating multiple contractors, you get one reliable point of contact for every repair and upkeep task on your property.",
+          },
+          includes: {
+            title: "What's Included",
+            items: [
+              "Drywall patching, texture matching, and paint",
+              "Door alignment, hardware replacement, and trim repairs",
+              "Interior carpentry and millwork",
+              "Ceiling and wall damage repair",
+              "Light fixture and outlet cover replacement",
+              "Preventive maintenance walkthroughs",
+              "Punch list completion for tenant turnover",
+            ],
+          },
+          process: {
+            title: "How It Works",
+            steps: [
+              {
+                title: "Request a Walkthrough",
+                description:
+                  "We assess the property, document issues, and provide a clear scope of work before any commitment.",
+              },
+              {
+                title: "Receive a Detailed Quote",
+                description:
+                  "You get an itemized quote with no surprises. We'll answer questions and adjust scope as needed.",
+              },
+              {
+                title: "Work Gets Done Right",
+                description:
+                  "Our crew arrives on time, works cleanly, and completes the job to standard — with a final walkthrough included.",
+              },
+            ],
+          },
+          whyItMatters: {
+            title: "Deferred Maintenance Compounds Quickly",
+            description:
+              "Small issues become expensive problems when left unaddressed. Consistent upkeep protects property value, reduces emergency repair costs, and keeps tenants and clients satisfied.",
+          },
+          cta: {
+            title: "Ready to Schedule Maintenance?",
+            description:
+              "Request a quote for your facility maintenance needs. We'll assess the scope and respond within 1–2 business days.",
+            primaryLabel: "Request a Quote",
+            primaryHref: "/services/facility-maintenance-repairs#contact-facility-maintenance-repairs",
+          },
         },
         {
           title: "Renovations & Improvements",
+          slug: "renovations-improvements",
+          eyebrow: "Interior Upgrades",
+          heroTitle: "Commercial & Residential Renovation Services",
+          heroDescription:
+            "Modernize your workspace or living space with multi-trade renovation support that covers everything from concept to completion.",
           description:
             "Interior upgrades and multi-trade project support for offices and other spaces.",
           image: "/companies/tso-texas/service-cards/office-build-out-construction-modern-workspace-renovation.png",
@@ -495,9 +593,63 @@ export const companies: Company[] = [
             "Multi-trade project execution",
           ],
           icon: "hammer",
+          overview: {
+            title: "Full-Scope Interior Renovations",
+            description:
+              "Whether you're upgrading a commercial office or refreshing a residential interior, TSO Texas manages the multi-trade complexity so you don't have to. We coordinate carpentry, drywall, paint, and finishing work in sequence — minimizing downtime and delivering consistent results.",
+          },
+          includes: {
+            title: "What's Covered",
+            items: [
+              "Office build-outs and interior reconfiguration",
+              "Partition walls and drywall installation",
+              "Paint, texture, and finish work",
+              "Flooring preparation and transitions",
+              "Door and hardware installation",
+              "Multi-trade coordination and project phasing",
+              "Final punch list and walkthrough",
+            ],
+          },
+          process: {
+            title: "Our Renovation Process",
+            steps: [
+              {
+                title: "Scope & Plan",
+                description:
+                  "We review your goals, document the existing space, and build a clear plan before work begins.",
+              },
+              {
+                title: "Phased Execution",
+                description:
+                  "Work is sequenced to minimize disruption — we complete each phase before moving to the next.",
+              },
+              {
+                title: "Deliver & Review",
+                description:
+                  "We walk through the completed space with you and handle any finishing touches before closing out.",
+              },
+            ],
+          },
+          whyItMatters: {
+            title: "A Better Space Drives Better Results",
+            description:
+              "Outdated or dysfunctional spaces affect employee morale, client perception, and operational efficiency. A well-executed renovation creates an environment that works as hard as your team does.",
+          },
+          cta: {
+            title: "Planning a Renovation?",
+            description:
+              "Tell us about your project and we'll schedule a walkthrough to assess scope and provide a quote.",
+            primaryLabel: "Request a Quote",
+            primaryHref: "/services/renovations-improvements#contact-renovations-improvements",
+          },
         },
         {
           title: "Low Voltage & Networking",
+          slug: "low-voltage-networking",
+          eyebrow: "Structured Cabling",
+          heroTitle: "Low Voltage & Network Infrastructure Services",
+          heroDescription:
+            "Organized, professional cabling and network infrastructure that supports your operations — from new installs to existing system cleanup.",
           description:
             "Structured cabling and network support for organized, functional infrastructure.",
           image: "/companies/tso-texas/service-cards/cat6-cable-installation-commercial-building-technician.png",
@@ -507,9 +659,63 @@ export const companies: Company[] = [
             "Rack organization and data drops",
           ],
           icon: "network",
+          overview: {
+            title: "Clean Infrastructure, Reliable Connections",
+            description:
+              "Disorganized cabling causes outages, slows troubleshooting, and creates safety risks. TSO Texas installs and organizes structured cabling systems that are clean, labeled, and built to last — whether you're starting from scratch or cleaning up an existing setup.",
+          },
+          includes: {
+            title: "Services Included",
+            items: [
+              "Cat5e / Cat6 structured cabling installation",
+              "Patch panel and rack organization",
+              "Data drop installation and labeling",
+              "Fiber optic repair and troubleshooting",
+              "Cable management and routing",
+              "Wall plates, keystone jacks, and terminations",
+              "Server room cleanup and documentation",
+            ],
+          },
+          process: {
+            title: "How We Approach It",
+            steps: [
+              {
+                title: "Site Assessment",
+                description:
+                  "We document the existing infrastructure, identify problem areas, and plan the cleanest path forward.",
+              },
+              {
+                title: "Installation & Organization",
+                description:
+                  "Cabling is run, terminated, and labeled according to your floor plan and rack layout.",
+              },
+              {
+                title: "Test & Document",
+                description:
+                  "Every run is tested for continuity and performance. We provide documentation of the completed layout.",
+              },
+            ],
+          },
+          whyItMatters: {
+            title: "Messy Cabling Costs You Later",
+            description:
+              "Unlabeled, disorganized cabling makes troubleshooting expensive and time-consuming. A properly installed structured cabling system reduces downtime, simplifies future changes, and scales with your business.",
+          },
+          cta: {
+            title: "Need Cabling Work Done Right?",
+            description:
+              "Whether it's a new installation or an existing system that needs cleanup, we can help. Request a site visit and quote.",
+            primaryLabel: "Request a Quote",
+            primaryHref: "/services/low-voltage-networking#contact-low-voltage-networking",
+          },
         },
         {
           title: "Welding & Fabrication",
+          slug: "welding-fabrication",
+          eyebrow: "Custom Metalwork",
+          heroTitle: "Custom Welding & Metal Fabrication Services",
+          heroDescription:
+            "In-house fabrication and structural welding for commercial and residential applications — built to spec, delivered on time.",
           description:
             "Custom fabrication and structural support solutions completed in-house.",
           image: "/companies/tso-texas/service-cards/metal-fabrication-welding-sparks-industrial-shop.webp",
@@ -519,6 +725,55 @@ export const companies: Company[] = [
             "Equipment mounting solutions",
           ],
           icon: "shield",
+          overview: {
+            title: "Fabrication Without the Middleman",
+            description:
+              "TSO Texas handles custom welding and fabrication in-house, giving you direct access to the team building your parts. From structural repairs to custom mounts and fixtures, we work to your spec and deliver work that fits the first time.",
+          },
+          includes: {
+            title: "What We Build & Repair",
+            items: [
+              "Custom metal brackets, frames, and fixtures",
+              "Structural steel repairs and reinforcement",
+              "Equipment mounting solutions",
+              "Gate, railing, and fence fabrication",
+              "Metal patch and repair work",
+              "Material sourcing and procurement",
+              "On-site welding for structural applications",
+            ],
+          },
+          process: {
+            title: "From Spec to Finished Product",
+            steps: [
+              {
+                title: "Review Requirements",
+                description:
+                  "We review your drawings, dimensions, or site conditions to understand exactly what needs to be built.",
+              },
+              {
+                title: "Fabricate In-House",
+                description:
+                  "Work is completed in our shop using the right materials and methods for the application.",
+              },
+              {
+                title: "Deliver & Install",
+                description:
+                  "We deliver the finished product and handle installation when needed — fully fitted and ready to use.",
+              },
+            ],
+          },
+          whyItMatters: {
+            title: "Off-the-Shelf Solutions Don't Always Fit",
+            description:
+              "When standard parts don't work for your application, custom fabrication is the answer. In-house welding means faster turnaround, direct communication, and results built specifically for your needs.",
+          },
+          cta: {
+            title: "Have a Fabrication Project?",
+            description:
+              "Tell us what you need and we'll review the specs. Custom quotes are provided after a brief consultation.",
+            primaryLabel: "Request a Quote",
+            primaryHref: "/services/welding-fabrication#contact-welding-fabrication",
+          },
         },
       ],
       styles: {
