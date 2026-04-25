@@ -3,6 +3,7 @@ import { defaultCompany } from "@/data/companies";
 import { CaseStudyHeader } from "@/app/components/case-studies/CaseStudyHeader";
 import { ProjectSnapshotSection } from "@/app/components/case-studies/ProjectSnapshotSection";
 import { ChallengeSolutionResultSection } from "@/app/components/case-studies/ChallengeSolutionResultSection";
+import { CaseStudyGallerySection } from "@/app/components/case-studies/CaseStudyGallerySection";
 
 interface Props {
   params: Promise<{ slug: string }>;
@@ -27,6 +28,7 @@ export default async function CaseStudyPage({ params }: Props) {
       <CaseStudyHeader company={company} project={project} />
       <ProjectSnapshotSection company={company} project={project} />
       <ChallengeSolutionResultSection company={company} project={project} />
+      <CaseStudyGallerySection company={company} project={project} />
     </main>
   );
 }

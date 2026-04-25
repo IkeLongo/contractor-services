@@ -54,6 +54,11 @@ export type CaseStudyContent = {
   challenge: CaseStudyCard;
   solution: CaseStudyCard;
   result: CaseStudyCard;
+  gallery?: {
+    image: string;
+    alt: string;
+    caption?: string;
+  }[];
 };
 
 export type PortfolioItem = {
@@ -534,6 +539,11 @@ export const companies: Company[] = [
               description: "The office was fully updated on schedule. Staff experienced no interruptions and the client reported a noticeably improved working environment.",
               icon: "CheckCircle",
             },
+            gallery: [
+              { image: "/companies/tso-texas/hero-images/office-renovation-modern-workspace.jpeg", alt: "Modern office workspace after renovation", caption: "Completed workspace — updated finishes and improved layout" },
+              { image: "/companies/tso-texas/hero-images/office-remodeling-construction-workers-interior.jpg", alt: "Construction crew during office remodel", caption: "Active work phase — crew on-site during phased execution" },
+              { image: "/companies/tso-texas/hero-images/commercial-interior-build-out-construction.png", alt: "Commercial interior build-out in progress", caption: "Framing and drywall phase during the build-out" },
+            ],
           },
           layout: { colStart: 1, rowStart: 1, colSpan: 2, rowSpan: 2 },
         },
@@ -575,6 +585,10 @@ export const companies: Company[] = [
               description: "Connectivity issues were eliminated. The facility now has a fully documented, organized network that supports current operations and future growth.",
               icon: "CheckCircle",
             },
+            gallery: [
+              { image: "/companies/tso-texas/hero-images/cat6-cable-installation-commercial-building.webp", alt: "Cat6 cable installation in commercial building", caption: "Cat6 runs installed and dressed across the facility" },
+              { image: "/companies/tso-texas/hero-images/office-renovation-modern-workspace.jpeg", alt: "Organized workspace post-installation", caption: "Clean, functional workspace following network upgrade" },
+            ],
           },
           layout: { colSpan: 1 },
         },
@@ -616,6 +630,11 @@ export const companies: Company[] = [
               description: "The tenant moved in on schedule with a fully finished, professional space ready for business from day one.",
               icon: "CheckCircle",
             },
+            gallery: [
+              { image: "/companies/tso-texas/hero-images/commercial-interior-build-out-construction.png", alt: "Commercial interior build-out in progress", caption: "Mid-project — drywall and framing phase" },
+              { image: "/companies/tso-texas/hero-images/office-renovation-modern-workspace.jpeg", alt: "Finished commercial workspace", caption: "Completed space ready for tenant move-in" },
+              { image: "/companies/tso-texas/hero-images/commercial-drywall-and-construction.png", alt: "Drywall and construction work", caption: "Finish drywall and texture before paint" },
+            ],
           },
           layout: { colSpan: 1 },
         },
@@ -657,6 +676,10 @@ export const companies: Company[] = [
               description: "The equipment is securely mounted and has operated without issue since installation. The client has since requested additional fabrication work.",
               icon: "CheckCircle",
             },
+            gallery: [
+              { image: "/companies/tso-texas/hero-images/photo-metal-fabrication-shop-with-welding-equipment-sparks-flying.png", alt: "Welding and fabrication shop in operation", caption: "In-house fabrication — custom mounting system in production" },
+              { image: "/companies/tso-texas/hero-images/commercial-interior-build-out-construction.png", alt: "Installation phase on-site", caption: "On-site installation of fabricated mounting hardware" },
+            ],
           },
           layout: { colSpan: 1 },
         },
@@ -697,6 +720,10 @@ export const companies: Company[] = [
               description: "All units were completed within the turnaround window and passed inspection. The property manager has since retained TSO Texas for ongoing maintenance.",
               icon: "CheckCircle",
             },
+            gallery: [
+              { image: "/companies/tso-texas/hero-images/commercial-drywall-and-construction.png", alt: "Drywall and patching work in progress", caption: "Active patching phase across multiple units" },
+              { image: "/companies/tso-texas/hero-images/office-renovation-modern-workspace.jpeg", alt: "Finished unit interior", caption: "Completed unit — ready for new tenant" },
+            ],
           },
           layout: { colSpan: 2 },
         },
