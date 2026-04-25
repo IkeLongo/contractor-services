@@ -251,6 +251,15 @@ export type Company = {
       label: string;
       href: string;
     };
+    image?: string;
+    imageAlt?: string;
+    styles?: {
+      background?: string;
+      title?: string;
+      description?: string;
+      buttonBg?: string;
+      buttonText?: string;
+    };
   };
   contact: {
     backgroundImage: string;
@@ -775,12 +784,19 @@ export const companies: Company[] = [
         "From repairs and renovations to networking and fabrication, TSO Texas is built to support a wide range of residential and commercial service needs.",
       primaryCta: {
         label: "Request a Quote",
-        href: "#contact",
+        href: "/#contact",
       },
       secondaryCta: {
         label: "Call Now",
         href: "tel:2104655077",
       },
+      image:
+        "/companies/tso-texas/contact/tso-texas-team-posing-in-front-of-job-site.png",
+      imageAlt:
+        "TSO Texas crew posing in front of a completed office renovation project, showcasing their multi-trade capabilities and commitment to quality work.",
+        styles: {
+          title: "#0B1F4D",
+        }
     },
 
     contact: {

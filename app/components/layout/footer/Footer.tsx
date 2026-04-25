@@ -81,13 +81,13 @@ export function Footer({ company }: FooterProps) {
             >
               {phone}
             </a>
-            <Link
+            {/* <Link
               href="/request-service"
               className="rounded px-4 py-1.5 text-xs font-bold transition hover:opacity-90"
               style={{ backgroundColor: branding.accentColor, color: branding.primaryColor }}
             >
               Book Now
-            </Link>
+            </Link> */}
           </div>
           <div className="flex flex-wrap items-center gap-3 sm:gap-5">
             <p>&copy; {new Date().getFullYear()} {name}. All rights reserved.</p>
