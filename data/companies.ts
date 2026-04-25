@@ -7,6 +7,7 @@ export type NavItem = {
     label: string;
     href: string;
   }[];
+  viewAllHref?: string;
 };
 
 export type ServiceItem = {
@@ -294,6 +295,27 @@ export type Company = {
     description?: string;
     styles?: LogoSectionStyles;
   };
+  faq?: {
+    eyebrow?: string;
+    title: string;
+    description?: string;
+    items: {
+      question: string;
+      answer: string;
+    }[];
+    styles?: {
+      background?: string;
+      eyebrow?: string;
+      title?: string;
+      description?: string;
+      itemBackground?: string;
+      itemBorder?: string;
+      question?: string;
+      answer?: string;
+      icon?: string;
+      accent?: string;
+    };
+  };
   footer: {
     shortDescription: string;
     serviceArea: string;
@@ -338,30 +360,30 @@ export const companies: Company[] = [
     },
 
     navigation: [
-      { label: "Reviews", href: "#testimonials" },
+      { label: "Reviews", href: "/#testimonials" },
       {
         label: "Services",
-        href: "#services",
+        href: "/#services",
         children: [
-          { label: "Facility Maintenance", href: "#services" },
-          { label: "Renovations", href: "#services" },
-          { label: "Low Voltage", href: "#services" },
-          { label: "Welding & Fabrication", href: "#services" },
+          { label: "Facility Maintenance", href: "/#services" },
+          { label: "Renovations", href: "/#services" },
+          { label: "Low Voltage", href: "/#services" },
+          { label: "Welding & Fabrication", href: "/#services" },
         ],
       },
       {
         label: "Industries",
-        href: "#industries",
+        href: "/#industries",
         children: [
-          { label: "Commercial Facilities", href: "#industries" },
-          { label: "Offices", href: "#industries" },
-          { label: "Property Managers", href: "#industries" },
-          { label: "Residential Projects", href: "#industries" },
+          { label: "Commercial Facilities", href: "/#industries" },
+          { label: "Offices", href: "/#industries" },
+          { label: "Property Managers", href: "/#industries" },
+          { label: "Residential Projects", href: "/#industries" },
         ],
       },
-      { label: "Projects", href: "#portfolio" },
-      { label: "About", href: "#about" },
-      { label: "Contact", href: "#contact" },
+      { label: "Projects", href: "/#portfolio" },
+      { label: "About", href: "/#about" },
+      { label: "Contact", href: "/#contact" },
     ],
 
     hero: {
@@ -371,11 +393,11 @@ export const companies: Company[] = [
         "TSO Texas helps residential and commercial clients solve more with one reliable vendor for maintenance, improvements, networking, and custom fabrication.",
       primaryCta: {
         label: "View Our Work",
-        href: "#portfolio",
+        href: "/#portfolio",
       },
       secondaryCta: {
         label: "View Services",
-        href: "#services",
+        href: "/#services",
       },
       highlights: [
         "Multi-Trade Single Vendor",
@@ -827,6 +849,55 @@ export const companies: Company[] = [
         text: "#0B1F4D",
         mutedText: "#1d2838",
       }
+    },
+
+    faq: {
+      eyebrow: "Got Questions?",
+      title: "Frequently Asked Questions",
+      description:
+        "Answers to common questions about our services, process, and coverage area.",
+      items: [
+        {
+          question: "What types of services does TSO Texas offer?",
+          answer:
+            "TSO Texas is a multi-trade contractor serving both residential and commercial clients. We handle facility maintenance and repairs, interior renovations and build-outs, structured cabling and low voltage networking, custom welding and metal fabrication, and general drywall and finish work. One team, multiple trades.",
+        },
+        {
+          question: "Do you work on both residential and commercial projects?",
+          answer:
+            "Yes. We work with homeowners, property managers, general contractors, and commercial facility teams. Whether it's a single-family home repair or a full commercial build-out, we have the crew and experience to handle it.",
+        },
+        {
+          question: "How do I request a quote?",
+          answer:
+            "You can submit a request through the contact form on any page, or call us directly. We'll follow up to schedule a walkthrough or gather details depending on the scope of work. Most quotes are provided within 1–2 business days.",
+        },
+        {
+          question: "What areas do you serve?",
+          answer:
+            "We're based in San Antonio, TX and serve clients throughout the greater San Antonio metro area, including surrounding cities and counties. Contact us if you're unsure whether your location falls within our service range.",
+        },
+        {
+          question: "Can TSO Texas handle multiple trades on a single project?",
+          answer:
+            "Absolutely — that's one of our biggest advantages. If your project requires renovation work, networking installation, and welding in the same scope, we coordinate it all internally. No need to hire and manage separate contractors.",
+        },
+        {
+          question: "What does low voltage and networking installation include?",
+          answer:
+            "Our low voltage services include Cat6 structured cabling, cable management and patching, server room organization, Wi-Fi infrastructure planning, and basic AV and security system rough-in. We work in both new construction and retrofit environments.",
+        },
+        {
+          question: "How long do projects typically take?",
+          answer:
+            "Project timelines vary by scope. A minor repair may be completed in a single day, while a full commercial build-out can take several weeks. We provide a detailed timeline estimate with every quote so you know what to expect before work begins.",
+        },
+        {
+          question: "Are you licensed and insured?",
+          answer:
+            "Yes. TSO Texas is fully licensed and insured. We carry general liability insurance and maintain all required state and local licenses for the trades we perform. Documentation is available upon request.",
+        },
+      ],
     },
 
     footer: {

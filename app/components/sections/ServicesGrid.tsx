@@ -93,9 +93,10 @@ function ServiceCard({
 
 interface ServicesGridProps {
   company: Company;
+  id?: string;
 }
 
-export function ServicesGrid({ company }: ServicesGridProps) {
+export function ServicesGrid({ company, id = "services" }: ServicesGridProps) {
   const s = company.services.styles;
   const t = company.theme;
   const fallback = {
@@ -127,7 +128,7 @@ export function ServicesGrid({ company }: ServicesGridProps) {
 
   return (
     <section
-      id="services"
+      id={id}
       className="py-16 md:py-20 lg:py-24 px-4 sm:px-6 lg:px-8 bg-[var(--section-bg)]"
       style={cssVars}
     >

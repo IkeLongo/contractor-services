@@ -1,56 +1,60 @@
-// import Link from "next/link";
-// import type { Company } from "@/data/companies";
+import Link from "next/link";
+import type { Company } from "@/data/companies";
 
-// interface Breadcrumb {
-//   label: string;
-//   href?: string;
-// }
+interface Breadcrumb {
+  label: string;
+  href?: string;
+}
 
-// interface PageHeaderProps {
-//   title: string;
-//   breadcrumbs?: Breadcrumb[];
-//   company: Company;
-// }
+interface PageHeaderProps {
+  title: string;
+  breadcrumbs?: Breadcrumb[];
+  company: Company;
+}
 
-// export function PageHeader({ title, breadcrumbs = [], company }: PageHeaderProps) {
-//   const crumbs: Breadcrumb[] = [{ label: "Home", href: "/" }, ...breadcrumbs];
+export function PageHeader({ title, breadcrumbs = [], company }: PageHeaderProps) {
+  const crumbs: Breadcrumb[] = [{ label: "Home", href: "/" }, ...breadcrumbs];
 
-//   return (
-//     <section
-//       className="relative py-14 px-6 text-white"
-//       style={{ backgroundColor: company.primaryColor }}
-//     >
-//       {/* Subtle overlay for depth */}
-//       <div className="absolute inset-0 bg-black/20" />
+  return (
+    <section
+      className="border-b"
+      style={{
+        backgroundColor: company.theme.background,
+        borderColor: company.theme.border,
+      }}
+    >
+      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-4 flex items-center justify-between gap-4">
+        {/* Breadcrumbs */}
+        <nav aria-label="Breadcrumb">
+          <ol className="flex items-center gap-1.5 text-xs font-medium">
+            {crumbs.map((crumb, i) => (
+              <li key={i} className="flex items-center gap-1.5">
+                {i > 0 && (
+                  <span style={{ color: company.theme.border }}>/</span>
+                )}
+                {crumb.href ? (
+                  <Link
+                    href={crumb.href}
+                    className="transition-opacity hover:opacity-70"
+                    style={{ color: company.theme.mutedText }}
+                  >
+                    {crumb.label}
+                  </Link>
+                ) : (
+                  <span className="font-semibold" style={{ color: company.theme.secondary }}>
+                    {crumb.label}
+                  </span>
+                )}
+              </li>
+            ))}
+          </ol>
+        </nav>
 
-//       <div className="relative z-10 max-w-6xl mx-auto">
-//         {/* Breadcrumbs */}
-//         <nav aria-label="Breadcrumb" className="mb-3">
-//           <ol className="flex items-center gap-2 text-xs font-semibold uppercase tracking-widest text-white/50">
-//             {crumbs.map((crumb, i) => (
-//               <li key={i} className="flex items-center gap-2">
-//                 {i > 0 && <span className="text-white/30">/</span>}
-//                 {crumb.href ? (
-//                   <Link href={crumb.href} className="hover:text-white/80 transition">
-//                     {crumb.label}
-//                   </Link>
-//                 ) : (
-//                   <span style={{ color: company.accentColor }}>{crumb.label}</span>
-//                 )}
-//               </li>
-//             ))}
-//           </ol>
-//         </nav>
-
-//         {/* Page title */}
-//         <h1 className="text-3xl md:text-4xl font-black leading-tight">{title}</h1>
-
-//         {/* Accent underline */}
-//         <div
-//           className="mt-4 h-1 w-16 rounded"
-//           style={{ backgroundColor: company.accentColor }}
-//         />
-//       </div>
-//     </section>
-//   );
-// }
+        {/* Page title — compact, right-aligned */}
+        <p className="text-xs font-semibold hidden sm:block" style={{ color: company.theme.mutedText }}>
+          {title}
+        </p>
+      </div>
+    </section>
+  );
+}

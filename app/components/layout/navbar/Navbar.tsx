@@ -64,6 +64,15 @@ const DesktopNav = ({ company }: NavbarProps) => {
                     {child.label}
                   </HoveredLink>
                 ))}
+                <div className="border-t border-neutral-100 pt-2 mt-1">
+                  <Link
+                    href={item.viewAllHref ?? "/services"}
+                    className="flex items-center justify-between text-sm font-semibold text-[var(--primary)] hover:text-[var(--secondary)] transition"
+                  >
+                    View All Services
+                    <span className="ml-2 text-base leading-none">→</span>
+                  </Link>
+                </div>
               </div>
             </MenuItem>
           ) : (
@@ -156,6 +165,16 @@ const MobileNav = ({ company }: NavbarProps) => {
                               muted
                             />
                           ))}
+                          <div className="border-t border-neutral-100 mt-1 pt-2 pb-1">
+                            <Link
+                              href={item.viewAllHref ?? "/services"}
+                              onClick={() => setOpen(false)}
+                              className="flex items-center justify-between py-2 text-sm font-semibold text-[var(--primary)] hover:opacity-70 transition"
+                            >
+                              View All Services
+                              <span className="ml-2 text-base leading-none">→</span>
+                            </Link>
+                          </div>
                         </motion.div>
                       )}
                     </AnimatePresence>
