@@ -35,7 +35,9 @@ export type PortfolioStyles = {
 };
 
 export type PortfolioItem = {
+  slug?: string;
   title: string;
+  projectName?: string;
   description: string;
   image: string;
   category?: string;
@@ -471,7 +473,9 @@ export const companies: Company[] = [
         "A sample of the work TSO Texas delivers across maintenance, renovations, networking, and fabrication.",
       items: [
         {
+          slug: "office-renovation",
           title: "Office Renovation & Repairs",
+          projectName: "Downtown Office Build-Out",
           description:
             "Interior updates, repairs, and finishing work for a cleaner, more functional workspace.",
           image: "/companies/tso-texas/hero-images/office-renovation-modern-workspace.jpeg",
@@ -481,7 +485,9 @@ export const companies: Company[] = [
           layout: { colStart: 1, rowStart: 1, colSpan: 2, rowSpan: 2 },
         },
         {
+          slug: "structured-cabling",
           title: "Structured Cabling Upgrade",
+          projectName: "Westside Commercial Cabling Overhaul",
           description:
             "Improved network organization with data drops, cabling, and rack cleanup across a commercial facility.",
           image: "/companies/tso-texas/hero-images/cat6-cable-installation-commercial-building.webp",
@@ -491,7 +497,9 @@ export const companies: Company[] = [
           layout: { colSpan: 1 },
         },
         {
+          slug: "commercial-build-out",
           title: "Commercial Build-Out",
+          projectName: "Northside Retail Space Build-Out",
           description:
             "Multi-trade interior build-out from framing and drywall to finish work and paint.",
           image: "/companies/tso-texas/hero-images/commercial-interior-build-out-construction.png",
@@ -501,7 +509,9 @@ export const companies: Company[] = [
           layout: { colSpan: 1 },
         },
         {
+          slug: "custom-fabrication",
           title: "Custom Fabrication Installation",
+          projectName: "Industrial Equipment Mounting System",
           description:
             "Fabricated mounting and support solutions designed and installed entirely in-house.",
           image: "/companies/tso-texas/hero-images/photo-metal-fabrication-shop-with-welding-equipment-sparks-flying.png",
@@ -511,7 +521,9 @@ export const companies: Company[] = [
           layout: { colSpan: 1 },
         },
         {
+          slug: "drywall-patching",
           title: "Drywall & Patching",
+          projectName: "Multi-Unit Residential Wall Restoration",
           description:
             "Patch, texture, and paint for commercial and residential walls after repairs or renovations.",
           image: "/companies/tso-texas/hero-images/commercial-drywall-and-construction.png",
