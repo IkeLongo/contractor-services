@@ -331,6 +331,8 @@ export type Company = {
   };
   contact: {
     backgroundImage: string;
+    title?: string;
+    description?: string;
     testimonial: {
       quote: string;
       name: string;
@@ -347,13 +349,26 @@ export type Company = {
       }[];
     };
     styles?: {
-      sectionBg?: string;
-      formBg?: string;
-      text?: string;
-      mutedText?: string;
-      buttonBg?: string;
-      buttonText?: string;
-      overlayGradient?: string;
+      home?: {
+        background?: string;
+        sectionBg?: string;
+        formBg?: string;
+        text?: string;
+        mutedText?: string;
+        buttonBg?: string;
+        buttonText?: string;
+        overlayGradient?: string;
+      }
+      contact?: {
+        background?: string;
+        sectionBg?: string;
+        formBg?: string;
+        text?: string;
+        mutedText?: string;
+        buttonBg?: string;
+        buttonText?: string;
+        overlayGradient?: string;
+      }
     };
   };
   logoSection?: {
@@ -450,7 +465,7 @@ export const companies: Company[] = [
       },
       { label: "Projects", href: "/#portfolio" },
       { label: "About", href: "/#about" },
-      { label: "Contact", href: "/#contact" },
+      { label: "Contact", href: "/contact" },
     ],
 
     hero: {
@@ -1104,6 +1119,9 @@ export const companies: Company[] = [
     contact: {
       backgroundImage:
         "/companies/tso-texas/contact/tso-texas-truck-at-site-at-sunrise.png",
+      title: "Let's Work Together",
+      description:
+        "Whether you need repairs, renovations, low voltage work, or ongoing facility support — our team is ready to help. Tell us what you need and we'll take it from there.",
       testimonial: {
         quote:
           "TSO Texas handled our office renovation and low voltage work at the same time. One call, one team, zero headaches.",
@@ -1125,9 +1143,14 @@ export const companies: Company[] = [
         ],
       },
       styles: {
-        formBg: "rgba(250, 250, 250, 1)",
-        text: "#0B1F4D",
-        mutedText: "#1d2838",
+        home: {
+          formBg: "rgba(250, 250, 250, 1)",
+          text: "#0B1F4D",
+          mutedText: "#1d2838",
+        },
+        contact: {
+          background: "linear-gradient(to bottom, #0B1F4D 0%, #2752a3 100%)",
+        }
       }
     },
 

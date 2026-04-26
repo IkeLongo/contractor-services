@@ -6,6 +6,21 @@ interface ContactSectionProps {
 
 export function ContactSection({ company }: ContactSectionProps) {
   const { contact } = company;
+  const t = company.theme;
+  const s = contact.styles?.home;
+
+  const styles = {
+    background: s?.background ?? t.primary,
+    sectionBg: s?.sectionBg ?? t.background,
+    formBg: s?.formBg ?? t.surface,
+    text: s?.text ?? t.text,
+    mutedText: s?.mutedText ?? t.mutedText,
+    buttonBg: s?.buttonBg ?? t.secondary,
+    buttonText: s?.buttonText ?? "#ffffff",
+    overlayGradient:
+      s?.overlayGradient ??
+      "linear-gradient(to right, rgba(0,0,0,0.7), rgba(0,0,0,0.5), rgba(0,0,0,0.2))",
+  };
 
   return (
     <section id="contact" className="isolate grid w-full min-h-screen grid-cols-1 overflow-hidden lg:grid-cols-2">
@@ -17,9 +32,7 @@ export function ContactSection({ company }: ContactSectionProps) {
           className="absolute inset-0"
           aria-hidden="true"
           style={{
-            background:
-              contact.styles?.overlayGradient ||
-              "linear-gradient(to right, rgba(0,0,0,0.7), rgba(0,0,0,0.5), rgba(0,0,0,0.2))",
+            background: styles.overlayGradient,
           }}
         />
         {/* <div className="relative z-10 w-full max-w-md rounded-2xl bg-white/95 p-6 shadow-2xl ring-1 shadow-black/30 ring-black/5 backdrop-blur-sm sm:p-8">
@@ -51,7 +64,7 @@ export function ContactSection({ company }: ContactSectionProps) {
 
       <div
         className="order-first flex flex-col justify-start bg-neutral-50 px-4 py-8 sm:px-6 sm:py-12 md:min-h-0 lg:order-0 lg:justify-center lg:px-10 lg:py-16 xl:px-14 dark:bg-neutral-950"
-        style={{ backgroundColor: contact.styles?.formBg || undefined }}
+        style={{ backgroundColor: styles.formBg }}
       >
         <div className="mx-auto flex w-full max-w-md flex-col gap-8">
           <div className="flex flex-col gap-6">
@@ -63,19 +76,19 @@ export function ContactSection({ company }: ContactSectionProps) {
             <div className="flex flex-col gap-2">
               <h2
                 className="max-w-[30ch] text-2xl/8 font-black tracking-tight text-balance text-neutral-900 sm:text-3xl/8 dark:text-white"
-                style={{ color: contact.styles?.text || undefined }}
+                style={{ color: styles.text }}
               >
                 {contact.form.title}
               </h2>
               <p
                 className="max-w-[48ch] text-base/7 text-pretty text-neutral-600 sm:text-sm/6 dark:text-neutral-400"
-                style={{ color: contact.styles?.mutedText || undefined }}
+                style={{ color: styles.mutedText }}
               >
                 {contact.form.description}{" "}
                 <a
                   href={`mailto:${contact.form.email}`}
                   className="font-medium text-neutral-900 underline decoration-neutral-300 decoration-2 underline-offset-2 transition hover:decoration-neutral-500 dark:text-white dark:decoration-neutral-600 dark:hover:decoration-neutral-400"
-                  style={{ color: contact.styles?.text || undefined }}
+                  style={{ color: styles.text }}
                 >
                   {contact.form.email}
                 </a>
@@ -175,8 +188,8 @@ export function ContactSection({ company }: ContactSectionProps) {
               type="submit"
               className="flex w-full cursor-pointer items-center justify-center rounded-lg bg-neutral-900 px-4 py-2.5 text-base/5 font-medium text-white shadow-[0px_0px_10px_0px_rgba(255,255,255,0.2)_inset] ring-1 ring-white/20 transition-all duration-200 ring-inset hover:shadow-[0px_0px_20px_0px_rgba(255,255,255,0.4)_inset] hover:ring-white/40 active:scale-98 sm:py-2 sm:text-sm/5"
               style={{
-                backgroundColor: contact.styles?.buttonBg || undefined,
-                color: contact.styles?.buttonText || undefined,
+                backgroundColor: styles.buttonBg,
+                color: styles.buttonText,
               }}
             >
               Send
