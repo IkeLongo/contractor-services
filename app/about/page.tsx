@@ -1,7 +1,11 @@
 import { defaultCompany } from "@/data/companies";
-import { AboutHero } from "@/app/components/about/about-hero";
-import { AboutStorySection } from "@/app/components/about/about-story-section";
-import { AboutProcessSection } from "@/app/components/about/about-process-section";
+import { AboutHero } from "@/app/components/about/AboutHero";
+import { AboutStorySection } from "@/app/components/about/AboutStorySection";
+import { AboutProcessSection } from "@/app/components/about/AboutProcessSection";
+import { AboutStatsSection } from "../components/about/AboutStatsSection";
+import { TeamSectionWithSmallAvatars } from "../components/about/TeamSectionSmallAvitars";
+import { AboutDifferentiators } from "../components/about/AboutDifferentiators";
+import { AboutCtaSection } from "../components/about/AboutContactCta";
 
 export default function AboutPage() {
   const company = defaultCompany;
@@ -9,8 +13,12 @@ export default function AboutPage() {
   return (
     <main>
       <AboutHero company={company} />
+      <TeamSectionWithSmallAvatars company={company} />
       <AboutStorySection company={company} />
+      <AboutStatsSection company={company} />
       <AboutProcessSection company={company} />
+      <AboutDifferentiators company={company} />
+      <AboutCtaSection company={company} />
     </main>
   );
 }

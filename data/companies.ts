@@ -357,6 +357,58 @@ export type Company = {
         accent?: string;
       };
     };
+    stats?: {
+      items: {
+        value: number;
+        label: string;
+        suffix?: string;
+        prefix?: string;
+      }[];
+      styles?: {
+        background?: string;
+        containerBg?: string;
+        border?: string;
+        numberColor?: string;
+        labelColor?: string;
+      };
+    };
+    team?: {
+      members: {
+        name: string;
+        role: string;
+        avatar: string;
+      }[];
+      styles?: {
+        background?: string;
+        nameColor?: string;
+        roleColor?: string;
+      };
+    };
+    differentiators?: {
+      title?: string;
+      description?: string;   
+      items: {
+        title: string;
+        description: string;
+        icon?: string;
+      }[];
+      styles?: {
+        background?: string;
+        sectionTitle?: string;
+        sectionDescription?: string;
+        icon?: string;
+        title?: string;
+        description?: string;
+        border?: string;
+        hoverGradientFrom?: string;
+        accent?: string;
+        spacing?: {
+          titleMarginBottom?: string;
+          descriptionMarginTop?: string;
+          descriptionLineHeight?: string;
+        };
+      };
+    };
   };
   finalCta: {
     title: string;
@@ -1228,6 +1280,133 @@ export const companies: Company[] = [
         styles: {
           background: "#F3F6FA"
         }
+      },
+      stats: {
+        items: [
+          { value: 25, suffix: "+", label: "Years of combined experience" },
+          { value: 4, label: "Core service categories" },
+          { value: 1, label: "Reliable point of contact" },
+          { value: 100, suffix: "%", label: "Focused on clean execution" },
+        ],
+        styles: {
+          background: "#F3F6FA",
+          containerBg: "#ffffff",
+          border: "#E2E8F0",
+          numberColor: "#C62828",
+          labelColor: "#475569",
+        },
+      },
+      team: {
+        members: [
+          {
+            name: "Manu Arora",
+            role: "Owner & General Contractor",
+            avatar: "https://assets.aceternity.com/avatars/manu.webp",
+          },
+          {
+            name: "John Doe",
+            role: "Project Manager",
+            avatar: "https://assets.aceternity.com/avatars/1.webp",
+          },
+          {
+            name: "Glennfiddich Doe",
+            role: "Lead Technician",
+            avatar: "https://assets.aceternity.com/avatars/2.webp",
+          },
+          {
+            name: "Jameson Beam",
+            role: "Field Supervisor",
+            avatar: "https://assets.aceternity.com/avatars/3.webp",
+          },
+          {
+            name: "Johnny Walker",
+            role: "Operations Coordinator",
+            avatar: "https://assets.aceternity.com/avatars/4.webp",
+          },
+          {
+            name: "Jack Daniels",
+            role: "Site Manager",
+            avatar: "https://assets.aceternity.com/avatars/5.webp",
+          },
+          {
+            name: "Samantha Rives",
+            role: "Client Relations",
+            avatar: "https://assets.aceternity.com/avatars/6.webp",
+          },
+          {
+            name: "Evelyn Martinez",
+            role: "Quality Control",
+            avatar: "https://assets.aceternity.com/avatars/7.webp",
+          },
+          {
+            name: "Priya Patel",
+            role: "Scheduling & Logistics",
+            avatar: "https://assets.aceternity.com/avatars/8.webp",
+          },
+        ],
+        styles: {
+          background: "#F3F6FA",
+          nameColor: "#0B1F4D",
+          roleColor: "#64748B",
+        },
+      },
+      differentiators: {
+        items: [
+          {
+            title: "One Team, Multiple Trades",
+            description: "Handle repairs, renovations, networking, and fabrication through one reliable crew.",
+            icon: "RouteAltLeft",
+          },
+          {
+            title: "Clean, Professional Execution",
+            description: "Organized work, clear communication, and job sites left clean when the work is complete.",
+            icon: "AdjustmentsBolt",
+          },
+          {
+            title: "Fast, Reliable Communication",
+            description: "Quick response times and straightforward updates from first call to final walkthrough.",
+            icon: "Help",
+          },
+          {
+            title: "Residential & Commercial Support",
+            description: "Flexible support for businesses, facilities, property managers, and homeowners.",
+            icon: "Cloud",
+          },
+          {
+            title: "On-Time Project Delivery",
+            description: "We show up when we say we will and keep projects moving forward.",
+            icon: "EaseInOut",
+          },
+          {
+            title: "Detail-Oriented Work",
+            description: "Every detail is handled with care to ensure long-lasting results.",
+            icon: "Terminal2",
+          },
+          {
+            title: "Transparent Pricing",
+            description: "Clear, upfront pricing with no surprises along the way.",
+            icon: "CurrencyDollar",
+          },
+          {
+            title: "Built on Relationships",
+            description: "We focus on long-term relationships, not one-time jobs.",
+            icon: "Heart",
+          },
+        ],
+        title: "What Sets Us Apart",
+        description:
+          "Our clients choose us because we provide a level of reliability, versatility, and professionalism that’s hard to find in the trades industry. We’re not just another contractor — we’re a team that delivers consistent results across multiple service categories, all under one roof.",
+        styles: {
+          background: "#F3F6FA",
+          sectionTitle: "#0B1F4D",
+          sectionDescription: "#475569",
+          icon: "#C62828",
+          title: "#0B1F4D",
+          description: "#475569",
+          border: "#E2E8F0",
+          hoverGradientFrom: "#ffffff",
+          accent: "#C62828",
+        },
       },
     },
 

@@ -54,7 +54,7 @@ export function AboutProcessSection({ company }: AboutProcessSectionProps) {
 
   return (
     <section
-      className="py-16 px-4 sm:px-6 lg:px-8 md:py-12"
+      className="py-16 px-4 sm:px-6 lg:px-8 md:py-14"
       style={{ backgroundColor: ps?.background ?? t.background }}
     >
       <div className="mx-auto max-w-7xl">
