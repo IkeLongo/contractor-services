@@ -33,7 +33,7 @@ export function ReviewModal({ testimonial, onClose, testimonials }: ReviewModalP
     // Backdrop
     <div
       className="fixed inset-0 z-50 flex items-center justify-center p-4"
-      style={{ backgroundColor: "rgba(255, 255, 255, 0.6)" }}
+      style={{ backgroundColor: "rgba(0, 0, 0, 0.7)" }}
       onClick={(e) => { if (e.target === e.currentTarget) onClose(); }}
     >
       {/* Dialog */}

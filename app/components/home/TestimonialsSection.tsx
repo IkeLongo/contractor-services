@@ -63,7 +63,7 @@ export function TestimonialsSection({ company }: TestimonialsSectionProps) {
 
         <div className="text-center mt-20">
           <a
-            href="#lead-form"
+            href="/#contact"
             className="inline-block rounded px-8 py-4 font-bold text-lg transition hover:opacity-90"
             style={{ backgroundColor: "var(--cta-bg)", color: "var(--cta-text)" }}
           >
