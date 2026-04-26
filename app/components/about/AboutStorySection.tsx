@@ -137,10 +137,7 @@ export function AboutStorySection({ company }: AboutStorySectionProps) {
 
               {/* Color mask overlay */}
               <div
-                className="absolute inset-0"
-                style={{
-                  background: `rgba(175, 175, 175, 0.6)`
-                }}
+                className="absolute inset-0 rounded-2xl bg-gradient-to-t from-[#0B1F4D]/50 via-white/40 to-white/80"
               />
 
             </div>
