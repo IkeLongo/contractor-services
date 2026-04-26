@@ -25,13 +25,14 @@ export type ServiceItem = {
   overview?: {
     title: string;
     description: string;
+    longDescription?: string;
     image?: string;
   };
 
   includes?: {
     title?: string;
     description?: string;
-    items: string[];
+    items: (string | { title: string; icon?: string; color?: string })[];
   };
 
   process?: {
@@ -46,6 +47,7 @@ export type ServiceItem = {
   whyItMatters?: {
     title: string;
     description: string;
+    longDescription?: string;
   };
 
   cta?: {
@@ -55,6 +57,14 @@ export type ServiceItem = {
     image?: string;
     primaryHref?: string;
   };
+
+  gallery?: {
+    image: string;
+    alt?: string;
+    title?: string;
+    description?: string;
+    className?: string;
+  }[];
 };
 
 export type PortfolioStyles = {
@@ -178,6 +188,23 @@ export type ServicesStyles = {
   cardDescription?: string;
   accent?: string;
   imageOverlay?: string;
+  gallery?: {
+    cardBackground?: string;
+    cardBorder?: string;
+    titleColor?: string;
+    descriptionColor?: string;
+    overlay?: string;
+  };
+  narrative?: {
+    background?: string;
+    eyebrow?: string;
+    title?: string;
+    text?: string;
+    accent?: string;
+    scopeCardColors?: string[];
+    scopeCardText?: string;
+    scopeCardIcon?: string;
+  };
 };
 
 export type LogoSectionStyles = {
@@ -531,7 +558,7 @@ export const companies: Company[] = [
           overview: {
             title: "One Team for All Your Maintenance Needs",
             description:
-              "TSO Texas handles the full scope of facility maintenance — from drywall and carpentry to doors, hardware, and paint. Instead of coordinating multiple contractors, you get one reliable point of contact for every repair and upkeep task on your property.",
+              "TSO Texas handles the full scope of facility maintenance — from drywall and carpentry to doors, hardware, and paint. Instead of coordinating multiple contractors, you get one reliable point of contact for every repair and upkeep task on your property. Our team is structured to respond quickly, diagnose issues accurately, and complete work without creating disruption to your daily operations. Whether it’s ongoing maintenance or one-off repairs, the focus is always on consistency, quality, and keeping your property in working condition."
           },
           includes: {
             title: "What's Included",
@@ -542,7 +569,6 @@ export const companies: Company[] = [
               "Ceiling and wall damage repair",
               "Light fixture and outlet cover replacement",
               "Preventive maintenance walkthroughs",
-              "Punch list completion for tenant turnover",
             ],
           },
           process: {
@@ -568,7 +594,7 @@ export const companies: Company[] = [
           whyItMatters: {
             title: "Deferred Maintenance Compounds Quickly",
             description:
-              "Small issues become expensive problems when left unaddressed. Consistent upkeep protects property value, reduces emergency repair costs, and keeps tenants and clients satisfied.",
+            "Small issues rarely stay small in a commercial or residential property. What starts as minor wear or damage can quickly turn into costly repairs, safety concerns, or tenant complaints if left unaddressed. Consistent maintenance not only preserves the condition of your space, but also reduces emergency calls, extends the life of materials, and keeps your property operating without interruption. Having a reliable team in place allows you to stay ahead of problems instead of reacting to them.",
           },
           cta: {
             title: "Ready to Schedule Maintenance?",
@@ -597,7 +623,7 @@ export const companies: Company[] = [
           overview: {
             title: "Full-Scope Interior Renovations",
             description:
-              "Whether you're upgrading a commercial office or refreshing a residential interior, TSO Texas manages the multi-trade complexity so you don't have to. We coordinate carpentry, drywall, paint, and finishing work in sequence — minimizing downtime and delivering consistent results.",
+              "Whether you're upgrading a commercial office or refreshing a residential interior, TSO Texas manages the full renovation process from start to finish. We handle the coordination between trades, sequencing of work, and execution on-site so the project moves efficiently without unnecessary delays. By keeping everything under one team, we reduce miscommunication, maintain quality control, and deliver a finished space that aligns with your goals while minimizing disruption to your day-to-day operations.",
           },
           includes: {
             title: "What's Covered",
@@ -608,7 +634,6 @@ export const companies: Company[] = [
               "Flooring preparation and transitions",
               "Door and hardware installation",
               "Multi-trade coordination and project phasing",
-              "Final punch list and walkthrough",
             ],
           },
           process: {
@@ -634,7 +659,7 @@ export const companies: Company[] = [
           whyItMatters: {
             title: "A Better Space Drives Better Results",
             description:
-              "Outdated or dysfunctional spaces affect employee morale, client perception, and operational efficiency. A well-executed renovation creates an environment that works as hard as your team does.",
+              "The condition and layout of your space directly impacts how people experience it. Outdated finishes, inefficient layouts, or poorly executed work can affect productivity, client perception, and long-term maintenance costs. A properly planned and executed renovation improves functionality, modernizes the environment, and creates a space that supports the way your business or household operates. Investing in quality work upfront prevents ongoing issues and ensures the space performs as intended.",
           },
           cta: {
             title: "Planning a Renovation?",
@@ -663,7 +688,7 @@ export const companies: Company[] = [
           overview: {
             title: "Clean Infrastructure, Reliable Connections",
             description:
-              "Disorganized cabling causes outages, slows troubleshooting, and creates safety risks. TSO Texas installs and organizes structured cabling systems that are clean, labeled, and built to last — whether you're starting from scratch or cleaning up an existing setup.",
+              "A well-structured cabling system is the foundation of any reliable network. TSO Texas installs and organizes low voltage infrastructure with a focus on clarity, performance, and long-term usability. We ensure every cable run is cleanly routed, properly terminated, and clearly labeled so your system is easy to maintain and expand. Whether you're installing a new network or correcting an existing setup, the goal is to create an organized infrastructure that supports your operations without unnecessary downtime.",
           },
           includes: {
             title: "Services Included",
@@ -674,7 +699,6 @@ export const companies: Company[] = [
               "Fiber optic repair and troubleshooting",
               "Cable management and routing",
               "Wall plates, keystone jacks, and terminations",
-              "Server room cleanup and documentation",
             ],
           },
           process: {
@@ -700,7 +724,7 @@ export const companies: Company[] = [
           whyItMatters: {
             title: "Messy Cabling Costs You Later",
             description:
-              "Unlabeled, disorganized cabling makes troubleshooting expensive and time-consuming. A properly installed structured cabling system reduces downtime, simplifies future changes, and scales with your business.",
+              "Disorganized or poorly installed cabling leads to ongoing problems that cost time and money. Troubleshooting becomes more difficult, outages take longer to resolve, and future upgrades become complicated. A properly installed and documented system eliminates guesswork, reduces downtime, and allows your network to scale as your needs grow. Investing in clean infrastructure upfront prevents recurring issues and ensures your system performs reliably over time.",
           },
           cta: {
             title: "Need Cabling Work Done Right?",
@@ -729,7 +753,7 @@ export const companies: Company[] = [
           overview: {
             title: "Fabrication Without the Middleman",
             description:
-              "TSO Texas handles custom welding and fabrication in-house, giving you direct access to the team building your parts. From structural repairs to custom mounts and fixtures, we work to your spec and deliver work that fits the first time.",
+              "TSO Texas provides in-house welding and fabrication services, allowing projects to move faster without relying on third-party shops. We build custom components based on your specifications, whether it’s structural reinforcement, equipment mounting, or one-off fabricated pieces. By handling everything internally, we maintain control over quality, timelines, and fitment — ensuring the final product is built correctly and ready for installation without delays or rework.",
           },
           includes: {
             title: "What We Build & Repair",
@@ -740,7 +764,6 @@ export const companies: Company[] = [
               "Gate, railing, and fence fabrication",
               "Metal patch and repair work",
               "Material sourcing and procurement",
-              "On-site welding for structural applications",
             ],
           },
           process: {
@@ -766,7 +789,7 @@ export const companies: Company[] = [
           whyItMatters: {
             title: "Off-the-Shelf Solutions Don't Always Fit",
             description:
-              "When standard parts don't work for your application, custom fabrication is the answer. In-house welding means faster turnaround, direct communication, and results built specifically for your needs.",
+                "Standard, off-the-shelf components don’t always meet the demands of real-world applications. When something needs to fit precisely or handle specific loads, custom fabrication becomes necessary. Working with an in-house team reduces turnaround time, improves communication, and ensures the final result matches the exact requirements of the project. This leads to stronger, more reliable solutions that hold up over time without the need for constant adjustments or replacements.",
           },
           cta: {
             title: "Have a Fabrication Project?",
