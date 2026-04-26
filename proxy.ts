@@ -1,30 +1,40 @@
 import { NextRequest, NextResponse } from "next/server";
 import { companies } from "./data/companies";
 
+function getSubdomain(host: string) {
+  const hostname = host.split(":")[0]; // remove port
+
+  // local: tso-texas.contractor-services.localhost:3000
+  if (hostname.endsWith(".contractor-services.localhost")) {
+    return hostname.replace(".contractor-services.localhost", "");
+  }
+
+  // live: tso-texas.contractor-services.rivercitycreatives.com
+  if (hostname.endsWith(".contractor-services.rivercitycreatives.com")) {
+    return hostname.replace(".contractor-services.rivercitycreatives.com", "");
+  }
+
+  return null;
+}
+
 export function proxy(req: NextRequest) {
   const host = req.headers.get("host") ?? "";
+  const subdomain = getSubdomain(host);
 
-  // Extract subdomain: e.g. "riverside" from "riverside.mydomain.com"
-  // Works locally too: "riverside.localhost:3000"
-  const subdomain = host.split(".")[0];
-
-  // Skip if it's the root domain (www, naked domain, or localhost)
-  const isRoot =
-    subdomain === "www" ||
-    subdomain === "localhost" ||
-    !host.includes(".");
-
-  if (isRoot || !(subdomain in companies)) {
-    // Rewrite to a 404 page or let the default page handle it
+  if (!subdomain || !(subdomain in companies)) {
     return NextResponse.next();
   }
 
-  // Pass the subdomain to the page via a header
-  const res = NextResponse.next();
-  res.headers.set("x-company-slug", subdomain);
-  return res;
+  const requestHeaders = new Headers(req.headers);
+  requestHeaders.set("x-company-slug", subdomain);
+
+  return NextResponse.next({
+    request: {
+      headers: requestHeaders,
+    },
+  });
 }
 
 export const config = {
-  matcher: ["/((?!_next|favicon.ico|logos|.*\\..*).*)"],
+  matcher: ["/((?!api|_next/static|_next/image|favicon.ico|logos|.*\\..*).*)"],
 };

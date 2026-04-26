@@ -511,8 +511,7 @@ export type Company = {
   };
 };
 
-export const companies: Company[] = [
-  {
+const tsoTexasCompany: Company = {
     slug: "tso-texas",
     subdomain: "tso-texas",
     name: "TSO Texas",
@@ -1527,15 +1526,21 @@ export const companies: Company[] = [
         { platform: "youtube", url: "https://youtube.com/" },
       ],
     },
-  },
-];
+};
 
-export const defaultCompany = companies[0];
+export const companies: Record<string, Company> = {
+  [tsoTexasCompany.subdomain]: tsoTexasCompany,
+};
 
-export function getCompanyBySubdomain(subdomain: string) {
-  return companies.find((company) => company.subdomain === subdomain);
+export const defaultCompany: Company = tsoTexasCompany;
+
+export function getCompanyBySubdomain(subdomain: string): Company | undefined {
+  return Object.values(companies).find((company) => company.subdomain === subdomain);
 }
 
-export function getCompanyBySlug(slug: string) {
-  return companies.find((company) => company.slug === slug);
+export function getCompanyBySlug(slug?: string | null): Company {
+  if (slug && Object.prototype.hasOwnProperty.call(companies, slug)) {
+    return companies[slug];
+  }
+  return defaultCompany;
 }
