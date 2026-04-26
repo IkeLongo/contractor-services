@@ -305,8 +305,16 @@ export type Company = {
   };
   about: {
     title: string;
-    description: string;
-    stats?: string[];
+    image: string;
+    imageAlt?: string;
+    styles?: {
+      background?: string;
+      cardBackground?: string;
+      border?: string;
+      title?: string;
+      gradientFrom?: string;
+      gradientTo?: string;
+    };
   };
   finalCta: {
     title: string;
@@ -1085,14 +1093,18 @@ export const companies: Company[] = [
     },
 
     about: {
-      title: "Built on Experience",
-      description:
-        "TSO Texas brings together deep hands-on experience in renovations, telecom, networking, and fabrication. Their team includes low voltage expertise, certified welding experience, and a strong emphasis on reliable execution.",
-      stats: [
-        "25+ years renovation, telecom & project management experience",
-        "12+ years low voltage experience",
-        "Certified welding experience",
-      ],
+      title: "Reliable Work. One Team. Multiple Trades.",
+      image:
+        "/companies/tso-texas/contact/job-site-construction-bg-gradient.png",
+      imageAlt: "TSO Texas team at job site",
+      styles: {
+        background: "#F3F6FA",
+        cardBackground: "#ffffff",
+        border: "#e2e8f0",
+        title: "#0B1F4D",
+        gradientFrom: "rgba(255,255,255,1)",
+        gradientTo: "rgba(255,255,255,0)",
+      },
     },
 
     finalCta: {
