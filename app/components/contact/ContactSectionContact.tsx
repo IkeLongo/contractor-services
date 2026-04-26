@@ -32,11 +32,11 @@ export function ContactSection({ company }: ContactSectionProps) {
         {/* ── Left: Branding + Copy ── */}
         <div className="flex flex-col justify-between">
           <div className="max-w-lg space-y-6">
-            <img
+            {/* <img
               src={company.branding.navLogo}
               alt={company.name}
               className="h-16 w-auto object-contain object-left"
-            />
+            /> */}
             <h2 className="text-3xl md:text-4xl font-black leading-tight text-white">
               {contact.title ?? contact.form.title}
             </h2>

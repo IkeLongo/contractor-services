@@ -197,13 +197,13 @@ const MobileNav = ({ company }: NavbarProps) => {
                   <IconPhone className="w-4 h-4 text-neutral-600" />
                   {company.phone}
                 </a>
-                <Link
+                {/* <Link
                   href="/request-service"
                   onClick={() => setOpen(false)}
                   className="block text-center rounded px-5 py-3 text-sm font-bold transition bg-[var(--primary)] text-white hover:bg-[var(--secondary)]"
                 >
                   Book Service
-                </Link>
+                </Link> */}
               </div>
             </div>
           </motion.div>

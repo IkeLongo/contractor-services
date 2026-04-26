@@ -4,99 +4,99 @@ export const dummyTestimonials: TestimonialItem[] = [
   {
     name: "Martin G.",
     quote:
-      "My AC went out on the hottest day of the year and they had a tech at my door within two hours. Fixed it fast and the price was completely fair. Will never call anyone else.",
+      "TSO Texas handled several maintenance repairs at our office without us having to coordinate three different vendors. The crew was professional, clean, and easy to work with.",
     image: "https://i.pravatar.cc/150?img=1",
-    role: "Homeowner, San Antonio TX",
+    role: "Business Owner, San Antonio TX",
   },
   {
     name: "James R.",
     quote:
-      "I've used them twice now — once for a furnace repair and once for a full AC replacement. Both times the technicians were on time, professional, and honest about what I actually needed.",
+      "We brought them in for a small renovation project and they handled the drywall, paint, doors, and finish work under one scope. Everything moved smoothly from start to finish.",
     image: "https://i.pravatar.cc/150?img=2",
-    role: "Homeowner, San Antonio TX",
+    role: "Commercial Property Manager, San Antonio TX",
   },
   {
     name: "John L.",
     quote:
-      "Booked a maintenance visit online, got a confirmation call within minutes, and the tech showed up right on schedule. My system is running better than it has in years.",
+      "Our network closet was a mess before TSO came in. They cleaned up the cabling, labeled everything, and made future troubleshooting much easier for our team.",
     image: "https://i.pravatar.cc/150?img=3",
-    role: "Homeowner, San Antonio TX",
+    role: "Operations Manager, San Antonio TX",
   },
   {
     name: "Carlos M.",
     quote:
-      "These guys are the real deal. No upselling, no scare tactics — just honest diagnostics and solid work. They found a refrigerant leak two other companies missed.",
+      "These guys are the real deal. No runaround, no excuses — just clear communication and solid work. They fixed multiple issues that had been sitting on our punch list for months.",
     image: "https://i.pravatar.cc/150?img=4",
-    role: "Homeowner, San Antonio TX",
+    role: "Facility Manager, San Antonio TX",
   },
   {
     name: "Patricia H.",
     quote:
-      "I called at 11pm when my heat stopped working in January. Someone answered immediately and a tech was at my house by midnight. Incredible service.",
+      "We needed repairs completed before a tenant moved in, and TSO Texas got it done quickly. They communicated well, kept the space clean, and finished on schedule.",
     image: "https://i.pravatar.cc/150?img=5",
-    role: "Homeowner, San Antonio TX",
+    role: "Property Manager, San Antonio TX",
   },
   {
     name: "David W.",
     quote:
-      "Had a new system installed last spring. The crew was in and out in one day, cleaned up completely, and walked me through the thermostat settings before they left. Five stars.",
+      "TSO helped us with custom fabrication for equipment mounting, and the finished work fit exactly how we needed it to. Having fabrication handled in-house saved us a lot of time.",
     image: "https://i.pravatar.cc/150?img=6",
-    role: "Homeowner, San Antonio TX",
+    role: "Warehouse Manager, San Antonio TX",
   },
   {
     name: "Lance T.",
     quote:
-      "Our annual maintenance plan has been worth every penny. They catch small issues before they become expensive problems. Haven't had an emergency breakdown in three years.",
+      "Their team has become our go-to for ongoing facility upkeep. They catch small problems early, explain what needs attention, and help us avoid bigger repairs later.",
     image: "https://i.pravatar.cc/150?img=7",
-    role: "Homeowner, San Antonio TX",
+    role: "Facilities Director, San Antonio TX",
   },
   {
     name: "Robert K.",
     quote:
-      "The tech explained everything clearly before starting any work and gave me a written quote upfront. No surprises on the bill. That kind of transparency is rare.",
+      "The quote was clear, the schedule was realistic, and the work matched what they promised. That kind of transparency is hard to find in contracting.",
     image: "https://i.pravatar.cc/150?img=8",
-    role: "Homeowner, San Antonio TX",
+    role: "Business Owner, San Antonio TX",
   },
   {
     name: "Angela F.",
     quote:
-      "Fast, friendly, and reasonably priced. My upstairs bedrooms are finally staying cool after they recalibrated my ductwork. Should have called sooner.",
+      "We hired TSO Texas for interior improvements at our commercial space. They handled the project professionally and made the process much easier than expected.",
     image: "https://i.pravatar.cc/150?img=9",
-    role: "Homeowner, San Antonio TX",
+    role: "Office Manager, San Antonio TX",
   },
   {
     name: "Maria D.",
     quote:
-      "I was quoted double by another company. These guys came out, diagnosed the problem accurately, and had it running for a fraction of the cost. Extremely trustworthy.",
+      "I appreciated that they did not overcomplicate the job. They assessed what needed to be done, gave us a fair quote, and completed the work without surprises.",
     image: "https://i.pravatar.cc/150?img=10",
-    role: "Homeowner, San Antonio TX",
+    role: "Small Business Owner, San Antonio TX",
   },
   {
     name: "Steven B.",
     quote:
-      "They replaced my 20-year-old unit and handled the financing paperwork without any hassle. Low monthly payments and my energy bill dropped significantly the first month.",
+      "They helped us rework part of our office layout and handled the finish details after the build-out. The final space looks clean and functions much better.",
     image: "https://i.pravatar.cc/150?img=11",
-    role: "Homeowner, San Antonio TX",
+    role: "Commercial Tenant, San Antonio TX",
   },
   {
     name: "Kevin O.",
     quote:
-      "Great communication from start to finish. I got a text when the tech was on the way, the job was done quickly, and a follow-up call made sure I was satisfied. Top-notch.",
+      "Great communication from start to finish. We knew when the crew was arriving, what work was being completed, and what to expect before the job started.",
     image: "https://i.pravatar.cc/150?img=12",
-    role: "Homeowner, San Antonio TX",
+    role: "Property Operations Manager, San Antonio TX",
   },
   {
     name: "Nancy C.",
     quote:
-      "Been a customer for over eight years. They always remember my system's history and never try to sell me something I don't need. Old-school service you just don't find anymore.",
+      "We use TSO Texas because they can handle a wide range of work without making us call a different contractor for every issue. That saves our team a lot of time.",
     image: "https://i.pravatar.cc/150?img=13",
-    role: "Homeowner, San Antonio TX",
+    role: "Real Estate Manager, San Antonio TX",
   },
   {
     name: "Tony V.",
     quote:
-      "Called them for a second opinion after a competitor said I needed a full replacement. Turns out it was just a capacitor. Saved me thousands. Honest and skilled — highly recommend.",
+      "They came out for a second opinion on a repair and gave us a practical solution instead of trying to sell a larger project. Honest, skilled, and dependable.",
     image: "https://i.pravatar.cc/150?img=14",
-    role: "Homeowner, San Antonio TX",
+    role: "Commercial Facility Owner, San Antonio TX",
   },
 ];
