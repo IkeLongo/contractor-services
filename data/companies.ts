@@ -307,6 +307,22 @@ export type Company = {
     title: string;
     image: string;
     imageAlt?: string;
+    storyTitle?: string;
+    story?: string[];
+    highlights?: {
+      title: string;
+      description: string;
+    }[];
+    quote?: {
+      text: string;
+      author?: string;
+      avatar?: string; 
+    };
+    images?: {
+      main: string;
+      secondary: string[];
+      tertiary: string[];
+    };
     styles?: {
       background?: string;
       cardBackground?: string;
@@ -314,6 +330,9 @@ export type Company = {
       title?: string;
       gradientFrom?: string;
       gradientTo?: string;
+      text?: string;
+      mutedText?: string;
+      gradientOverlay?: string;
     };
   };
   finalCta: {
@@ -1097,6 +1116,43 @@ export const companies: Company[] = [
       image:
         "/companies/tso-texas/contact/job-site-construction-bg-gradient.png",
       imageAlt: "TSO Texas team at job site",
+      storyTitle: "Built on Reliability",
+      story: [
+        "TSO Texas was built on the belief that skilled tradespeople shouldn't have to choose between specialization and versatility. We've spent decades developing expertise across renovations, low voltage systems, networking, and custom fabrication.",
+        "Today, our clients rely on us because one call is all it takes. Residential homeowners, property managers, and commercial facility teams know that when TSO shows up, the work gets done right — and they don't need to coordinate five separate contractors to make it happen.",
+      ],
+      highlights: [
+        {
+          title: "25+ Years Experience",
+          description: "Renovation, telecom, and project management across residential and commercial jobs.",
+        },
+        {
+          title: "Multi-Trade Team",
+          description: "One crew covers low voltage, networking, welding, and general contracting.",
+        },
+        {
+          title: "Certified Welding",
+          description: "Custom metalwork and structural fabrication for unique project needs.",
+        },
+        {
+          title: "Houston-Based",
+          description: "Locally rooted and available across the greater Houston metro area.",
+        },
+      ],
+      quote: {
+        text: "We built TSO to be the team we always wished we could call — one that actually shows up, knows what they're doing, and gets it done.",
+        author: "TSO Texas Team",
+        avatar: "https://i.pravatar.cc/150?img=13",
+      },
+      images: {
+        main: "/companies/tso-texas/contact/tso-texas-team-posing-in-front-of-job-site.png",
+        secondary: [
+          "/companies/tso-texas/contact/job-site-construction-bg-gradient.png",
+        ],
+        tertiary: [
+          "/companies/tso-texas/contact/modern_commercial_interior_under_construction_wide_angle.png",
+        ],
+      },
       styles: {
         background: "#F3F6FA",
         cardBackground: "#ffffff",
@@ -1104,6 +1160,8 @@ export const companies: Company[] = [
         title: "#0B1F4D",
         gradientFrom: "rgba(255,255,255,1)",
         gradientTo: "rgba(255,255,255,0)",
+        text: "#1e293b",
+        mutedText: "#64748b",
       },
     },
 
