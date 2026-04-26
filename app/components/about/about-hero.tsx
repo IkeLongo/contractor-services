@@ -11,7 +11,7 @@ export function AboutHero({ company }: AboutHeroProps) {
 
   return (
     <section
-      className="py-8 px-4 sm:px-6 lg:px-8 md:py-6 md:pt-12"
+      className="py-8 px-4 sm:px-6 lg:px-8 md:py-9 md:pt-18"
       style={{ backgroundColor: s?.background ?? "#F3F6FA" }}
     >
       {/* Hero card — image is the container background */}

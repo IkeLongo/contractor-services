@@ -17,7 +17,7 @@ export function AboutStorySection({ company }: AboutStorySectionProps) {
 
   return (
     <section
-      className="px-4 py-16 sm:px-6 md:py-6 lg:px-8"
+      className="px-4 py-16 sm:px-6 md:py-12 lg:px-8"
       style={{ backgroundColor: s?.background ?? t.background }}
     >
       <div className="mx-auto max-w-7xl">

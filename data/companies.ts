@@ -334,6 +334,29 @@ export type Company = {
       mutedText?: string;
       gradientOverlay?: string;
     };
+    process?: {
+      eyebrow?: string;
+      title: string;
+      description: string;
+      steps: {
+        step: string;
+        title: string;
+        description: string;
+        tag?: string;
+        icon?: string;
+      }[];
+      styles?: {
+        background?: string;
+        eyebrow?: string;
+        title?: string;
+        description?: string;
+        cardBackground?: string;
+        cardBorder?: string;
+        cardText?: string;
+        cardMutedText?: string;
+        accent?: string;
+      };
+    };
   };
   finalCta: {
     title: string;
@@ -491,7 +514,7 @@ export const companies: Company[] = [
         ],
       },
       { label: "Projects", href: "/#portfolio" },
-      { label: "About", href: "/#about" },
+      { label: "About", href: "/about" },
       { label: "Contact", href: "/contact" },
     ],
 
@@ -1162,6 +1185,49 @@ export const companies: Company[] = [
         gradientTo: "rgba(255,255,255,0)",
         text: "#1e293b",
         mutedText: "#64748b",
+      },
+      process: {
+        eyebrow: "Our Process",
+        title: "How We Get It Done",
+        description:
+          "A simple process designed to keep your project moving — without the headaches.",
+        steps: [
+          {
+            step: "Step One",
+            title: "Reach Out",
+            description:
+              "Tell us what you need — we'll take it from there.",
+            tag: "Quick Response",
+            icon: "Phone",
+          },
+          {
+            step: "Step Two",
+            title: "We Assess the Job",
+            description:
+              "We evaluate the project and outline the best approach.",
+            tag: "Clear Plan",
+            icon: "ClipboardCheck",
+          },
+          {
+            step: "Step Three",
+            title: "We Get to Work",
+            description:
+              "Our team shows up prepared and gets the job done right.",
+            tag: "Reliable Work",
+            icon: "Hammer",
+          },
+          {
+            step: "Step Four",
+            title: "Job Complete",
+            description:
+              "Clean, finished, and ready — with no loose ends.",
+            tag: "Done Right",
+            icon: "BadgeCheck",
+          },
+        ],
+        styles: {
+          background: "#F3F6FA"
+        }
       },
     },
 
