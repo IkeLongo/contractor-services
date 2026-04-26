@@ -1,10 +1,25 @@
 import Image from "next/image";
 import Link from "next/link";
 import type { Company } from "@/data/companies";
+import {
+  IconBrandFacebook,
+  IconBrandInstagram,
+  IconBrandLinkedin,
+  IconBrandTwitter,
+  IconBrandYoutube,
+} from "@tabler/icons-react";
 
 interface FooterProps {
   company: Company;
 }
+
+const SOCIAL_ICON_MAP = {
+  facebook: IconBrandFacebook,
+  instagram: IconBrandInstagram,
+  linkedin: IconBrandLinkedin,
+  twitter: IconBrandTwitter,
+  youtube: IconBrandYoutube,
+};
 
 export function Footer({ company }: FooterProps) {
   const { branding, footer, services, navigation, name, phone, email, city, state } = company;
@@ -16,11 +31,11 @@ export function Footer({ company }: FooterProps) {
 
         {/* Column 1 — Logo + short description */}
         <div className="flex flex-col gap-5">
-          <div className="relative h-16 w-48">
+          <Link href="/" className="relative h-16 w-48 block">
             <Image src={branding.navLogo} alt={name} fill className="object-contain object-left" />
-          </div>
+          </Link>
           <p className="text-white/55 text-sm leading-relaxed">{footer.shortDescription}</p>
-          <p className="text-white/40 text-xs">{footer.serviceArea}</p>
+          {/* <p className="text-white/40 text-xs">{footer.serviceArea}</p> */}
         </div>
 
         {/* Column 2 — Services preview */}
@@ -68,19 +83,38 @@ export function Footer({ company }: FooterProps) {
               {email}
             </a>
           </div>
+          {footer.socials && footer.socials.length > 0 && (
+            <div className="flex items-center gap-4 mt-3">
+              {footer.socials.map((social) => {
+                const Icon = SOCIAL_ICON_MAP[social.platform];
+                if (!Icon) return null;
+                return (
+                  <a
+                    key={social.platform}
+                    href={social.url}
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    className="text-white/60 hover:text-white transition"
+                  >
+                    <Icon size={20} stroke={1.5} />
+                  </a>
+                );
+              })}
+            </div>
+          )}
         </div>
       </div>
 
       {/* Bottom bar */}
       <div className="border-t border-white/10 px-6 py-5">
-        <div className="max-w-6xl mx-auto flex flex-col items-start gap-3 text-xs text-white/35">
+        <div className="max-w-6xl mx-auto px-6 flex flex-col items-start gap-3 text-xs text-white/35">
           <div className="flex items-center gap-5">
-            <a
+            {/* <a
               href={`tel:${phone}`}
               className="font-semibold text-white/55 hover:text-white transition"
             >
               {phone}
-            </a>
+            </a> */}
             {/* <Link
               href="/request-service"
               className="rounded px-4 py-1.5 text-xs font-bold transition hover:opacity-90"

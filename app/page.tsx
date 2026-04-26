@@ -26,7 +26,7 @@ export default async function Home() {
       <ServicesGrid company={company} />
       <LogoSection company={company} />
       <WhyChooseUs company={company} />
-      <section className="bg-gradient-to-b from-[#F8FAFC] via-[#EEF4FF] to-[#E7EEF8]">
+      <section className="bg-[#F3F6FA]">
         <PortfolioSection company={company} />
         <TestimonialsSection company={company} />
       </section>

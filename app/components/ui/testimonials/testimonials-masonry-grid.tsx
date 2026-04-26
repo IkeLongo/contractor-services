@@ -19,8 +19,10 @@ function truncateReview(text: string, max: number): { display: string; isTruncat
 
 export function TestimonialsMasonryGrid({
   testimonials,
+  company,
 }: {
   testimonials?: Company["testimonials"];
+  company?: Company;
 }) {
   const data: TestimonialItem[] =
   testimonials?.items && testimonials.items.length > 0
@@ -106,6 +108,7 @@ export function TestimonialsMasonryGrid({
           testimonial={selected}
           onClose={() => setSelected(null)}
           testimonials={testimonials}
+          company={company}
         />
       )}
     </div>

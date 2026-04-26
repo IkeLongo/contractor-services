@@ -300,6 +300,7 @@ export type Company = {
       ctaBackground?: string;
       ctaText?: string;
       modalBackground?: string;
+      modalBorder?: string;
     };
     items?: TestimonialItem[];
   };
@@ -503,6 +504,10 @@ export type Company = {
   footer: {
     shortDescription: string;
     serviceArea: string;
+    socials?: {
+      platform: "facebook" | "instagram" | "linkedin" | "twitter" | "youtube";
+      url: string;
+    }[];
   };
 };
 
@@ -555,16 +560,6 @@ export const companies: Company[] = [
           { label: "Welding & Fabrication", href: "/services/welding-fabrication" },
         ],
       },
-      {
-        label: "Industries",
-        href: "/#industries",
-        children: [
-          { label: "Commercial Facilities", href: "/#industries" },
-          { label: "Offices", href: "/#industries" },
-          { label: "Property Managers", href: "/#industries" },
-          { label: "Residential Projects", href: "/#industries" },
-        ],
-      },
       { label: "Projects", href: "/#portfolio" },
       { label: "About", href: "/about" },
       { label: "Contact", href: "/contact" },
@@ -581,7 +576,7 @@ export const companies: Company[] = [
       },
       secondaryCta: {
         label: "View Services",
-        href: "/#services",
+        href: "/services",
       },
       highlights: [
         "Multi-Trade Single Vendor",
@@ -1169,8 +1164,10 @@ export const companies: Company[] = [
         "Feedback from clients who have relied on TSO Texas to handle repairs, renovations, and specialized work without the hassle of managing multiple vendors.",
       styles: {
         background: "transparent",
+        cardBackground: "#F3F6FA",
         cardBorder: "#0B1F4D",
-        modalBackground: "white",
+        modalBackground: "linear-gradient(180deg, #dfe1e2 0%, #ffffff 70%, #dfe1e2 100%)",
+        modalBorder: "#ffffff",
       },
     },
 
@@ -1522,6 +1519,13 @@ export const companies: Company[] = [
       shortDescription:
         "Multi-trade residential and commercial services for repairs, renovations, networking, and fabrication.",
       serviceArea: "San Antonio, TX",
+      socials: [
+        { platform: "facebook", url: "https://facebook.com/" },
+        { platform: "instagram", url: "https://instagram.com/" },
+        { platform: "linkedin", url: "https://linkedin.com/company/" },
+        { platform: "twitter", url: "https://twitter.com/" },
+        { platform: "youtube", url: "https://youtube.com/" },
+      ],
     },
   },
 ];

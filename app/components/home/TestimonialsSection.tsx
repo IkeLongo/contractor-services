@@ -58,7 +58,7 @@ export function TestimonialsSection({ company }: TestimonialsSectionProps) {
         </div>
 
         <TestimonialsMasonryGrid
-          testimonials={company.testimonials}
+          testimonials={company.testimonials} company={company}
         />
 
         <div className="text-center mt-20">
