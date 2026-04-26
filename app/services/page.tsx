@@ -1,8 +1,8 @@
 import { defaultCompany } from "@/data/companies";
 import { PageHeader } from "@/app/components/layout/PageHeader";
 import { ServicesHero } from "@/app/components/services/ServicesHero";
-import { ServicesGrid } from "@/app/components/sections/ServicesGrid";
-import { FaqSection } from "@/app/components/sections/FaqSection";
+import { ServicesGrid } from "@/app/components/home/ServicesGrid";
+import { FaqSection } from "@/app/components/home/FaqSection";
 
 export default function ServicesPage() {
   const company = defaultCompany;

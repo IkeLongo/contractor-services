@@ -1,10 +1,10 @@
 import { notFound } from "next/navigation";
 import { defaultCompany } from "@/data/companies";
 import { PageHeader } from "@/app/components/layout/PageHeader";
-import { ServiceHero } from "@/app/components/services/service-hero";
-import { ServiceNarrative } from "@/app/components/services/service-narrative";
-import { ServiceImageBentoGallery } from "@/app/components/services/service-image-bento-gallery";
-import { RelatedServices } from "@/app/components/services/related-services";
+import { ServiceHero } from "@/app/components/services/ServiceHero";
+import { ServiceNarrative } from "@/app/components/services/ServiceNarrative";
+import { ServiceImageBentoGallery } from "@/app/components/services/ServiceImageBentoGallery";
+import { RelatedServices } from "@/app/components/services/RelatedServices";
 import { ServiceContactCta } from "@/app/components/services/ServiceContactCta";
 
 interface ServicePageProps {

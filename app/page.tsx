@@ -1,12 +1,12 @@
 import Image from "next/image";
 import { headers } from "next/headers";
-import { TwoColumnHeroSection } from "./components/sections/HeroSection";
-import { WhyChooseUs } from "./components/sections/WhyChooseUs";
-import { ServicesGrid } from "./components/sections/ServicesGrid";
-import { PortfolioSection } from "./components/sections/PortfolioSection";
-import { TestimonialsSection } from "./components/sections/TestimonialsSection";
-import { LogoSection } from "./components/sections/LogoSection";
-import { ContactSection } from "./components/sections/contact/ContactSectionHome";
+import { TwoColumnHeroSection } from "./components/home/HeroSection";
+import { WhyChooseUs } from "./components/home/WhyChooseUs";
+import { ServicesGrid } from "./components/home/ServicesGrid";
+import { PortfolioSection } from "./components/home/PortfolioSection";
+import { TestimonialsSection } from "./components/home/TestimonialsSection";
+import { LogoSection } from "./components/home/LogoSection";
+import { ContactSection } from "./components/home/ContactSectionHome";
 import { companies, getCompanyBySlug } from "@/data/companies";
 
 const FALLBACK_SLUG = "tso-texas";
