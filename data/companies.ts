@@ -214,6 +214,16 @@ export type LogoSectionStyles = {
   description?: string;
 };
 
+export type OgConfig = {
+  image?: string;
+  tintColor?: string;
+  tintOpacity?: number;
+  gradientDirection?: string;
+  logo?: string;
+  title?: string;
+  description?: string;
+};
+
 export type Company = {
   slug: string;
   subdomain: string;
@@ -509,6 +519,7 @@ export type Company = {
       url: string;
     }[];
   };
+  og?: OgConfig;
 };
 
 const tsoTexasCompany: Company = {
@@ -1526,6 +1537,13 @@ const tsoTexasCompany: Company = {
         { platform: "youtube", url: "https://youtube.com/" },
       ],
     },
+
+  og: {
+    image: "/companies/tso-texas/og/og-image.png",
+    tintColor: "#0B1F4D",
+    tintOpacity: 0.58,
+    gradientDirection: "to bottom",
+  },
 };
 
 export const companies: Record<string, Company> = {

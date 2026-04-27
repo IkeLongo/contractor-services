@@ -8,14 +8,9 @@ import { TestimonialsSection } from "./components/home/TestimonialsSection";
 import { LogoSection } from "./components/home/LogoSection";
 import { ContactSection } from "./components/home/ContactSectionHome";
 import { companies, getCompanyBySlug } from "@/data/companies";
+import { getCompany } from "@/lib/get-company";
 
 const FALLBACK_SLUG = "tso-texas";
-
-async function getCompany() {
-  const headersList = await headers();
-  const slug = headersList.get("x-company-slug") ?? FALLBACK_SLUG;
-  return getCompanyBySlug(slug) || getCompanyBySlug(FALLBACK_SLUG)!;
-}
 
 export default async function Home() {
   const company = await getCompany();
