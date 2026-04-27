@@ -53,7 +53,7 @@ export function ServiceImageBentoGallery({ company, service }: ServiceImageBento
   return (
     <section
       className="py-16 md:py-20"
-      style={{ backgroundColor: s?.cardBackground ?? "#ffffff" }}
+      style={{ backgroundColor: t.background }}
     >
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         <div className="text-center mb-10">

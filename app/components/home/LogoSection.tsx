@@ -70,7 +70,7 @@ export function LogoSection({ company }: LogoSectionProps) {
 
   return (
     <section
-      className="overflow-hidden px-4 py-10 md:py-20 lg:py-32"
+      className="overflow-hidden py-16 md:py-20 lg:py-24 px-4 sm:px-6 lg:px-8"
       style={{ backgroundColor: section.styles?.background || undefined }}
     >
       <h2

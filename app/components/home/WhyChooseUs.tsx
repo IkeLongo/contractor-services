@@ -59,7 +59,7 @@ export function WhyChooseUs({ company }: WhyChooseUsProps) {
     <section
       id="features"
       style={cssVars as any}
-      className="relative overflow-hidden bg-[var(--section-bg)] px-4 py-10 md:py-24 lg:py-32"
+      className="relative overflow-hidden bg-[var(--section-bg)] py-16 md:py-20 lg:py-24 px-4 sm:px-6 lg:px-8"
     >
       <div className="pointer-events-none absolute inset-0">
         <div className="absolute inset-0 bg-gradient-to-b from-white/70 via-transparent to-slate-200/60" />
@@ -78,7 +78,7 @@ export function WhyChooseUs({ company }: WhyChooseUsProps) {
             </p>
           )}
           <h2
-            className="text-2xl font-black tracking-tight md:text-4xl text-[var(--title)]"
+            className="text-2xl text-center font-black tracking-tight md:text-4xl text-[var(--title)]"
             style={{ color: "var(--title)" }}
           >
             {company.differentiators.title}

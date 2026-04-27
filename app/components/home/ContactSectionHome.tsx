@@ -68,11 +68,11 @@ export function ContactSection({ company }: ContactSectionProps) {
       >
         <div className="mx-auto flex w-full max-w-md flex-col gap-8">
           <div className="flex flex-col gap-6">
-            <img
+            {/* <img
               src={company.branding.navLogo}
               alt={company.name}
               className="h-20 w-auto object-contain object-left"
-            />
+            /> */}
             <div className="flex flex-col gap-2">
               <h2
                 className="max-w-[30ch] text-2xl/8 font-black tracking-tight text-balance text-neutral-900 sm:text-3xl/8 dark:text-white"

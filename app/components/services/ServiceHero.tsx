@@ -13,7 +13,10 @@ export function ServiceHero({ company, service }: ServiceHeroProps) {
   const heroDesc = service.heroDescription ?? service.description;
 
   return (
-    <section className="py-16 md:py-20 px-4 sm:px-6 lg:px-8 bg-white">
+    <section
+      className="py-16 md:py-20 px-4 sm:px-6 lg:px-8"
+      style={{ backgroundColor: t.background }}
+    >
       <div className="max-w-6xl mx-auto">
         <div className="grid lg:grid-cols-2 gap-12 lg:gap-16 items-center">
           {/* Left: text */}

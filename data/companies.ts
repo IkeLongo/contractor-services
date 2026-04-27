@@ -534,7 +534,7 @@ const tsoTexasCompany: Company = {
       primary: "#0B1F4D",
       secondary: "#C62828",
       accent: "#F8FAFC",
-      background: "#F8FAFC",
+      background: "#F3F6FA",
       surface: "#FFFFFF",
       text: "#111827",
       mutedText: "#475569",
@@ -1455,7 +1455,7 @@ const tsoTexasCompany: Company = {
       },
       styles: {
         home: {
-          formBg: "rgba(250, 250, 250, 1)",
+          formBg: "#F3F6FA",
           text: "#0B1F4D",
           mutedText: "#1d2838",
         },

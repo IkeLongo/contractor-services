@@ -110,7 +110,7 @@ export function ServiceNarrative({ company, service }: ServiceNarrativeProps) {
                   </p>
                 )}
 
-                <div className="relative mt-4 overflow-hidden rounded-3xl p-4 md:p-6">
+                <div className="relative mt-4 overflow-hidden rounded-3xl p-0 md:p-6">
                   <img
                     src={company.branding.logo}
                     alt=""

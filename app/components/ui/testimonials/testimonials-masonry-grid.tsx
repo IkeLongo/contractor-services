@@ -39,7 +39,7 @@ export function TestimonialsMasonryGrid({
   return (
     <div>
       <div 
-        className="mx-auto mt-10 grid max-w-7xl grid-cols-1 items-start gap-4 px-4 md:grid-cols-2 md:px-8 lg:grid-cols-4"
+        className="mx-auto mt-10 grid max-w-7xl grid-cols-1 items-start gap-4 px-0 md:grid-cols-2 md:px-8 lg:grid-cols-4"
         style={{ background: testimonials?.styles?.background }}
       >
         {grid.map((testimonialsCol, index) => (
