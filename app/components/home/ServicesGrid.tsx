@@ -113,7 +113,7 @@ export function ServicesGrid({ company, id = "services" }: ServicesGridProps) {
   const s = company.services.styles;
   const t = company.theme;
   const fallback = {
-    background: "#fff",
+    background: "#F3F6FA",
     primary: "#0B1F4D",
     secondary: "#C62828",
     surface: "#fff",
@@ -124,7 +124,7 @@ export function ServicesGrid({ company, id = "services" }: ServicesGridProps) {
   const theme = t || fallback;
 
   const cssVars = {
-    "--section-bg": s?.background || "#FFFFFF",
+    "--section-bg": s?.background || theme.background,
     "--eyebrow": s?.eyebrow || theme.secondary,
     "--title": s?.title || theme.text,
     "--description": s?.description || theme.mutedText,
