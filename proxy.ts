@@ -1,40 +1,29 @@
 import { NextRequest, NextResponse } from "next/server";
 import { companies } from "./data/companies";
 
-function getSubdomain(host: string) {
-  const hostname = host.split(":")[0]; // remove port
-
-  // local: tso-texas.contractor-services.localhost:3000
-  if (hostname.endsWith(".contractor-services.localhost")) {
-    return hostname.replace(".contractor-services.localhost", "");
-  }
-
-  // live: tso-texas.contractor-services.rivercitycreatives.com
-  if (hostname.endsWith(".contractor-services.rivercitycreatives.com")) {
-    return hostname.replace(".contractor-services.rivercitycreatives.com", "");
-  }
-
-  return null;
-}
-
 export function proxy(req: NextRequest) {
   const host = req.headers.get("host") ?? "";
-  const subdomain = getSubdomain(host);
+  // Extract the first segment of the hostname as the subdomain/slug.
+  // e.g. "top-tier-renovations.contractor-services.localhost:3000" → "top-tier-renovations"
+  const subdomain = host.split(".")[0];
+
+  console.log("[proxy] HOST:", host);
+  console.log("[proxy] SUBDOMAIN:", subdomain);
+  console.log("[proxy] available company keys:", Object.keys(companies));
 
   if (!subdomain || !(subdomain in companies)) {
+    console.log("[proxy] no match — using default company");
     return NextResponse.next();
   }
 
-  const requestHeaders = new Headers(req.headers);
-  requestHeaders.set("x-company-slug", subdomain);
+  console.log("[proxy] matched company:", subdomain);
 
   return NextResponse.next({
     request: {
-      headers: requestHeaders,
+      headers: new Headers({
+        ...Object.fromEntries(req.headers),
+        "x-company-slug": subdomain,
+      }),
     },
   });
 }
-
-export const config = {
-  matcher: ["/((?!api|_next/static|_next/image|favicon.ico|logos|.*\\..*).*)"],
-};

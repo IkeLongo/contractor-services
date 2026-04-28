@@ -1,7 +1,9 @@
 import type { NextConfig } from "next";
 
 const nextConfig: NextConfig = {
-  /* config options here */
+  allowedDevOrigins: [
+    "*.contractor-services.localhost",
+  ],
 };
 
 export default nextConfig;
