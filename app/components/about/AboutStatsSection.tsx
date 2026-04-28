@@ -10,7 +10,7 @@ interface AboutStatsSectionProps {
 
 export function AboutStatsSection({ company }: AboutStatsSectionProps) {
   const stats = company.about.stats;
-  const t = company.theme;
+  const t = company.branding.theme;
 
   if (!stats || !stats.items || stats.items.length === 0) return null;
 

@@ -22,7 +22,7 @@ const SOCIAL_ICON_MAP = {
 };
 
 export function Footer({ company }: FooterProps) {
-  const { branding, footer, services, navigation, name, phone, email, city, state } = company;
+  const { branding, footer, services, navigation, general } = company;
 
   return (
     <footer style={{ backgroundColor: branding.primaryColor }}>
@@ -32,7 +32,7 @@ export function Footer({ company }: FooterProps) {
         {/* Column 1 — Logo + short description */}
         <div className="flex flex-col gap-5">
           <Link href="/" className="relative h-16 w-48 block">
-            <Image src={branding.navLogo} alt={name} fill className="object-contain object-left" />
+            <Image src={branding.navLogo} alt={general.name} fill className="object-contain object-left" />
           </Link>
           <p className="text-white/55 text-sm leading-relaxed">{footer.shortDescription}</p>
           {/* <p className="text-white/40 text-xs">{footer.serviceArea}</p> */}
@@ -75,12 +75,12 @@ export function Footer({ company }: FooterProps) {
         <div className="flex flex-col gap-4">
           <h3 className="text-white text-sm font-bold uppercase tracking-widest">Contact Us</h3>
           <div className="flex flex-col gap-2 text-sm text-white/55">
-            <p>{city}, {state}</p>
-            <a href={`tel:${phone}`} className="hover:text-white transition font-semibold text-white/80 mt-1">
-              {phone}
+            <p>{general.city}, {general.state}</p>
+            <a href={`tel:${general.phone}`} className="hover:text-white transition font-semibold text-white/80 mt-1">
+              {general.phone}
             </a>
-            <a href={`mailto:${email}`} className="hover:text-white transition">
-              {email}
+            <a href={`mailto:${general.email}`} className="hover:text-white transition">
+              {general.email}
             </a>
           </div>
           {footer.socials && footer.socials.length > 0 && (
@@ -124,7 +124,7 @@ export function Footer({ company }: FooterProps) {
             </Link> */}
           </div>
           <div className="flex flex-wrap items-center gap-3 sm:gap-5">
-            <p>&copy; {new Date().getFullYear()} {name}. All rights reserved.</p>
+            <p>&copy; {new Date().getFullYear()} {general.name}. All rights reserved.</p>
             <div className="flex items-center gap-4">
               <Link href="/privacy-policy" className="hover:text-white/60 transition">Privacy Policy</Link>
               <Link href="/terms-and-conditions" className="hover:text-white/60 transition">Terms &amp; Conditions</Link>

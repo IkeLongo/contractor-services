@@ -39,7 +39,7 @@ function buildFallbackItems(
 ): SnapshotItem[] {
   return [
     { label: "Service", value: project.category ?? project.title, icon: "Wrench" },
-    { label: "Location", value: `${company.city}, ${company.state}`, icon: "MapPin" },
+    { label: "Location", value: `${company.general.city}, ${company.general.state}`, icon: "MapPin" },
     { label: "Timeline", value: project.title, icon: "Clock" },
     { label: "Scope", value: "Multi-trade support", icon: "Layers" },
   ];
@@ -54,6 +54,8 @@ export function ProjectSnapshotSection({
   company,
   project,
 }: ProjectSnapshotSectionProps) {
+  const t = company.branding.theme;
+  
   const items =
     project.snapshot && project.snapshot.length > 0
       ? project.snapshot
@@ -62,20 +64,20 @@ export function ProjectSnapshotSection({
   return (
     <section
       className="py-14 md:py-20 px-4 sm:px-6 lg:px-8"
-      style={{ backgroundColor: company.theme.background }}
+      style={{ backgroundColor: t.background }}
     >
       <div className="max-w-5xl mx-auto">
         {/* Header */}
         <div className="mb-10 text-center">
           <h2
             className="text-2xl md:text-3xl font-black tracking-tight"
-            style={{ color: company.theme.primary }}
+            style={{ color: t.primary }}
           >
             Project Snapshot
           </h2>
           <p
             className="mt-2 text-sm md:text-base"
-            style={{ color: company.theme.mutedText }}
+            style={{ color: t.mutedText }}
           >
             A quick look at the project scope, service type, and outcome.
           </p>
@@ -94,9 +96,9 @@ export function ProjectSnapshotSection({
                 transition={{ duration: 0.4, delay: index * 0.08 }}
                 className="relative overflow-hidden flex flex-col gap-3 rounded-xl border p-5"
                 style={{
-                  backgroundColor: company.theme.surface,
-                  borderColor: company.theme.border,
-                  ["--card-border" as string]: company.theme.border,
+                  backgroundColor: t.surface,
+                  borderColor: t.border,
+                  ["--card-border" as string]: t.border,
                 }}
               >
                 {/* Dot grid texture */}
@@ -109,18 +111,18 @@ export function ProjectSnapshotSection({
                 <div className="relative z-10 flex flex-col gap-3">
                   <Icon
                     className="size-5 flex-shrink-0"
-                    style={{ color: company.theme.primary }}
+                    style={{ color: t.primary }}
                   />
                   <div className="flex flex-col gap-0.5">
                     <span
                       className="text-[11px] font-bold uppercase tracking-widest"
-                      style={{ color: company.theme.mutedText }}
+                      style={{ color: t.mutedText }}
                     >
                       {item.label}
                     </span>
                     <span
                       className="text-base font-bold leading-snug"
-                      style={{ color: company.theme.text }}
+                      style={{ color: t.text }}
                     >
                       {item.value}
                     </span>

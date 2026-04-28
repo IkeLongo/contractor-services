@@ -33,7 +33,7 @@ function resolveIcon(name?: string): TablerIcon {
 export function AboutDifferentiators({ company }: { company: Company }) {
   const section = company.about.differentiators;
   const s = section?.styles;
-  const t = company.theme;
+  const t = company.branding.theme;
 
   if (!section || !section.items || section.items.length === 0) return null;
 

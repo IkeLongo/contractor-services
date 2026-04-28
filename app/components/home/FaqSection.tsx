@@ -14,7 +14,7 @@ export function FaqSection({ company }: FaqSectionProps) {
   if (!faq || faq.items.length === 0) return null;
 
   const s = faq.styles;
-  const t = company.theme;
+  const t = company.branding.theme;
 
   const accent = s?.accent ?? t.secondary;
   const bg = s?.background ?? t.background;

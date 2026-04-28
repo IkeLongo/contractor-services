@@ -1,6 +1,6 @@
 import type { Metadata } from "next";
 import { Geist, Geist_Mono } from "next/font/google";
-import { Navbar } from "./components//layout/navbar/Navbar";
+import { ClassicNavbar } from "./components/layout/navbar/ClassicNavbar";
 import { Footer } from "@/app/components/layout/footer/Footer";
 import { getCompany } from "@/lib/get-company";
 
@@ -19,21 +19,21 @@ const geistMono = Geist_Mono({
 export async function generateMetadata(): Promise<Metadata> {
   const company = await getCompany();
 
-  const title = company.seo?.title ?? `${company.name} | Contractor Services in ${company.city}`;
+  const title = company.seo?.title ?? `${company.general.name} | Contractor Services in ${company.general.city}`;
   const description =
     company.seo?.description ??
-    `Reliable maintenance, renovations, networking, and fabrication services in ${company.city}, ${company.state}. Call ${company.phone}.`;
+    `Reliable maintenance, renovations, networking, and fabrication services in ${company.general.city}, ${company.general.state}. Call ${company.general.phone}.`;
 
   return {
     title: {
       default: title,
-      template: `%s | ${company.name}`,
+      template: `%s | ${company.general.name}`,
     },
     description,
     openGraph: {
       type: "website",
       locale: "en_US",
-      siteName: company.name,
+      siteName: company.general.name,
       title,
       description,
       images: [
@@ -41,7 +41,7 @@ export async function generateMetadata(): Promise<Metadata> {
           url: company.og?.image ?? "/companies/tso-texas/og/og-image.png",
           width: 1200,
           height: 630,
-          alt: `${company.name} preview image`,
+          alt: `${company.general.name} preview image`,
         },
       ],
     },
@@ -70,7 +70,7 @@ export default async function RootLayout({
       className={`${geistSans.variable} ${geistMono.variable} h-full antialiased`}
     >
       <body className="min-h-full flex flex-col">
-        <Navbar company={company} />
+        <ClassicNavbar company={company} />
         {children}
         <Footer company={company} />
       </body>

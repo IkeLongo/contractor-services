@@ -6,7 +6,7 @@ interface ContactSectionProps {
 
 export function ContactSection({ company }: ContactSectionProps) {
   const { contact } = company;
-  const t = company.theme;
+  const t = company.branding.theme;
   const s = contact.styles?.home;
 
   const styles = {

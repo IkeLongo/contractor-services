@@ -27,7 +27,7 @@ interface WhyChooseUsProps {
 export function WhyChooseUs({ company }: WhyChooseUsProps) {
   // Section-level style overrides with fallbacks
   const s = company.differentiators.styles;
-  const t = company.theme;
+  const t = company.branding.theme;
   // Fallbacks for theme in case it's missing
   const fallback = {
     background: "#fff",

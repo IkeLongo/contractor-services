@@ -7,6 +7,6 @@ export async function getCompany(): Promise<Company> {
   const slug = headersList.get("x-company-slug");
   console.log("[getCompany] x-company-slug header:", slug);
   const company = getCompanyBySlug(slug);
-  console.log("[getCompany] resolved company:", company.slug);
+  console.log("[getCompany] resolved company:", company.general.slug);
   return company;
 }

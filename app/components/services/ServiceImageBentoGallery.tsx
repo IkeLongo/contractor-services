@@ -16,7 +16,7 @@ const FALLBACK_LABELS = [
 const LAYOUT_CLASSES = ["md:col-span-2", "md:col-span-1", "md:col-span-1", "md:col-span-2"];
 
 export function ServiceImageBentoGallery({ company, service }: ServiceImageBentoGalleryProps) {
-  const t = company.theme;
+  const t = company.branding.theme;
   const s = company.services.styles?.gallery;
 
   const fallbackImage = service.image;

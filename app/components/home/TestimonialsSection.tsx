@@ -7,7 +7,7 @@ interface TestimonialsSectionProps {
 
 export function TestimonialsSection({ company }: TestimonialsSectionProps) {
   const s = company.testimonials.styles;
-  const t = company.theme;
+  const t = company.branding.theme;
   const cssVars = {
     "--section-bg": s?.background || t.background,
     "--eyebrow": s?.eyebrow || t.secondary,

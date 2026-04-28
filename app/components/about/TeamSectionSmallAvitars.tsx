@@ -4,7 +4,7 @@ import type { Company } from "@/data/companies";
 export function TeamSectionWithSmallAvatars({ company }: { company: Company }) {
   const team = company.about.team;
   const s = team?.styles;
-  const t = company.theme;
+  const t = company.branding.theme;
 
   if (!team || !team.members || team.members.length === 0) return null;
 

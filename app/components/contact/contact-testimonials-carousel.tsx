@@ -33,7 +33,7 @@ function StarRating({ rating, color }: { rating: number; color: string }) {
 }
 
 export function ContactTestimonialsCarousel({ company }: ContactTestimonialsCarouselProps) {
-  const t = company.theme;
+  const t = company.branding.theme;
   // Use company testimonials if available, otherwise fall back to dummy data
   const items: TestimonialItem[] =
     (company.testimonials.items && company.testimonials.items.length > 0)

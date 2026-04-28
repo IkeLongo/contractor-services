@@ -6,14 +6,17 @@ interface CaseStudyHeaderProps {
   project: PortfolioItem;
 }
 
-export function CaseStudyHeader({ company, project }: CaseStudyHeaderProps) {
+export function CaseStudyHeader(
+  { company, project }: CaseStudyHeaderProps) {
+  const t = company.branding.theme;
   return (
-    <section className="py-16 md:py-24 px-4 sm:px-6 lg:px-8" style={{ backgroundColor: company.theme.background }}>
+    
+    <section className="py-16 md:py-24 px-4 sm:px-6 lg:px-8" style={{ backgroundColor: t.background }}>
       <div className="max-w-5xl mx-auto flex flex-col items-center text-center gap-6">
         {project.category && (
           <p
             className="text-xs font-bold uppercase tracking-widest"
-            style={{ color: company.theme.secondary }}
+            style={{ color: t.secondary }}
           >
             {project.category}
           </p>
@@ -21,7 +24,7 @@ export function CaseStudyHeader({ company, project }: CaseStudyHeaderProps) {
 
         <h1
           className="text-3xl md:text-5xl font-black leading-tight tracking-tight max-w-3xl"
-          style={{ color: company.theme.primary }}
+          style={{ color: t.primary }}
         >
           {project.projectName || project.title}
         </h1>
@@ -29,7 +32,7 @@ export function CaseStudyHeader({ company, project }: CaseStudyHeaderProps) {
         {project.projectName && (
           <p
             className="text-sm font-semibold uppercase tracking-wider -mt-2"
-            style={{ color: company.theme.mutedText }}
+            style={{ color: t.mutedText }}
           >
             {project.title}
           </p>
@@ -38,7 +41,7 @@ export function CaseStudyHeader({ company, project }: CaseStudyHeaderProps) {
         {project.description && (
           <p
             className="text-base md:text-lg leading-relaxed max-w-2xl"
-            style={{ color: company.theme.mutedText }}
+            style={{ color: t.mutedText }}
           >
             {project.description}
           </p>

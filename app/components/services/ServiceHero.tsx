@@ -8,7 +8,7 @@ interface ServiceHeroProps {
 }
 
 export function ServiceHero({ company, service }: ServiceHeroProps) {
-  const t = company.theme;
+  const t = company.branding.theme;
   const heroTitle = service.heroTitle ?? service.title;
   const heroDesc = service.heroDescription ?? service.description;
 

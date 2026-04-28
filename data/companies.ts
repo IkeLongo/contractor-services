@@ -152,17 +152,6 @@ export type HeroStyles = {
   highlightText?: string;
 };
 
-export type CompanyTheme = {
-  primary: string;
-  secondary: string;
-  accent: string;
-  background: string;
-  surface: string;
-  text: string;
-  mutedText: string;
-  border: string;
-};
-
 export type DifferentiatorStyles = {
   background?: string;
   eyebrow?: string;
@@ -225,24 +214,8 @@ export type OgConfig = {
 };
 
 export type Company = {
-  slug: string;
-  subdomain: string;
-  name: string;
-  legalName?: string;
-  tagline: string;
-  phone: string;
-  email: string;
-  city: string;
-  state: string;
-  googlePlaceId?: string;
-  branding: {
-    logo: string;
-    navLogo: string;
-    primaryColor: string;
-    secondaryColor: string;
-    accentColor: string;
-  };
-  theme: CompanyTheme;
+  general: General;
+  branding: Branding;
   seo: {
     title: string;
     description: string;
@@ -522,34 +495,64 @@ export type Company = {
   og?: OgConfig;
 };
 
+export type General = {
+  slug: string;
+  subdomain: string;
+  name: string;
+  legalName?: string;
+  tagline: string;
+  phone: string;
+  email: string;
+  city: string;
+  state: string;
+  googlePlaceId?: string;
+};
+
+export type Branding = {
+  logo: string;
+  navLogo: string;
+
+  theme: Theme;
+};
+
+export type Theme = {
+  primary: string;
+  secondary: string;
+  accent: string;
+  background: string;
+  surface: string;
+  text: string;
+  mutedText: string;
+  border: string;
+};
+
 const tsoTexasCompany: Company = {
-  slug: "tso-texas",
-  subdomain: "tso-texas",
-  name: "TSO Texas",
-  legalName: "TSO Texas Residential & Commercial Services, LLC",
-  tagline: "Residential & Commercial Services",
-  phone: "210-465-5077",
-  email: "tsotservices@gmail.com",
-  city: "San Antonio",
-  state: "TX",
+  general: {
+    slug: "tso-texas",
+    subdomain: "tso-texas",
+    name: "TSO Texas",
+    legalName: "TSO Texas Residential & Commercial Services, LLC",
+    tagline: "Residential & Commercial Services",
+    phone: "210-465-5077",
+    email: "tsotservices@gmail.com",
+    city: "San Antonio",
+    state: "TX",
+  },
 
   branding: {
     logo: "/companies/tso-texas/logos/tso-texas-logo.webp",
     navLogo: "/companies/tso-texas/logos/tso-texas-hor-logo.png",
-    primaryColor: "#0B1F4D",
-    secondaryColor: "#C62828",
-    accentColor: "#F3F4F6",
-  },
 
-  theme: {
-    primary: "#0B1F4D",
-    secondary: "#C62828",
-    accent: "#F8FAFC",
-    background: "#F3F6FA",
-    surface: "#FFFFFF",
-    text: "#111827",
-    mutedText: "#475569",
-    border: "#E2E8F0",
+    theme: {
+      primary: "#0B1F4D",
+      secondary: "#C62828",
+      accent: "#F8FAFC",
+      background: "#F3F6FA",
+      surface: "#FFFFFF",
+      text: "#111827",
+      mutedText: "#475569",
+      border: "#E2E8F0",
+    },
   },
 
   seo: {
@@ -1547,36 +1550,34 @@ const tsoTexasCompany: Company = {
 };
 
 const topTierRenovationsCompany: Company = {
-  slug: "top-tier-renovations",
-  subdomain: "top-tier-renovations",
-  name: "Top Tier Renovations",
-  legalName: "Top Tier Renovations LLC", // TODO: confirm legal business name
-  tagline: "Revamp • Renew • Refresh",
-  phone: "(210) 612-9114",
-  email: "info@toptierrenovations.com", // TODO: confirm email
-  city: "San Antonio",
-  state: "TX",
-  googlePlaceId: "", // TODO: add Google Place ID
+  general: {
+    slug: "top-tier-renovations",
+    subdomain: "top-tier-renovations",
+    name: "Top Tier Renovations",
+    legalName: "Top Tier Renovations LLC", // TODO: confirm legal business name
+    tagline: "Revamp • Renew • Refresh",
+    phone: "(210) 612-9114",
+    email: "sammygarza44@icloud.com", // TODO: confirm email
+    city: "San Antonio",
+    state: "TX",
+    googlePlaceId: "", // TODO: add Google Place ID
+  },
   branding: {
     logo: "/logos/top-tier-renovations.png", // TODO: upload + confirm path
     navLogo: "/logos/top-tier-renovations-nav.png", // TODO: create simplified/white version for navbar
+    theme: {
+      primary: "#1E90FF",      // strong electric blue (CTA, buttons, highlights)
+      secondary: "#0B0F14",    // deep dark for sections/hero backgrounds
+      accent: "#F8FAFC",       // soft white for contrast elements
 
-    primaryColor: "#1E90FF", // electric blue from highlights
-    secondaryColor: "#0B0F14", // deep dark metallic background
-    accentColor: "#FFFFFF", // clean contrast for text/buttons
-  },
-  theme: {
-    primary: "#1E90FF",      // strong electric blue (CTA, buttons, highlights)
-    secondary: "#0B0F14",    // deep dark for sections/hero backgrounds
-    accent: "#F8FAFC",       // soft white for contrast elements
+      background: "#F3F6FA",   // light neutral page background
+      surface: "#FFFFFF",      // cards / containers
 
-    background: "#F3F6FA",   // light neutral page background
-    surface: "#FFFFFF",      // cards / containers
+      text: "#0F172A",         // slightly softer than pure black (better UX)
+      mutedText: "#475569",    // secondary text
 
-    text: "#0F172A",         // slightly softer than pure black (better UX)
-    mutedText: "#475569",    // secondary text
-
-    border: "#E2E8F0",       // subtle borders/dividers
+      border: "#E2E8F0",       // subtle borders/dividers
+    },
   },
   seo: {
     title: "Top Tier Renovations | Home Remodeling in San Antonio, TX",
@@ -2407,8 +2408,8 @@ const topTierRenovationsCompany: Company = {
 
 // slug === subdomain for all companies — keyed by slug/subdomain interchangeably.
 export const companies: Record<string, Company> = {
-  [tsoTexasCompany.slug]: tsoTexasCompany,
-  [topTierRenovationsCompany.slug]: topTierRenovationsCompany,
+  [tsoTexasCompany.general.slug]: tsoTexasCompany,
+  [topTierRenovationsCompany.general.slug]: topTierRenovationsCompany,
 };
 
 export const defaultCompany: Company = tsoTexasCompany;

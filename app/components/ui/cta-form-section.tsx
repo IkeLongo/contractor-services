@@ -32,11 +32,11 @@ export function CtaFormSection({
   selectedServiceSlug,
   shouldPreselectService = false,
 }: CtaFormSectionProps) {
-  const t = company.theme;
+  const t = company.branding.theme;
 
   const resolvedImage =
     image ?? company.finalCta.image ?? company.contact.backgroundImage;
-  const resolvedImageAlt = imageAlt ?? company.name;
+  const resolvedImageAlt = imageAlt ?? company.general.name;
   const resolvedBg = background ?? t.background;
   const resolvedFormBg = formBackground ?? "#ffffff";
   const resolvedButtonBg = buttonBg ?? t.primary;

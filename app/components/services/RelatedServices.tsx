@@ -8,7 +8,7 @@ interface RelatedServicesProps {
 }
 
 export function RelatedServices({ company, service }: RelatedServicesProps) {
-  const t = company.theme;
+  const t = company.branding.theme;
   const relatedServices = company.services.items
     .filter((item) => item.slug && item.slug !== service.slug)
     .slice(0, 3);

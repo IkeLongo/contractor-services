@@ -11,25 +11,28 @@ interface CaseStudyCtaSectionProps {
 }
 
 export function CaseStudyCtaSection({ company }: CaseStudyCtaSectionProps) {
-  const { finalCta, theme } = company;
+  const g = company.general;
+  const t = company.branding.theme;
+
+  const { finalCta } = company;
   const [hovered, setHovered] = useState(false);
 
-  const buttonBg = finalCta.styles?.buttonBg ?? theme.secondary;
+  const buttonBg = finalCta.styles?.buttonBg ?? t.secondary;
   const buttonText = finalCta.styles?.buttonText ?? "#ffffff";
-  const titleColor = finalCta.styles?.title ?? theme.text;
-  const descColor = finalCta.styles?.description ?? theme.mutedText;
+  const titleColor = finalCta.styles?.title ?? t.text;
+  const descColor = finalCta.styles?.description ?? t.mutedText;
 
   const image = finalCta.image;
-  const imageAlt = finalCta.imageAlt ?? `${company.name} team`;
+  const imageAlt = finalCta.imageAlt ?? `${g.name} team`;
 
   return (
     <section
       className="py-20 md:py-28 px-4 sm:px-6 lg:px-8"
       style={{
         background:
-          company.theme.background
-            ? `linear-gradient(to bottom, ${company.theme.background}, ${theme.surface})`
-            : `linear-gradient(to bottom, ${theme.surface}, ${theme.background})`,
+          t.background
+            ? `linear-gradient(to bottom, ${t.background}, ${t.surface})`
+            : `linear-gradient(to bottom, ${t.surface}, ${t.background})`,
       }}
     >
       <div className="max-w-7xl mx-auto">
@@ -76,7 +79,7 @@ export function CaseStudyCtaSection({ company }: CaseStudyCtaSectionProps) {
                 <Link
                   href={finalCta.secondaryCta.href}
                   className="text-sm font-bold uppercase tracking-wider transition-opacity duration-200 hover:opacity-70"
-                  style={{ color: theme.mutedText }}
+                  style={{ color: t.mutedText }}
                 >
                   {finalCta.secondaryCta.label}
                 </Link>

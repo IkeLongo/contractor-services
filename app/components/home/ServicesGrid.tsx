@@ -18,7 +18,7 @@ function ServiceCard({
 }) {
   // Section-level style overrides with fallbacks
   const s = company.services.styles;
-  const t = company.theme;
+  const t = company.branding.theme;
   // Fallbacks for theme in case it's missing
   const fallback = {
     background: "#fff",
@@ -111,7 +111,7 @@ interface ServicesGridProps {
 
 export function ServicesGrid({ company, id = "services" }: ServicesGridProps) {
   const s = company.services.styles;
-  const t = company.theme;
+  const t = company.branding.theme;
   const fallback = {
     background: "#F3F6FA",
     primary: "#0B1F4D",

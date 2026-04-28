@@ -10,7 +10,8 @@ interface ServicesHeroProps {
 }
 
 export function ServicesHero({ company }: ServicesHeroProps) {
-  const { theme, services, contact, hero } = company;
+  const { services, contact, hero } = company;
+  const t = company.branding.theme;
 
   const bgImage =
     contact.backgroundImage ??
@@ -50,7 +51,7 @@ export function ServicesHero({ company }: ServicesHeroProps) {
             {services.eyebrow && (
               <p
                 className="text-xs font-bold uppercase tracking-widest"
-                style={{ color: theme.secondary }}
+                style={{ color: t.secondary }}
               >
                 {services.eyebrow}
               </p>
@@ -71,9 +72,9 @@ export function ServicesHero({ company }: ServicesHeroProps) {
                 href="#contact"
                 className="inline-flex items-center gap-2 rounded-xl px-7 py-4 text-sm font-bold uppercase tracking-wider transition-all duration-200 hover:-translate-y-0.5"
                 style={{
-                  backgroundColor: theme.secondary,
+                  backgroundColor: t.secondary,
                   color: "#ffffff",
-                  boxShadow: `0 4px 18px ${theme.secondary}55`,
+                  boxShadow: `0 4px 18px ${t.secondary}55`,
                 }}
               >
                 Request a Quote
@@ -98,11 +99,11 @@ export function ServicesHero({ company }: ServicesHeroProps) {
           >
             <h2
               className="text-lg font-black mb-1"
-              style={{ color: theme.primary }}
+              style={{ color: t.primary }}
             >
               Get a Free Quote
             </h2>
-            <p className="text-sm mb-6" style={{ color: theme.mutedText }}>
+            <p className="text-sm mb-6" style={{ color: t.mutedText }}>
               Tell us about your project and we'll be in touch.
             </p>
 
@@ -116,7 +117,7 @@ export function ServicesHero({ company }: ServicesHeroProps) {
                   <label
                     htmlFor="hero-name"
                     className="text-xs font-semibold uppercase tracking-wider"
-                    style={{ color: theme.mutedText }}
+                    style={{ color: t.mutedText }}
                   >
                     Name
                   </label>
@@ -130,10 +131,10 @@ export function ServicesHero({ company }: ServicesHeroProps) {
                     }
                     className="rounded-lg border px-3.5 py-2.5 text-sm outline-none transition focus:ring-2"
                     style={{
-                      borderColor: theme.border,
-                      color: theme.text,
+                      borderColor: t.border,
+                      color: t.text,
                       // @ts-expect-error CSS custom property
-                      "--tw-ring-color": theme.secondary,
+                      "--tw-ring-color": t.secondary,
                     }}
                   />
                 </div>
@@ -141,7 +142,7 @@ export function ServicesHero({ company }: ServicesHeroProps) {
                   <label
                     htmlFor="hero-email"
                     className="text-xs font-semibold uppercase tracking-wider"
-                    style={{ color: theme.mutedText }}
+                    style={{ color: t.mutedText }}
                   >
                     Email
                   </label>
@@ -155,10 +156,10 @@ export function ServicesHero({ company }: ServicesHeroProps) {
                     }
                     className="rounded-lg border px-3.5 py-2.5 text-sm outline-none transition focus:ring-2"
                     style={{
-                      borderColor: theme.border,
-                      color: theme.text,
+                      borderColor: t.border,
+                      color: t.text,
                       // @ts-expect-error CSS custom property
-                      "--tw-ring-color": theme.secondary,
+                      "--tw-ring-color": t.secondary,
                     }}
                   />
                 </div>
@@ -169,7 +170,7 @@ export function ServicesHero({ company }: ServicesHeroProps) {
                 <label
                   htmlFor="hero-phone"
                   className="text-xs font-semibold uppercase tracking-wider"
-                  style={{ color: theme.mutedText }}
+                  style={{ color: t.mutedText }}
                 >
                   Phone
                 </label>
@@ -183,10 +184,10 @@ export function ServicesHero({ company }: ServicesHeroProps) {
                   }
                   className="rounded-lg border px-3.5 py-2.5 text-sm outline-none transition focus:ring-2"
                   style={{
-                    borderColor: theme.border,
-                    color: theme.text,
+                    borderColor: t.border,
+                    color: t.text,
                     // @ts-expect-error CSS custom property
-                    "--tw-ring-color": theme.secondary,
+                    "--tw-ring-color": t.secondary,
                   }}
                 />
               </div>
@@ -196,7 +197,7 @@ export function ServicesHero({ company }: ServicesHeroProps) {
                 <label
                   htmlFor="hero-service"
                   className="text-xs font-semibold uppercase tracking-wider"
-                  style={{ color: theme.mutedText }}
+                  style={{ color: t.mutedText }}
                 >
                   Service Needed
                 </label>
@@ -208,10 +209,10 @@ export function ServicesHero({ company }: ServicesHeroProps) {
                   }
                   className="rounded-lg border px-3.5 py-2.5 text-sm outline-none transition focus:ring-2 bg-white"
                   style={{
-                    borderColor: theme.border,
-                    color: formData.service ? theme.text : theme.mutedText,
+                    borderColor: t.border,
+                    color: formData.service ? t.text : t.mutedText,
                     // @ts-expect-error CSS custom property
-                    "--tw-ring-color": theme.secondary,
+                    "--tw-ring-color": t.secondary,
                   }}
                 >
                   <option value="" disabled>
@@ -230,7 +231,7 @@ export function ServicesHero({ company }: ServicesHeroProps) {
                 <label
                   htmlFor="hero-message"
                   className="text-xs font-semibold uppercase tracking-wider"
-                  style={{ color: theme.mutedText }}
+                  style={{ color: t.mutedText }}
                 >
                   Message
                 </label>
@@ -244,10 +245,10 @@ export function ServicesHero({ company }: ServicesHeroProps) {
                   }
                   className="rounded-lg border px-3.5 py-2.5 text-sm outline-none transition focus:ring-2 resize-none"
                   style={{
-                    borderColor: theme.border,
-                    color: theme.text,
+                    borderColor: t.border,
+                    color: t.text,
                     // @ts-expect-error CSS custom property
-                    "--tw-ring-color": theme.secondary,
+                    "--tw-ring-color": t.secondary,
                   }}
                 />
               </div>
@@ -257,8 +258,8 @@ export function ServicesHero({ company }: ServicesHeroProps) {
                 type="submit"
                 className="mt-1 inline-flex items-center justify-center gap-2 rounded-xl px-6 py-3.5 text-sm font-bold uppercase tracking-wider text-white transition-all duration-200 hover:-translate-y-0.5"
                 style={{
-                  backgroundColor: theme.primary,
-                  boxShadow: `0 4px 14px ${theme.primary}44`,
+                  backgroundColor: t.primary,
+                  boxShadow: `0 4px 14px ${t.primary}44`,
                 }}
               >
                 Send Request

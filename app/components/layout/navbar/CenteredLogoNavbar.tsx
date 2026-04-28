@@ -11,7 +11,7 @@ interface NavbarProps {
   company: Company;
 }
 
-export function Navbar({ company }: NavbarProps) {
+export function CenteredLogoNavbar({ company }: NavbarProps) {
   const { branding } = company;
   // CSS variables for branding colors
   const cssVars = {
@@ -27,13 +27,13 @@ export function Navbar({ company }: NavbarProps) {
       {/* Top info bar (navy) */}
       <div className="hidden md:flex items-center justify-between px-6 py-2 text-xs border-b border-neutral-100 bg-white text-[var(--primary)]">
         <span>
-          Serving {company.city} &nbsp;&amp;&nbsp; surrounding areas &nbsp;&middot;&nbsp; Licensed &amp; Insured
+          Serving {company.general.city} &nbsp;&amp;&nbsp; surrounding areas &nbsp;&middot;&nbsp; Licensed &amp; Insured
         </span>
         <a
-          href={`mailto:${company.email}`}
+          href={`mailto:${company.general.email}`}
           className="text-[var(--primary)] hover:text-[var(--secondary)] transition"
         >
-          {company.email}
+          {company.general.email}
         </a>
       </div>
       <DesktopNav company={company} />
@@ -83,11 +83,11 @@ const DesktopNav = ({ company }: NavbarProps) => {
 
       <div className="flex items-center gap-4">
         <a
-          href={`tel:${company.phone}`}
+          href={`tel:${company.general.phone}`}
           className="flex items-center gap-1.5 text-sm font-semibold text-neutral-800 hover:text-red-800 transition"
         >
           <IconPhone className="w-4 h-4 text-neutral-600" />
-          {company.phone}
+          {company.general.phone}
         </a>
         {/* <Link
           href="/request-service"
@@ -191,11 +191,11 @@ const MobileNav = ({ company }: NavbarProps) => {
 
               <div className="border-t border-neutral-100 pt-4 mt-2 flex flex-col gap-3">
                 <a
-                  href={`tel:${company.phone}`}
+                  href={`tel:${company.general.phone}`}
                   className="flex items-center gap-2 text-sm font-semibold text-neutral-800"
                 >
                   <IconPhone className="w-4 h-4 text-neutral-600" />
-                  {company.phone}
+                  {company.general.phone}
                 </a>
                 {/* <Link
                   href="/request-service"
@@ -217,7 +217,7 @@ const MobileNav = ({ company }: NavbarProps) => {
 
 const CompanyLogo = ({ company }: NavbarProps) => (
   <Link href="/" className="relative h-18 w-44 shrink-0 block">
-    <Image src={company.branding.navLogo} alt={`${company.name} logo`} fill className="object-contain object-left" />
+    <Image src={company.branding.navLogo} alt={`${company.general.name} logo`} fill className="object-contain object-left" />
   </Link>
 );
 

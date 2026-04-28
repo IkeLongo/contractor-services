@@ -9,6 +9,8 @@ interface ServiceContactCtaProps {
 }
 
 export function ServiceContactCta({ company, service }: ServiceContactCtaProps) {
+  const g = company.general;
+
   const image =
     service.cta?.image ??
     company.finalCta.image ??
@@ -17,13 +19,13 @@ export function ServiceContactCta({ company, service }: ServiceContactCtaProps) 
   const imageAlt =
     service.cta?.image != null
       ? `${service.title} service`
-      : company.finalCta.imageAlt ?? company.name;
+      : company.finalCta.imageAlt ?? g.name;
 
   const headline = service.cta?.title ?? `Need ${service.title} done right?`;
 
   const description =
     service.cta?.description ??
-    `Tell us what you need and ${company.name} will follow up with the next steps.`;
+    `Tell us what you need and ${g.name} will follow up with the next steps.`;
 
   return (
     <CtaFormSection

@@ -7,7 +7,7 @@ interface AboutHeroProps {
 export function AboutHero({ company }: AboutHeroProps) {
   const about = company.about;
   const s = about.styles;
-  const t = company.theme;
+  const t = company.branding.theme;
 
   return (
     <section

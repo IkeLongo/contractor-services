@@ -46,6 +46,8 @@ function FeaturedCard({
   item: PortfolioItem;
   company: Company;
 }) {
+  const t = company.branding.theme;
+  
   const Icon =
     item.icon
       ? (ICON_MAP[item.icon.charAt(0).toUpperCase() + item.icon.slice(1)] ?? FolderOpen)
@@ -54,7 +56,7 @@ function FeaturedCard({
   return (
     <div
       className="group relative flex flex-col h-full overflow-hidden rounded-xl"
-      style={{ background: company.theme.surface, borderColor: company.theme.border }}
+      style={{ background: t.surface, borderColor: t.border }}
     >
       {/* Image */}
       <div className="p-3 pb-0 flex-shrink-0">
@@ -71,7 +73,7 @@ function FeaturedCard({
           {item.category && (
             <span
               className="absolute top-4 left-4 rounded-full px-3 py-1 text-[11px] font-bold uppercase tracking-wider text-white"
-              style={{ backgroundColor: company.theme.secondary }}
+              style={{ backgroundColor: t.secondary }}
             >
               {item.category}
             </span>
@@ -82,24 +84,24 @@ function FeaturedCard({
       {/* Content */}
       <div className="flex flex-col gap-1.5 p-5 pt-4 pb-6 flex-1">
         <div className="flex items-center gap-2 mb-1">
-          <Icon className="size-5 flex-shrink-0" style={{ color: company.theme.secondary }} />
+          <Icon className="size-5 flex-shrink-0" style={{ color: t.secondary }} />
           <h3
             className="text-lg font-bold leading-snug truncate"
-            style={{ color: company.theme.text, marginBottom: 0 }}
+            style={{ color: t.text, marginBottom: 0 }}
           >
             {item.title}
           </h3>
         </div>
         <p
           className="text-sm leading-relaxed truncate"
-          style={{ color: company.theme.mutedText }}
+          style={{ color: t.mutedText }}
         >
           {item.description}
         </p>
         {item.href && (
           <span
             className="mt-4 inline-block text-xs font-bold uppercase tracking-wider"
-            style={{ color: company.theme.secondary }}
+            style={{ color: t.secondary }}
           >
             View Project →
           </span>
@@ -109,7 +111,7 @@ function FeaturedCard({
       {/* Accent bar */}
       <div
         className="absolute bottom-0 left-0 h-0.5 w-0 transition-all duration-300 group-hover:w-full"
-        style={{ backgroundColor: company.theme.secondary }}
+        style={{ backgroundColor: t.secondary }}
       />
     </div>
   );
@@ -128,10 +130,12 @@ function StandardCard({
       ? (ICON_MAP[item.icon.charAt(0).toUpperCase() + item.icon.slice(1)] ?? FolderOpen)
       : FolderOpen;
 
+  const t = company.branding.theme;
+
   return (
     <div
       className="group relative flex flex-col h-full overflow-hidden rounded-xl border"
-      style={{ background: company.theme.surface, borderColor: company.theme.border }}
+      style={{ background: t.surface, borderColor: t.border }}
     >
       {/* Image */}
       <div className="p-3 pb-0 flex-shrink-0">
@@ -147,7 +151,7 @@ function StandardCard({
           {item.category && (
             <span
               className="absolute top-2.5 left-2.5 rounded-full px-2.5 py-0.5 text-[10px] font-bold uppercase tracking-wider text-white"
-              style={{ backgroundColor: company.theme.secondary }}
+              style={{ backgroundColor: t.secondary }}
             >
               {item.category}
             </span>
@@ -158,17 +162,17 @@ function StandardCard({
       {/* Content */}
       <div className="flex flex-col gap-1.5 p-3 pt-3 pb-4 flex-1">
         <div className="flex items-center gap-2 mb-1">
-          <Icon className="size-4 flex-shrink-0" style={{ color: company.theme.secondary }} />
+          <Icon className="size-4 flex-shrink-0" style={{ color: t.secondary }} />
           <h3
             className="text-sm font-bold leading-snug truncate"
-            style={{ color: company.theme.text, marginBottom: 0 }}
+            style={{ color: t.text, marginBottom: 0 }}
           >
             {item.title}
           </h3>
         </div>
         <p
           className="text-xs leading-relaxed truncate"
-          style={{ color: company.theme.mutedText }}
+          style={{ color: t.mutedText }}
         >
           {item.description}
         </p>
@@ -177,7 +181,7 @@ function StandardCard({
       {/* Accent bar */}
       <div
         className="absolute bottom-0 left-0 h-0.5 w-0 transition-all duration-300 group-hover:w-full"
-        style={{ backgroundColor: company.theme.secondary }}
+        style={{ backgroundColor: t.secondary }}
       />
     </div>
   );
@@ -229,7 +233,7 @@ interface PortfolioSectionProps {
 
 export function PortfolioSection({ company }: PortfolioSectionProps) {
   const s = company.portfolio.styles;
-  const t = company.theme;
+  const t = company.branding.theme;
   const sectionBg = s?.background || t.background;
   const sectionTitle = s?.title || t.text;
   const sectionDescription = s?.description || t.mutedText;
@@ -246,7 +250,7 @@ export function PortfolioSection({ company }: PortfolioSectionProps) {
           {company.portfolio.eyebrow && (
             <p
               className="text-xs font-bold uppercase tracking-widest mb-2"
-              style={{ color: company.theme.secondary }}
+              style={{ color: t.secondary }}
             >
               {company.portfolio.eyebrow}
             </p>

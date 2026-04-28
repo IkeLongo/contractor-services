@@ -25,6 +25,8 @@ export function CaseStudyGallerySection({
   company,
   project,
 }: CaseStudyGallerySectionProps) {
+  const t = company.branding.theme;
+
   const images =
     project.caseStudy?.gallery && project.caseStudy.gallery.length > 0
       ? project.caseStudy.gallery
@@ -54,26 +56,26 @@ export function CaseStudyGallerySection({
   return (
     <section
       className="py-14 md:py-20 px-4 sm:px-6 lg:px-8"
-      style={{ backgroundColor: company.theme.background }}
+      style={{ backgroundColor: t.background }}
     >
       <div className="max-w-5xl mx-auto">
         {/* Header */}
         <div className="mb-10 text-center">
           <p
             className="text-xs font-bold uppercase tracking-widest mb-2"
-            style={{ color: company.theme.secondary }}
+            style={{ color: t.secondary }}
           >
             Project Gallery
           </p>
           <h2
             className="text-2xl md:text-3xl font-black tracking-tight"
-            style={{ color: company.theme.primary }}
+            style={{ color: t.primary }}
           >
             A Closer Look at the Work
           </h2>
           <p
             className="mt-2 text-sm md:text-base"
-            style={{ color: company.theme.mutedText }}
+            style={{ color: t.mutedText }}
           >
             A few visuals from the project scope and completed work.
           </p>
@@ -84,7 +86,7 @@ export function CaseStudyGallerySection({
           {/* Main image */}
           <div
             className="relative w-full overflow-hidden rounded-2xl border shadow-sm aspect-[16/9]"
-            style={{ borderColor: company.theme.border }}
+            style={{ borderColor: t.border }}
           >
             <AnimatePresence mode="wait" custom={direction}>
               <motion.div
@@ -113,7 +115,7 @@ export function CaseStudyGallerySection({
           {current.caption && (
             <p
               className="text-sm text-center max-w-xl"
-              style={{ color: company.theme.mutedText }}
+              style={{ color: t.mutedText }}
             >
               {current.caption}
             </p>
@@ -127,24 +129,24 @@ export function CaseStudyGallerySection({
                 aria-label="Previous image"
                 className="flex items-center justify-center size-10 rounded-full border transition-colors"
                 style={{
-                  borderColor: company.theme.border,
-                  color: company.theme.primary,
-                  backgroundColor: company.theme.surface,
+                  borderColor: t.border,
+                  color: t.primary,
+                  backgroundColor: t.surface,
                 }}
                 onMouseEnter={(e) => {
                   (e.currentTarget as HTMLButtonElement).style.backgroundColor =
-                    company.theme.primary;
+                    t.primary;
                   (e.currentTarget as HTMLButtonElement).style.color = "#ffffff";
                   (e.currentTarget as HTMLButtonElement).style.borderColor =
-                    company.theme.primary;
+                    t.primary;
                 }}
                 onMouseLeave={(e) => {
                   (e.currentTarget as HTMLButtonElement).style.backgroundColor =
-                    company.theme.surface;
+                    t.surface;
                   (e.currentTarget as HTMLButtonElement).style.color =
-                    company.theme.primary;
+                    t.primary;
                   (e.currentTarget as HTMLButtonElement).style.borderColor =
-                    company.theme.border;
+                    t.border;
                 }}
               >
                 <ChevronLeft className="size-4" />
@@ -163,7 +165,7 @@ export function CaseStudyGallerySection({
                     className="size-2 rounded-full transition-all"
                     style={{
                       backgroundColor:
-                        i === index ? company.theme.primary : company.theme.border,
+                        i === index ? t.primary : t.border,
                       transform: i === index ? "scale(1.3)" : "scale(1)",
                     }}
                   />
@@ -175,24 +177,24 @@ export function CaseStudyGallerySection({
                 aria-label="Next image"
                 className="flex items-center justify-center size-10 rounded-full border transition-colors"
                 style={{
-                  borderColor: company.theme.border,
-                  color: company.theme.primary,
-                  backgroundColor: company.theme.surface,
+                  borderColor: t.border,
+                  color: t.primary,
+                  backgroundColor: t.surface,
                 }}
                 onMouseEnter={(e) => {
                   (e.currentTarget as HTMLButtonElement).style.backgroundColor =
-                    company.theme.primary;
+                    t.primary;
                   (e.currentTarget as HTMLButtonElement).style.color = "#ffffff";
                   (e.currentTarget as HTMLButtonElement).style.borderColor =
-                    company.theme.primary;
+                    t.primary;
                 }}
                 onMouseLeave={(e) => {
                   (e.currentTarget as HTMLButtonElement).style.backgroundColor =
-                    company.theme.surface;
+                    t.surface;
                   (e.currentTarget as HTMLButtonElement).style.color =
-                    company.theme.primary;
+                    t.primary;
                   (e.currentTarget as HTMLButtonElement).style.borderColor =
-                    company.theme.border;
+                    t.border;
                 }}
               >
                 <ChevronRight className="size-4" />

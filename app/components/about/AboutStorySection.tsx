@@ -6,8 +6,9 @@ interface AboutStorySectionProps {
 
 export function AboutStorySection({ company }: AboutStorySectionProps) {
   const { about } = company;
-  const t = company.theme;
+  const t = company.branding.theme;
   const s = about.styles;
+  const g = company.general;
 
   if (!about.story && !about.highlights && !about.quote && !about.images) {
     return null;
@@ -27,7 +28,7 @@ export function AboutStorySection({ company }: AboutStorySectionProps) {
             <div className="relative min-h-[360px] overflow-hidden rounded-2xl lg:col-start-1 lg:row-span-12 lg:row-start-1 lg:min-h-0">
               <img
                 src={about.images.main}
-                alt={about.imageAlt ?? company.name}
+                alt={about.imageAlt ?? g.name}
                 className="absolute inset-0 h-full w-full object-cover"
               />
               <div
@@ -131,7 +132,7 @@ export function AboutStorySection({ company }: AboutStorySectionProps) {
               {/* Image */}
               <img
                 src={about.images.tertiary[0]}
-                alt={`${company.name} project`}
+                alt={`${g.name} project`}
                 className="absolute inset-0 h-full w-full object-cover"
               />
 

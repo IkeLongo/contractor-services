@@ -66,6 +66,8 @@ interface CardProps {
 }
 
 function CaseStudyCardItem({ card, company, isResult = false, index }: CardProps) {
+  const t = company.branding.theme;
+
   const Icon = resolveIcon(card.icon);
 
   return (
@@ -76,11 +78,11 @@ function CaseStudyCardItem({ card, company, isResult = false, index }: CardProps
       transition={{ duration: 0.4, delay: index * 0.1 }}
       className="relative overflow-hidden flex flex-col gap-4 rounded-xl border p-6"
       style={{
-        backgroundColor: company.theme.surface,
-        borderColor: isResult ? company.theme.secondary : company.theme.border,
+        backgroundColor: t.surface,
+        borderColor: isResult ? t.secondary : t.border,
         ["--card-border" as string]: isResult
-          ? company.theme.secondary
-          : company.theme.border,
+          ? t.secondary
+          : t.border,
       }}
     >
       {/* Dot grid texture */}
@@ -93,7 +95,7 @@ function CaseStudyCardItem({ card, company, isResult = false, index }: CardProps
       {isResult && (
         <div
           className="absolute top-0 left-0 right-0 h-0.5"
-          style={{ backgroundColor: company.theme.secondary }}
+          style={{ backgroundColor: t.secondary }}
         />
       )}
 
@@ -103,11 +105,11 @@ function CaseStudyCardItem({ card, company, isResult = false, index }: CardProps
         <div className="flex items-center gap-2">
           <Icon
             className="size-4 flex-shrink-0"
-            style={{ color: isResult ? company.theme.secondary : company.theme.primary }}
+            style={{ color: isResult ? t.secondary : t.primary }}
           />
           <span
             className="text-[11px] font-bold uppercase tracking-widest"
-            style={{ color: isResult ? company.theme.secondary : company.theme.mutedText }}
+            style={{ color: isResult ? t.secondary : t.mutedText }}
           >
             {card.label}
           </span>
@@ -116,7 +118,7 @@ function CaseStudyCardItem({ card, company, isResult = false, index }: CardProps
         {/* Title */}
         <h3
           className="text-base font-black leading-snug"
-          style={{ color: company.theme.text }}
+          style={{ color: t.text }}
         >
           {card.title}
         </h3>
@@ -124,7 +126,7 @@ function CaseStudyCardItem({ card, company, isResult = false, index }: CardProps
         {/* Description */}
         <p
           className="text-sm leading-relaxed"
-          style={{ color: company.theme.mutedText }}
+          style={{ color: t.mutedText }}
         >
           {card.description}
         </p>
@@ -143,11 +145,12 @@ export function ChallengeSolutionResultSection({
   project,
 }: ChallengeSolutionResultSectionProps) {
   const content = project.caseStudy ?? buildFallback(project);
+  const t = company.branding.theme;
 
   return (
     <section
       className="py-14 md:py-20 px-4 sm:px-6 lg:px-8"
-      style={{ backgroundColor: company.theme.background }}
+      style={{ backgroundColor: t.background }}
     >
       <div className="max-w-5xl mx-auto">
         {/* Header */}
@@ -155,21 +158,21 @@ export function ChallengeSolutionResultSection({
           {content.eyebrow && (
             <p
               className="text-xs font-bold uppercase tracking-widest mb-2"
-              style={{ color: company.theme.secondary }}
+              style={{ color: t.secondary }}
             >
               {content.eyebrow}
             </p>
           )}
           <h2
             className="text-2xl md:text-3xl font-black tracking-tight"
-            style={{ color: company.theme.primary }}
+            style={{ color: t.primary }}
           >
             {content.title}
           </h2>
           {content.description && (
             <p
               className="mt-2 max-w-2xl mx-auto text-sm md:text-base"
-              style={{ color: company.theme.mutedText }}
+              style={{ color: t.mutedText }}
             >
               {content.description}
             </p>

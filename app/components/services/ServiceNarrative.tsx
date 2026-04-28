@@ -38,7 +38,7 @@ const fadeUp = {
 };
 
 export function ServiceNarrative({ company, service }: ServiceNarrativeProps) {
-  const t = company.theme;
+  const t = company.branding.theme;
   const s = company.services.styles?.narrative;
 
   const overviewTitle = service.overview?.title ?? service.title;

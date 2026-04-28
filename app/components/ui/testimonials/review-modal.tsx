@@ -64,7 +64,7 @@ export function ReviewModal({
           {company?.branding?.navLogo ? (
             <img
               src={company.branding.navLogo}
-              alt={company.name}
+              alt={company.general.name}
               className="h-12 w-auto"
               style={{ maxWidth: 160 }}
             />

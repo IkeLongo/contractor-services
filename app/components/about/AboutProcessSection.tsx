@@ -37,7 +37,7 @@ interface AboutProcessSectionProps {
 
 export function AboutProcessSection({ company }: AboutProcessSectionProps) {
   const process = company.about.process;
-  const t = company.theme;
+  const t = company.branding.theme;
 
   if (!process) return null;
 
