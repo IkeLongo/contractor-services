@@ -1,6 +1,7 @@
-import type { Company, TestimonialItem } from "@/data/companies";
 import { fetchGoogleReviews } from "./google-places";
 import { dummyTestimonials } from "@/app/components/ui/testimonials/testimonials-data";
+import type { Company } from "@/lib/types/company";
+import type { TestimonialItem } from "@/lib/types/old-types";
 
 function siteReviewToTestimonial(review: Awaited<ReturnType<typeof fetchGoogleReviews>>[number]): TestimonialItem {
   return {
@@ -13,11 +14,11 @@ function siteReviewToTestimonial(review: Awaited<ReturnType<typeof fetchGoogleRe
 }
 
 export async function getTestimonials(company: Company): Promise<TestimonialItem[]> {
-  console.log("[get-testimonials] company.googlePlaceId:", company.googlePlaceId ?? "(not set)");
+  console.log("[get-testimonials] company.googlePlaceId:", company.general.googlePlaceId ?? "(not set)");
 
-  if (company.googlePlaceId) {
+  if (company.general.googlePlaceId) {
     try {
-      const reviews = await fetchGoogleReviews(company.googlePlaceId);
+      const reviews = await fetchGoogleReviews(company.general.googlePlaceId);
       console.log("[get-testimonials] mapped reviews count:", reviews.length);
 
       if (reviews.length > 0) {

@@ -1,6 +1,7 @@
 // lib/get-company.ts
 import { headers } from "next/headers";
-import { getCompanyBySlug, type Company } from "@/data/companies";
+import { getCompanyBySlug } from "@/data/companies";
+import type { Company } from "@/lib/types/company";
 
 export async function getCompany(): Promise<Company> {
   const headersList = await headers();

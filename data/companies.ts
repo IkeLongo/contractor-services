@@ -1363,14 +1363,12 @@ const topTierRenovationsCompany: Company = {
             color: "#F8FAFC",
           },
         },
-
         title: {
           content: "Revamp. Renew. Refresh.",
           styles: {
             color: "#FFFFFF",
           },
         },
-
         subtitle: {
           content:
             "From flooring and custom showers to full home renovations, Top Tier Renovations delivers high-quality interior and exterior remodeling built to last.",
@@ -1378,7 +1376,6 @@ const topTierRenovationsCompany: Company = {
             color: "#E2E8F0",
           },
         },
-
         primaryCta: {
           label: "Get Free Estimate",
           href: "/contact",
@@ -1387,7 +1384,6 @@ const topTierRenovationsCompany: Company = {
             text: "#FFFFFF",
           },
         },
-
         secondaryCta: {
           label: "Call (210) 612-9114",
           href: "tel:2106129114",
@@ -1395,14 +1391,12 @@ const topTierRenovationsCompany: Company = {
             text: "#F8FAFC",
           },
         },
-
         highlights: [
           { content: "Free Estimates" },
           { content: "Interior & Exterior Remodeling" },
           { content: "Custom Showers & Kitchens" },
           { content: "San Antonio Local" },
         ],
-
         images: [
           {
             src: "/images/top-tier-hero-1.jpg",
