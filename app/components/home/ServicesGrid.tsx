@@ -1,7 +1,8 @@
 
 import Image from "next/image";
 import Link from "next/link";
-import type { ClassicCard, Company } from "@/data/companies";
+import type { Company } from "@/lib/types/company";
+import type { ClassicCard } from "@/lib/types/components";
 
 const COLS_CLASS: Record<number, string> = {
   2: "sm:grid-cols-2",

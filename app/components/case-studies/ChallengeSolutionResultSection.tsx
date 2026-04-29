@@ -11,7 +11,8 @@ import {
   FolderOpen,
   type LucideIcon,
 } from "lucide-react";
-import type { Company, CaseStudyCard, CaseStudyContent, PortfolioItem } from "@/data/companies";
+import type { Company } from "@/lib/types/company";
+import type { PortfolioItem, CaseStudyCard, CaseStudyContent,  } from "@/lib/types/old-types";
 
 const ICON_MAP: Record<string, LucideIcon> = {
   AlertTriangle,

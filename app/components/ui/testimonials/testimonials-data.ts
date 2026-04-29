@@ -1,4 +1,4 @@
-import type { TestimonialItem } from "@/data/companies";
+import type { TestimonialItem } from "@/lib/types/old-types";
 
 export const dummyTestimonials: TestimonialItem[] = [
   {

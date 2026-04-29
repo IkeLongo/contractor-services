@@ -10,12 +10,12 @@ interface ServicesHeroProps {
 }
 
 export function ServicesHero({ company }: ServicesHeroProps) {
-  const { services, contact, hero } = company;
+  const { services, contact } = company;
   const t = company.branding.theme;
 
   const bgImage =
     contact.backgroundImage ??
-    hero.images?.[0] ??
+    company.pages.home.hero.images?.[0]?.src ??
     "";
 
   const [formData, setFormData] = useState({

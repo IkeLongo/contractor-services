@@ -2,7 +2,8 @@
 
 import { useEffect, useRef } from "react";
 import { FaStar, FaTimes, FaUserCircle } from "react-icons/fa";
-import type { TestimonialItem, Company } from "@/data/companies";
+import type { Company } from "@/lib/types/company";
+import type { TestimonialItem } from "@/lib/types/old-types";
 
 
 interface ReviewModalProps {

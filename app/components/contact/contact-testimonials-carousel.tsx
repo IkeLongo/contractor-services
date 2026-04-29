@@ -3,7 +3,8 @@
 import { useEffect, useState } from "react";
 import { AnimatePresence, motion } from "motion/react";
 import { dummyTestimonials } from "@/app/components/ui/testimonials/testimonials-data";
-import type { Company, TestimonialItem } from "@/data/companies";
+import type { Company } from "@/lib/types/company";
+import type { TestimonialItem } from "@/lib/types/old-types";
 
 interface ContactTestimonialsCarouselProps {
   company: Company;

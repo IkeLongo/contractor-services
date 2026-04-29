@@ -1,7 +1,8 @@
 "use client";
 
-import type { Company, ServiceItem } from "@/data/companies";
 import { CtaFormSection } from "@/app/components/ui/cta-form-section";
+import type { Company } from "@/lib/types/company";
+import type { ServiceItem } from "@/lib/types/old-types";
 
 interface ServiceContactCtaProps {
   company: Company;

@@ -5,7 +5,7 @@ import { cn } from "@/lib/utils";
 import { FaQuoteLeft, FaStar, FaUserCircle } from "react-icons/fa";
 import { ReviewModal } from "./review-modal";
 import { dummyTestimonials } from "./testimonials-data";
-import type { TestimonialItem } from "@/data/companies";
+import type { TestimonialItem } from "@/lib/types/old-types";
 import type { Company } from "@/lib/types/company";
 import test from "node:test";
 

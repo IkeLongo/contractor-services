@@ -1,5 +1,6 @@
 import { LayoutGrid } from "@/app/components/ui/layout-grid";
-import type { Company, ServiceItem } from "@/data/companies";
+import type { Company } from "@/lib/types/company";
+import type { ServiceItem } from "@/lib/types/old-types";
 
 interface ServiceImageBentoGalleryProps {
   company: Company;

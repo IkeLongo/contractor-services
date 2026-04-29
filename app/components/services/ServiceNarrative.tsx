@@ -6,7 +6,8 @@ import {
   ClipboardCheck, Building2, ShieldCheck, Network,
   type LucideIcon,
 } from "lucide-react";
-import type { Company, ServiceItem } from "@/data/companies";
+import type { Company } from "@/lib/types/company";
+import type { ServiceItem } from "@/lib/types/old-types";
 
 interface ServiceNarrativeProps {
   company: Company;

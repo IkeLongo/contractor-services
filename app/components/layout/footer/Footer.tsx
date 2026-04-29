@@ -1,6 +1,11 @@
 import Image from "next/image";
 import Link from "next/link";
 import type { Company } from "@/lib/types/company";
+import type { NavDropdownItem, NavigationItem } from "@/lib/types/layout";
+
+function isDropdown(item: NavigationItem): item is NavDropdownItem {
+  return "children" in item && Array.isArray((item as NavDropdownItem).children);
+}
 import {
   IconBrandFacebook,
   IconBrandInstagram,
@@ -22,10 +27,11 @@ const SOCIAL_ICON_MAP = {
 };
 
 export function Footer({ company }: FooterProps) {
-  const { branding, footer, services, navigation, general } = company;
+  const { branding, footer, services, general } = company;
+  const navigation = company.layout.navbar.items;
 
   return (
-    <footer style={{ backgroundColor: branding.primaryColor }}>
+    <footer style={{ backgroundColor: branding.theme.primary }}>
       {/* Main footer columns */}
       <div className="max-w-6xl mx-auto px-6 py-14 grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-10">
 
@@ -63,9 +69,23 @@ export function Footer({ company }: FooterProps) {
           <ul className="flex flex-col gap-2.5">
             {navigation.map((item) => (
               <li key={item.label}>
-                <Link href={item.href} className="text-white/55 text-sm hover:text-white transition">
+                <Link
+                  href={isDropdown(item) ? (item.href ?? item.viewAllHref ?? "#") : item.href}
+                  className="text-white/55 text-sm hover:text-white transition"
+                >
                   {item.label}
                 </Link>
+                {isDropdown(item) && item.children.length > 0 && (
+                  <ul className="flex flex-col gap-2 mt-1.5 pl-3 border-l border-white/20">
+                    {item.children.map((child) => (
+                      <li key={child.href}>
+                        <Link href={child.href} className="text-white/40 text-xs hover:text-white/70 transition">
+                          {child.label}
+                        </Link>
+                      </li>
+                    ))}
+                  </ul>
+                )}
               </li>
             ))}
           </ul>
