@@ -38,7 +38,7 @@ export async function generateMetadata(): Promise<Metadata> {
       description,
       images: [
         {
-          url: company.og?.image ?? "/companies/tso-texas/og/og-image.png",
+          url: company.seo.og?.image ?? "/companies/tso-texas/og/og-image.png",
           width: 1200,
           height: 630,
           alt: `${company.general.name} preview image`,
@@ -49,7 +49,7 @@ export async function generateMetadata(): Promise<Metadata> {
       card: "summary_large_image",
       title,
       description,
-      images: [company.og?.image ?? "/companies/tso-texas/og/og-image.png"],
+      images: [company.seo.og?.image ?? "/companies/tso-texas/og/og-image.png"],
     },
     robots: {
       index: true,
