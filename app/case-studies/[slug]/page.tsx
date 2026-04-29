@@ -1,10 +1,10 @@
 import { notFound } from "next/navigation";
-import { defaultCompany } from "@/data/companies";
 import { CaseStudyHeader } from "@/app/components/case-studies/CaseStudyHeader";
 import { ProjectSnapshotSection } from "@/app/components/case-studies/ProjectSnapshotSection";
 import { ChallengeSolutionResultSection } from "@/app/components/case-studies/ChallengeSolutionResultSection";
 import { CaseStudyGallerySection } from "@/app/components/case-studies/CaseStudyGallerySection";
 import { CaseStudyCtaSection } from "@/app/components/case-studies/CaseStudyCtaSection";
+import { getCompany } from "@/lib/get-company";
 
 interface Props {
   params: Promise<{ slug: string }>;
@@ -12,7 +12,7 @@ interface Props {
 
 export default async function CaseStudyPage({ params }: Props) {
   const { slug } = await params;
-  const company = defaultCompany;
+  const company = await getCompany();
 
   const project = company.portfolio.items.find(
     (item) =>

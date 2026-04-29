@@ -1,8 +1,9 @@
-import { defaultCompany } from "@/data/companies";
-import { ContactSection } from "@/app/components/contact/ContactSectionContact";
 
-export default function ContactPage() {
-  const company = defaultCompany;
+import { ContactSection } from "@/app/components/contact/ContactSectionContact";
+import { getCompany } from "@/lib/get-company";
+
+export default async function ContactPage() {
+  const company = await getCompany();
 
   return (
     <main>

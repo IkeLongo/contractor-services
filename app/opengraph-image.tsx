@@ -1,6 +1,6 @@
 import { ImageResponse } from "next/og";
 import { headers } from "next/headers";
-import { getCompanyBySlug, defaultCompany } from "@/data/companies";
+import { getCompanyBySlug } from "@/data/companies";
 
 export const runtime = "edge";
 export const alt = "Contractor Services";
@@ -13,18 +13,19 @@ const FALLBACK_TINT = "#0B1F4D";
 
 export default async function Image() {
   const headersList = await headers();
+
   const slug = headersList.get("x-company-slug") ?? FALLBACK_SLUG;
-  const company = getCompanyBySlug(slug) ?? defaultCompany;
+  const company = await getCompanyBySlug(slug);
 
   const t = company.branding.theme;
   const g = company.general;
-  
-  // Build absolute base URL — ImageResponse cannot resolve relative paths
+
   const host = headersList.get("host") ?? "localhost:3000";
   const protocol = host.includes("localhost") ? "http" : "https";
   const baseUrl = `${protocol}://${host}`;
 
-  const og = company.seo.og ?? {};
+  const og = company.seo?.og ?? {};
+
   const tintColor = og.tintColor ?? t.primary ?? FALLBACK_TINT;
   const tintOpacity = og.tintOpacity ?? 0.55;
 
@@ -39,7 +40,6 @@ export default async function Image() {
 
   return new ImageResponse(
     (
-      // Root canvas
       <div
         style={{
           width: "100%",
@@ -49,8 +49,6 @@ export default async function Image() {
           backgroundColor: tintColor,
         }}
       >
-        {/* Layer 1: base background photo */}
-        {/* eslint-disable-next-line @next/next/no-img-element */}
         <img
           src={bgUrl}
           alt=""
@@ -58,49 +56,36 @@ export default async function Image() {
           height={630}
           style={{
             position: "absolute",
-            top: 0,
-            left: 0,
+            inset: 0,
             width: "100%",
             height: "100%",
             objectFit: "cover",
           }}
         />
 
-        {/* Layer 2: dark softening pass */}
         <div
           style={{
             position: "absolute",
-            top: 0,
-            left: 0,
-            right: 0,
-            bottom: 0,
+            inset: 0,
             backgroundColor: "rgba(0,0,0,0.28)",
             display: "flex",
           }}
         />
 
-        {/* Layer 3: brand tint */}
         <div
           style={{
             position: "absolute",
-            top: 0,
-            left: 0,
-            right: 0,
-            bottom: 0,
+            inset: 0,
             backgroundColor: tintColor,
             opacity: tintOpacity,
             display: "flex",
           }}
         />
 
-        {/* Layer 4: logo + text, centered */}
         <div
           style={{
             position: "absolute",
-            top: 0,
-            left: 0,
-            right: 0,
-            bottom: 0,
+            inset: 0,
             display: "flex",
             flexDirection: "column",
             alignItems: "center",
@@ -110,7 +95,6 @@ export default async function Image() {
           }}
         >
           {logoUrl ? (
-            // eslint-disable-next-line @next/next/no-img-element
             <img
               src={logoUrl}
               alt={g.name}
@@ -147,6 +131,6 @@ export default async function Image() {
         </div>
       </div>
     ),
-    { ...size }
+    size
   );
 }

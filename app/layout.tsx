@@ -19,10 +19,16 @@ const geistMono = Geist_Mono({
 export async function generateMetadata(): Promise<Metadata> {
   const company = await getCompany();
 
-  const title = company.seo?.title ?? `${company.general.name} | Contractor Services in ${company.general.city}`;
+  const title =
+    company.seo?.title ??
+    `${company.general.name} | Contractor Services in ${company.general.city}`;
+
   const description =
     company.seo?.description ??
     `Reliable maintenance, renovations, networking, and fabrication services in ${company.general.city}, ${company.general.state}. Call ${company.general.phone}.`;
+
+  const ogImage =
+    company.seo?.og?.image ?? "/companies/tso-texas/og/og-image.png";
 
   return {
     title: {
@@ -38,7 +44,7 @@ export async function generateMetadata(): Promise<Metadata> {
       description,
       images: [
         {
-          url: company.seo.og?.image ?? "/companies/tso-texas/og/og-image.png",
+          url: ogImage,
           width: 1200,
           height: 630,
           alt: `${company.general.name} preview image`,
@@ -49,7 +55,7 @@ export async function generateMetadata(): Promise<Metadata> {
       card: "summary_large_image",
       title,
       description,
-      images: [company.seo.og?.image ?? "/companies/tso-texas/og/og-image.png"],
+      images: [ogImage],
     },
     robots: {
       index: true,
@@ -60,10 +66,11 @@ export async function generateMetadata(): Promise<Metadata> {
 
 export default async function RootLayout({
   children,
-}: Readonly<{
+}: {
   children: React.ReactNode;
-}>) {
+}) {
   const company = await getCompany();
+
   return (
     <html
       lang="en"

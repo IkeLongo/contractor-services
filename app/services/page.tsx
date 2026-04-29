@@ -1,4 +1,3 @@
-import { defaultCompany } from "@/data/companies";
 import { PageHeader } from "@/app/components/layout/PageHeader";
 import { ServicesHero } from "@/app/components/services/ServicesHero";
 import { ServicesGrid } from "@/app/components/home/ServicesGrid";

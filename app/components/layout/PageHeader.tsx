@@ -13,6 +13,9 @@ interface PageHeaderProps {
 }
 
 export function PageHeader({ title, breadcrumbs = [], company }: PageHeaderProps) {
+  const showBreadcrumbHeader = company.layout?.navbar?.showBreadcrumbHeader ?? true;
+  if (!showBreadcrumbHeader) return null;
+
   const t = company.branding.theme;
   
   const crumbs: Breadcrumb[] = [{ label: "Home", href: "/" }, ...breadcrumbs];

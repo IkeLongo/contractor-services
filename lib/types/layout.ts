@@ -33,6 +33,7 @@ export type Navbar = {
   variant?: NavbarVariant;
   topBar?: TopBar;
   items: NavigationItem[];
+  showBreadcrumbHeader?: boolean;
   cta?: {
     label: string;
     href: string;
@@ -54,6 +55,10 @@ export type Navbar = {
     mobileMenuBg?: string;
     mobileMenuIcon?: string;
     mobilePanelBg?: string;
+    desktopTopOffset?: string;
+    mobileTopOffset?: string;
+    heroContentOffset?: string;
+    mobileHeroContentOffset?: string;
   };
 };
 

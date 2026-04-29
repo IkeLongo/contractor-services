@@ -4,6 +4,7 @@ import Link from "next/link";
 import { useState } from "react";
 import { ArrowRight } from "lucide-react";
 import type { Company } from "@/lib/types/company";
+import { getNavbarHeroOffset } from "@/lib/navbar-layout";
 
 interface ServicesHeroProps {
   company: Company;
@@ -12,6 +13,7 @@ interface ServicesHeroProps {
 export function ServicesHero({ company }: ServicesHeroProps) {
   const { services, contact } = company;
   const t = company.branding.theme;
+  const navbarOffset = getNavbarHeroOffset(company);
 
   const bgImage =
     contact.backgroundImage ??
@@ -44,7 +46,13 @@ export function ServicesHero({ company }: ServicesHeroProps) {
         aria-hidden="true"
       />
 
-      <div className="relative z-10 w-full max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-20 lg:py-28">
+      <div
+        className="relative z-10 w-full max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 pt-[calc(var(--hero-offset-mobile)+80px)] pb-20 lg:pt-[calc(var(--hero-offset-desktop)+112px)] lg:pb-28"
+        style={{
+          "--hero-offset-desktop": `${navbarOffset.desktop}px`,
+          "--hero-offset-mobile": `${navbarOffset.mobile}px`,
+        } as React.CSSProperties}
+      >
         <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 lg:gap-16 items-center">
           {/* ── Left: hero copy ──────────────────────────────── */}
           <div className="flex flex-col gap-6">

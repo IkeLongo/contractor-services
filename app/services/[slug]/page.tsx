@@ -1,11 +1,11 @@
 import { notFound } from "next/navigation";
-import { defaultCompany } from "@/data/companies";
 import { PageHeader } from "@/app/components/layout/PageHeader";
 import { ServiceHero } from "@/app/components/services/ServiceHero";
 import { ServiceNarrative } from "@/app/components/services/ServiceNarrative";
 import { ServiceImageBentoGallery } from "@/app/components/services/ServiceImageBentoGallery";
 import { RelatedServices } from "@/app/components/services/RelatedServices";
 import { ServiceContactCta } from "@/app/components/services/ServiceContactCta";
+import { getCompany } from "@/lib/get-company";
 
 interface ServicePageProps {
   params: Promise<{ slug: string }>;
@@ -13,7 +13,7 @@ interface ServicePageProps {
 
 export default async function ServiceDetailPage({ params }: ServicePageProps) {
   const { slug } = await params;
-  const company = defaultCompany;
+  const company = await getCompany();
   const t = company.branding.theme;
 
   const service = company.services.items.find((s) => s.slug === slug);
