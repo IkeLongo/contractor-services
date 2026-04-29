@@ -1,5 +1,5 @@
 import Link from "next/link";
-import type { Company } from "@/data/companies";
+import type { Company } from "@/lib/types/company";
 
 interface Breadcrumb {
   label: string;

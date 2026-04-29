@@ -9,7 +9,7 @@ import {
   IconRouteAltLeft,
   IconTerminal2,
 } from "@tabler/icons-react";
-import type { Company } from "@/data/companies";
+import type { Company } from "@/lib/types/company";
 
 type TablerIcon = React.ComponentType<{ size?: number; stroke?: number; color?: string }>;
 

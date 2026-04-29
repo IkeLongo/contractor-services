@@ -9,7 +9,7 @@ import {
   Wrench,
   type LucideIcon,
 } from "lucide-react";
-import type { Company } from "@/data/companies";
+import type { Company } from "@/lib/types/company";
 
 const ICON_MAP: Record<string, LucideIcon> = {
   Phone,

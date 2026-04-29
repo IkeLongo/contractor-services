@@ -1,5 +1,5 @@
 "use client";
-import type { Company } from "@/data/companies";
+import type { Company } from "@/lib/types/company";
 
 export function TeamSectionWithSmallAvatars({ company }: { company: Company }) {
   const team = company.about.team;

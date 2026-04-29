@@ -6,7 +6,7 @@ import { FaQuoteLeft, FaStar, FaUserCircle } from "react-icons/fa";
 import { ReviewModal } from "./review-modal";
 import { dummyTestimonials } from "./testimonials-data";
 import type { TestimonialItem } from "@/data/companies";
-import type { Company } from "@/data/companies";
+import type { Company } from "@/lib/types/company";
 import test from "node:test";
 
 const TRUNCATE_MAX = 220;

@@ -1,5 +1,5 @@
 import { TestimonialsMasonryGrid } from "@/app/components/ui/testimonials/testimonials-masonry-grid";
-import type { Company } from "@/data/companies";
+import type { Company } from "@/lib/types/company";
 
 interface TestimonialsSectionProps {
   company: Company;

@@ -2,7 +2,7 @@
 
 import { useRef, useEffect } from "react";
 import { motion, useInView, useSpring, useTransform } from "motion/react";
-import type { Company } from "@/data/companies";
+import type { Company } from "@/lib/types/company";
 
 interface AboutStatsSectionProps {
   company: Company;

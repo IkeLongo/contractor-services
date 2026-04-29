@@ -1,7 +1,7 @@
 "use client";
 import React from "react";
 import { motion } from "motion/react";
-import type { Company } from "@/data/companies";
+import type { Company } from "@/lib/types/company";
 import { ImagesSlider } from "../ui/images-slider";
 import { HiArrowRight } from "react-icons/hi2";
 
@@ -10,11 +10,11 @@ interface HeroSectionProps {
 }
 
 export function TwoColumnHeroSection({ company }: HeroSectionProps) {
-  const h = company.pages.home.hero;
+  const s = company.pages.home.hero;
   
-  // You can customize these images or pull from h.backgroundImage(s) if available
-  const images = h.images && h.images.length > 0
-    ? h.images.map((img) => img.src)
+  // You can customize these images or pull from s.backgroundImage(s) if available
+  const images = s.images && s.images.length > 0
+    ? s.images.map((img) => img.src)
     : [
         "/companies/tso-texas/hero-images/office-renovation-modern-workspace.jpeg",
         "/companies/tso-texas/hero-images/commercial-drywall-and-construction.png",
@@ -33,7 +33,7 @@ export function TwoColumnHeroSection({ company }: HeroSectionProps) {
       {/* Overlay gradient, now styleable */}
       <div
         className="absolute inset-0 z-10 pointer-events-none"
-        style={{ background: h.styles?.overlay || defaultOverlay }}
+        style={{ background: s.styles?.background?.overlay || defaultOverlay }}
       />
       <motion.div
         initial={{ opacity: 0, y: -80 }}
@@ -41,54 +41,54 @@ export function TwoColumnHeroSection({ company }: HeroSectionProps) {
         transition={{ duration: 0.6 }}
         className="z-20 flex flex-col items-center justify-center w-full h-full px-4 text-center"
       >
-        {h.eyebrow && (
+        {s.eyebrow && (
           <div
             className="mb-4 text-xs md:text-sm font-semibold uppercase tracking-widest"
-            style={{ color: h.styles?.eyebrow || "rgba(255,255,255,0.7)" }}
+            style={{ color: s.eyebrow?.styles?.color || "rgba(255,255,255,0.7)" }}
           >
-            {h.eyebrow.content}
+            {s.eyebrow.content}
           </div>
         )}
         <h1
           className="max-w-4xl text-3xl md:text-5xl font-bold tracking-tight mb-4 drop-shadow-lg"
-          style={{ color: h.styles?.title || "#FFFFFF" }}
+          style={{ color: s.title?.styles?.color || "#FFFFFF" }}
         >
-          {h.title.content}
+          {s.title.content}
         </h1>
         <p
           className="max-w-2xl mx-auto text-lg md:text-2xl mb-8 drop-shadow"
-          style={{ color: h.styles?.subtitle || "rgba(255,255,255,0.9)" }}
+          style={{ color: s.subtitle?.styles?.color || "rgba(255,255,255,0.9)" }}
         >
-          {h.subtitle.content}
+          {s.subtitle.content}
         </p>
         <div className="flex w-full flex-col items-center justify-center gap-4 sm:flex-row">
-          {h.primaryCta && (
+          {s.primaryCta && (
             <a
-              href={h.primaryCta.href}
+              href={s.primaryCta.href}
               className="group relative z-10 my-4 flex items-center space-x-2 rounded-2xl px-5 py-3 shadow-[0px_3px_0px_0px_rgba(255,255,255,0.1)_inset] transition"
               style={{
-                background: h.primaryCta.styles?.background || fallbackCtaGradient,
-                color: h.primaryCta.styles?.text || "#FFFFFF",
+                background: s.primaryCta.styles?.background || fallbackCtaGradient,
+                color: s.primaryCta.styles?.text || "#FFFFFF",
               }}
             >
-              <span>{h.primaryCta.label}</span>
-              <HiArrowRight className="mt-0.5 h-4 w-4 stroke-[1px] transition-transform duration-200 group-hover:translate-x-1" style={{ color: h.primaryCta.styles?.text || "#FFFFFF" }} />
+              <span>{s.primaryCta.label}</span>
+              <HiArrowRight className="mt-0.5 h-4 w-4 stroke-[1px] transition-transform duration-200 group-hover:translate-x-1" style={{ color: s.primaryCta.styles?.text || "#FFFFFF" }} />
             </a>
           )}
 
-          {h.secondaryCta && (
+          {s.secondaryCta && (
             <a
-              href={h.secondaryCta.href}
+              href={s.secondaryCta.href}
               className="text-base font-medium transition hover:text-white"
-              style={{ color: h.secondaryCta.styles?.text || "rgba(255,255,255,0.85)" }}
+              style={{ color: s.secondaryCta.styles?.text || "rgba(255,255,255,0.85)" }}
             >
-              {h.secondaryCta.label}
+              {s.secondaryCta.label}
             </a>
           )}
         </div>
-        {h.highlights && h.highlights.length > 0 && (
+        {s.highlights && s.highlights.length > 0 && (
           <div className="hidden md:flex flex-wrap justify-center gap-2 mt-4">
-            {h.highlights.map((highlight, idx) => (
+            {s.highlights.map((highlight, idx) => (
               <motion.span
                 key={idx}
                 initial={{ opacity: 0, y: 10 }}

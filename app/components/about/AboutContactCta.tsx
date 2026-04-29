@@ -1,4 +1,4 @@
-import type { Company } from "@/data/companies";
+import type { Company } from "@/lib/types/company";
 import { CtaFormSection } from "@/app/components/ui/cta-form-section";
 
 interface AboutCtaSectionProps {

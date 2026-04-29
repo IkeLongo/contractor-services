@@ -1,7 +1,7 @@
 "use client";
 
 import { useState } from "react";
-import type { Company } from "@/data/companies";
+import type { Company } from "@/lib/types/company";
 
 interface FaqSectionProps {
   company: Company;

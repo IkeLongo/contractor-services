@@ -4,7 +4,7 @@ import Link from "next/link";
 import Image from "next/image";
 import { ArrowRight } from "lucide-react";
 import { useState } from "react";
-import type { Company } from "@/data/companies";
+import type { Company } from "@/lib/types/company";
 
 interface CaseStudyCtaSectionProps {
   company: Company;
