@@ -33,15 +33,27 @@ export type Navbar = {
   variant?: NavbarVariant;
   topBar?: TopBar;
   items: NavigationItem[];
-
+  cta?: {
+    label: string;
+    href: string;
+  };
   styles?: {
     background?: string;
     link?: string;
     linkHover?: string;
     dropdownBackground?: string;
     dropdownBorder?: string;
+    phoneBg?: string;
     phoneText?: string;
     phoneIcon?: string;
+    phoneIconBg?: string;
+    ctaBg?: string;
+    ctaText?: string;
+    border?: string;
+    mobileBackground?: string;
+    mobileMenuBg?: string;
+    mobileMenuIcon?: string;
+    mobilePanelBg?: string;
   };
 };
 

@@ -1309,8 +1309,7 @@ const topTierRenovationsCompany: Company = {
   },
   layout: {
     navbar: {
-      variant: "classic",
-
+      variant: "centeredLogo",
       items: [
         {
           label: "Home",
@@ -1352,6 +1351,24 @@ const topTierRenovationsCompany: Company = {
           href: "/contact",
         },
       ],
+      styles: {
+        background: "#0B0F14",
+        border: "#363636",
+        link: "#F8FAFC",
+        linkHover: "#1E90FF",
+        dropdownBackground: "#0B0F14",
+        dropdownBorder: "#363636",
+        dropdownLink: "#F8FAFC",
+        dropdownLinkHover: "#1E90FF",
+        phoneIcon: "#F8FAFC",
+        phoneIconBg: "#1E90FF",
+        ctaBg: "#1E90FF",
+        ctaText: "#F8FAFC",
+        mobileBackground: "#0B0F14",
+        mobileMenuBg: "#1E90FF",
+        mobileMenuIcon: "#F8FAFC",
+        mobilePanelBg: "#0B0F14",
+      }
     },
   },
   pages: {
