@@ -8,6 +8,8 @@ export type ClassicCard = {
   href?: string;
   styles?: {
     cardBg?: string;
+    cardBorder?: string;
+    accent?: string;
   };
 };
 

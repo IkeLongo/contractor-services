@@ -1276,18 +1276,18 @@ const topTierRenovationsCompany: Company = {
     googlePlaceId: "", // TODO: add Google Place ID
   },
   branding: {
-    logo: "/logos/top-tier-renovations.png", // TODO: upload + confirm path
-    navLogo: "/logos/top-tier-renovations-nav.png", // TODO: create simplified/white version for navbar
+    logo: "/companies/top-tier-renovations/logos/top-tier-renovations-logo.png", // TODO: upload + confirm path
+    navLogo: "/companies/top-tier-renovations/logos/top-tier-renovations-logo.png", // TODO: create simplified/white version for navbar
     theme: {
       primary: "#1E90FF",      // strong electric blue (CTA, buttons, highlights)
-      secondary: "#0B0F14",    // deep dark for sections/hero backgrounds
+      secondary: "#F3F6FA",    // deep dark for sections/hero backgrounds
       accent: "#F8FAFC",       // soft white for contrast elements
 
-      background: "#F3F6FA",   // light neutral page background
+      background: "#0B0F14",   // light neutral page background
       surface: "#FFFFFF",      // cards / containers
 
-      text: "#0F172A",         // slightly softer than pure black (better UX)
-      mutedText: "#475569",    // secondary text
+      text: "#F8FAFC",         // slightly softer than pure black (better UX)
+      mutedText: "#8b99ad",    // secondary text
 
       border: "#E2E8F0",       // subtle borders/dividers
     },
@@ -1399,8 +1399,23 @@ const topTierRenovationsCompany: Company = {
         ],
         images: [
           {
-            src: "/images/top-tier-hero-1.jpg",
-            alt: "Home renovation project showcasing interior remodeling",
+            src: "/companies/top-tier-renovations/hero-images/hero-1.png",
+            alt: "Kitchen renovation with modern finishes",
+            priority: true,
+          },
+          {
+            src: "/companies/top-tier-renovations/hero-images/hero-2.png",
+            alt: "Movie room with custom lighting and seating",
+            priority: true,
+          },
+          {
+            src: "/companies/top-tier-renovations/hero-images/hero-3.png",
+            alt: "Shower renovation with tile and glass enclosure",
+            priority: true,
+          },
+          {
+            src: "/companies/top-tier-renovations/hero-images/hero-4.png",
+            alt: "Dining room remodel with new flooring and lighting",
             priority: true,
           },
         ],
@@ -1408,6 +1423,9 @@ const topTierRenovationsCompany: Company = {
       services: {
         eyebrow: {
           content: "What We Do",
+          styles: {
+            color: "#55a2f0",
+          }
         },
         title: {
           content: "Our Remodeling Services",
@@ -1417,12 +1435,12 @@ const topTierRenovationsCompany: Company = {
             "From flooring and custom showers to full home remodels, we handle the work from start to finish.",
         },
         columns: 2,
-        items: [
+        items: [       
           {
             title: {
               content: "Flooring",
               styles: {
-                color: "#0F172A",
+                color: "#F8FAFC",
               },
             },
             description: {
@@ -1432,17 +1450,23 @@ const topTierRenovationsCompany: Company = {
                 color: "#475569",
               }
             },
+            image: {
+              src: "/companies/top-tier-renovations/service-cards/service-1.jpg",
+              alt: "Durable flooring updates that transform the look and feel of your home",
+            },
             href: "/services/flooring",
             styles: {
-              cardBg: "#FFFFFF",
+              cardBg: "#202020",
+              cardBorder: "#363636",
+              accent: "#55a2f0",
             },
           },
           {
             title: {
               content: "Custom Showers",
               styles: {
-                color: "#475569",
-              }
+                color: "#F8FAFC",
+              },
             },
             description: {
               content:
@@ -1451,17 +1475,23 @@ const topTierRenovationsCompany: Company = {
                 color: "#475569",
               }
             },
+            image: {
+              src: "/companies/top-tier-renovations/service-cards/service-2.png",
+              alt: "Bathroom upgrades designed around comfort, function, and long-lasting finishes",
+            },
             href: "/services/custom-showers",
             styles: {
-              cardBg: "#FFFFFF",
+              cardBg: "#202020",
+              cardBorder: "#363636",
+              accent: "#55a2f0",
             },
           },
           {
             title: {
               content: "Kitchen Renovations",
               styles: {
-                color: "#475569",
-              }
+                color: "#F8FAFC",
+              },
             },
             description: {
               content:
@@ -1470,17 +1500,23 @@ const topTierRenovationsCompany: Company = {
                 color: "#475569",
               }
             },
+            image: {
+              src: "/companies/top-tier-renovations/service-cards/service-3.webp",
+              alt: "Functional kitchen improvements built around better layouts, cleaner finishes, and everyday use.",
+            },
             href: "/services/kitchen-renovations",
             styles: {
-              cardBg: "#FFFFFF",
+              cardBg: "#202020",
+              cardBorder: "#363636",
+              accent: "#55a2f0",
             },
           },
           {
             title: {
               content: "Full Home Remodel",
               styles: {
-                color: "#475569",
-              }
+                color: "#F8FAFC",
+              },
             },
             description: {
               content:
@@ -1489,17 +1525,27 @@ const topTierRenovationsCompany: Company = {
                 color: "#475569",
               }
             },
+            image: {
+              src: "/companies/top-tier-renovations/service-cards/service-4.png",
+              alt: "Complete interior and exterior renovation services for homeowners ready for a full transformation.",
+            },
             href: "/services/full-remodel",
             styles: {
-              cardBg: "#FFFFFF",
+              cardBg: "#202020",
+              cardBorder: "#363636",
+              accent: "#55a2f0",
             },
           },
           {
             title: {
               content: "General Maintenance",
               styles: {
-                color: "#475569",
-              }
+                color: "#F8FAFC",
+              },
+            },
+            image: {
+              src: "/companies/top-tier-renovations/service-cards/service-5.jpg",
+              alt: "Reliable maintenance services to keep your home looking and working the way it should.",
             },
             description: {
               content:
@@ -1510,21 +1556,29 @@ const topTierRenovationsCompany: Company = {
             },
             href: "/services/maintenance",
             styles: {
-              cardBg: "#FFFFFF",
+              cardBg: "#202020",
+              cardBorder: "#363636",
+              accent: "#55a2f0",
             },
           },
         ],
         styles: {
-          background: "#F3F6FA",
+          background: "#0B0F14",
         },
       },
       logoSection: {
         title: {
           content: "Built for Interior and Exterior Renovation Projects",
+          styles: {
+            color: "#F8FAFC",
+          },
         },
         description: {
           content:
             "From flooring and kitchens to full home remodels, Top Tier Renovations delivers reliable craftsmanship across every stage of your project.",
+          styles: {
+            color: "#8b99ad",
+          },
         },
         logos: [
           { title: "Raycast", src: "https://assets.aceternity.com/logos/raycast.webp" },
@@ -1555,18 +1609,30 @@ const topTierRenovationsCompany: Company = {
       whySection: {
         eyebrow: {
           content: "Why Homeowners Choose Us",
+          styles: {
+            color: "#55a2f0",
+          }
         },
         title: {
           content: "Renovation Work Built Around Quality, Detail, and Trust",
+          styles: {
+            color: "#F8FAFC",
+          }
         },
         description: {
           content:
             "Whether it’s a single-room upgrade or a full home remodel, Top Tier Renovations focuses on clean workmanship, reliable communication, and results that fit your vision.",
+          styles: {
+            color: "#8b99ad",
+          }
         },
         cards: [
           {
             title: {
               content: "Free Estimates",
+              styles: {
+                color: "#F8FAFC",
+              }
             },
             description: {
               content:
@@ -1574,7 +1640,11 @@ const topTierRenovationsCompany: Company = {
             },
             icon: "ClipboardCheck",
             styles: {
-              hoverBorder: "#1E90FF",
+              cardBg: "#202020",
+              cardBorder: "#363636",
+              iconColor: "#1eadff",
+              iconBackground: "#1e8fff4b",
+              hoverBorder: "#1eadff",
             }
           },
           {
@@ -1587,6 +1657,10 @@ const topTierRenovationsCompany: Company = {
             },
             icon: "Home",
             styles: {
+              cardBg: "#202020",
+              cardBorder: "#363636",
+              iconColor: "#1E90FF",
+              iconBackground: "#1e8fff4b",
               hoverBorder: "#1E90FF",
             }
           },
@@ -1600,6 +1674,10 @@ const topTierRenovationsCompany: Company = {
             },
             icon: "Hammer",
             styles: {
+              cardBg: "#202020",
+              cardBorder: "#363636",
+              iconColor: "#1E90FF",
+              iconBackground: "#1e8fff4b",
               hoverBorder: "#1E90FF",
             }
           },
@@ -1613,12 +1691,20 @@ const topTierRenovationsCompany: Company = {
             },
             icon: "MapPin",
             styles: {
+              cardBg: "#202020",
+              cardBorder: "#363636",
+              iconColor: "#1E90FF",
+              iconBackground: "#1e8fff4b",
               hoverBorder: "#1E90FF",
             }
           },
         ],
         styles: {
-          background: "#F3F6FA",
+          background: "#0B0F14",
+          overlayGradient: "linear-gradient(to bottom, rgba(0, 0, 0, 0.7), transparent, rgba(0, 0, 0, 0.6))",
+          patternColor: "rgb(241, 241, 241)",
+          glowColor: "#1E90FF",
+          glowOpacity: 0.15,
         },
       },
     },
@@ -1909,42 +1995,42 @@ const topTierRenovationsCompany: Company = {
       },
     ],
     styles: {
-      background: "transparent",
-      title: "#0B1F4D",
-      description: "#475569",
+      background: "#0B0F14",
+      eyebrow: "#55a2f0",
+      title: "#F8FAFC",
+      description: "#8b99ad",
+      cardBackground: "#202020",
+      cardBorder: "#363636",
+      cardTitle: "#F8FAFC",
+      categoryBackground: "#1e8fffd5",
+      categoryText: "#FFFFFF",
+      icon: "#1E90FF",
+      link: "#55a2f0",
+      accent: "#1E90FF",
     }
   },
   testimonials: {
     eyebrow: "Customer Feedback",
-
     title: "Built on Quality Work and Satisfied Homeowners",
-
     description:
       "Top Tier Renovations is committed to delivering high-quality remodeling services with a focus on detail, reliability, and customer satisfaction. Check back soon to see what homeowners in San Antonio are saying.",
-
     styles: {
       background: "#0B0F14",
-      eyebrow: "#1E90FF",
+      eyebrow: "#55a2f0",
       title: "#FFFFFF",
       description: "#CBD5F5",
-
-      cardBackground: "#111827",
-      cardBorder: "rgba(255,255,255,0.08)",
-
+      cardBackground: "#202020",
+      cardBorder: "#363636",
       quote: "#E2E8F0",
       name: "#FFFFFF",
       role: "#94A3B8",
-
-      star: "#1E90FF",
+      star: "#dacc14",
       mutedStar: "#334155",
-
       quoteIcon: "#1E90FF",
-
       ctaBackground: "#1E90FF",
       ctaText: "#FFFFFF",
-
-      modalBackground: "#0B0F14",
-      modalBorder: "rgba(255,255,255,0.1)",
+      modalBackground: "linear-gradient(180deg, #202020 0%, #363636 70%, #202020 100%)",
+      modalBorder: "#363636",
     },
 
     // intentionally no items yet
@@ -2183,7 +2269,7 @@ const topTierRenovationsCompany: Company = {
     },
   },
   contact: {
-    backgroundImage: "/companies/top-tier-renovations/contact/top-tier-renovation-bg.png", // TODO: replace with real image
+    backgroundImage: "/companies/top-tier-renovations/images/home-contact.png", // TODO: replace with real image
     title: "Get Your Free Estimate",
     description:
       "Ready to revamp, renew, or refresh your home? Tell us about your project and we'll get back to you quickly.",
@@ -2209,9 +2295,20 @@ const topTierRenovationsCompany: Company = {
     },
     styles: {
       home: {
-        formBg: "#F3F6FA",
-        text: "#0F172A",
-        mutedText: "#1d2838",
+        formBg: "#0B0F14",
+        text: "#F8FAFC",
+        mutedText: "#8b99ad",
+        buttonBg: "#1E90FF",
+        buttonText: "#FFFFFF",
+        input: {
+          background: "#202020",
+          text: "#F8FAFC",
+          placeholder: "#8b99ad",
+          label: "#F8FAFC",
+          ring: "#363636",
+          focusOutline: "#1E90FF",
+          activeRing: "#1E90FF",
+        }
       },
       contact: {
         background: "linear-gradient(to bottom, #1E90FF 0%, #0B0F14 100%)",
@@ -2275,9 +2372,7 @@ const topTierRenovationsCompany: Company = {
   footer: {
     shortDescription:
       "Top Tier Renovations provides reliable interior and exterior remodeling services in San Antonio, TX. From flooring and custom showers to full home renovations, we help homeowners revamp, renew, and refresh their space.",
-
     serviceArea: "San Antonio, TX and surrounding areas", // TODO: expand if needed
-
     socials: [
         { platform: "facebook", url: "https://facebook.com/" },
         { platform: "instagram", url: "https://instagram.com/" },
@@ -2285,6 +2380,20 @@ const topTierRenovationsCompany: Company = {
         { platform: "twitter", url: "https://twitter.com/" },
         { platform: "youtube", url: "https://youtube.com/" },
     ],
+    styles: {
+      background: "#0B0F14",
+      text: "#F8FAFC",
+      mutedText: "#8b99ad",
+      headingText: "#F8FAFC",
+      linkText: "#8b99ad",
+      linkHover: "#1E90FF",
+      childLinkText: "#8b99ad",
+      childLinkHover: "#1E90FF",
+      border: "#8b99ad",
+      bottomText: "#8b99ad",
+      socialIcon: "#F8FAFC",
+      socialIconHover: "#1E90FF",
+    }
   },
 };
 

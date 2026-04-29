@@ -19,15 +19,16 @@ function ServiceCard({
 }) {
   // Section-level style overrides with fallbacks
   const t = company.branding.theme;
+  const s = company.pages.home.services;
 
   const href = service.href;
 
   const card = (
     <div
-      className={`group relative flex flex-col overflow-hidden rounded-xl border shadow-sm transition-all duration-300 hover:shadow-lg hover:-translate-y-1${href ? " cursor-pointer" : ""}`}
+      className={`group relative flex flex-col overflow-hidden rounded-xl border-2 shadow-sm transition-all duration-300 hover:shadow-lg hover:-translate-y-1${href ? " cursor-pointer" : ""}`}
       style={{
         background: service.styles?.cardBg ?? "var(--card-bg)",
-        borderColor: "var(--card-border)",
+        borderColor: service.styles?.cardBorder ?? "var(--card-border)",
       } as any}
     >
       {/* Image */}
@@ -58,11 +59,11 @@ function ServiceCard({
       {/* Content */}
       <div
         className="flex flex-col gap-2 p-5 pb-6"
-        style={{ background: "var(--card-bg)" }}
+        style={{ background: s.items[0].styles?.cardBg }}
       >
         <h3
           className="text-lg font-bold tracking-tight"
-          style={{ color: "var(--card-title)" }}
+          style={{ color: s.items[0].title.styles?.color }}
         >
           {service.title.content}
         </h3>
@@ -77,7 +78,7 @@ function ServiceCard({
       {/* Bottom accent bar — animates left to right on hover */}
       <div
         className="absolute bottom-0 left-0 h-0.5 w-0 transition-all duration-300 group-hover:w-full"
-        style={{ backgroundColor: "var(--accent)" }}
+        style={{ backgroundColor: service.styles?.accent ?? "var(--accent)" }}
       />
     </div>
   );
@@ -129,14 +130,14 @@ export function ServicesGrid({ company, id = "services" }: ServicesGridProps) {
           {s.eyebrow?.content && (
             <p
               className="text-xs font-bold uppercase tracking-widest mb-2"
-              style={{ color: "var(--eyebrow)" }}
+              style={{ color: s.eyebrow.styles?.color ?? "var(--title)" }}
             >
-              {s.eyebrow.content}
+              {s.eyebrow.content} 
             </p>
           )}
           <h2
             className="text-3xl md:text-4xl font-black mb-3"
-            style={{ color: "var(--title)" }}
+            style={{ color: s.title.styles?.color ?? "var(--title)" }}
           >
             {s.title.content}
           </h2>

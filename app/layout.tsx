@@ -72,7 +72,7 @@ export default async function RootLayout({
       <body className="min-h-full flex flex-col">
         <NavbarRenderer company={company} />
         {children}
-        {/* <Footer company={company} /> */}
+        <Footer company={company} />
       </body>
     </html>
   );

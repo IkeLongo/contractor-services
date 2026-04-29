@@ -20,7 +20,10 @@ export function ContactSection({ company }: ContactSectionProps) {
     overlayGradient:
       s?.overlayGradient ??
       "linear-gradient(to right, rgba(0,0,0,0.7), rgba(0,0,0,0.5), rgba(0,0,0,0.2))",
+    input: s?.input
   };
+
+  const inputStyles = styles.input || {};
 
   return (
     <section id="contact" className="isolate grid w-full min-h-screen grid-cols-1 overflow-hidden lg:grid-cols-2">
@@ -97,11 +100,21 @@ export function ContactSection({ company }: ContactSectionProps) {
             </div>
           </div>
 
-          <form className="flex flex-col gap-5">
+          <form className="flex flex-col gap-5"
+            style={{
+              "--input-bg": inputStyles.background ?? "#ffffff",
+              "--input-text": inputStyles.text ?? "#000000",
+              "--input-placeholder": inputStyles.placeholder ?? "rgb(163 163 163)",
+              "--input-label": inputStyles.label ?? "rgb(23 23 23)",
+              "--input-ring": inputStyles.ring ?? "rgba(0,0,0,0.1)",
+              "--input-focus": inputStyles.focusOutline ?? "rgb(163 163 163)",
+              "--input-active-ring": inputStyles.activeRing ?? inputStyles.ring ?? "rgba(0,0,0,0.1)",
+            } as React.CSSProperties}
+          >
             <div className="flex flex-col gap-2">
               <label
                 htmlFor="contact-dither-name"
-                className="text-base/5 font-medium text-neutral-900 sm:text-sm/5"
+                className="text-base/5 font-medium text-[var(--input-label)] sm:text-sm/5"
               >
                 Name
               </label>
@@ -111,13 +124,13 @@ export function ContactSection({ company }: ContactSectionProps) {
                 name="name"
                 placeholder="Alison Burgers"
                 autoComplete="name"
-                className="w-full rounded-lg border-0 bg-white px-4 py-2.5 text-base/6 text-black shadow-sm ring-1 shadow-black/10 ring-black/10 placeholder:text-neutral-400 focus:outline-2 focus:-outline-offset-1 focus:outline-neutral-400 sm:py-1.5 sm:text-sm/6"
+                className="w-full rounded-lg border-0 bg-[var(--input-bg)] px-4 py-2.5 text-base/6 text-[var(--input-text)] shadow-sm ring-1 shadow-black/10 ring-[var(--input-ring)] placeholder:text-[var(--input-placeholder)] focus:outline-2 focus:-outline-offset-1 focus:outline-[var(--input-focus)] focus:ring-[var(--input-active-ring)] sm:py-1.5 sm:text-sm/6"
               />
             </div>
             <div className="flex flex-col gap-2">
               <label
                 htmlFor="contact-email"
-                className="text-base/5 font-medium text-neutral-900 sm:text-sm/5"
+                className="text-base/5 font-medium text-[var(--input-label)] sm:text-sm/5"
               >
                 Email
               </label>
@@ -127,13 +140,13 @@ export function ContactSection({ company }: ContactSectionProps) {
                 name="email"
                 placeholder="you@email.com"
                 autoComplete="email"
-                className="w-full rounded-lg border-0 bg-white px-4 py-2.5 text-base/6 text-black shadow-sm ring-1 shadow-black/10 ring-black/10 placeholder:text-neutral-400 focus:outline-2 focus:-outline-offset-1 focus:outline-neutral-400 sm:py-1.5 sm:text-sm/6"
+                className="w-full rounded-lg border-0 bg-[var(--input-bg)] px-4 py-2.5 text-base/6 text-[var(--input-text)] shadow-sm ring-1 shadow-black/10 ring-[var(--input-ring)] placeholder:text-[var(--input-placeholder)] focus:outline-2 focus:-outline-offset-1 focus:outline-[var(--input-focus)] focus:ring-[var(--input-active-ring)] sm:py-1.5 sm:text-sm/6"
               />
             </div>
             <div className="flex flex-col gap-2">
               <label
                 htmlFor="contact-phone"
-                className="text-base/5 font-medium text-neutral-900 sm:text-sm/5"
+                className="text-base/5 font-medium text-[var(--input-label)] sm:text-sm/5"
               >
                 Phone
               </label>
@@ -143,13 +156,13 @@ export function ContactSection({ company }: ContactSectionProps) {
                 name="phone"
                 placeholder="(555) 123-4567"
                 autoComplete="tel"
-                className="w-full rounded-lg border-0 bg-white px-4 py-2.5 text-base/6 text-black shadow-sm ring-1 shadow-black/10 ring-black/10 placeholder:text-neutral-400 focus:outline-2 focus:-outline-offset-1 focus:outline-neutral-400 sm:py-1.5 sm:text-sm/6"
+                className="w-full rounded-lg border-0 bg-[var(--input-bg)] px-4 py-2.5 text-base/6 text-[var(--input-text)] shadow-sm ring-1 shadow-black/10 ring-[var(--input-ring)] placeholder:text-[var(--input-placeholder)] focus:outline-2 focus:-outline-offset-1 focus:outline-[var(--input-focus)] focus:ring-[var(--input-active-ring)] sm:py-1.5 sm:text-sm/6"
               />
             </div>
             <div className="flex flex-col gap-2">
               <label
                 htmlFor="contact-service"
-                className="text-base/5 font-medium text-neutral-900 sm:text-sm/5"
+                className="text-base/5 font-medium text-[var(--input-label)] sm:text-sm/5"
               >
                 Service Needed
               </label>
@@ -157,7 +170,7 @@ export function ContactSection({ company }: ContactSectionProps) {
                 id="contact-service"
                 name="service"
                 defaultValue=""
-                className="w-full rounded-lg border-0 bg-white px-4 py-2.5 text-base/6 text-black shadow-sm ring-1 shadow-black/10 ring-black/10 focus:outline-2 focus:-outline-offset-1 focus:outline-neutral-400 sm:py-1.5 sm:text-sm/6"
+                className="w-full rounded-lg border-0 bg-[var(--input-bg)] px-4 py-2.5 text-base/6 text-[var(--input-text)] shadow-sm ring-1 shadow-black/10 ring-[var(--input-ring)] focus:outline-2 focus:-outline-offset-1 focus:outline-[var(--input-focus)] focus:ring-[var(--input-active-ring)] sm:py-1.5 sm:text-sm/6"
               >
                 <option value="" disabled>
                   Select a service
@@ -172,7 +185,7 @@ export function ContactSection({ company }: ContactSectionProps) {
             <div className="flex flex-col gap-2">
               <label
                 htmlFor="contact-message"
-                className="text-base/5 font-medium text-neutral-900 sm:text-sm/5"
+                className="text-base/5 font-medium text-[var(--input-label)] sm:text-sm/5"
               >
                 Message
               </label>
@@ -181,7 +194,7 @@ export function ContactSection({ company }: ContactSectionProps) {
                 name="message"
                 rows={4}
                 placeholder="How can we help you?"
-                className="w-full resize-none rounded-lg border-0 bg-white px-4 py-2.5 text-base/6 text-black shadow-sm ring-1 shadow-black/10 ring-black/10 placeholder:text-neutral-400 focus:outline-2 focus:-outline-offset-1 focus:outline-neutral-400 sm:py-1.5 sm:text-sm/6"
+                className="w-full resize-none rounded-lg border-0 bg-[var(--input-bg)] px-4 py-2.5 text-base/6 text-[var(--input-text)] shadow-sm ring-1 shadow-black/10 ring-[var(--input-ring)] placeholder:text-[var(--input-placeholder)] focus:outline-2 focus:-outline-offset-1 focus:outline-[var(--input-focus)] focus:ring-[var(--input-active-ring)] sm:py-1.5 sm:text-sm/6"
               />
             </div>
             <button

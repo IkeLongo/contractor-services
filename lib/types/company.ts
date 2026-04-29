@@ -242,7 +242,16 @@ export type Company = {
         buttonBg?: string;
         buttonText?: string;
         overlayGradient?: string;
-      }
+        input?: {
+          background?: string;
+          text?: string;
+          placeholder?: string;
+          label?: string;
+          ring?: string;
+          focusOutline?: string;
+          activeRing?: string;
+        };
+      };
       contact?: {
         background?: string;
         sectionBg?: string;
@@ -252,7 +261,16 @@ export type Company = {
         buttonBg?: string;
         buttonText?: string;
         overlayGradient?: string;
-      }
+        input?: {
+          background?: string;
+          text?: string;
+          placeholder?: string;
+          label?: string;
+          ring?: string;
+          focusOutline?: string;
+          activeRing?: string;
+        };
+      };
     };
   };
   faq?: {
@@ -283,6 +301,20 @@ export type Company = {
       platform: "facebook" | "instagram" | "linkedin" | "twitter" | "youtube";
       url: string;
     }[];
+    styles?: {
+      background?: string;
+      text?: string;
+      mutedText?: string;
+      headingText?: string;
+      linkText?: string;
+      linkHover?: string;
+      childLinkText?: string;
+      childLinkHover?: string;
+      border?: string;
+      bottomText?: string;
+      socialIcon?: string;
+      socialIconHover?: string;
+    };
   };
 };
 

@@ -7,6 +7,9 @@ import {
   Hammer,
   Network,
   ShieldCheck,
+  MapPin,
+  ClipboardCheck,
+  Home,
   type LucideIcon,
 } from "lucide-react";
 import type { Company } from "@/lib/types/company";
@@ -18,6 +21,9 @@ const ICON_MAP: Record<string, LucideIcon> = {
   Hammer,
   Network,
   ShieldCheck,
+  MapPin,
+  ClipboardCheck,
+  Home,
 };
 
 interface WhyChooseUsProps {
@@ -28,24 +34,13 @@ export function WhyChooseUs({ company }: WhyChooseUsProps) {
   // Section-level style overrides with fallbacks
   const s = company.pages.home.whySection
   const t = company.branding.theme;
-  // Fallbacks for theme in case it's missing
-  const fallback = {
-    background: "#fff",
-    primary: "#0B1F4D",
-    secondary: "#C62828",
-    surface: "#fff",
-    text: "#111827",
-    mutedText: "#475569",
-    border: "#E2E8F0",
-  };
-  const theme = t || fallback;
 
   // Compose CSS variables for section
   const cssVars = {
-    "--section-bg": s?.styles?.background || theme.background,
-    "--eyebrow": s?.eyebrow || theme.secondary,
-    "--title": s?.title || theme.text,
-    "--description": s?.description || theme.mutedText,
+    "--section-bg": s?.styles?.background || t?.background,
+    "--eyebrow": s?.eyebrow || t?.secondary,
+    "--title": s?.title || t?.text,
+    "--description": s?.description || t?.mutedText,
   } as any;
 
   return (
@@ -55,9 +50,24 @@ export function WhyChooseUs({ company }: WhyChooseUsProps) {
       className="relative overflow-hidden bg-[var(--section-bg)] py-16 md:py-20 lg:py-24 px-4 sm:px-6 lg:px-8"
     >
       <div className="pointer-events-none absolute inset-0">
-        <div className="absolute inset-0 bg-gradient-to-b from-white/70 via-transparent to-slate-200/60" />
-        <div className="absolute inset-0 opacity-[0.1] bg-[radial-gradient(circle_at_1px_1px,_#0B1F4D_1px,_transparent_0)] [background-size:22px_22px]" />
-        <div className="absolute -top-24 left-1/2 h-72 w-72 -translate-x-1/2 rounded-full bg-[var(--icon)]/10 blur-3xl" />
+        <div
+          className="absolute inset-0"
+          style={{ background: s?.styles?.overlayGradient || "linear-gradient(to bottom, rgba(255,255,255,0.7), transparent, rgba(226,232,240,0.6))" }}
+        />
+        <div
+          className="absolute inset-0 [background-size:22px_22px]"
+          style={{
+            backgroundImage: `radial-gradient(circle at 1px 1px, ${s?.styles?.patternColor || "#0B1F4D"} 1px, transparent 0)`,
+            opacity: s?.styles?.patternOpacity ?? 0.1,
+          }}
+        />
+        <div
+          className="absolute -top-24 left-1/2 h-72 w-72 -translate-x-1/2 rounded-full blur-3xl"
+          style={{
+            backgroundColor: s?.styles?.glowColor || t?.secondary,
+            opacity: s?.styles?.glowOpacity ?? 0.1,
+          }}
+        />
       </div>
 
       <div className="relative z-10 mx-auto max-w-7xl">
@@ -65,20 +75,23 @@ export function WhyChooseUs({ company }: WhyChooseUsProps) {
           {s?.eyebrow && (
             <p
               className="text-xs font-bold uppercase tracking-widest mb-2"
-              style={{ color: "var(--eyebrow)" }}
+              style={{ color: s.eyebrow.styles?.color ?? "var(--title)" }}
             >
               {s.eyebrow.content}
             </p>
           )}
           <h2
             className="text-2xl text-center font-black tracking-tight md:text-4xl text-[var(--title)]"
-            style={{ color: "var(--title)" }}
+            style={{ color: s?.title.styles?.color ?? "var(--title)" }}
           >
             {s?.title.content}
           </h2>
 
           {s?.description && (
-            <p className="mx-auto mt-4 max-w-2xl text-center text-lg text-[var(--description)]">
+            <p
+              className="mx-auto mt-4 max-w-2xl text-center text-lg text-[var(--description)]"
+              style={{ color: s.description.styles?.color ?? "var(--description)" }}
+            >
               {s.description.content}
             </p>
           )}
@@ -90,11 +103,11 @@ export function WhyChooseUs({ company }: WhyChooseUsProps) {
               ? ICON_MAP[item.icon] ?? ShieldCheck
               : ShieldCheck;
 
-            const cardBg = item.styles?.cardBg || theme.surface;
-            const cardBorder = item.styles?.cardBorder || theme.border;
-            const cardIcon = item.styles?.iconColor || theme.secondary;
-            const cardIconBg = item.styles?.iconBackground || `${theme.secondary}1A`;
-            const hoverBorder = item.styles?.hoverBorder || theme.secondary;
+            const cardBg = item.styles?.cardBg || t?.surface;
+            const cardBorder = item.styles?.cardBorder || t?.border;
+            const cardIcon = item.styles?.iconColor || t?.secondary;
+            const cardIconBg = item.styles?.iconBackground || `${t?.secondary}1A`;
+            const hoverBorder = item.styles?.hoverBorder || t?.secondary;
 
             return (
               <div
@@ -120,7 +133,7 @@ export function WhyChooseUs({ company }: WhyChooseUsProps) {
 
                   <h3
                     className="m-0 text-lg font-semibold tracking-tight"
-                    style={{ color: theme.text }}
+                    style={{ color: s.cards[0].title.styles?.color ?? "var(--card-title)" }}
                   >
                     {item.title.content}
                   </h3>
@@ -128,7 +141,7 @@ export function WhyChooseUs({ company }: WhyChooseUsProps) {
 
                 <p
                   className="mt-2 text-sm leading-relaxed"
-                  style={{ color: theme.mutedText }}
+                  style={{ color: t?.mutedText }}
                 >
                   {item.description.content}
                 </p>

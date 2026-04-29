@@ -143,7 +143,9 @@ export function ReviewModal({
               ))}
             </div>
 
-            <span className="text-sm font-semibold text-slate-700">
+            <span className="text-sm font-semibold"
+              style={{ color: "var(--role)" }}
+            >
               {rating.toFixed(1)}
             </span>
           </div>

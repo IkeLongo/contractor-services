@@ -49,5 +49,10 @@ export type WhySection = {
   cards: SimpleHoverCard[];
   styles?: {
     background?: string;
+    overlayGradient?: string;
+    patternColor?: string;
+    patternOpacity?: number;
+    glowColor?: string;
+    glowOpacity?: number;
   };
 }
