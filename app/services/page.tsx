@@ -3,9 +3,10 @@ import { PageHeader } from "@/app/components/layout/PageHeader";
 import { ServicesHero } from "@/app/components/services/ServicesHero";
 import { ServicesGrid } from "@/app/components/home/ServicesGrid";
 import { FaqSection } from "@/app/components/home/FaqSection";
+import { getCompany } from "@/lib/get-company";
 
-export default function ServicesPage() {
-  const company = defaultCompany;
+export default async function ServicesPage() {
+  const company = await getCompany();
 
   return (
     <main>

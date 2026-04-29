@@ -1358,8 +1358,6 @@ const topTierRenovationsCompany: Company = {
         linkHover: "#1E90FF",
         dropdownBackground: "#0B0F14",
         dropdownBorder: "#363636",
-        dropdownLink: "#F8FAFC",
-        dropdownLinkHover: "#1E90FF",
         phoneIcon: "#F8FAFC",
         phoneIconBg: "#1E90FF",
         ctaBg: "#1E90FF",
