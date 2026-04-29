@@ -24,7 +24,7 @@ export default async function Image() {
   const protocol = host.includes("localhost") ? "http" : "https";
   const baseUrl = `${protocol}://${host}`;
 
-  const og = company.og ?? {};
+  const og = company.seo.og ?? {};
   const tintColor = og.tintColor ?? t.primary ?? FALLBACK_TINT;
   const tintOpacity = og.tintOpacity ?? 0.55;
 
