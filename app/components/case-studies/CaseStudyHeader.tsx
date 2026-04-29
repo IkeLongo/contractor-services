@@ -1,5 +1,6 @@
 import Image from "next/image";
-import type { Company, PortfolioItem } from "@/data/companies";
+import type { Company } from "@/lib/types/company";
+import type { PortfolioItem } from "@/lib/types/old-types";
 
 interface CaseStudyHeaderProps {
   company: Company;

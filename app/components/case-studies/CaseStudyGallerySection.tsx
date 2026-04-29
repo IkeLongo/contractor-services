@@ -4,7 +4,8 @@ import { useState } from "react";
 import Image from "next/image";
 import { motion, AnimatePresence } from "motion/react";
 import { ChevronLeft, ChevronRight } from "lucide-react";
-import type { Company, PortfolioItem } from "@/data/companies";
+import type { Company } from "@/lib/types/company";
+import type { PortfolioItem } from "@/lib/types/old-types";
 
 interface GalleryImage {
   image: string;

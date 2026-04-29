@@ -285,3 +285,10 @@ export type Company = {
     }[];
   };
 };
+
+// export type LogoSectionStyles = {
+//   background?: string;
+//   eyebrow?: string;
+//   title?: string;
+//   description?: string;
+// };

@@ -11,7 +11,8 @@ import {
   FolderOpen,
   type LucideIcon,
 } from "lucide-react";
-import type { Company, PortfolioItem } from "@/data/companies";
+import type { Company } from "@/lib/types/company";
+import type { PortfolioItem } from "@/lib/types/old-types";
 
 const ICON_MAP: Record<string, LucideIcon> = {
   Wrench,
@@ -25,7 +26,7 @@ const ICON_MAP: Record<string, LucideIcon> = {
 };
 
 /** Returns Tailwind grid-span/start classes from a PortfolioItem's layout field. */
-function getBentoClass(item: import("@/data/companies").PortfolioItem): string {
+function getBentoClass(item: PortfolioItem): string {
   if (!item || !('layout' in item) || !item.layout) return "";
   const layout = item.layout as NonNullable<typeof item.layout>;
   return [
