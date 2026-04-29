@@ -2,48 +2,18 @@
 
 import { useState, useEffect } from "react";
 import { AnimatePresence, motion } from "motion/react";
-import type { Company } from "@/data/companies";
-
-const allLogos = [
-  { title: "Raycast", src: "https://assets.aceternity.com/logos/raycast.webp" },
-  { title: "Twitch", src: "https://assets.aceternity.com/logos/twitch.webp" },
-  { title: "Spotify", src: "https://assets.aceternity.com/logos/spotify.webp" },
-  { title: "Hulu", src: "https://assets.aceternity.com/logos/hulu.webp" },
-  { title: "YouTube", src: "https://assets.aceternity.com/logos/youtube.webp" },
-  {
-    title: "Character AI",
-    src: "https://assets.aceternity.com/logos/characterai.png",
-  },
-  { title: "OpenAI", src: "https://assets.aceternity.com/logos/openai.png" },
-  { title: "Oracle", src: "https://assets.aceternity.com/logos/oracle.png" },
-  { title: "Portola", src: "https://assets.aceternity.com/logos/portola.png" },
-  { title: "Granola", src: "https://assets.aceternity.com/logos/granola.png" },
-  {
-    title: "Hello Patient",
-    src: "https://assets.aceternity.com/logos/hello-patient.png",
-  },
-  { title: "Company 1", src: "https://assets.aceternity.com/logos/1.png" },
-  { title: "Forbes", src: "https://assets.aceternity.com/logos/forbes.png" },
-  {
-    title: "Y Combinator",
-    src: "https://assets.aceternity.com/logos/y-combinator.png",
-  },
-  { title: "Company 7", src: "https://assets.aceternity.com/logos/7.png" },
-  { title: "Company 8", src: "https://assets.aceternity.com/logos/8.png" },
-  { title: "Company 4", src: "https://assets.aceternity.com/logos/4.png" },
-  { title: "Company 9", src: "https://assets.aceternity.com/logos/9.png" },
-  { title: "Figma", src: "https://assets.aceternity.com/logos/figma2.svg" },
-  { title: "Wired", src: "https://assets.aceternity.com/logos/wired.png" },
-];
+import type { Company } from "@/lib/types/company";
 
 interface LogoSectionProps {
   company: Company;
 }
 
 export function LogoSection({ company }: LogoSectionProps) {
-  const section = company.logoSection;
+  const section = company.pages.home.logoSection;
 
-  if (!section) return null;
+  if (!section || !section.logos?.length) return null;
+
+  const allLogos = section.logos;
 
   const [currentSet, setCurrentSet] = useState(0);
   const logosPerSet = 10;
@@ -59,11 +29,10 @@ export function LogoSection({ company }: LogoSectionProps) {
 
   const getCurrentLogos = () => {
     const startIndex = currentSet * logosPerSet;
-    const logos = [];
-    for (let i = 0; i < logosPerSet; i++) {
-      logos.push(allLogos[(startIndex + i) % allLogos.length]);
-    }
-    return logos;
+
+    return Array.from({ length: logosPerSet }, (_, i) => {
+      return allLogos[(startIndex + i) % allLogos.length];
+    });
   };
 
   const currentLogos = getCurrentLogos();
@@ -71,21 +40,28 @@ export function LogoSection({ company }: LogoSectionProps) {
   return (
     <section
       className="overflow-hidden py-16 md:py-20 lg:py-24 px-4 sm:px-6 lg:px-8"
-      style={{ backgroundColor: section.styles?.background || undefined }}
+      style={{
+        backgroundColor: section?.styles?.background,
+      }}
     >
       <h2
         className="mx-auto max-w-xl text-center text-lg font-medium text-neutral-600 dark:text-neutral-400"
-        style={{ color: section.styles?.title || undefined }}
+        style={{
+          color: section?.title.styles?.color,
+        }}
       >
-        {section.title}{" "}
+        {section.title.content}{" "}
         <br className="block" />{" "}
         <span
           className="text-neutral-400 dark:text-neutral-600"
-          style={{ color: section.styles?.description || undefined }}
+          style={{
+            color: section?.description.styles?.color,
+          }}
         >
-          {section.description}
+          {section.description.content}
         </span>
       </h2>
+
       <div className="mx-auto mt-10 grid max-w-4xl grid-cols-5 gap-8">
         <AnimatePresence mode="popLayout">
           {currentLogos.map((logo, index) => (
@@ -117,7 +93,7 @@ export function LogoSection({ company }: LogoSectionProps) {
                 src={logo.src}
                 width={100}
                 height={100}
-                alt={logo.title}
+                alt={logo.alt ?? `${logo.title} logo`}
                 className="h-8 w-auto object-contain md:h-8 dark:invert dark:filter"
               />
             </motion.div>

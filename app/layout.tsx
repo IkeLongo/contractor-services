@@ -1,6 +1,6 @@
 import type { Metadata } from "next";
 import { Geist, Geist_Mono } from "next/font/google";
-import { ClassicNavbar } from "./components/layout/navbar/ClassicNavbar";
+import { NavbarRenderer } from "./components/layout/navbar/NavbarRenderer";
 import { Footer } from "@/app/components/layout/footer/Footer";
 import { getCompany } from "@/lib/get-company";
 
@@ -70,9 +70,9 @@ export default async function RootLayout({
       className={`${geistSans.variable} ${geistMono.variable} h-full antialiased`}
     >
       <body className="min-h-full flex flex-col">
-        <ClassicNavbar company={company} />
+        <NavbarRenderer company={company} />
         {children}
-        <Footer company={company} />
+        {/* <Footer company={company} /> */}
       </body>
     </html>
   );

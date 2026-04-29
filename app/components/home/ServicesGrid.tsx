@@ -1,7 +1,7 @@
 
 import Image from "next/image";
 import Link from "next/link";
-import type { Company } from "@/data/companies";
+import type { ClassicCard, Company } from "@/data/companies";
 
 const COLS_CLASS: Record<number, string> = {
   2: "sm:grid-cols-2",
@@ -13,31 +13,19 @@ function ServiceCard({
   service,
   company,
 }: {
-  service: Company["services"]["items"][number];
+  service: ClassicCard;
   company: Company;
 }) {
   // Section-level style overrides with fallbacks
-  const s = company.services.styles;
   const t = company.branding.theme;
-  // Fallbacks for theme in case it's missing
-  const fallback = {
-    background: "#fff",
-    primary: "#0B1F4D",
-    secondary: "#C62828",
-    surface: "#fff",
-    text: "#111827",
-    mutedText: "#475569",
-    border: "#E2E8F0",
-  };
-  const theme = t || fallback;
 
-  const href = service.slug ? `/services/${service.slug}` : undefined;
+  const href = service.href;
 
   const card = (
     <div
       className={`group relative flex flex-col overflow-hidden rounded-xl border shadow-sm transition-all duration-300 hover:shadow-lg hover:-translate-y-1${href ? " cursor-pointer" : ""}`}
       style={{
-        background: "var(--card-bg)",
+        background: service.styles?.cardBg ?? "var(--card-bg)",
         borderColor: "var(--card-border)",
       } as any}
     >
@@ -46,8 +34,8 @@ function ServiceCard({
         {service.image ? (
           <>
             <Image
-              src={service.image}
-              alt={service.title}
+              src={service.image.src}
+              alt={service.image.alt ?? service.title.content}
               fill
               sizes="(min-width: 1024px) 50vw, 100vw"
               className="object-cover transition-transform duration-500 group-hover:scale-105"
@@ -61,7 +49,7 @@ function ServiceCard({
         ) : (
           <div
             className="absolute inset-0 opacity-10"
-            style={{ backgroundColor: theme.primary }}
+            style={{ backgroundColor: t.primary }}
           />
         )}
       </div>
@@ -75,13 +63,13 @@ function ServiceCard({
           className="text-lg font-bold tracking-tight"
           style={{ color: "var(--card-title)" }}
         >
-          {service.title}
+          {service.title.content}
         </h3>
         <p
           className="text-sm leading-relaxed"
           style={{ color: "var(--card-description)" }}
         >
-          {service.description}
+          {service.description.content}
         </p>
       </div>
 
@@ -110,30 +98,20 @@ interface ServicesGridProps {
 }
 
 export function ServicesGrid({ company, id = "services" }: ServicesGridProps) {
-  const s = company.services.styles;
   const t = company.branding.theme;
-  const fallback = {
-    background: "#F3F6FA",
-    primary: "#0B1F4D",
-    secondary: "#C62828",
-    surface: "#fff",
-    text: "#111827",
-    mutedText: "#475569",
-    border: "#E2E8F0",
-  };
-  const theme = t || fallback;
+  const s = company.pages.home.services;
 
   const cssVars = {
-    "--section-bg": s?.background || theme.background,
-    "--eyebrow": s?.eyebrow || theme.secondary,
-    "--title": s?.title || theme.text,
-    "--description": s?.description || theme.mutedText,
-    "--card-bg": s?.cardBackground || theme.surface,
-    "--card-border": s?.cardBorder || theme.border,
-    "--card-title": s?.cardTitle || theme.text,
-    "--card-description": s?.cardDescription || theme.mutedText,
-    "--accent": s?.accent || theme.secondary,
-    "--image-overlay": s?.imageOverlay || "transparent",
+    "--section-bg": t?.background,
+    "--eyebrow": t?.secondary,
+    "--title": t?.text,
+    "--description": t?.mutedText,
+    "--card-bg": t?.surface,
+    "--card-border": t?.border,
+    "--card-title": t.text,
+    "--card-description": t?.mutedText,
+    "--accent": t?.secondary,
+    // "--image-overlay": s?.imageOverlay || "transparent",
   } as any;
 
   const colsClass =
@@ -147,33 +125,33 @@ export function ServicesGrid({ company, id = "services" }: ServicesGridProps) {
     >
       <div className="max-w-6xl mx-auto">
         <div className="text-center mb-12">
-          {company.services.eyebrow && (
+          {s.eyebrow?.content && (
             <p
               className="text-xs font-bold uppercase tracking-widest mb-2"
               style={{ color: "var(--eyebrow)" }}
             >
-              {company.services.eyebrow}
+              {s.eyebrow.content}
             </p>
           )}
           <h2
             className="text-3xl md:text-4xl font-black mb-3"
             style={{ color: "var(--title)" }}
           >
-            {company.services.title}
+            {s.title.content}
           </h2>
-          {company.services.description && (
+          {s.description?.content && (
             <p
               className="mx-auto mt-4 max-w-2xl text-lg leading-relaxed"
               style={{ color: "var(--description)" }}
             >
-              {company.services.description}
+              {s.description.content}
             </p>
           )}
         </div>
         <ul className={`grid grid-cols-1 ${colsClass} gap-6`}>
-          {company.services.items.map((service, idx) => (
-            <li key={service.title + idx}>
-              <ServiceCard service={service} company={company} />
+          {s.items.map((service, idx) => (
+            <li key={s.items[idx].title.content}>
+              <ServiceCard service={s.items[idx]} company={company} />
             </li>
           ))}
         </ul>

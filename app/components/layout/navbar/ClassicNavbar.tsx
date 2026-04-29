@@ -5,37 +5,51 @@ import { motion, AnimatePresence } from "motion/react";
 import Link from "next/link";
 import Image from "next/image";
 import React, { useState } from "react";
-import type { Company, NavItem } from "@/data/companies";
+import type { Company } from "@/lib/types";
+import type { NavDropdownItem, NavigationItem } from "@/lib/types/layout";
+
+function isDropdown(item: NavigationItem): item is NavDropdownItem {
+  return "children" in item && Array.isArray((item as NavDropdownItem).children);
+}
 
 interface NavbarProps {
   company: Company;
 }
 
 export function ClassicNavbar({ company }: NavbarProps) {
-  const { branding } = company;
+  const b = company.branding;
+  const g = company.general;
   // CSS variables for branding colors
   const cssVars = {
-    '--primary': branding.primaryColor,
-    '--secondary': branding.secondaryColor,
-    '--accent': branding.accentColor,
+    '--primary': b.theme.primary,
+    '--secondary': b.theme.secondary,
+    '--accent': b.theme.accent,
   } as React.CSSProperties;
   return (
     <header
       className="sticky top-0 z-50 bg-white/95 backdrop-blur-md border-b border-neutral-200 shadow-[0_1px_3px_rgba(0,0,0,0.08)] w-full"
       style={cssVars}
     >
-      {/* Top info bar (navy) */}
-      <div className="hidden md:flex items-center justify-between px-6 py-2 text-xs border-b border-neutral-100 bg-white text-[var(--primary)]">
-        <span>
-          Serving {company.general.city} &nbsp;&amp;&nbsp; surrounding areas &nbsp;&middot;&nbsp; Licensed &amp; Insured
-        </span>
-        <a
-          href={`mailto:${company.general.email}`}
-          className="text-[var(--primary)] hover:text-[var(--secondary)] transition"
+      {/* Top info bar */}
+      {company.layout.navbar.topBar?.enabled !== false && company.layout.navbar.topBar && (
+        <div
+          className="hidden md:flex items-center justify-between px-6 py-2 text-xs border-b"
+          style={{
+            background: company.layout.navbar.topBar.styles?.background ?? "#fff",
+            color: company.layout.navbar.topBar.styles?.text ?? "var(--primary)",
+            borderColor: company.layout.navbar.topBar.styles?.border ?? "#f3f4f6",
+          }}
         >
-          {company.general.email}
-        </a>
-      </div>
+          <span>{company.layout.navbar.topBar.leftText}</span>
+          <a
+            href={`mailto:${company.layout.navbar.topBar.email}`}
+            className="transition"
+            style={{ color: company.layout.navbar.topBar.styles?.link ?? "var(--primary)" }}
+          >
+            {company.layout.navbar.topBar.email}
+          </a>
+        </div>
+      )}
       <DesktopNav company={company} />
       <MobileNav company={company} />
     </header>
@@ -46,28 +60,42 @@ export function ClassicNavbar({ company }: NavbarProps) {
 
 const DesktopNav = ({ company }: NavbarProps) => {
   const [active, setActive] = useState<string | null>(null);
-  const { branding, navigation } = company;
+
+  const navbar = company.layout.navbar;
+  const navigation = navbar.items;
 
   return (
     <nav
-      className="hidden lg:flex w-full items-center justify-between px-6 py-3 bg-white/95"
+      className="hidden lg:flex w-full items-center justify-between px-6 py-3"
+      style={{
+        background: navbar.styles?.background ?? "rgba(255, 255, 255, 0.95)",
+      }}
     >
       <CompanyLogo company={company} />
 
       <Menu setActive={setActive}>
         {navigation.map((item) =>
-          item.children?.length ? (
-            <MenuItem key={item.label} setActive={setActive} active={active} item={item.label}>
+          isDropdown(item) ? (
+            <MenuItem
+              key={item.label}
+              setActive={setActive}
+              active={active}
+              item={item.label}
+            >
               <div className="flex flex-col space-y-3 min-w-[220px] py-1">
                 {item.children.map((child) => (
                   <HoveredLink key={child.href} href={child.href}>
                     {child.label}
                   </HoveredLink>
                 ))}
+
                 <div className="border-t border-neutral-100 pt-2 mt-1">
                   <Link
-                    href={item.viewAllHref ?? "/services"}
-                    className="flex items-center justify-between text-sm font-semibold text-[var(--primary)] hover:text-[var(--secondary)] transition"
+                    href={item.viewAllHref ?? item.href ?? "/services"}
+                    className="flex items-center justify-between text-sm font-semibold transition"
+                    style={{
+                      color: navbar.styles?.link ?? "var(--primary)",
+                    }}
                   >
                     View All Services
                     <span className="ml-2 text-base leading-none">→</span>
@@ -84,17 +112,19 @@ const DesktopNav = ({ company }: NavbarProps) => {
       <div className="flex items-center gap-4">
         <a
           href={`tel:${company.general.phone}`}
-          className="flex items-center gap-1.5 text-sm font-semibold text-neutral-800 hover:text-red-800 transition"
+          className="flex items-center gap-1.5 text-sm font-semibold transition"
+          style={{
+            color: navbar.styles?.phoneText ?? "#1F2937",
+          }}
         >
-          <IconPhone className="w-4 h-4 text-neutral-600" />
+          <IconPhone
+            className="w-4 h-4"
+            style={{
+              color: navbar.styles?.phoneIcon ?? "#4B5563",
+            }}
+          />
           {company.general.phone}
         </a>
-        {/* <Link
-          href="/request-service"
-          className="rounded px-5 py-2 text-sm font-bold transition bg-[var(--primary)] text-white hover:bg-[var(--secondary)]"
-        >
-          Book Service
-        </Link> */}
       </div>
     </nav>
   );
@@ -105,7 +135,7 @@ const DesktopNav = ({ company }: NavbarProps) => {
 const MobileNav = ({ company }: NavbarProps) => {
   const [open, setOpen] = useState(false);
   const [openAccordion, setOpenAccordion] = useState<string | null>(null);
-  const { branding, navigation } = company;
+  const navigation = company.layout.navbar.items;
 
   const toggleAccordion = (label: string) =>
     setOpenAccordion((prev) => (prev === label ? null : label));
@@ -134,7 +164,7 @@ const MobileNav = ({ company }: NavbarProps) => {
           >
             <div className="flex flex-col px-4 py-4 gap-1">
               {navigation.map((item) =>
-                item.children?.length ? (
+                isDropdown(item) ? (
                   <div key={item.label}>
                     <button
                       onClick={() => toggleAccordion(item.label)}

@@ -1,14 +1,7 @@
 // data/companies.ts
 
-export type NavItem = {
-  label: string;
-  href: string;
-  children?: {
-    label: string;
-    href: string;
-  }[];
-  viewAllHref?: string;
-};
+import type { Company } from "@/lib/types";
+import { hover } from "motion";
 
 export type ServiceItem = {
   title: string;
@@ -144,28 +137,8 @@ export type HeroStyles = {
   eyebrow?: string;
   title?: string;
   subtitle?: string;
-  primaryCtaBg?: string;
-  primaryCtaText?: string;
-  secondaryCtaText?: string;
-  highlightBg?: string;
-  highlightBorder?: string;
-  highlightText?: string;
 };
-
-export type DifferentiatorStyles = {
-  background?: string;
-  eyebrow?: string;
-  title?: string;
-  description?: string;
-  cardBackground?: string;
-  cardBorder?: string;
-  cardTitle?: string;
-  cardDescription?: string;
-  icon?: string;
-  iconBackground?: string;
-  hoverBorder?: string;
-};
-
+  
 export type ServicesStyles = {
   background?: string;
   eyebrow?: string;
@@ -196,335 +169,408 @@ export type ServicesStyles = {
   };
 };
 
-export type LogoSectionStyles = {
-  background?: string;
-  eyebrow?: string;
-  title?: string;
-  description?: string;
-};
+// export type LogoSectionStyles = {
+//   background?: string;
+//   eyebrow?: string;
+//   title?: string;
+//   description?: string;
+// };
 
-export type OgConfig = {
-  image?: string;
-  tintColor?: string;
-  tintOpacity?: number;
-  gradientDirection?: string;
-  logo?: string;
-  title?: string;
-  description?: string;
-};
+// export type Company = {
+//   general: General;
+//   branding: Branding;
+//   seo: SEO;
+//   navigation: NavItem[];
+//   pages: {
+//     home: HomePage;
+//   };
+//   differentiators: {
+//     eyebrow?: Text;
+//     title: Text;
+//     description?: Text;
+//     styles?: DifferentiatorStyles;
+//     items: {
+//       title: Text;
+//       description: Text;
+//       icon?: string;
+//     }[];
+//   };
+//   services: {
+//     eyebrow?: string;
+//     title: string;
+//     description?: string;
+//     styles?: ServicesStyles;
+//     columns?: 2 | 3 | 4;
+//     items: ServiceItem[];
+//   };
+//   portfolio: {
+//     eyebrow?: string;
+//     title: string;
+//     description?: string;
+//     styles?: PortfolioStyles;
+//     items: PortfolioItem[];
+//   };
+//   testimonials: {
+//     eyebrow?: string;
+//     title: string;
+//     description?: string;
+//     styles?: {
+//       background?: string;
+//       eyebrow?: string;
+//       title?: string;
+//       description?: string;
+//       cardBackground?: string;
+//       cardBorder?: string;
+//       quote?: string;
+//       name?: string;
+//       role?: string;
+//       star?: string;
+//       mutedStar?: string;
+//       quoteIcon?: string;
+//       ctaBackground?: string;
+//       ctaText?: string;
+//       modalBackground?: string;
+//       modalBorder?: string;
+//     };
+//     items?: TestimonialItem[];
+//   };
+//   about: {
+//     title: string;
+//     image: string;
+//     imageAlt?: string;
+//     storyTitle?: string;
+//     story?: string[];
+//     highlights?: {
+//       title: string;
+//       description: string;
+//     }[];
+//     quote?: {
+//       text: string;
+//       author?: string;
+//       avatar?: string; 
+//     };
+//     images?: {
+//       main: string;
+//       secondary: string[];
+//       tertiary: string[];
+//     };
+//     styles?: {
+//       background?: string;
+//       cardBackground?: string;
+//       border?: string;
+//       title?: string;
+//       gradientFrom?: string;
+//       gradientTo?: string;
+//       text?: string;
+//       mutedText?: string;
+//       gradientOverlay?: string;
+//     };
+//     process?: {
+//       eyebrow?: string;
+//       title: string;
+//       description: string;
+//       steps: {
+//         step: string;
+//         title: string;
+//         description: string;
+//         tag?: string;
+//         icon?: string;
+//       }[];
+//       styles?: {
+//         background?: string;
+//         eyebrow?: string;
+//         title?: string;
+//         description?: string;
+//         cardBackground?: string;
+//         cardBorder?: string;
+//         cardText?: string;
+//         cardMutedText?: string;
+//         accent?: string;
+//       };
+//     };
+//     stats?: {
+//       items: {
+//         value: number;
+//         label: string;
+//         suffix?: string;
+//         prefix?: string;
+//       }[];
+//       styles?: {
+//         background?: string;
+//         containerBg?: string;
+//         border?: string;
+//         numberColor?: string;
+//         labelColor?: string;
+//       };
+//     };
+//     team?: {
+//       members: {
+//         name: string;
+//         role: string;
+//         avatar: string;
+//       }[];
+//       styles?: {
+//         background?: string;
+//         nameColor?: string;
+//         roleColor?: string;
+//       };
+//     };
+//     differentiators?: {
+//       title?: string;
+//       description?: string;   
+//       items: {
+//         title: string;
+//         description: string;
+//         icon?: string;
+//       }[];
+//       styles?: {
+//         background?: string;
+//         sectionTitle?: string;
+//         sectionDescription?: string;
+//         icon?: string;
+//         title?: string;
+//         description?: string;
+//         border?: string;
+//         hoverGradientFrom?: string;
+//         accent?: string;
+//         spacing?: {
+//           titleMarginBottom?: string;
+//           descriptionMarginTop?: string;
+//           descriptionLineHeight?: string;
+//         };
+//       };
+//     };
+//   };
+//   finalCta: {
+//     title: string;
+//     description: string;
+//     primaryCta: {
+//       label: string;
+//       href: string;
+//     };
+//     secondaryCta?: {
+//       label: string;
+//       href: string;
+//     };
+//     image?: string;
+//     imageAlt?: string;
+//     styles?: {
+//       background?: string;
+//       title?: string;
+//       description?: string;
+//       buttonBg?: string;
+//       buttonText?: string;
+//     };
+//   };
+//   contact: {
+//     backgroundImage: string;
+//     title?: string;
+//     description?: string;
+//     testimonial: {
+//       quote: string;
+//       name: string;
+//       title: string;
+//       avatar?: string;
+//     };
+//     form: {
+//       title: string;
+//       description: string;
+//       email: string;
+//       services: {
+//         label: string;
+//         value: string;
+//       }[];
+//     };
+//     styles?: {
+//       home?: {
+//         background?: string;
+//         sectionBg?: string;
+//         formBg?: string;
+//         text?: string;
+//         mutedText?: string;
+//         buttonBg?: string;
+//         buttonText?: string;
+//         overlayGradient?: string;
+//       }
+//       contact?: {
+//         background?: string;
+//         sectionBg?: string;
+//         formBg?: string;
+//         text?: string;
+//         mutedText?: string;
+//         buttonBg?: string;
+//         buttonText?: string;
+//         overlayGradient?: string;
+//       }
+//     };
+//   };
+//   logoSection?: {
+//     eyebrow?: string;
+//     title: string;
+//     description?: string;
+//     styles?: LogoSectionStyles;
+//   };
+//   faq?: {
+//     eyebrow?: string;
+//     title: string;
+//     description?: string;
+//     items: {
+//       question: string;
+//       answer: string;
+//     }[];
+//     styles?: {
+//       background?: string;
+//       eyebrow?: string;
+//       title?: string;
+//       description?: string;
+//       itemBackground?: string;
+//       itemBorder?: string;
+//       question?: string;
+//       answer?: string;
+//       icon?: string;
+//       accent?: string;
+//     };
+//   };
+//   footer: {
+//     shortDescription: string;
+//     serviceArea: string;
+//     socials?: {
+//       platform: "facebook" | "instagram" | "linkedin" | "twitter" | "youtube";
+//       url: string;
+//     }[];
+//   };
+//   og?: OgConfig;
+// };
 
-export type Company = {
-  general: General;
-  branding: Branding;
-  seo: {
-    title: string;
-    description: string;
-  };
-  navigation: NavItem[];
-  hero: {
-    eyebrow?: string;
-    title: string;
-    subtitle: string;
-    primaryCta: {
-      label: string;
-      href: string;
-    };
-    secondaryCta: {
-      label: string;
-      href: string;
-    };
-    highlights: string[];
-    images?: string[];
-    styles?: HeroStyles;
-  };
-  differentiators: {
-    eyebrow?: string;
-    title: string;
-    description?: string;
-    styles?: DifferentiatorStyles;
-    items: {
-      title: string;
-      description: string;
-      icon?: string;
-    }[];
-  };
-  services: {
-    eyebrow?: string;
-    title: string;
-    description?: string;
-    styles?: ServicesStyles;
-    columns?: 2 | 3 | 4;
-    items: ServiceItem[];
-  };
-  portfolio: {
-    eyebrow?: string;
-    title: string;
-    description?: string;
-    styles?: PortfolioStyles;
-    items: PortfolioItem[];
-  };
-  testimonials: {
-    eyebrow?: string;
-    title: string;
-    description?: string;
-    styles?: {
-      background?: string;
-      eyebrow?: string;
-      title?: string;
-      description?: string;
-      cardBackground?: string;
-      cardBorder?: string;
-      quote?: string;
-      name?: string;
-      role?: string;
-      star?: string;
-      mutedStar?: string;
-      quoteIcon?: string;
-      ctaBackground?: string;
-      ctaText?: string;
-      modalBackground?: string;
-      modalBorder?: string;
-    };
-    items?: TestimonialItem[];
-  };
-  about: {
-    title: string;
-    image: string;
-    imageAlt?: string;
-    storyTitle?: string;
-    story?: string[];
-    highlights?: {
-      title: string;
-      description: string;
-    }[];
-    quote?: {
-      text: string;
-      author?: string;
-      avatar?: string; 
-    };
-    images?: {
-      main: string;
-      secondary: string[];
-      tertiary: string[];
-    };
-    styles?: {
-      background?: string;
-      cardBackground?: string;
-      border?: string;
-      title?: string;
-      gradientFrom?: string;
-      gradientTo?: string;
-      text?: string;
-      mutedText?: string;
-      gradientOverlay?: string;
-    };
-    process?: {
-      eyebrow?: string;
-      title: string;
-      description: string;
-      steps: {
-        step: string;
-        title: string;
-        description: string;
-        tag?: string;
-        icon?: string;
-      }[];
-      styles?: {
-        background?: string;
-        eyebrow?: string;
-        title?: string;
-        description?: string;
-        cardBackground?: string;
-        cardBorder?: string;
-        cardText?: string;
-        cardMutedText?: string;
-        accent?: string;
-      };
-    };
-    stats?: {
-      items: {
-        value: number;
-        label: string;
-        suffix?: string;
-        prefix?: string;
-      }[];
-      styles?: {
-        background?: string;
-        containerBg?: string;
-        border?: string;
-        numberColor?: string;
-        labelColor?: string;
-      };
-    };
-    team?: {
-      members: {
-        name: string;
-        role: string;
-        avatar: string;
-      }[];
-      styles?: {
-        background?: string;
-        nameColor?: string;
-        roleColor?: string;
-      };
-    };
-    differentiators?: {
-      title?: string;
-      description?: string;   
-      items: {
-        title: string;
-        description: string;
-        icon?: string;
-      }[];
-      styles?: {
-        background?: string;
-        sectionTitle?: string;
-        sectionDescription?: string;
-        icon?: string;
-        title?: string;
-        description?: string;
-        border?: string;
-        hoverGradientFrom?: string;
-        accent?: string;
-        spacing?: {
-          titleMarginBottom?: string;
-          descriptionMarginTop?: string;
-          descriptionLineHeight?: string;
-        };
-      };
-    };
-  };
-  finalCta: {
-    title: string;
-    description: string;
-    primaryCta: {
-      label: string;
-      href: string;
-    };
-    secondaryCta?: {
-      label: string;
-      href: string;
-    };
-    image?: string;
-    imageAlt?: string;
-    styles?: {
-      background?: string;
-      title?: string;
-      description?: string;
-      buttonBg?: string;
-      buttonText?: string;
-    };
-  };
-  contact: {
-    backgroundImage: string;
-    title?: string;
-    description?: string;
-    testimonial: {
-      quote: string;
-      name: string;
-      title: string;
-      avatar?: string;
-    };
-    form: {
-      title: string;
-      description: string;
-      email: string;
-      services: {
-        label: string;
-        value: string;
-      }[];
-    };
-    styles?: {
-      home?: {
-        background?: string;
-        sectionBg?: string;
-        formBg?: string;
-        text?: string;
-        mutedText?: string;
-        buttonBg?: string;
-        buttonText?: string;
-        overlayGradient?: string;
-      }
-      contact?: {
-        background?: string;
-        sectionBg?: string;
-        formBg?: string;
-        text?: string;
-        mutedText?: string;
-        buttonBg?: string;
-        buttonText?: string;
-        overlayGradient?: string;
-      }
-    };
-  };
-  logoSection?: {
-    eyebrow?: string;
-    title: string;
-    description?: string;
-    styles?: LogoSectionStyles;
-  };
-  faq?: {
-    eyebrow?: string;
-    title: string;
-    description?: string;
-    items: {
-      question: string;
-      answer: string;
-    }[];
-    styles?: {
-      background?: string;
-      eyebrow?: string;
-      title?: string;
-      description?: string;
-      itemBackground?: string;
-      itemBorder?: string;
-      question?: string;
-      answer?: string;
-      icon?: string;
-      accent?: string;
-    };
-  };
-  footer: {
-    shortDescription: string;
-    serviceArea: string;
-    socials?: {
-      platform: "facebook" | "instagram" | "linkedin" | "twitter" | "youtube";
-      url: string;
-    }[];
-  };
-  og?: OgConfig;
-};
+// export type General = {
+//   slug: string;
+//   subdomain: string;
+//   name: string;
+//   legalName?: string;
+//   tagline: string;
+//   phone: string;
+//   email: string;
+//   city: string;
+//   state: string;
+//   googlePlaceId?: string;
+// };
 
-export type General = {
-  slug: string;
-  subdomain: string;
-  name: string;
-  legalName?: string;
-  tagline: string;
-  phone: string;
-  email: string;
-  city: string;
-  state: string;
-  googlePlaceId?: string;
-};
+// export type Branding = {
+//   logo: string;
+//   navLogo: string;
 
-export type Branding = {
-  logo: string;
-  navLogo: string;
+//   theme: Theme;
+// };
 
-  theme: Theme;
-};
+// export type SEO = {
+//   title: string;
+//   description: string;
 
-export type Theme = {
-  primary: string;
-  secondary: string;
-  accent: string;
-  background: string;
-  surface: string;
-  text: string;
-  mutedText: string;
-  border: string;
-};
+//   og: OgConfig;
+// };
+
+// export type OgConfig = {
+//   image?: string;
+//   tintColor?: string;
+//   tintOpacity?: number;
+//   gradientDirection?: string;
+//   logo?: string;
+//   title?: string;
+//   description?: string;
+// };
+
+// export type CTA = {
+//   label: string;
+//   href: string;
+
+//   styles?: {
+//     background?: string;
+//     text?: string;
+//     border?: string;
+//     highlightBg?: string;
+//     highlightText?: string;
+//     highlightBorder?: string;
+//   };
+// };
+
+// export type Text = {
+//   content: string;
+
+//   styles?: {
+//     color?: string;
+//     size?: string;        // e.g. "sm" | "md" | "lg" | "xl" or "16px"
+//     font?: string;        // e.g. "inter", "poppins"
+//     weight?: string;      // e.g. "400", "500", "600", "700"
+//     lineHeight?: string;  // e.g. "1.5", "24px"
+//     letterSpacing?: string; // e.g. "0.5px"
+//     align?: "left" | "center" | "right";
+
+//     // layout helpers
+//     margin?: string;
+//     padding?: string;
+
+//     // optional advanced
+//     transform?: "uppercase" | "lowercase" | "capitalize";
+//     decoration?: "none" | "underline" | "line-through";
+//   };
+// };
+
+// export type ImageAsset = {
+//   src: string;
+//   alt?: string;
+
+//   // optional enhancements
+//   width?: number;
+//   height?: number;
+//   priority?: boolean;
+
+//   // styling / layout
+//   objectFit?: "cover" | "contain" | "fill";
+//   rounded?: string; // e.g. "lg", "xl"
+// };
+
+// export type ImageGroup = ImageAsset[];
+
+// export type ClassicCard = {
+//   title: Text;
+//   description: Text;
+//   image?: ImageAsset;
+//   href?: string;
+//   styles?: {
+//     cardBg?: string;
+//   };
+// };
+
+// export type Hero = {
+//   eyebrow?: Text;
+//   title: Text;
+//   subtitle: Text;
+
+//   highlights: Text[];
+
+//   images?: ImageGroup;
+
+//   primaryCta: CTA;
+//   secondaryCta?: CTA;
+
+//   styles?: HeroStyles;
+// };
+
+// export type ServicesGrid = {
+//   eyebrow?: Text;
+//   title: Text;
+//   description?: Text;
+//   columns?: 2 | 3 | 4;
+//   items: ClassicCard[];
+//   styles?: {
+//     background?: string;
+//   };
+// };
+
+// export type HomePage = {
+//   hero: Hero;
+//   services: ServicesGrid;
+// };
 
 const tsoTexasCompany: Company = {
   general: {
@@ -538,7 +584,6 @@ const tsoTexasCompany: Company = {
     city: "San Antonio",
     state: "TX",
   },
-
   branding: {
     logo: "/companies/tso-texas/logos/tso-texas-logo.webp",
     navLogo: "/companies/tso-texas/logos/tso-texas-hor-logo.png",
@@ -554,107 +599,371 @@ const tsoTexasCompany: Company = {
       border: "#E2E8F0",
     },
   },
-
   seo: {
     title: "TSO Texas | Residential & Commercial Services in San Antonio",
     description:
       "TSO Texas provides facility maintenance, renovations, low voltage systems, and welding & fabrication services in San Antonio, Texas.",
+    og: {
+      image: "/companies/tso-texas/og/og-image.png",
+      tintColor: "#0B1F4D",
+      tintOpacity: 0.58,
+      gradientDirection: "to bottom",
+    },
   },
-
-  navigation: [
-    { label: "Reviews", href: "/#testimonials" },
-    {
-      label: "Services",
-      href: "/#services",
-      children: [
-        { label: "Facility Maintenance", href: "/services/facility-maintenance-repairs" },
-        { label: "Renovations", href: "/services/renovations-improvements" },
-        { label: "Low Voltage", href: "/services/low-voltage-networking" },
-        { label: "Welding & Fabrication", href: "/services/welding-fabrication" },
+  layout: {
+    navbar: {
+      variant: "classic",
+      topBar: {
+        enabled: true,
+        leftText: "Serving San Antonio & surrounding areas · Licensed & Insured",
+        email: "info@tsotexas.com",
+        styles: {
+          background: "#FFFFFF",
+          text: "#0B1F4D",
+          link: "#0B1F4D",
+          linkHover: "#C62828",
+          border: "#F5F5F5",
+        },
+      },
+      items: [
+        {
+          label: "Reviews",
+          href: "/#testimonials",
+        },
+        {
+          label: "Services",
+          href: "/#services",
+          viewAllHref: "/services",
+          children: [
+            {
+              label: "Facility Maintenance",
+              href: "/services/facility-maintenance-repairs",
+            },
+            {
+              label: "Renovations",
+              href: "/services/renovations-improvements",
+            },
+            {
+              label: "Low Voltage",
+              href: "/services/low-voltage-networking",
+            },
+            {
+              label: "Welding & Fabrication",
+              href: "/services/welding-fabrication",
+            },
+          ],
+        },
+        {
+          label: "Projects",
+          href: "/#portfolio",
+        },
+        {
+          label: "About",
+          href: "/about",
+        },
+        {
+          label: "Contact",
+          href: "/contact",
+        },
       ],
+      styles: {
+        background: "rgba(255, 255, 255, 0.95)",
+        link: "#111827",
+        linkHover: "#C62828",
+        dropdownBackground: "#FFFFFF",
+        dropdownBorder: "#E5E7EB",
+        phoneText: "#1F2937",
+        phoneIcon: "#4B5563",
+      },
     },
-    { label: "Projects", href: "/#portfolio" },
-    { label: "About", href: "/about" },
-    { label: "Contact", href: "/contact" },
-  ],
-
-  hero: {
-    eyebrow: "Fast Response • Reliable Service • Quality Workmanship",
-    title: "One Team for Repairs, Renovations, and Low Voltage Work",
-    subtitle:
-      "TSO Texas helps residential and commercial clients solve more with one reliable vendor for maintenance, improvements, networking, and custom fabrication.",
-    primaryCta: {
-      label: "View Our Work",
-      href: "/#portfolio",
-    },
-    secondaryCta: {
-      label: "View Services",
-      href: "/services",
-    },
-    highlights: [
-      "Multi-Trade Single Vendor",
-      "25+ Years Experience",
-      "Residential & Commercial",
-      "Fast-Response Service",
-    ],
-    images: [
-      "/companies/tso-texas/hero-images/office-renovation-modern-workspace.jpeg",
-      "/companies/tso-texas/hero-images/commercial-drywall-and-construction.png",
-      "/companies/tso-texas/hero-images/office-remodeling-construction-workers-interior.jpg",
-      "/companies/tso-texas/hero-images/cat6-cable-installation-commercial-building.webp",
-      "/companies/tso-texas/hero-images/commercial-interior-build-out-construction.png",
-      "/companies/tso-texas/hero-images/photo-metal-fabrication-shop-with-welding-equipment-sparks-flying.png",
-    ],
-    styles: {
-      primaryCtaBg: "linear-gradient(to bottom, #6c98f8, #2563eb)",
-    }
   },
+  pages: {
+    home: {
+      hero: {
+        eyebrow: {
+          content: "Fast Response • Reliable Service • Quality Workmanship",
+        },
 
-  differentiators: {
-    eyebrow: "Why Choose TSO Texas",
-    title: "Why Businesses Trust TSO Texas",
-    description:
-      "From repairs and renovations to networking and fabrication, TSO Texas handles multiple scopes under one reliable team.",
-    items: [
-      {
-        title: "Multi-Trade Single Vendor",
-        description:
-          "Handle maintenance, renovations, networking, and fabrication through one reliable team — no vendor coordination headaches.",
-        icon: "Layers",
+        title: {
+          content: "One Team for Repairs, Renovations, and Low Voltage Work",
+        },
+
+        subtitle: {
+          content:
+            "TSO Texas helps residential and commercial clients solve more with one reliable vendor for maintenance, improvements, networking, and custom fabrication.",
+        },
+
+        primaryCta: {
+          label: "View Our Work",
+          href: "/#portfolio",
+          styles: {
+            background: "linear-gradient(to bottom, #6c98f8, #2563eb)",
+          },
+        },
+
+        secondaryCta: {
+          label: "View Services",
+          href: "/services",
+        },
+
+        highlights: [
+          {
+            content: "Multi-Trade Single Vendor",
+          },
+          {
+            content: "25+ Years Experience",
+          },
+          {
+            content: "Residential & Commercial",
+          },
+          {
+            content: "Fast-Response Service",
+          },
+        ],
+
+        images: [
+          {
+            src: "/companies/tso-texas/hero-images/office-renovation-modern-workspace.jpeg",
+            alt: "Modern office renovation workspace",
+            priority: true,
+          },
+          {
+            src: "/companies/tso-texas/hero-images/commercial-drywall-and-construction.png",
+            alt: "Commercial drywall and construction work",
+          },
+          {
+            src: "/companies/tso-texas/hero-images/office-remodeling-construction-workers-interior.jpg",
+            alt: "Construction workers remodeling an office interior",
+          },
+          {
+            src: "/companies/tso-texas/hero-images/cat6-cable-installation-commercial-building.webp",
+            alt: "CAT6 cable installation in a commercial building",
+          },
+          {
+            src: "/companies/tso-texas/hero-images/commercial-interior-build-out-construction.png",
+            alt: "Commercial interior build out construction",
+          },
+          {
+            src: "/companies/tso-texas/hero-images/photo-metal-fabrication-shop-with-welding-equipment-sparks-flying.png",
+            alt: "Metal fabrication shop with welding equipment",
+          },
+        ],
       },
-      {
-        title: "25+ Years of Experience",
-        description:
-          "Decades of hands-on expertise in renovation, telecom, and project management ensures quality work from day one.",
-        icon: "BadgeCheck",
+      services: {
+        eyebrow: {
+          content: "What We Do",
+        },
+        title: {
+          content: "Core Services",
+        },
+        description: {
+          content: "Built to support both ongoing needs and one-time projects across residential and commercial properties.",
+        },
+        columns: 2,
+        items: [
+          {
+            title: {
+              content: "Facility Maintenance & Repairs",
+            },
+            description: {
+              content: "Reliable repair and upkeep services to keep properties clean, functional, and presentable.",
+            },
+            image: {
+              src: "/companies/tso-texas/service-cards/construction-workers-installing-drywall-in-a-new-building-photo.png",
+              alt: "Construction workers installing drywall in a new building",
+            },
+            href: "/services/facility-maintenance-repairs",
+            styles: {
+              cardBg: "#eff3fa",
+            }
+          },
+          {
+            title: {
+              content: "Renovations & Improvements",
+            },
+            description: {
+              content:
+                "Interior upgrades and multi-trade project support for offices and other spaces.",
+            },
+            image: {
+              src: "/companies/tso-texas/service-cards/office-build-out-construction-modern-workspace-renovation.png",
+              alt: "Office build-out and renovation workspace",
+            },
+            href: "/services/renovations-improvements",
+            styles: {
+              cardBg: "#eff3fa",
+            }
+          },
+          {
+            title: {
+              content: "Low Voltage & Networking",
+            },
+            description: {
+              content:
+                "Structured cabling and network support for organized, functional infrastructure.",
+            },
+            image: {
+              src: "/companies/tso-texas/service-cards/cat6-cable-installation-commercial-building-technician.png",
+              alt: "Technician installing CAT6 cabling in a commercial building",
+            },
+            href: "/services/low-voltage-networking",
+            styles: {
+              cardBg: "#eff3fa",
+            }
+          },
+          {
+            title: {
+              content: "Welding & Fabrication",
+            },
+            description: {
+              content:
+                "Custom fabrication and structural support solutions completed in-house.",
+            },
+            image: {
+              src: "/companies/tso-texas/service-cards/metal-fabrication-welding-sparks-industrial-shop.webp",
+              alt: "Metal fabrication and welding work with sparks in an industrial shop",
+            },
+            href: "/services/welding-fabrication",
+            styles: {
+              cardBg: "#eff3fa",
+            }
+          },
+        ],
       },
-      {
-        title: "In-House Welding & Fabrication",
-        description:
-          "Custom metal fabrication, structural supports, and equipment mounting solutions completed entirely in-house.",
-        icon: "Hammer",
+      logoSection: {
+        title: {
+          content: "Built to Support Residential and Commercial Projects",
+          styles: {
+            color: "#d2d3d4",
+          }
+        },
+        description: {
+          content: "One team. Multiple trades. Done right.",
+          styles: {
+            color: "#8c8f92",
+          },
+        },
+        logos: [
+          { title: "Raycast", src: "https://assets.aceternity.com/logos/raycast.webp" },
+          { title: "Twitch", src: "https://assets.aceternity.com/logos/twitch.webp" },
+          { title: "Spotify", src: "https://assets.aceternity.com/logos/spotify.webp" },
+          { title: "Hulu", src: "https://assets.aceternity.com/logos/hulu.webp" },
+          { title: "YouTube", src: "https://assets.aceternity.com/logos/youtube.webp" },
+          { title: "Character AI", src: "https://assets.aceternity.com/logos/characterai.png" },
+          { title: "OpenAI", src: "https://assets.aceternity.com/logos/openai.png" },
+          { title: "Oracle", src: "https://assets.aceternity.com/logos/oracle.png" },
+          { title: "Portola", src: "https://assets.aceternity.com/logos/portola.png" },
+          { title: "Granola", src: "https://assets.aceternity.com/logos/granola.png" },
+          { title: "Hello Patient", src: "https://assets.aceternity.com/logos/hello-patient.png" },
+          { title: "Company 1", src: "https://assets.aceternity.com/logos/1.png" },
+          { title: "Forbes", src: "https://assets.aceternity.com/logos/forbes.png" },
+          { title: "Y Combinator", src: "https://assets.aceternity.com/logos/y-combinator.png" },
+          { title: "Company 7", src: "https://assets.aceternity.com/logos/7.png" },
+          { title: "Company 8", src: "https://assets.aceternity.com/logos/8.png" },
+          { title: "Company 4", src: "https://assets.aceternity.com/logos/4.png" },
+          { title: "Company 9", src: "https://assets.aceternity.com/logos/9.png" },
+          { title: "Figma", src: "https://assets.aceternity.com/logos/figma2.svg" },
+          { title: "Wired", src: "https://assets.aceternity.com/logos/wired.png" },
+        ],
+        styles: {
+          background: "#081636",
+        },
       },
-      {
-        title: "Low Voltage & Networking",
-        description:
-          "Structured cabling, fiber optic repair, and network infrastructure support from a certified in-house team.",
-        icon: "Network",
+      whySection: {
+        eyebrow: {
+          content: "Why Choose TSO Texas",
+        },
+        title: {
+          content: "Why Businesses Trust TSO Texas",
+        },
+        description: {
+          content:
+            "From repairs and renovations to networking and fabrication, TSO Texas handles multiple scopes under one reliable team.",
+        },
+        cards: [
+          {
+            title: {
+              content: "Multi-Trade Single Vendor",
+            },
+            description: {
+              content:
+                "Handle maintenance, renovations, networking, and fabrication through one reliable team — no vendor coordination headaches.",
+            },
+            icon: "Layers",
+            styles: {
+              hoverBorder: "#C62828",
+            },
+          },
+          {
+            title: {
+              content: "25+ Years of Experience",
+            },
+            description: {
+              content:
+                "Decades of hands-on expertise in renovation, telecom, and project management ensures quality work from day one.",
+            },
+            icon: "BadgeCheck",
+            styles: {
+              hoverBorder: "#C62828",
+            },
+          },
+          {
+            title: {
+              content: "In-House Welding & Fabrication",
+            },
+            description: {
+              content:
+                "Custom metal fabrication, structural supports, and equipment mounting solutions completed entirely in-house.",
+            },
+            icon: "Hammer",
+            styles: {
+              hoverBorder: "#C62828",
+            },
+          },
+          {
+            title: {
+              content: "Low Voltage & Networking",
+            },
+            description: {
+              content:
+                "Structured cabling, fiber optic repair, and network infrastructure support from a certified in-house team.",
+            },
+            icon: "Network",
+            styles: {
+              hoverBorder: "#C62828",
+            },
+          },
+          {
+            title: {
+              content: "Fast-Response Service",
+            },
+            description: {
+              content:
+                "Quick turnaround on repairs and urgent requests so your operations stay on schedule with minimal disruption.",
+            },
+            icon: "Clock",
+            styles: {
+              hoverBorder: "#C62828",
+            },
+          },
+          {
+            title: {
+              content: "Military-Trained Professionalism",
+            },
+            description: {
+              content:
+                "Personnel with military backgrounds bring discipline, precision, and accountability to every project they execute.",
+            },
+            icon: "ShieldCheck",
+            styles: {
+              hoverBorder: "#C62828",
+            },
+          },
+        ],
+        styles: {
+          background: "#e0e4e7",
+        },
       },
-      {
-        title: "Fast-Response Service",
-        description:
-          "Quick turnaround on repairs and urgent requests so your operations stay on schedule with minimal disruption.",
-        icon: "Clock",
-      },
-      {
-        title: "Military-Trained Professionalism",
-        description:
-          "Personnel with military backgrounds bring discipline, precision, and accountability to every project they execute.",
-        icon: "ShieldCheck",
-      },
-    ],
-    styles: {
-      background: "#e0e4e7",
     },
   },
 
@@ -1540,13 +1849,6 @@ const tsoTexasCompany: Company = {
       { platform: "youtube", url: "https://youtube.com/" },
     ],
   },
-
-  og: {
-    image: "/companies/tso-texas/og/og-image.png",
-    tintColor: "#0B1F4D",
-    tintOpacity: 0.58,
-    gradientDirection: "to bottom",
-  },
 };
 
 const topTierRenovationsCompany: Company = {
@@ -1583,135 +1885,345 @@ const topTierRenovationsCompany: Company = {
     title: "Top Tier Renovations | Home Remodeling in San Antonio, TX",
     description:
       "Top Tier Renovations offers flooring, custom showers, kitchen renovations, and full home remodeling in San Antonio, TX. Call today for a free estimate.",
-  },
-  navigation: [
-    {
-      label: "Home",
-      href: "/",
+    og: {
+      image: "/images/og/top-tier-renovations-og.jpg", // TODO: generate dynamic OG image later
+      tintColor: "#0B0F14", // dark overlay to match brand
+      tintOpacity: 0.6,
+      gradientDirection: "to bottom",
+      logo: "/logos/top-tier-renovations.png", // TODO: add logo
+      title: "Top Tier Renovations | San Antonio Remodeling Experts",
+      description:
+        "Flooring, custom showers, kitchen renovations, and full home remodeling in San Antonio, TX. Get your free estimate today.",
     },
-    {
-      label: "Services",
-      href: "/services",
-      viewAllHref: "/services",
-      children: [
+  },
+  layout: {
+    navbar: {
+      variant: "classic",
+
+      items: [
         {
-          label: "Flooring",
-          href: "/services/flooring",
+          label: "Home",
+          href: "/",
         },
         {
-          label: "Custom Showers",
-          href: "/services/custom-showers",
+          label: "Services",
+          href: "/services",
+          viewAllHref: "/services",
+          children: [
+            {
+              label: "Flooring",
+              href: "/services/flooring",
+            },
+            {
+              label: "Custom Showers",
+              href: "/services/custom-showers",
+            },
+            {
+              label: "Kitchen Renovations",
+              href: "/services/kitchen-renovations",
+            },
+            {
+              label: "Full Home Remodel",
+              href: "/services/full-remodel",
+            },
+            {
+              label: "General Maintenance",
+              href: "/services/maintenance",
+            },
+          ],
         },
         {
-          label: "Kitchen Renovations",
-          href: "/services/kitchen-renovations",
+          label: "About",
+          href: "/about",
         },
         {
-          label: "Full Home Remodel",
-          href: "/services/full-remodel",
-        },
-        {
-          label: "General Maintenance",
-          href: "/services/maintenance",
+          label: "Contact",
+          href: "/contact",
         },
       ],
     },
-    {
-      label: "About",
-      href: "/about",
-    },
-    {
-      label: "Contact",
-      href: "/contact",
-    },
-  ],
-  hero: {
-    eyebrow: "San Antonio Remodeling Experts",
-    title: "Revamp. Renew. Refresh.",
-    subtitle:
-      "From flooring and custom showers to full home renovations, Top Tier Renovations delivers high-quality interior and exterior remodeling built to last.",
-    primaryCta: {
-      label: "Get Free Estimate",
-      href: "/contact", // TODO: replace with booking link if available
-    },
-    secondaryCta: {
-      label: "Call (210) 612-9114",
-      href: "tel:2106129114",
-    },
-    highlights: [
-      "Free Estimates",
-      "Interior & Exterior Remodeling",
-      "Custom Showers & Kitchens",
-      "San Antonio Local",
-    ],
-    images: [
-      "/images/top-tier-hero-1.jpg", // TODO: replace with real project images
-    ],
-    styles: {
-      overlay: "rgba(11, 15, 20, 0.75)", // dark overlay for readability
-
-      eyebrow: "#F8FAFC",
-      title: "#FFFFFF",
-      subtitle: "#E2E8F0",
-
-      primaryCtaBg: "#1E90FF",
-      primaryCtaText: "#FFFFFF",
-
-      secondaryCtaText: "#F8FAFC",
-
-      highlightBg: "rgba(255, 255, 255, 0.05)",
-      highlightBorder: "rgba(255, 255, 255, 0.15)",
-      highlightText: "#F8FAFC",
-    },
   },
-  differentiators: {
-    eyebrow: "Why Homeowners Choose Us",
+  pages: {
+    home: {
+      hero: {
+        eyebrow: {
+          content: "San Antonio Remodeling Experts",
+          styles: {
+            color: "#F8FAFC",
+          },
+        },
 
-    title: "Renovation Work Built Around Quality, Detail, and Trust",
+        title: {
+          content: "Revamp. Renew. Refresh.",
+          styles: {
+            color: "#FFFFFF",
+          },
+        },
 
-    description:
-      "Whether it’s a single-room upgrade or a full home remodel, Top Tier Renovations focuses on clean workmanship, reliable communication, and results that fit your vision.",
+        subtitle: {
+          content:
+            "From flooring and custom showers to full home renovations, Top Tier Renovations delivers high-quality interior and exterior remodeling built to last.",
+          styles: {
+            color: "#E2E8F0",
+          },
+        },
 
-    styles: {
-      background: "#F3F6FA",
-      eyebrow: "#1E90FF",
-      title: "#0F172A",
-      description: "#475569",
-      cardBackground: "#FFFFFF",
-      cardBorder: "#E2E8F0",
-      cardTitle: "#0F172A",
-      cardDescription: "#475569",
-      icon: "#1E90FF",
-      iconBackground: "rgba(30, 144, 255, 0.10)",
-      hoverBorder: "#1E90FF",
+        primaryCta: {
+          label: "Get Free Estimate",
+          href: "/contact",
+          styles: {
+            primaryBg: "#1E90FF",
+            primaryText: "#FFFFFF",
+          },
+        },
+
+        secondaryCta: {
+          label: "Call (210) 612-9114",
+          href: "tel:2106129114",
+          styles: {
+            secondaryText: "#F8FAFC",
+          },
+        },
+
+        highlights: [
+          { content: "Free Estimates" },
+          { content: "Interior & Exterior Remodeling" },
+          { content: "Custom Showers & Kitchens" },
+          { content: "San Antonio Local" },
+        ],
+
+        images: [
+          {
+            src: "/images/top-tier-hero-1.jpg",
+            alt: "Home renovation project showcasing interior remodeling",
+            priority: true,
+          },
+        ],
+      },
     },
+    services: {
+      eyebrow: {
+        content: "What We Do",
+      },
+      title: {
+        content: "Our Remodeling Services",
+      },
+      description: {
+        content:
+          "From flooring and custom showers to full home remodels, we handle the work from start to finish.",
+      },
+      columns: 2,
+      items: [
+        {
+          title: {
+            content: "Flooring",
+          },
+          description: {
+            content:
+              "Durable flooring updates that transform the look and feel of your home.",
+          },
+          href: "/services/flooring",
+          styles: {
+            cardBg: "#FFFFFF",
+            cardBorder: "#E2E8F0",
+            titleColor: "#0F172A",
+            descriptionColor: "#475569",
+            accent: "#1E90FF",
+          },
+        },
+        {
+          title: {
+            content: "Custom Showers",
+          },
+          description: {
+            content:
+              "Bathroom upgrades designed around comfort, function, and long-lasting finishes.",
+          },
+          href: "/services/custom-showers",
+          styles: {
+            cardBg: "#FFFFFF",
+            cardBorder: "#E2E8F0",
+            titleColor: "#0F172A",
+            descriptionColor: "#475569",
+            accent: "#1E90FF",
+          },
+        },
+        {
+          title: {
+            content: "Kitchen Renovations",
+          },
+          description: {
+            content:
+              "Functional kitchen improvements built around better layouts, cleaner finishes, and everyday use.",
+          },
+          href: "/services/kitchen-renovations",
+          styles: {
+            cardBg: "#FFFFFF",
+            cardBorder: "#E2E8F0",
+            titleColor: "#0F172A",
+            descriptionColor: "#475569",
+            accent: "#1E90FF",
+          },
+        },
+        {
+          title: {
+            content: "Full Home Remodel",
+          },
+          description: {
+            content:
+              "Complete interior and exterior renovation services for homeowners ready for a full transformation.",
+          },
+          href: "/services/full-remodel",
+          styles: {
+            cardBg: "#FFFFFF",
+            cardBorder: "#E2E8F0",
+            titleColor: "#0F172A",
+            descriptionColor: "#475569",
+            accent: "#1E90FF",
+          },
+        },
+        {
+          title: {
+            content: "General Maintenance",
+          },
+          description: {
+            content:
+              "Reliable maintenance services to keep your home looking and working the way it should.",
+          },
+          href: "/services/maintenance",
+          styles: {
+            cardBg: "#FFFFFF",
+            cardBorder: "#E2E8F0",
+            titleColor: "#0F172A",
+            descriptionColor: "#475569",
+            accent: "#1E90FF",
+          },
+        },
+      ],
+      styles: {
+        background: "#F3F6FA",
+        card: {
+          cardBg: "#FFFFFF",
+          cardBorder: "#E2E8F0",
+          titleColor: "#0F172A",
+          descriptionColor: "#475569",
+          accent: "#1E90FF",
+        },
+      },
+    },
+    logoSection: {
+      eyebrow: {
+        content: "Full-Service Remodeling",
+      },
 
-    items: [
-      {
-        title: "Free Estimates",
-        description:
-          "Easy, no-pressure estimates so homeowners can understand the scope before moving forward.",
-        icon: "ClipboardCheck",
+      title: {
+        content: "Built for Interior and Exterior Renovation Projects",
       },
-      {
-        title: "Interior & Exterior Remodeling",
-        description:
-          "Support for a wide range of renovation needs, from flooring and kitchens to full home remodels.",
-        icon: "Home",
+
+      description: {
+        content:
+          "From flooring and kitchens to full home remodels, Top Tier Renovations delivers reliable craftsmanship across every stage of your project.",
       },
-      {
-        title: "Custom Finish Work",
-        description:
-          "Detailed remodeling solutions designed to improve both the look and function of your space.",
-        icon: "Hammer",
+
+      logos: [
+        { title: "Raycast", src: "https://assets.aceternity.com/logos/raycast.webp" },
+        { title: "Twitch", src: "https://assets.aceternity.com/logos/twitch.webp" },
+        { title: "Spotify", src: "https://assets.aceternity.com/logos/spotify.webp" },
+        { title: "Hulu", src: "https://assets.aceternity.com/logos/hulu.webp" },
+        { title: "YouTube", src: "https://assets.aceternity.com/logos/youtube.webp" },
+        { title: "Character AI", src: "https://assets.aceternity.com/logos/characterai.png" },
+        { title: "OpenAI", src: "https://assets.aceternity.com/logos/openai.png" },
+        { title: "Oracle", src: "https://assets.aceternity.com/logos/oracle.png" },
+        { title: "Portola", src: "https://assets.aceternity.com/logos/portola.png" },
+        { title: "Granola", src: "https://assets.aceternity.com/logos/granola.png" },
+        { title: "Hello Patient", src: "https://assets.aceternity.com/logos/hello-patient.png" },
+        { title: "Company 1", src: "https://assets.aceternity.com/logos/1.png" },
+        { title: "Forbes", src: "https://assets.aceternity.com/logos/forbes.png" },
+        { title: "Y Combinator", src: "https://assets.aceternity.com/logos/y-combinator.png" },
+        { title: "Company 7", src: "https://assets.aceternity.com/logos/7.png" },
+        { title: "Company 8", src: "https://assets.aceternity.com/logos/8.png" },
+        { title: "Company 4", src: "https://assets.aceternity.com/logos/4.png" },
+        { title: "Company 9", src: "https://assets.aceternity.com/logos/9.png" },
+        { title: "Figma", src: "https://assets.aceternity.com/logos/figma2.svg" },
+        { title: "Wired", src: "https://assets.aceternity.com/logos/wired.png" },
+      ],
+
+      styles: {
+        background: "#0B0F14",
+        title: "#F8FAFC",
+        description: "#94A3B8",
       },
-      {
-        title: "Local San Antonio Service",
-        description:
-          "A local renovation team serving homeowners throughout the San Antonio area.",
-        icon: "MapPin",
+    },
+    whySection: {
+      eyebrow: {
+        content: "Why Homeowners Choose Us",
       },
-    ],
+      title: {
+        content: "Renovation Work Built Around Quality, Detail, and Trust",
+      },
+      description: {
+        content:
+          "Whether it’s a single-room upgrade or a full home remodel, Top Tier Renovations focuses on clean workmanship, reliable communication, and results that fit your vision.",
+      },
+      cards: [
+        {
+          title: {
+            content: "Free Estimates",
+          },
+          description: {
+            content:
+              "Easy, no-pressure estimates so homeowners can understand the scope before moving forward.",
+          },
+          icon: "ClipboardCheck",
+          styles: {
+            hoverBorder: "#1E90FF",
+          }
+        },
+        {
+          title: {
+            content: "Interior & Exterior Remodeling",
+          },
+          description: {
+            content:
+              "Support for a wide range of renovation needs, from flooring and kitchens to full home remodels.",
+          },
+          icon: "Home",
+          styles: {
+            hoverBorder: "#1E90FF",
+          }
+        },
+        {
+          title: {
+            content: "Custom Finish Work",
+          },
+          description: {
+            content:
+              "Detailed remodeling solutions designed to improve both the look and function of your space.",
+          },
+          icon: "Hammer",
+          styles: {
+            hoverBorder: "#1E90FF",
+          }
+        },
+        {
+          title: {
+            content: "Local San Antonio Service",
+          },
+          description: {
+            content:
+              "A local renovation team serving homeowners throughout the San Antonio area.",
+          },
+          icon: "MapPin",
+          styles: {
+            hoverBorder: "#1E90FF",
+          }
+        },
+      ],
+
+      styles: {
+        background: "#F3F6FA",
+      },
+    },
   },
   services: {
     eyebrow: "What We Do",
@@ -2038,20 +2550,6 @@ const topTierRenovationsCompany: Company = {
     },
 
     // intentionally no items yet
-  },
-  logoSection: {
-    eyebrow: "Full-Service Remodeling",
-
-    title: "Built for Interior and Exterior Renovation Projects",
-
-    description:
-      "From flooring and kitchens to full home remodels, Top Tier Renovations delivers reliable craftsmanship across every stage of your project.",
-
-    styles: {
-      background: "#0B0F14",
-      title: "#F8FAFC",
-      description: "#94A3B8",
-    },
   },
   about: {
     title: "Quality Renovations. Clean Work. Reliable Service.",
@@ -2389,20 +2887,6 @@ const topTierRenovationsCompany: Company = {
         { platform: "twitter", url: "https://twitter.com/" },
         { platform: "youtube", url: "https://youtube.com/" },
     ],
-  },
-  og: {
-    image: "/images/og/top-tier-renovations-og.jpg", // TODO: generate dynamic OG image later
-
-    tintColor: "#0B0F14", // dark overlay to match brand
-    tintOpacity: 0.6,
-    gradientDirection: "to bottom",
-
-    logo: "/logos/top-tier-renovations.png", // TODO: add logo
-
-    title: "Top Tier Renovations | San Antonio Remodeling Experts",
-
-    description:
-      "Flooring, custom showers, kitchen renovations, and full home remodeling in San Antonio, TX. Get your free estimate today.",
   },
 };
 

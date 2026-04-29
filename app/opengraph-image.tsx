@@ -16,13 +16,16 @@ export default async function Image() {
   const slug = headersList.get("x-company-slug") ?? FALLBACK_SLUG;
   const company = getCompanyBySlug(slug) ?? defaultCompany;
 
+  const t = company.branding.theme;
+  const g = company.general;
+  
   // Build absolute base URL — ImageResponse cannot resolve relative paths
   const host = headersList.get("host") ?? "localhost:3000";
   const protocol = host.includes("localhost") ? "http" : "https";
   const baseUrl = `${protocol}://${host}`;
 
   const og = company.og ?? {};
-  const tintColor = og.tintColor ?? company.branding.primaryColor ?? FALLBACK_TINT;
+  const tintColor = og.tintColor ?? t.primary ?? FALLBACK_TINT;
   const tintOpacity = og.tintOpacity ?? 0.55;
 
   const bgPath = og.image ?? FALLBACK_BG;
@@ -31,8 +34,8 @@ export default async function Image() {
   const logoPath = og.logo ?? company.branding.logo ?? company.branding.navLogo;
   const logoUrl = logoPath ? `${baseUrl}${logoPath}` : null;
 
-  const title = og.title ?? company.name;
-  const description = og.description ?? company.tagline;
+  const title = og.title ?? g.name;
+  const description = og.description ?? g.tagline;
 
   return new ImageResponse(
     (
@@ -110,7 +113,7 @@ export default async function Image() {
             // eslint-disable-next-line @next/next/no-img-element
             <img
               src={logoUrl}
-              alt={company.name}
+              alt={g.name}
               width={400}
               height={180}
               style={{ objectFit: "contain" }}

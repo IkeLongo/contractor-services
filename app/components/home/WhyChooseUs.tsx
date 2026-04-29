@@ -9,7 +9,7 @@ import {
   ShieldCheck,
   type LucideIcon,
 } from "lucide-react";
-import type { Company } from "@/data/companies";
+import type { Company } from "@/lib/types/company";
 
 const ICON_MAP: Record<string, LucideIcon> = {
   Layers,
@@ -26,7 +26,7 @@ interface WhyChooseUsProps {
 
 export function WhyChooseUs({ company }: WhyChooseUsProps) {
   // Section-level style overrides with fallbacks
-  const s = company.differentiators.styles;
+  const s = company.pages.home.whySection
   const t = company.branding.theme;
   // Fallbacks for theme in case it's missing
   const fallback = {
@@ -40,19 +40,12 @@ export function WhyChooseUs({ company }: WhyChooseUsProps) {
   };
   const theme = t || fallback;
 
-  // Compose CSS variables for section and cards
+  // Compose CSS variables for section
   const cssVars = {
-    "--section-bg": s?.background || theme.background,
+    "--section-bg": s?.styles?.background || theme.background,
     "--eyebrow": s?.eyebrow || theme.secondary,
     "--title": s?.title || theme.text,
     "--description": s?.description || theme.mutedText,
-    "--card-bg": s?.cardBackground || theme.surface,
-    "--card-border": s?.cardBorder || theme.border,
-    "--card-title": s?.cardTitle || theme.text,
-    "--card-description": s?.cardDescription || theme.mutedText,
-    "--icon": s?.icon || theme.secondary,
-    "--icon-bg": s?.iconBackground || `${theme.secondary}1A`,
-    "--hover-border": s?.hoverBorder || theme.secondary,
   } as any;
 
   return (
@@ -69,64 +62,75 @@ export function WhyChooseUs({ company }: WhyChooseUsProps) {
 
       <div className="relative z-10 mx-auto max-w-7xl">
         <div className="flex flex-col items-center justify-center font-sans">
-          {company.differentiators.eyebrow && (
+          {s?.eyebrow && (
             <p
               className="text-xs font-bold uppercase tracking-widest mb-2"
               style={{ color: "var(--eyebrow)" }}
             >
-              {company.differentiators.eyebrow}
+              {s.eyebrow.content}
             </p>
           )}
           <h2
             className="text-2xl text-center font-black tracking-tight md:text-4xl text-[var(--title)]"
             style={{ color: "var(--title)" }}
           >
-            {company.differentiators.title}
+            {s?.title.content}
           </h2>
 
-          {company.differentiators.description && (
+          {s?.description && (
             <p className="mx-auto mt-4 max-w-2xl text-center text-lg text-[var(--description)]">
-              {company.differentiators.description}
+              {s.description.content}
             </p>
           )}
         </div>
 
         <div className="mt-10 grid grid-cols-1 gap-4 md:mt-20 md:grid-cols-3">
-          {company.differentiators.items.map((item) => {
+          {s?.cards.map((item) => {
             const Icon = item.icon
               ? ICON_MAP[item.icon] ?? ShieldCheck
               : ShieldCheck;
 
+            const cardBg = item.styles?.cardBg || theme.surface;
+            const cardBorder = item.styles?.cardBorder || theme.border;
+            const cardIcon = item.styles?.iconColor || theme.secondary;
+            const cardIconBg = item.styles?.iconBackground || `${theme.secondary}1A`;
+            const hoverBorder = item.styles?.hoverBorder || theme.secondary;
+
             return (
               <div
-                key={item.title}
-                className="rounded-xl border p-6 shadow-sm transition-all duration-200 hover:-translate-y-1 hover:shadow-md bg-[var(--card-bg)] border-[var(--card-border)] hover:border-[var(--hover-border)]"
+                key={item.title.content}
+                className="rounded-xl border-2 p-6 shadow-sm transition-all duration-200 hover:-translate-y-1 hover:shadow-md !hover:border-[var(--hover-border)]"
+                style={{
+                  backgroundColor: cardBg,
+                  borderColor: cardBorder,
+                  "--hover-border": hoverBorder,
+                } as React.CSSProperties}
               >
                 <div className="mb-4 flex items-center gap-4">
                   <div
                     className="inline-flex size-11 items-center justify-center rounded-lg"
-                    style={{ background: "var(--icon-bg)" }}
+                    style={{ background: cardIconBg }}
                   >
                     <Icon
                       className="size-5"
                       strokeWidth={1.75}
-                      style={{ color: "var(--icon)" }}
+                      style={{ color: cardIcon }}
                     />
                   </div>
 
                   <h3
                     className="m-0 text-lg font-semibold tracking-tight"
-                    style={{ color: "var(--card-title)" }}
+                    style={{ color: theme.text }}
                   >
-                    {item.title}
+                    {item.title.content}
                   </h3>
                 </div>
 
                 <p
                   className="mt-2 text-sm leading-relaxed"
-                  style={{ color: "var(--card-description)" }}
+                  style={{ color: theme.mutedText }}
                 >
-                  {item.description}
+                  {item.description.content}
                 </p>
               </div>
             );
