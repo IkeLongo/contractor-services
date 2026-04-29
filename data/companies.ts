@@ -3,575 +3,6 @@
 import type { Company } from "@/lib/types";
 import { hover } from "motion";
 
-export type ServiceItem = {
-  title: string;
-  slug?: string;
-  description: string;
-  image?: string;
-  bullets?: string[];
-  icon?: string;
-
-  eyebrow?: string;
-  heroTitle?: string;
-  heroDescription?: string;
-
-  overview?: {
-    title: string;
-    description: string;
-    longDescription?: string;
-    image?: string;
-  };
-
-  includes?: {
-    title?: string;
-    description?: string;
-    items: (string | { title: string; icon?: string; color?: string })[];
-  };
-
-  process?: {
-    title?: string;
-    description?: string;
-    steps: {
-      title: string;
-      description: string;
-    }[];
-  };
-
-  whyItMatters?: {
-    title: string;
-    description: string;
-    longDescription?: string;
-  };
-
-  cta?: {
-    title?: string;
-    description?: string;
-    primaryLabel?: string;
-    image?: string;
-    primaryHref?: string;
-  };
-
-  gallery?: {
-    image: string;
-    alt?: string;
-    title?: string;
-    description?: string;
-    className?: string;
-  }[];
-};
-
-export type PortfolioStyles = {
-  background?: string;
-  eyebrow?: string;
-  title?: string;
-  description?: string;
-  cardBackground?: string;
-  cardBorder?: string;
-  cardTitle?: string;
-  cardDescription?: string;
-  icon?: string;
-  iconBackground?: string;
-  categoryBackground?: string;
-  categoryText?: string;
-  accent?: string;
-  link?: string;
-};
-
-export type SnapshotItem = {
-  label: string;
-  value: string;
-  icon?: string;
-};
-
-export type CaseStudyCard = {
-  label: string;
-  title: string;
-  description: string;
-  icon?: string;
-};
-
-export type CaseStudyContent = {
-  eyebrow?: string;
-  title: string;
-  description?: string;
-  challenge: CaseStudyCard;
-  solution: CaseStudyCard;
-  result: CaseStudyCard;
-  gallery?: {
-    image: string;
-    alt: string;
-    caption?: string;
-  }[];
-};
-
-export type PortfolioItem = {
-  slug?: string;
-  title: string;
-  projectName?: string;
-  description: string;
-  image: string;
-  category?: string;
-  href?: string;
-  icon?: string;
-  snapshot?: SnapshotItem[];
-  caseStudy?: CaseStudyContent;
-  layout?: {
-    colSpan?: 1 | 2 | 3;
-    rowSpan?: 1 | 2 | 3;
-    colStart?: 1 | 2 | 3;
-    rowStart?: 1 | 2 | 3;
-  };
-};
-
-export type TestimonialItem = {
-  name: string;
-  role?: string;
-  company?: string;
-  quote: string;
-  rating?: number;
-  image?: string;
-};
-
-export type HeroStyles = {
-  overlay?: string;
-  eyebrow?: string;
-  title?: string;
-  subtitle?: string;
-};
-  
-export type ServicesStyles = {
-  background?: string;
-  eyebrow?: string;
-  title?: string;
-  description?: string;
-  cardBackground?: string;
-  cardBorder?: string;
-  cardTitle?: string;
-  cardDescription?: string;
-  accent?: string;
-  imageOverlay?: string;
-  gallery?: {
-    cardBackground?: string;
-    cardBorder?: string;
-    titleColor?: string;
-    descriptionColor?: string;
-    overlay?: string;
-  };
-  narrative?: {
-    background?: string;
-    eyebrow?: string;
-    title?: string;
-    text?: string;
-    accent?: string;
-    scopeCardColors?: string[];
-    scopeCardText?: string;
-    scopeCardIcon?: string;
-  };
-};
-
-// export type LogoSectionStyles = {
-//   background?: string;
-//   eyebrow?: string;
-//   title?: string;
-//   description?: string;
-// };
-
-// export type Company = {
-//   general: General;
-//   branding: Branding;
-//   seo: SEO;
-//   navigation: NavItem[];
-//   pages: {
-//     home: HomePage;
-//   };
-//   differentiators: {
-//     eyebrow?: Text;
-//     title: Text;
-//     description?: Text;
-//     styles?: DifferentiatorStyles;
-//     items: {
-//       title: Text;
-//       description: Text;
-//       icon?: string;
-//     }[];
-//   };
-//   services: {
-//     eyebrow?: string;
-//     title: string;
-//     description?: string;
-//     styles?: ServicesStyles;
-//     columns?: 2 | 3 | 4;
-//     items: ServiceItem[];
-//   };
-//   portfolio: {
-//     eyebrow?: string;
-//     title: string;
-//     description?: string;
-//     styles?: PortfolioStyles;
-//     items: PortfolioItem[];
-//   };
-//   testimonials: {
-//     eyebrow?: string;
-//     title: string;
-//     description?: string;
-//     styles?: {
-//       background?: string;
-//       eyebrow?: string;
-//       title?: string;
-//       description?: string;
-//       cardBackground?: string;
-//       cardBorder?: string;
-//       quote?: string;
-//       name?: string;
-//       role?: string;
-//       star?: string;
-//       mutedStar?: string;
-//       quoteIcon?: string;
-//       ctaBackground?: string;
-//       ctaText?: string;
-//       modalBackground?: string;
-//       modalBorder?: string;
-//     };
-//     items?: TestimonialItem[];
-//   };
-//   about: {
-//     title: string;
-//     image: string;
-//     imageAlt?: string;
-//     storyTitle?: string;
-//     story?: string[];
-//     highlights?: {
-//       title: string;
-//       description: string;
-//     }[];
-//     quote?: {
-//       text: string;
-//       author?: string;
-//       avatar?: string; 
-//     };
-//     images?: {
-//       main: string;
-//       secondary: string[];
-//       tertiary: string[];
-//     };
-//     styles?: {
-//       background?: string;
-//       cardBackground?: string;
-//       border?: string;
-//       title?: string;
-//       gradientFrom?: string;
-//       gradientTo?: string;
-//       text?: string;
-//       mutedText?: string;
-//       gradientOverlay?: string;
-//     };
-//     process?: {
-//       eyebrow?: string;
-//       title: string;
-//       description: string;
-//       steps: {
-//         step: string;
-//         title: string;
-//         description: string;
-//         tag?: string;
-//         icon?: string;
-//       }[];
-//       styles?: {
-//         background?: string;
-//         eyebrow?: string;
-//         title?: string;
-//         description?: string;
-//         cardBackground?: string;
-//         cardBorder?: string;
-//         cardText?: string;
-//         cardMutedText?: string;
-//         accent?: string;
-//       };
-//     };
-//     stats?: {
-//       items: {
-//         value: number;
-//         label: string;
-//         suffix?: string;
-//         prefix?: string;
-//       }[];
-//       styles?: {
-//         background?: string;
-//         containerBg?: string;
-//         border?: string;
-//         numberColor?: string;
-//         labelColor?: string;
-//       };
-//     };
-//     team?: {
-//       members: {
-//         name: string;
-//         role: string;
-//         avatar: string;
-//       }[];
-//       styles?: {
-//         background?: string;
-//         nameColor?: string;
-//         roleColor?: string;
-//       };
-//     };
-//     differentiators?: {
-//       title?: string;
-//       description?: string;   
-//       items: {
-//         title: string;
-//         description: string;
-//         icon?: string;
-//       }[];
-//       styles?: {
-//         background?: string;
-//         sectionTitle?: string;
-//         sectionDescription?: string;
-//         icon?: string;
-//         title?: string;
-//         description?: string;
-//         border?: string;
-//         hoverGradientFrom?: string;
-//         accent?: string;
-//         spacing?: {
-//           titleMarginBottom?: string;
-//           descriptionMarginTop?: string;
-//           descriptionLineHeight?: string;
-//         };
-//       };
-//     };
-//   };
-//   finalCta: {
-//     title: string;
-//     description: string;
-//     primaryCta: {
-//       label: string;
-//       href: string;
-//     };
-//     secondaryCta?: {
-//       label: string;
-//       href: string;
-//     };
-//     image?: string;
-//     imageAlt?: string;
-//     styles?: {
-//       background?: string;
-//       title?: string;
-//       description?: string;
-//       buttonBg?: string;
-//       buttonText?: string;
-//     };
-//   };
-//   contact: {
-//     backgroundImage: string;
-//     title?: string;
-//     description?: string;
-//     testimonial: {
-//       quote: string;
-//       name: string;
-//       title: string;
-//       avatar?: string;
-//     };
-//     form: {
-//       title: string;
-//       description: string;
-//       email: string;
-//       services: {
-//         label: string;
-//         value: string;
-//       }[];
-//     };
-//     styles?: {
-//       home?: {
-//         background?: string;
-//         sectionBg?: string;
-//         formBg?: string;
-//         text?: string;
-//         mutedText?: string;
-//         buttonBg?: string;
-//         buttonText?: string;
-//         overlayGradient?: string;
-//       }
-//       contact?: {
-//         background?: string;
-//         sectionBg?: string;
-//         formBg?: string;
-//         text?: string;
-//         mutedText?: string;
-//         buttonBg?: string;
-//         buttonText?: string;
-//         overlayGradient?: string;
-//       }
-//     };
-//   };
-//   logoSection?: {
-//     eyebrow?: string;
-//     title: string;
-//     description?: string;
-//     styles?: LogoSectionStyles;
-//   };
-//   faq?: {
-//     eyebrow?: string;
-//     title: string;
-//     description?: string;
-//     items: {
-//       question: string;
-//       answer: string;
-//     }[];
-//     styles?: {
-//       background?: string;
-//       eyebrow?: string;
-//       title?: string;
-//       description?: string;
-//       itemBackground?: string;
-//       itemBorder?: string;
-//       question?: string;
-//       answer?: string;
-//       icon?: string;
-//       accent?: string;
-//     };
-//   };
-//   footer: {
-//     shortDescription: string;
-//     serviceArea: string;
-//     socials?: {
-//       platform: "facebook" | "instagram" | "linkedin" | "twitter" | "youtube";
-//       url: string;
-//     }[];
-//   };
-//   og?: OgConfig;
-// };
-
-// export type General = {
-//   slug: string;
-//   subdomain: string;
-//   name: string;
-//   legalName?: string;
-//   tagline: string;
-//   phone: string;
-//   email: string;
-//   city: string;
-//   state: string;
-//   googlePlaceId?: string;
-// };
-
-// export type Branding = {
-//   logo: string;
-//   navLogo: string;
-
-//   theme: Theme;
-// };
-
-// export type SEO = {
-//   title: string;
-//   description: string;
-
-//   og: OgConfig;
-// };
-
-// export type OgConfig = {
-//   image?: string;
-//   tintColor?: string;
-//   tintOpacity?: number;
-//   gradientDirection?: string;
-//   logo?: string;
-//   title?: string;
-//   description?: string;
-// };
-
-// export type CTA = {
-//   label: string;
-//   href: string;
-
-//   styles?: {
-//     background?: string;
-//     text?: string;
-//     border?: string;
-//     highlightBg?: string;
-//     highlightText?: string;
-//     highlightBorder?: string;
-//   };
-// };
-
-// export type Text = {
-//   content: string;
-
-//   styles?: {
-//     color?: string;
-//     size?: string;        // e.g. "sm" | "md" | "lg" | "xl" or "16px"
-//     font?: string;        // e.g. "inter", "poppins"
-//     weight?: string;      // e.g. "400", "500", "600", "700"
-//     lineHeight?: string;  // e.g. "1.5", "24px"
-//     letterSpacing?: string; // e.g. "0.5px"
-//     align?: "left" | "center" | "right";
-
-//     // layout helpers
-//     margin?: string;
-//     padding?: string;
-
-//     // optional advanced
-//     transform?: "uppercase" | "lowercase" | "capitalize";
-//     decoration?: "none" | "underline" | "line-through";
-//   };
-// };
-
-// export type ImageAsset = {
-//   src: string;
-//   alt?: string;
-
-//   // optional enhancements
-//   width?: number;
-//   height?: number;
-//   priority?: boolean;
-
-//   // styling / layout
-//   objectFit?: "cover" | "contain" | "fill";
-//   rounded?: string; // e.g. "lg", "xl"
-// };
-
-// export type ImageGroup = ImageAsset[];
-
-// export type ClassicCard = {
-//   title: Text;
-//   description: Text;
-//   image?: ImageAsset;
-//   href?: string;
-//   styles?: {
-//     cardBg?: string;
-//   };
-// };
-
-// export type Hero = {
-//   eyebrow?: Text;
-//   title: Text;
-//   subtitle: Text;
-
-//   highlights: Text[];
-
-//   images?: ImageGroup;
-
-//   primaryCta: CTA;
-//   secondaryCta?: CTA;
-
-//   styles?: HeroStyles;
-// };
-
-// export type ServicesGrid = {
-//   eyebrow?: Text;
-//   title: Text;
-//   description?: Text;
-//   columns?: 2 | 3 | 4;
-//   items: ClassicCard[];
-//   styles?: {
-//     background?: string;
-//   };
-// };
-
-// export type HomePage = {
-//   hero: Hero;
-//   services: ServicesGrid;
-// };
-
 const tsoTexasCompany: Company = {
   general: {
     slug: "tso-texas",
@@ -966,7 +397,6 @@ const tsoTexasCompany: Company = {
       },
     },
   },
-
   services: {
     eyebrow: "What We Do",
     title: "Core Services",
@@ -1238,7 +668,6 @@ const tsoTexasCompany: Company = {
       cardBackground: "#eff3fa",
     }
   },
-
   portfolio: {
     eyebrow: "Our Work",
     title: "Featured Projects",
@@ -1478,7 +907,6 @@ const tsoTexasCompany: Company = {
       description: "#475569",
     }
   },
-
   testimonials: {
     eyebrow: "Trusted by Real Clients",
     title: "What Clients Value",
@@ -1492,19 +920,6 @@ const tsoTexasCompany: Company = {
       modalBorder: "#ffffff",
     },
   },
-
-  logoSection: {
-    eyebrow: "Trusted Capability",
-    title: "Built to Support Residential and Commercial Projects",
-    description:
-      "One team. Multiple trades. Done right.",
-    styles: {
-      background: "#081636",
-      title: "#eff0f3",
-      description: "#99a3b1",
-    },
-  },
-
   about: {
     title: "Reliable Work. One Team. Multiple Trades.",
     image:
@@ -1728,7 +1143,6 @@ const tsoTexasCompany: Company = {
       },
     },
   },
-
   finalCta: {
     title: "Need a team that can handle more in one call?",
     description:
@@ -1749,7 +1163,6 @@ const tsoTexasCompany: Company = {
         title: "#0B1F4D",
       }
   },
-
   contact: {
     backgroundImage:
       "/companies/tso-texas/contact/tso-texas-truck-at-site-at-sunrise.png",
@@ -1787,7 +1200,6 @@ const tsoTexasCompany: Company = {
       }
     }
   },
-
   faq: {
     eyebrow: "Got Questions?",
     title: "Frequently Asked Questions",
@@ -1836,7 +1248,6 @@ const tsoTexasCompany: Company = {
       },
     ],
   },
-
   footer: {
     shortDescription:
       "Multi-trade residential and commercial services for repairs, renovations, networking, and fabrication.",
@@ -1972,8 +1383,8 @@ const topTierRenovationsCompany: Company = {
           label: "Get Free Estimate",
           href: "/contact",
           styles: {
-            primaryBg: "#1E90FF",
-            primaryText: "#FFFFFF",
+            background: "#1E90FF",
+            text: "#FFFFFF",
           },
         },
 
@@ -1981,7 +1392,7 @@ const topTierRenovationsCompany: Company = {
           label: "Call (210) 612-9114",
           href: "tel:2106129114",
           styles: {
-            secondaryText: "#F8FAFC",
+            text: "#F8FAFC",
           },
         },
 
@@ -2000,228 +1411,221 @@ const topTierRenovationsCompany: Company = {
           },
         ],
       },
-    },
-    services: {
-      eyebrow: {
-        content: "What We Do",
-      },
-      title: {
-        content: "Our Remodeling Services",
-      },
-      description: {
-        content:
-          "From flooring and custom showers to full home remodels, we handle the work from start to finish.",
-      },
-      columns: 2,
-      items: [
-        {
-          title: {
-            content: "Flooring",
-          },
-          description: {
-            content:
-              "Durable flooring updates that transform the look and feel of your home.",
-          },
-          href: "/services/flooring",
-          styles: {
-            cardBg: "#FFFFFF",
-            cardBorder: "#E2E8F0",
-            titleColor: "#0F172A",
-            descriptionColor: "#475569",
-            accent: "#1E90FF",
-          },
+      services: {
+        eyebrow: {
+          content: "What We Do",
         },
-        {
-          title: {
-            content: "Custom Showers",
-          },
-          description: {
-            content:
-              "Bathroom upgrades designed around comfort, function, and long-lasting finishes.",
-          },
-          href: "/services/custom-showers",
-          styles: {
-            cardBg: "#FFFFFF",
-            cardBorder: "#E2E8F0",
-            titleColor: "#0F172A",
-            descriptionColor: "#475569",
-            accent: "#1E90FF",
-          },
+        title: {
+          content: "Our Remodeling Services",
         },
-        {
-          title: {
-            content: "Kitchen Renovations",
-          },
-          description: {
-            content:
-              "Functional kitchen improvements built around better layouts, cleaner finishes, and everyday use.",
-          },
-          href: "/services/kitchen-renovations",
-          styles: {
-            cardBg: "#FFFFFF",
-            cardBorder: "#E2E8F0",
-            titleColor: "#0F172A",
-            descriptionColor: "#475569",
-            accent: "#1E90FF",
-          },
+        description: {
+          content:
+            "From flooring and custom showers to full home remodels, we handle the work from start to finish.",
         },
-        {
-          title: {
-            content: "Full Home Remodel",
+        columns: 2,
+        items: [
+          {
+            title: {
+              content: "Flooring",
+              styles: {
+                color: "#0F172A",
+              },
+            },
+            description: {
+              content:
+                "Durable flooring updates that transform the look and feel of your home.",
+              styles: {
+                color: "#475569",
+              }
+            },
+            href: "/services/flooring",
+            styles: {
+              cardBg: "#FFFFFF",
+            },
           },
-          description: {
-            content:
-              "Complete interior and exterior renovation services for homeowners ready for a full transformation.",
+          {
+            title: {
+              content: "Custom Showers",
+              styles: {
+                color: "#475569",
+              }
+            },
+            description: {
+              content:
+                "Bathroom upgrades designed around comfort, function, and long-lasting finishes.",
+              styles: {
+                color: "#475569",
+              }
+            },
+            href: "/services/custom-showers",
+            styles: {
+              cardBg: "#FFFFFF",
+            },
           },
-          href: "/services/full-remodel",
-          styles: {
-            cardBg: "#FFFFFF",
-            cardBorder: "#E2E8F0",
-            titleColor: "#0F172A",
-            descriptionColor: "#475569",
-            accent: "#1E90FF",
+          {
+            title: {
+              content: "Kitchen Renovations",
+              styles: {
+                color: "#475569",
+              }
+            },
+            description: {
+              content:
+                "Functional kitchen improvements built around better layouts, cleaner finishes, and everyday use.",
+              styles: {
+                color: "#475569",
+              }
+            },
+            href: "/services/kitchen-renovations",
+            styles: {
+              cardBg: "#FFFFFF",
+            },
           },
-        },
-        {
-          title: {
-            content: "General Maintenance",
+          {
+            title: {
+              content: "Full Home Remodel",
+              styles: {
+                color: "#475569",
+              }
+            },
+            description: {
+              content:
+                "Complete interior and exterior renovation services for homeowners ready for a full transformation.",
+              styles: {
+                color: "#475569",
+              }
+            },
+            href: "/services/full-remodel",
+            styles: {
+              cardBg: "#FFFFFF",
+            },
           },
-          description: {
-            content:
-              "Reliable maintenance services to keep your home looking and working the way it should.",
+          {
+            title: {
+              content: "General Maintenance",
+              styles: {
+                color: "#475569",
+              }
+            },
+            description: {
+              content:
+                "Reliable maintenance services to keep your home looking and working the way it should.",
+              styles: {
+                color: "#475569",
+              }
+            },
+            href: "/services/maintenance",
+            styles: {
+              cardBg: "#FFFFFF",
+            },
           },
-          href: "/services/maintenance",
-          styles: {
-            cardBg: "#FFFFFF",
-            cardBorder: "#E2E8F0",
-            titleColor: "#0F172A",
-            descriptionColor: "#475569",
-            accent: "#1E90FF",
-          },
-        },
-      ],
-      styles: {
-        background: "#F3F6FA",
-        card: {
-          cardBg: "#FFFFFF",
-          cardBorder: "#E2E8F0",
-          titleColor: "#0F172A",
-          descriptionColor: "#475569",
-          accent: "#1E90FF",
+        ],
+        styles: {
+          background: "#F3F6FA",
         },
       },
-    },
-    logoSection: {
-      eyebrow: {
-        content: "Full-Service Remodeling",
-      },
-
-      title: {
-        content: "Built for Interior and Exterior Renovation Projects",
-      },
-
-      description: {
-        content:
-          "From flooring and kitchens to full home remodels, Top Tier Renovations delivers reliable craftsmanship across every stage of your project.",
-      },
-
-      logos: [
-        { title: "Raycast", src: "https://assets.aceternity.com/logos/raycast.webp" },
-        { title: "Twitch", src: "https://assets.aceternity.com/logos/twitch.webp" },
-        { title: "Spotify", src: "https://assets.aceternity.com/logos/spotify.webp" },
-        { title: "Hulu", src: "https://assets.aceternity.com/logos/hulu.webp" },
-        { title: "YouTube", src: "https://assets.aceternity.com/logos/youtube.webp" },
-        { title: "Character AI", src: "https://assets.aceternity.com/logos/characterai.png" },
-        { title: "OpenAI", src: "https://assets.aceternity.com/logos/openai.png" },
-        { title: "Oracle", src: "https://assets.aceternity.com/logos/oracle.png" },
-        { title: "Portola", src: "https://assets.aceternity.com/logos/portola.png" },
-        { title: "Granola", src: "https://assets.aceternity.com/logos/granola.png" },
-        { title: "Hello Patient", src: "https://assets.aceternity.com/logos/hello-patient.png" },
-        { title: "Company 1", src: "https://assets.aceternity.com/logos/1.png" },
-        { title: "Forbes", src: "https://assets.aceternity.com/logos/forbes.png" },
-        { title: "Y Combinator", src: "https://assets.aceternity.com/logos/y-combinator.png" },
-        { title: "Company 7", src: "https://assets.aceternity.com/logos/7.png" },
-        { title: "Company 8", src: "https://assets.aceternity.com/logos/8.png" },
-        { title: "Company 4", src: "https://assets.aceternity.com/logos/4.png" },
-        { title: "Company 9", src: "https://assets.aceternity.com/logos/9.png" },
-        { title: "Figma", src: "https://assets.aceternity.com/logos/figma2.svg" },
-        { title: "Wired", src: "https://assets.aceternity.com/logos/wired.png" },
-      ],
-
-      styles: {
-        background: "#0B0F14",
-        title: "#F8FAFC",
-        description: "#94A3B8",
-      },
-    },
-    whySection: {
-      eyebrow: {
-        content: "Why Homeowners Choose Us",
-      },
-      title: {
-        content: "Renovation Work Built Around Quality, Detail, and Trust",
-      },
-      description: {
-        content:
-          "Whether it’s a single-room upgrade or a full home remodel, Top Tier Renovations focuses on clean workmanship, reliable communication, and results that fit your vision.",
-      },
-      cards: [
-        {
-          title: {
-            content: "Free Estimates",
-          },
-          description: {
-            content:
-              "Easy, no-pressure estimates so homeowners can understand the scope before moving forward.",
-          },
-          icon: "ClipboardCheck",
-          styles: {
-            hoverBorder: "#1E90FF",
-          }
+      logoSection: {
+        title: {
+          content: "Built for Interior and Exterior Renovation Projects",
         },
-        {
-          title: {
-            content: "Interior & Exterior Remodeling",
-          },
-          description: {
-            content:
-              "Support for a wide range of renovation needs, from flooring and kitchens to full home remodels.",
-          },
-          icon: "Home",
-          styles: {
-            hoverBorder: "#1E90FF",
-          }
+        description: {
+          content:
+            "From flooring and kitchens to full home remodels, Top Tier Renovations delivers reliable craftsmanship across every stage of your project.",
         },
-        {
-          title: {
-            content: "Custom Finish Work",
-          },
-          description: {
-            content:
-              "Detailed remodeling solutions designed to improve both the look and function of your space.",
-          },
-          icon: "Hammer",
-          styles: {
-            hoverBorder: "#1E90FF",
-          }
+        logos: [
+          { title: "Raycast", src: "https://assets.aceternity.com/logos/raycast.webp" },
+          { title: "Twitch", src: "https://assets.aceternity.com/logos/twitch.webp" },
+          { title: "Spotify", src: "https://assets.aceternity.com/logos/spotify.webp" },
+          { title: "Hulu", src: "https://assets.aceternity.com/logos/hulu.webp" },
+          { title: "YouTube", src: "https://assets.aceternity.com/logos/youtube.webp" },
+          { title: "Character AI", src: "https://assets.aceternity.com/logos/characterai.png" },
+          { title: "OpenAI", src: "https://assets.aceternity.com/logos/openai.png" },
+          { title: "Oracle", src: "https://assets.aceternity.com/logos/oracle.png" },
+          { title: "Portola", src: "https://assets.aceternity.com/logos/portola.png" },
+          { title: "Granola", src: "https://assets.aceternity.com/logos/granola.png" },
+          { title: "Hello Patient", src: "https://assets.aceternity.com/logos/hello-patient.png" },
+          { title: "Company 1", src: "https://assets.aceternity.com/logos/1.png" },
+          { title: "Forbes", src: "https://assets.aceternity.com/logos/forbes.png" },
+          { title: "Y Combinator", src: "https://assets.aceternity.com/logos/y-combinator.png" },
+          { title: "Company 7", src: "https://assets.aceternity.com/logos/7.png" },
+          { title: "Company 8", src: "https://assets.aceternity.com/logos/8.png" },
+          { title: "Company 4", src: "https://assets.aceternity.com/logos/4.png" },
+          { title: "Company 9", src: "https://assets.aceternity.com/logos/9.png" },
+          { title: "Figma", src: "https://assets.aceternity.com/logos/figma2.svg" },
+          { title: "Wired", src: "https://assets.aceternity.com/logos/wired.png" },
+        ],
+        styles: {
+          background: "#0B0F14",
         },
-        {
-          title: {
-            content: "Local San Antonio Service",
-          },
-          description: {
-            content:
-              "A local renovation team serving homeowners throughout the San Antonio area.",
-          },
-          icon: "MapPin",
-          styles: {
-            hoverBorder: "#1E90FF",
-          }
+      },
+      whySection: {
+        eyebrow: {
+          content: "Why Homeowners Choose Us",
         },
-      ],
-
-      styles: {
-        background: "#F3F6FA",
+        title: {
+          content: "Renovation Work Built Around Quality, Detail, and Trust",
+        },
+        description: {
+          content:
+            "Whether it’s a single-room upgrade or a full home remodel, Top Tier Renovations focuses on clean workmanship, reliable communication, and results that fit your vision.",
+        },
+        cards: [
+          {
+            title: {
+              content: "Free Estimates",
+            },
+            description: {
+              content:
+                "Easy, no-pressure estimates so homeowners can understand the scope before moving forward.",
+            },
+            icon: "ClipboardCheck",
+            styles: {
+              hoverBorder: "#1E90FF",
+            }
+          },
+          {
+            title: {
+              content: "Interior & Exterior Remodeling",
+            },
+            description: {
+              content:
+                "Support for a wide range of renovation needs, from flooring and kitchens to full home remodels.",
+            },
+            icon: "Home",
+            styles: {
+              hoverBorder: "#1E90FF",
+            }
+          },
+          {
+            title: {
+              content: "Custom Finish Work",
+            },
+            description: {
+              content:
+                "Detailed remodeling solutions designed to improve both the look and function of your space.",
+            },
+            icon: "Hammer",
+            styles: {
+              hoverBorder: "#1E90FF",
+            }
+          },
+          {
+            title: {
+              content: "Local San Antonio Service",
+            },
+            description: {
+              content:
+                "A local renovation team serving homeowners throughout the San Antonio area.",
+            },
+            icon: "MapPin",
+            styles: {
+              hoverBorder: "#1E90FF",
+            }
+          },
+        ],
+        styles: {
+          background: "#F3F6FA",
+        },
       },
     },
   },
