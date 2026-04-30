@@ -33,21 +33,33 @@ export function CtaFormSection({
   shouldPreselectService = false,
 }: CtaFormSectionProps) {
   const t = company.branding.theme;
+  const cs = company.contact.styles?.services;
 
   const resolvedImage =
     image ?? company.finalCta.image ?? company.contact.backgroundImage;
   const resolvedImageAlt = imageAlt ?? company.general.name;
-  const resolvedBg = background ?? t.background;
-  const resolvedFormBg = formBackground ?? "#ffffff";
-  const resolvedButtonBg = buttonBg ?? t.primary;
-  const resolvedButtonText = buttonText ?? "#ffffff";
+  const resolvedBg = background ?? cs?.background ?? t.background;
+  const resolvedSectionBg = cs?.sectionBg ?? resolvedBg;
+  const resolvedFormBg = formBackground ?? cs?.formBg ?? "#ffffff";
+  const resolvedButtonBg = buttonBg ?? cs?.buttonBg ?? t.primary;
+  const resolvedButtonText = buttonText ?? cs?.buttonText ?? "#ffffff";
+  const resolvedText = cs?.text ?? t.text;
+  const resolvedMutedText = cs?.mutedText ?? t.mutedText;
+  const resolvedInputBg = cs?.input?.background ?? "white";
+  const resolvedInputText = cs?.input?.text ?? "black";
+  const resolvedInputPlaceholder = cs?.input?.placeholder;
+  const resolvedInputLabel = cs?.input?.label ?? resolvedText;
+  const resolvedInputRing = cs?.input?.ring ?? "rgb(0 0 0 / 0.1)";
+  const resolvedFocusOutline = cs?.input?.focusOutline ?? "rgb(163 163 163)";
+
+  const inputClass = "w-full rounded-lg border-0 px-4 py-2.5 text-sm shadow-sm ring-1 shadow-black/10 focus:outline-2 focus:-outline-offset-1";
 
   const defaultValue = shouldPreselectService ? (selectedServiceSlug ?? "") : "";
 
   return (
     <section
       className="scroll-mt-24 py-16 px-4 sm:px-6 lg:px-8 md:py-20"
-      style={{ backgroundColor: resolvedBg }}
+      style={{ backgroundColor: resolvedSectionBg }}
     >
       <div className="mx-auto max-w-6xl">
         <div className="grid items-stretch gap-10 lg:grid-cols-2 lg:gap-14">
@@ -66,27 +78,27 @@ export function CtaFormSection({
           {/* Right: form card */}
           <div
             className="flex flex-col justify-center rounded-2xl border p-8 shadow-sm sm:p-10"
-            style={{ backgroundColor: resolvedFormBg, borderColor: t.border }}
+            style={{ backgroundColor: resolvedFormBg, borderColor: cs?.input?.ring ?? t.border }}
           >
             {/* Header */}
             {eyebrow && (
               <p
                 className="mb-2 text-xs font-bold uppercase tracking-widest"
-                style={{ color: t.secondary }}
+                style={{ color: cs?.text ?? t.secondary }}
               >
                 {eyebrow}
               </p>
             )}
             <h2
               className="mb-2 text-2xl font-black leading-snug md:text-3xl"
-              style={{ color: t.text }}
+              style={{ color: resolvedText }}
             >
               {title}
             </h2>
             {description && (
               <p
                 className="mb-7 text-sm leading-relaxed"
-                style={{ color: t.mutedText }}
+                style={{ color: resolvedMutedText }}
               >
                 {description}
               </p>
@@ -99,7 +111,7 @@ export function CtaFormSection({
                 <label
                   htmlFor="cta-name"
                   className="text-sm font-medium"
-                  style={{ color: t.text }}
+                  style={{ color: resolvedInputLabel }}
                 >
                   Name
                 </label>
@@ -109,7 +121,16 @@ export function CtaFormSection({
                   name="name"
                   placeholder="Your name"
                   autoComplete="name"
-                  className="w-full rounded-lg border-0 bg-white px-4 py-2.5 text-sm text-black shadow-sm ring-1 shadow-black/10 ring-black/10 placeholder:text-neutral-400 focus:outline-2 focus:-outline-offset-1 focus:outline-neutral-400"
+                  className={inputClass}
+                  style={{
+                    backgroundColor: resolvedInputBg,
+                    color: resolvedInputText,
+                    ringColor: resolvedInputRing,
+                    "--tw-ring-color": resolvedInputRing,
+                    "--tw-ring-shadow": `0 0 0 1px ${resolvedInputRing}`,
+                    caretColor: resolvedInputText,
+                    ...(resolvedInputPlaceholder ? { "--placeholder-color": resolvedInputPlaceholder } : {}),
+                  } as React.CSSProperties}
                 />
               </div>
 
@@ -119,7 +140,7 @@ export function CtaFormSection({
                   <label
                     htmlFor="cta-email"
                     className="text-sm font-medium"
-                    style={{ color: t.text }}
+                    style={{ color: resolvedInputLabel }}
                   >
                     Email
                   </label>
@@ -129,14 +150,20 @@ export function CtaFormSection({
                     name="email"
                     placeholder="you@email.com"
                     autoComplete="email"
-                    className="w-full rounded-lg border-0 bg-white px-4 py-2.5 text-sm text-black shadow-sm ring-1 shadow-black/10 ring-black/10 placeholder:text-neutral-400 focus:outline-2 focus:-outline-offset-1 focus:outline-neutral-400"
+                    className={inputClass}
+                    style={{
+                      backgroundColor: resolvedInputBg,
+                      color: resolvedInputText,
+                      "--tw-ring-color": resolvedInputRing,
+                      "--tw-ring-shadow": `0 0 0 1px ${resolvedInputRing}`,
+                    } as React.CSSProperties}
                   />
                 </div>
                 <div className="flex flex-col gap-1.5">
                   <label
                     htmlFor="cta-phone"
                     className="text-sm font-medium"
-                    style={{ color: t.text }}
+                    style={{ color: resolvedInputLabel }}
                   >
                     Phone
                   </label>
@@ -146,7 +173,13 @@ export function CtaFormSection({
                     name="phone"
                     placeholder="(555) 123-4567"
                     autoComplete="tel"
-                    className="w-full rounded-lg border-0 bg-white px-4 py-2.5 text-sm text-black shadow-sm ring-1 shadow-black/10 ring-black/10 placeholder:text-neutral-400 focus:outline-2 focus:-outline-offset-1 focus:outline-neutral-400"
+                    className={inputClass}
+                    style={{
+                      backgroundColor: resolvedInputBg,
+                      color: resolvedInputText,
+                      "--tw-ring-color": resolvedInputRing,
+                      "--tw-ring-shadow": `0 0 0 1px ${resolvedInputRing}`,
+                    } as React.CSSProperties}
                   />
                 </div>
               </div>
@@ -156,7 +189,7 @@ export function CtaFormSection({
                 <label
                   htmlFor="cta-service"
                   className="text-sm font-medium"
-                  style={{ color: t.text }}
+                  style={{ color: resolvedInputLabel }}
                 >
                   Service Needed
                 </label>
@@ -164,15 +197,30 @@ export function CtaFormSection({
                   id="cta-service"
                   name="service"
                   defaultValue={defaultValue}
-                  className="w-full rounded-lg border-0 bg-white px-4 py-2.5 text-sm text-black shadow-sm ring-1 shadow-black/10 ring-black/10 focus:outline-2 focus:-outline-offset-1 focus:outline-neutral-400"
+                  className={inputClass}
+                  style={{
+                    backgroundColor: resolvedInputBg,
+                    color: resolvedInputText,
+                    "--tw-ring-color": resolvedInputRing,
+                    "--tw-ring-shadow": `0 0 0 1px ${resolvedInputRing}`,
+                  } as React.CSSProperties}
                 >
                   {!shouldPreselectService && (
-                    <option value="">Select a service</option>
+                    <option
+                      value=""
+                      style={{ backgroundColor: resolvedInputBg, color: resolvedInputText }}
+                    >
+                      Select a service
+                    </option>
                   )}
                   {company.services.items
                     .filter((item) => item.slug)
                     .map((item) => (
-                      <option key={item.slug} value={item.slug}>
+                      <option
+                        key={item.slug}
+                        value={item.slug}
+                        style={{ backgroundColor: resolvedInputBg, color: resolvedInputText }}
+                      >
                         {item.title}
                       </option>
                     ))}
@@ -184,7 +232,7 @@ export function CtaFormSection({
                 <label
                   htmlFor="cta-message"
                   className="text-sm font-medium"
-                  style={{ color: t.text }}
+                  style={{ color: resolvedInputLabel }}
                 >
                   Message
                 </label>
@@ -193,7 +241,13 @@ export function CtaFormSection({
                   name="message"
                   rows={3}
                   placeholder="Tell us about your project or need..."
-                  className="w-full resize-none rounded-lg border-0 bg-white px-4 py-2.5 text-sm text-black shadow-sm ring-1 shadow-black/10 ring-black/10 placeholder:text-neutral-400 focus:outline-2 focus:-outline-offset-1 focus:outline-neutral-400"
+                  className={`${inputClass} resize-none`}
+                  style={{
+                    backgroundColor: resolvedInputBg,
+                    color: resolvedInputText,
+                    "--tw-ring-color": resolvedInputRing,
+                    "--tw-ring-shadow": `0 0 0 1px ${resolvedInputRing}`,
+                  } as React.CSSProperties}
                 />
               </div>
 
@@ -201,7 +255,7 @@ export function CtaFormSection({
               <button
                 type="submit"
                 className="mt-1 flex w-full cursor-pointer items-center justify-center rounded-lg px-4 py-3 text-sm font-bold shadow-sm ring-1 ring-white/20 transition-opacity hover:opacity-90 active:opacity-80"
-                style={{ backgroundColor: resolvedButtonBg, color: resolvedButtonText }}
+                style={{ backgroundColor: resolvedButtonBg, color: resolvedButtonText, boxShadow: `0 4px 14px ${resolvedButtonBg}44` }}
               >
                 Send Request
               </button>

@@ -10,6 +10,7 @@ interface RelatedServicesProps {
 
 export function RelatedServices({ company, service }: RelatedServicesProps) {
   const t = company.branding.theme;
+  const tc = t.cards;
   const relatedServices = company.services.items
     .filter((item) => item.slug && item.slug !== service.slug)
     .slice(0, 3);
@@ -25,7 +26,7 @@ export function RelatedServices({ company, service }: RelatedServicesProps) {
         <div className="text-center mb-10">
           <p
             className="text-xs font-bold uppercase tracking-widest mb-2"
-            style={{ color: t.secondary }}
+            style={{ color: t.eyebrow }}
           >
             Also Available
           </p>
@@ -42,7 +43,7 @@ export function RelatedServices({ company, service }: RelatedServicesProps) {
               <Link
                 href={`/services/${rel.slug}`}
                 className="group relative flex flex-col overflow-hidden rounded-xl border shadow-sm transition-all duration-300 hover:shadow-md hover:-translate-y-1"
-                style={{ backgroundColor: t.surface, borderColor: t.border }}
+                style={{ backgroundColor: tc.background, borderColor: tc.border }}
               >
                 {rel.image && (
                   <div className="relative aspect-video overflow-hidden">
@@ -58,20 +59,20 @@ export function RelatedServices({ company, service }: RelatedServicesProps) {
                 <div className="p-4 pb-5">
                   <h3
                     className="text-sm font-bold mb-1"
-                    style={{ color: t.text }}
+                    style={{ color: tc.title }}
                   >
                     {rel.title}
                   </h3>
                   <p
                     className="text-xs leading-relaxed line-clamp-2"
-                    style={{ color: t.mutedText }}
+                    style={{ color: tc.description }}
                   >
                     {rel.description}
                   </p>
                 </div>
                 <div
                   className="absolute bottom-0 left-0 h-0.5 w-0 transition-all duration-300 group-hover:w-full"
-                  style={{ backgroundColor: t.secondary }}
+                  style={{ backgroundColor: tc.hoverBorder }}
                 />
               </Link>
             </li>

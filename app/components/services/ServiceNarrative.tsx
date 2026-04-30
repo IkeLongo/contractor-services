@@ -63,7 +63,7 @@ export function ServiceNarrative({ company, service }: ServiceNarrativeProps) {
           {/* Accent line */}
           <div
             className="hidden md:block rounded-full"
-            style={{ backgroundColor: s?.accent ?? t.secondary, opacity: 0.35 }}
+            style={{ backgroundColor: s?.eyebrow ?? t.secondary, opacity: 0.35 }}
           />
 
           <div className="space-y-14">
@@ -126,11 +126,15 @@ export function ServiceNarrative({ company, service }: ServiceNarrativeProps) {
                       return (
                         <div
                           key={i}
-                          className="group relative flex min-h-[76px] items-center overflow-hidden rounded-2xl border border-white/70 bg-white/65 backdrop-blur-md p-4 shadow-sm transition-all duration-200 hover:-translate-y-0.5 hover:shadow-md"
+                          className="group relative flex min-h-[76px] items-center overflow-hidden rounded-2xl border backdrop-blur-md p-4 shadow-sm transition-all duration-200 hover:-translate-y-0.5 hover:shadow-md"
+                          style={{
+                            backgroundColor: s?.scopeCardBg ?? "rgba(255,255,255,0.65)",
+                            borderColor: s?.scopeCardBorder ?? "rgba(255,255,255,0.70)",
+                          }}
                         >
                           <div
                             className="absolute left-0 top-0 h-full w-[3px] rounded-full"
-                            style={{ backgroundColor: s?.accent ?? t.secondary }}
+                            style={{ backgroundColor: cardColors?.[i] ?? t.secondary }}
                           />
 
                           <span

@@ -49,6 +49,8 @@ export type ServicesStyles = {
     title?: string;
     text?: string;
     accent?: string;
+    scopeCardBg?: string;
+    scopeCardBorder?: string;
     scopeCardColors?: string[];
     scopeCardText?: string;
     scopeCardIcon?: string;

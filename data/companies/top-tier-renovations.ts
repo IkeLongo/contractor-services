@@ -20,14 +20,28 @@ export const topTierRenovationsCompany: Company = {
       primary: "#1E90FF",      // strong electric blue (CTA, buttons, highlights)
       secondary: "#F3F6FA",    // deep dark for sections/hero backgrounds
       accent: "#F8FAFC",       // soft white for contrast elements
-
       background: "#0B0F14",   // light neutral page background
       surface: "#FFFFFF",      // cards / containers
-
       text: "#F8FAFC",         // slightly softer than pure black (better UX)
       mutedText: "#8b99ad",    // secondary text
-
       border: "#E2E8F0",       // subtle borders/dividers
+      eyebrow: "#55a2f0",      // lighter blue for eyebrow text and accents
+      buttons: {
+        primary: {
+          background: "#1E90FF",
+          text: "#F8FAFC",
+          hoverBackground: "#1C86EE",
+          hoverText: "#FFFFFF",
+        },
+      },
+      cards: {
+        background: "#202020", // dark card background for contrast against main background
+        border: "#363636",     // darker border for card definition
+        hoverBackground: "#1e8fff4b", // subtle hover effect for cards
+        hoverBorder: "#1E90FF", // accent border on hover
+        title: "#F8FAFC",      // white for card titles
+        description: "#8b99ad", // muted text for descriptions
+      }
     },
   },
   seo: {
@@ -90,8 +104,8 @@ export const topTierRenovationsCompany: Company = {
         },
       ],
       styles: {
-        background: "#0B0F14",
-        border: "#363636",
+        background: "#191f25",
+        border: "#191f25",
         link: "#F8FAFC",
         linkHover: "#1E90FF",
         dropdownBackground: "#0B0F14",
@@ -472,7 +486,7 @@ export const topTierRenovationsCompany: Company = {
     },
     columns: 2,
     styles: {
-      background: "#F3F6FA",
+      background: "#0B0F14",
       eyebrow: "#55a2f0",
       primaryCtaButtonBg: "#1E90FF",
       primaryCtaButtonText: "#FFFFFF",
@@ -482,42 +496,172 @@ export const topTierRenovationsCompany: Company = {
       cardTitle: "#0F172A",
       cardDescription: "#475569",
       accent: "#1E90FF",
+      narrative: {
+        background: "#0B0F14",
+        eyebrow: "#55a2f0",
+        title: "#FFFFFF",
+        text: "#8b99ad",
+        accent: "#1E90FF",
+        scopeCardBg: "#202020",
+        scopeCardBorder: "#363636",
+        scopeCardColors: ["#1E90FF", "#1E90FF", "#1E90FF", "#1E90FF", "#1E90FF"],
+        scopeCardText: "#FFFFFF",
+        scopeCardIcon: "#1E90FF",
+      },
     },
     items: [
       {
         title: "Flooring",
+        eyebrow: "Surface Upgrades",
         slug: "flooring",
+        image: "/companies/top-tier-renovations/service-cards/service-1.jpg",
         description:
           "Durable flooring updates that transform the look and feel of your home.",
         icon: "PanelsTopLeft",
+        overview: {
+          title: "Flooring That Changes the Entire Feel of a Home",
+          description:
+            "New flooring does more than update the look of a space—it changes how a home feels the moment you walk in. Whether you're replacing worn-out surfaces or upgrading to something more modern, the right flooring ties everything together. We help homeowners choose materials that not only look great but also hold up to everyday life, from high-traffic areas to moisture-prone rooms. Every install is done with precision so you get a clean, lasting finish that elevates the entire space.",
+          },
+        includes: {
+          title: "What’s Included",
+          items: [
+            "Luxury vinyl plank & tile installation",
+            "Hardwood and engineered wood flooring",
+            "Tile flooring for kitchens and bathrooms",
+            "Subfloor prep and leveling",
+            "Repairs and partial replacements",
+          ],
+        },
+        whyItMatters: {
+          title: "Why Flooring Matters",
+          description:
+            "Flooring is one of the first things people notice when they enter a home, and it takes on the most wear over time. Outdated or damaged floors can make even a well-kept home feel unfinished. On the other hand, properly installed, high-quality flooring adds comfort, durability, and long-term value. It also reduces maintenance headaches and creates a more cohesive, polished look throughout your home.",
+        },
+        cta: {
+          title: "Ready to Upgrade Your Floors?",
+          description:
+            "Whether you need a full replacement or just want to update a few rooms, we’re here to help with expert flooring services that fit your style and budget.",
+          primaryLabel: "Get Free Estimate",
+          primaryHref: "/contact",
+          image: "/companies/top-tier-renovations/images/service-cta-image.png",
+        }
       },
       {
         title: "Custom Showers",
+        eyebrow: "Luxury Bath",
         slug: "custom-showers",
+        image: "/companies/top-tier-renovations/service-cards/service-2.png",
         description:
           "Bathroom upgrades designed around comfort, function, and long-lasting finishes.",
         icon: "Bath",
+        overview: {
+          title: "Custom Showers Built Around Comfort and Function",
+          description:
+            "A well-designed shower can completely transform your daily routine. We build custom showers that are tailored to your space, your style, and how you actually use your bathroom. From sleek modern finishes to more traditional designs, every detail is considered—from layout and drainage to tile work and fixtures. The result is a space that feels clean, functional, and built to last without cutting corners.",
+        },
+        includes: {
+          title: "What Goes Into It",
+          items: [
+            "Walk-in shower design and installation",
+            "Custom tile and waterproofing systems",
+            "Glass enclosures and modern finishes",
+            "Shower pan and drainage solutions",
+            "Fixture upgrades and layout improvements",
+          ],
+        },
+        whyItMatters: {
+          title: "Why It Matters",
+          description:
+            "Bathrooms see daily use, and poorly built showers can quickly lead to leaks, mold, and costly repairs. A properly constructed shower isn’t just about looks—it’s about protecting your home and creating a space you actually enjoy using. Investing in a custom solution ensures better durability, improved functionality, and a more comfortable experience every day.",
+        },
       },
       {
         title: "Kitchen Renovations",
+        eyebrow: "Modern Living",
         slug: "kitchen-renovations",
+        image: "/companies/top-tier-renovations/service-cards/service-3.webp",
         description:
           "Functional kitchen improvements built around better layouts, cleaner finishes, and everyday use.",
         icon: "CookingPot",
+        overview: {
+          title: "Kitchen Renovations That Improve Everyday Living",
+          description:
+            "The kitchen is one of the most used spaces in any home, and small inefficiencies can quickly become daily frustrations. We focus on creating kitchens that work better—from improved layouts and storage to updated finishes that bring everything together. Whether you're looking for a full renovation or targeted upgrades, our goal is to deliver a space that feels open, functional, and built for real life.",
+        },
+        includes: {
+          title: "What We Handle",
+          items: [
+            "Cabinet installation and refinishing",
+            "Countertop upgrades and replacements",
+            "Backsplash and tile work",
+            "Layout adjustments and space optimization",
+            "Lighting and fixture updates",
+          ],
+        },
+        whyItMatters: {
+          title: "Why It Matters",
+          description:
+            "A poorly designed kitchen slows everything down—from cooking to cleaning to hosting guests. Renovating your kitchen isn’t just about appearance—it’s about improving flow, maximizing space, and making everyday tasks easier. A well-planned kitchen increases both your home’s value and your quality of life, making it one of the most impactful upgrades you can make.",
+        },
       },
       {
         title: "Full Home Remodel",
+        eyebrow: "Total Transformation",
         slug: "full-remodel",
+        image: "/companies/top-tier-renovations/service-cards/service-4.png",
         description:
           "Complete interior and exterior renovation services for homeowners ready for a full transformation.",
         icon: "Home",
+        overview: {
+          title: "Complete Home Transformations Done the Right Way",
+          description:
+            "When it’s time for a full remodel, you need more than quick fixes—you need a plan that brings everything together. We handle complete interior and exterior renovations with a focus on consistency, quality, and long-term results. From structural updates to finishing details, every part of the project is managed carefully to ensure the final result feels cohesive and professionally done.",
+        },
+        includes: {
+          title: "Scope of Work",
+          items: [
+            "Whole-home interior renovations",
+            "Exterior upgrades and improvements",
+            "Room reconfigurations and layout changes",
+            "Coordinated flooring, kitchens, and bathrooms",
+            "Project management from start to finish",
+          ],
+        },
+        whyItMatters: {
+          title: "Why It Matters",
+          description:
+            "A piecemeal approach to remodeling can leave a home feeling disconnected and unfinished. A full remodel allows you to align everything—from layout to finishes—into one cohesive vision. It’s the best way to modernize an older home, improve functionality, and significantly increase property value while avoiding repeated disruptions from separate projects.",
+        },
       },
       {
         title: "General Maintenance",
+        eyebrow: "Ongoing Care",
         slug: "maintenance",
+        image: "/companies/top-tier-renovations/service-cards/service-5.jpg",
         description:
           "Reliable maintenance services to keep your home looking and working the way it should.",
         icon: "Wrench",
+        overview: {
+          title: "Reliable Maintenance That Keeps Everything Running Smoothly",
+          description:
+            "Not every project needs a full renovation. Ongoing maintenance is what keeps a home in good condition and prevents small issues from turning into major problems. We provide dependable maintenance services to handle repairs, updates, and general upkeep so homeowners can avoid the stress of unexpected breakdowns or damage.",
+        },
+        includes: {
+          title: "Ongoing Services",
+          items: [
+            "General repairs and handyman services",
+            "Fixture replacements and adjustments",
+            "Minor electrical and plumbing fixes",
+            "Interior and exterior touch-ups",
+            "Preventative maintenance work",
+          ],
+        },
+        whyItMatters: {
+          title: "Why It Matters",
+          description:
+            "Small issues left unattended can quickly turn into expensive repairs. Regular maintenance helps preserve the condition of your home, extends the life of key systems, and gives you peace of mind. Having a reliable team to handle these tasks ensures your home stays safe, functional, and looking its best year-round.",
+        },
       },
     ],
   },

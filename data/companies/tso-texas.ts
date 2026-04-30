@@ -25,6 +25,15 @@ export const tsoTexasCompany: Company = {
       text: "#111827",
       mutedText: "#475569",
       border: "#E2E8F0",
+      eyebrow: "#C62828",
+      buttons: {
+        primary: {
+          background: "#C62828",
+          text: "#FFFFFF",
+          hoverBackground: "#B71C1C",
+          hoverText: "#FFFFFF",
+        },
+      },
     },
   },
   seo: {
@@ -434,6 +443,11 @@ export const tsoTexasCompany: Company = {
             "Preventive maintenance walkthroughs",
           ],
         },
+        whyItMatters: {
+          title: "Deferred Maintenance Compounds Quickly",
+          description:
+          "Small issues rarely stay small in a commercial or residential property. What starts as minor wear or damage can quickly turn into costly repairs, safety concerns, or tenant complaints if left unaddressed. Consistent maintenance not only preserves the condition of your space, but also reduces emergency calls, extends the life of materials, and keeps your property operating without interruption. Having a reliable team in place allows you to stay ahead of problems instead of reacting to them.",
+        },
         process: {
           title: "How It Works",
           steps: [
@@ -453,11 +467,6 @@ export const tsoTexasCompany: Company = {
                 "Our crew arrives on time, works cleanly, and completes the job to standard — with a final walkthrough included.",
             },
           ],
-        },
-        whyItMatters: {
-          title: "Deferred Maintenance Compounds Quickly",
-          description:
-          "Small issues rarely stay small in a commercial or residential property. What starts as minor wear or damage can quickly turn into costly repairs, safety concerns, or tenant complaints if left unaddressed. Consistent maintenance not only preserves the condition of your space, but also reduces emergency calls, extends the life of materials, and keeps your property operating without interruption. Having a reliable team in place allows you to stay ahead of problems instead of reacting to them.",
         },
         cta: {
           title: "Ready to Schedule Maintenance?",
