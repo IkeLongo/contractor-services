@@ -6,7 +6,6 @@ interface AboutCtaSectionProps {
 }
 
 export function AboutCtaSection({ company }: AboutCtaSectionProps) {
-  const image = company.finalCta.image ?? company.contact.backgroundImage;
   const imageAlt = company.finalCta.imageAlt ?? company.general.name;
 
   const title =

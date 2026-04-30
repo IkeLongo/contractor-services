@@ -202,8 +202,8 @@ const MobileNav = ({ company }: NavbarProps) => {
     background: navbar.styles?.mobileBackground ?? "#ffffff",
     menuBg: navbar.styles?.mobileMenuBg ?? t.primary,
     menuIcon: navbar.styles?.mobileMenuIcon ?? "#ffffff",
-    phoneBg: navbar.styles?.phoneIconBg ?? navbar.styles?.phoneBg ?? t.secondary,
-    phoneIcon: navbar.styles?.phoneIcon ?? "#ffffff",
+    phoneBg: navbar.styles?.mobilePhoneIconBg ?? navbar.styles?.phoneIconBg ?? navbar.styles?.phoneBg ?? t.secondary,
+    phoneIcon: navbar.styles?.mobilePhoneText ?? navbar.styles?.phoneIcon ?? "#ffffff",
     panelBg: navbar.styles?.mobilePanelBg ?? "#ffffff",
     link: navbar.styles?.link ?? "#1F2937",
     linkHover: navbar.styles?.linkHover ?? t.secondary,
@@ -232,7 +232,14 @@ const MobileNav = ({ company }: NavbarProps) => {
 
         {/* Center: logo (absolutely centered) */}
         <div className="absolute left-1/2 top-1/2 -translate-x-1/2 -translate-y-1/2 z-20">
-          <Link href="/" className="relative h-28 w-44 block shrink-0">
+          <Link
+            href="/"
+            className="relative block shrink-0"
+            style={{
+              width: company.layout.navbar.logo?.mobile?.width ?? "11rem",
+              height: company.layout.navbar.logo?.mobile?.height ?? "7rem",
+            }}
+          >
             <Image
               src={company.branding.navLogo}
               alt={`${company.general.name} logo`}
@@ -351,11 +358,21 @@ const MobileNav = ({ company }: NavbarProps) => {
 
 // ─── Shared sub-components ────────────────────────────────────────────────────
 
-const CompanyLogo = ({ company }: NavbarProps) => (
-  <Link href="/" className="relative h-44 w-60 shrink-0 block">
-    <Image src={company.branding.navLogo} alt={`${company.general.name} logo`} fill className="object-contain object-center" />
-  </Link>
-);
+const CompanyLogo = ({ company }: NavbarProps) => {
+  const logo = company.layout.navbar.logo;
+  return (
+    <Link
+      href="/"
+      className="relative shrink-0 block"
+      style={{
+        width: logo?.desktop?.width ?? "15rem",
+        height: logo?.desktop?.height ?? "11rem",
+      }}
+    >
+      <Image src={company.branding.navLogo} alt={`${company.general.name} logo`} fill className="object-contain object-center" />
+    </Link>
+  );
+};
 
 interface NavbarStyles {
   background: string;

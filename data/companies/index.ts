@@ -5,6 +5,7 @@ export const defaultCompanySlug = "tso-texas";
 export const companySlugs = [
   "tso-texas",
   "top-tier-renovations",
+  "san-antonio-luxury-glass",
 ] as const;
 
 export type CompanySlug = (typeof companySlugs)[number];
@@ -22,6 +23,11 @@ export async function getCompanyBySlug(
     case "top-tier-renovations": {
       const mod = await import("./top-tier-renovations");
       return mod.topTierRenovationsCompany;
+    }
+
+    case "san-antonio-luxury-glass": {
+      const mod = await import("./san-antonio-luxury-glass");
+      return mod.sanAntonioLuxuryGlassCompany;
     }
 
     case "tso-texas":
