@@ -64,13 +64,13 @@ export function CaseStudyGallerySection({
         <div className="mb-10 text-center">
           <p
             className="text-xs font-bold uppercase tracking-widest mb-2"
-            style={{ color: t.secondary }}
+            style={{ color: t.eyebrow }}
           >
             Project Gallery
           </p>
           <h2
             className="text-2xl md:text-3xl font-black tracking-tight"
-            style={{ color: t.primary }}
+            style={{ color: t.title }}
           >
             A Closer Look at the Work
           </h2>

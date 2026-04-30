@@ -72,7 +72,7 @@ export function ProjectSnapshotSection({
         <div className="mb-10 text-center">
           <h2
             className="text-2xl md:text-3xl font-black tracking-tight"
-            style={{ color: t.primary }}
+            style={{ color: t.title }}
           >
             Project Snapshot
           </h2>
@@ -97,16 +97,21 @@ export function ProjectSnapshotSection({
                 transition={{ duration: 0.4, delay: index * 0.08 }}
                 className="relative overflow-hidden flex flex-col gap-3 rounded-xl border p-5"
                 style={{
-                  backgroundColor: t.surface,
-                  borderColor: t.border,
-                  ["--card-border" as string]: t.border,
+                  backgroundColor: t.cards.background,
+                  borderColor: t.cards.border,
+                  ["--card-border" as string]: t.cards.border,
                 }}
               >
                 {/* Dot grid texture */}
                 <div className="pointer-events-none absolute inset-0 opacity-[0.045] bg-[radial-gradient(circle_at_1px_1px,_var(--card-border)_1px,_transparent_0)] [background-size:18px_18px]" />
 
                 {/* Soft gradient above texture */}
-                <div className="pointer-events-none absolute inset-0 bg-gradient-to-b from-white/60 to-transparent" />
+                <div
+                  className="pointer-events-none absolute inset-0"
+                  style={{
+                    background: `linear-gradient(to bottom, ${t.cards.background}99 0%, transparent 100%)`,
+                  }}
+                />
 
                 {/* Content */}
                 <div className="relative z-10 flex flex-col gap-3">

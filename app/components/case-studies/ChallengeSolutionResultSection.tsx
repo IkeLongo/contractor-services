@@ -79,24 +79,29 @@ function CaseStudyCardItem({ card, company, isResult = false, index }: CardProps
       transition={{ duration: 0.4, delay: index * 0.1 }}
       className="relative overflow-hidden flex flex-col gap-4 rounded-xl border p-6"
       style={{
-        backgroundColor: t.surface,
-        borderColor: isResult ? t.secondary : t.border,
+        backgroundColor: t.cards.background,
+        borderColor: isResult ? t.primary : t.cards.border,
         ["--card-border" as string]: isResult
-          ? t.secondary
-          : t.border,
+          ? t.cards.border
+          : t.cards.border,
       }}
     >
       {/* Dot grid texture */}
       <div className="pointer-events-none absolute inset-0 opacity-[0.04] bg-[radial-gradient(circle_at_1px_1px,_var(--card-border)_1px,_transparent_0)] [background-size:18px_18px]" />
 
       {/* Soft gradient */}
-      <div className="pointer-events-none absolute inset-0 bg-gradient-to-b from-white/60 to-transparent" />
+      <div
+        className="pointer-events-none absolute inset-0"
+        style={{
+          background: `linear-gradient(to bottom, ${t.cards.background}99 0%, transparent 100%)`,
+        }}
+      />
 
       {/* Result accent bar at top */}
       {isResult && (
         <div
           className="absolute top-0 left-0 right-0 h-0.5"
-          style={{ backgroundColor: t.secondary }}
+          style={{ backgroundColor: t.primary }}
         />
       )}
 
@@ -106,11 +111,11 @@ function CaseStudyCardItem({ card, company, isResult = false, index }: CardProps
         <div className="flex items-center gap-2">
           <Icon
             className="size-4 flex-shrink-0"
-            style={{ color: isResult ? t.secondary : t.primary }}
+            style={{ color: isResult ? t.primary : t.mutedText }}
           />
           <span
             className="text-[11px] font-bold uppercase tracking-widest"
-            style={{ color: isResult ? t.secondary : t.mutedText }}
+            style={{ color: isResult ? t.title : t.mutedText }}
           >
             {card.label}
           </span>
@@ -159,14 +164,14 @@ export function ChallengeSolutionResultSection({
           {content.eyebrow && (
             <p
               className="text-xs font-bold uppercase tracking-widest mb-2"
-              style={{ color: t.secondary }}
+              style={{ color: t.eyebrow }}
             >
               {content.eyebrow}
             </p>
           )}
           <h2
             className="text-2xl md:text-3xl font-black tracking-tight"
-            style={{ color: t.primary }}
+            style={{ color: t.title }}
           >
             {content.title}
           </h2>

@@ -1,6 +1,7 @@
 import Image from "next/image";
 import type { Company } from "@/lib/types/company";
 import type { PortfolioItem } from "@/lib/types/old-types";
+import { getNavbarHeroOffset } from "@/lib/navbar-layout";
 
 interface CaseStudyHeaderProps {
   company: Company;
@@ -10,14 +11,22 @@ interface CaseStudyHeaderProps {
 export function CaseStudyHeader(
   { company, project }: CaseStudyHeaderProps) {
   const t = company.branding.theme;
+  const navbarOffset = getNavbarHeroOffset(company);
   return (
     
-    <section className="py-16 md:py-24 px-4 sm:px-6 lg:px-8" style={{ backgroundColor: t.background }}>
+    <section
+      className="pb-16 md:pb-24 px-4 sm:px-6 lg:px-8 pt-[calc(var(--hero-offset-mobile)+64px)] lg:pt-[calc(var(--hero-offset-desktop)+80px)]"
+      style={{
+        backgroundColor: t.background,
+        "--hero-offset-desktop": navbarOffset.desktop,
+        "--hero-offset-mobile": navbarOffset.mobile,
+      } as React.CSSProperties}
+    >
       <div className="max-w-5xl mx-auto flex flex-col items-center text-center gap-6">
         {project.category && (
           <p
             className="text-xs font-bold uppercase tracking-widest"
-            style={{ color: t.secondary }}
+            style={{ color: t.eyebrow }}
           >
             {project.category}
           </p>
@@ -25,7 +34,7 @@ export function CaseStudyHeader(
 
         <h1
           className="text-3xl md:text-5xl font-black leading-tight tracking-tight max-w-3xl"
-          style={{ color: t.primary }}
+          style={{ color: t.title }}
         >
           {project.projectName || project.title}
         </h1>

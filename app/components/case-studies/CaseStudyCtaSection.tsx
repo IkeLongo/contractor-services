@@ -15,6 +15,7 @@ export function CaseStudyCtaSection({ company }: CaseStudyCtaSectionProps) {
   const t = company.branding.theme;
 
   const { finalCta } = company;
+  const portfolioStyles = company.portfolio.styles;
   const [hovered, setHovered] = useState(false);
 
   const buttonBg = finalCta.styles?.buttonBg ?? t.secondary;
@@ -30,9 +31,10 @@ export function CaseStudyCtaSection({ company }: CaseStudyCtaSectionProps) {
       className="py-20 md:py-28 px-4 sm:px-6 lg:px-8"
       style={{
         background:
-          t.background
+          portfolioStyles?.ctaBackground ??
+          (t.background
             ? `linear-gradient(to bottom, ${t.background}, ${t.surface})`
-            : `linear-gradient(to bottom, ${t.surface}, ${t.background})`,
+            : `linear-gradient(to bottom, ${t.surface}, ${t.background})`),
       }}
     >
       <div className="max-w-7xl mx-auto">

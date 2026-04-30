@@ -70,6 +70,7 @@ export type PortfolioStyles = {
   categoryText?: string;
   accent?: string;
   link?: string;
+  ctaBackground?: string;
 };
 
 export type SnapshotItem = {

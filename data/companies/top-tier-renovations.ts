@@ -65,8 +65,8 @@ export const topTierRenovationsCompany: Company = {
       variant: "centeredLogo",
       items: [
         {
-          label: "Home",
-          href: "/",
+          label: "Projects",
+          href: "/#portfolio",
         },
         {
           label: "Services",
@@ -98,6 +98,16 @@ export const topTierRenovationsCompany: Company = {
         {
           label: "About",
           href: "/about",
+          children: [
+            {
+              label: "Our Story",
+              href: "/about",
+            },
+            {
+              label: "Customer Reviews",
+              href: "/#testimonials",
+            },
+          ],
         },
         {
           label: "Contact",
@@ -673,227 +683,311 @@ export const topTierRenovationsCompany: Company = {
       "A sample of the work TSO Texas delivers across maintenance, renovations, networking, and fabrication.",
     items: [
       {
-        slug: "office-renovation",
-        title: "Office Renovation & Repairs",
-        projectName: "Downtown Office Build-Out",
+        slug: "flooring",
+        title: "Flooring",
+        projectName: "Whole-Home Flooring Upgrade",
         description:
-          "Interior updates, repairs, and finishing work for a cleaner, more functional workspace.",
-        image: "/companies/tso-texas/hero-images/office-renovation-modern-workspace.jpeg",
-        category: "Renovation",
-        icon: "Hammer",
-        href: "/case-studies/office-renovation",
+          "Durable flooring updates that transform the look and feel of your home.",
+        image: "/companies/top-tier-renovations/service-cards/service-1.jpg",
+        category: "Surface Upgrades",
+        icon: "PanelsTopLeft",
+        href: "/case-studies/flooring",
         snapshot: [
-          { label: "Service", value: "Renovation", icon: "Hammer" },
+          { label: "Service", value: "Flooring", icon: "PanelsTopLeft" },
           { label: "Location", value: "San Antonio, TX", icon: "MapPin" },
           { label: "Timeline", value: "Demo Project", icon: "Clock" },
-          { label: "Scope", value: "Multi-trade support", icon: "Layers" },
+          { label: "Scope", value: "Flooring upgrade", icon: "Layers" },
         ],
         caseStudy: {
           eyebrow: "Case Study",
-          title: "How We Transformed a Dated Office Into a Functional Workspace",
-          description: "A downtown client needed their office updated quickly without disrupting ongoing operations.",
+          title: "Flooring That Changed the Entire Feel of the Home",
+          description:
+            "A homeowner needed worn-out flooring replaced with a cleaner, more durable finish.",
           challenge: {
             label: "Challenge",
-            title: "Aging Space, Tight Timeline",
-            description: "The office had outdated finishes, damaged drywall, and worn hardware — all needing replacement while the team continued working on-site.",
+            title: "Outdated Floors and Uneven Surfaces",
+            description:
+              "The existing floors made the home feel dated and required proper prep before new materials could be installed.",
             icon: "AlertTriangle",
           },
           solution: {
             label: "Solution",
-            title: "Phased Multi-Trade Execution",
-            description: "TSO Texas coordinated repairs, paint, and hardware replacement in phases to minimize downtime, completing each zone before moving to the next.",
+            title: "Careful Prep and Clean Installation",
+            description:
+              "Top Tier Renovations handled subfloor prep, leveling, and flooring installation with a focus on durability and a clean finish.",
             icon: "Wrench",
           },
           result: {
             label: "Result",
-            title: "Refreshed Space, Zero Disruption",
-            description: "The office was fully updated on schedule. Staff experienced no interruptions and the client reported a noticeably improved working environment.",
+            title: "A Cleaner, More Cohesive Home",
+            description:
+              "The updated flooring tied the space together and gave the home a more polished, modern feel.",
             icon: "CheckCircle",
           },
           gallery: [
-            { image: "/companies/tso-texas/hero-images/office-renovation-modern-workspace.jpeg", alt: "Modern office workspace after renovation", caption: "Completed workspace — updated finishes and improved layout" },
-            { image: "/companies/tso-texas/hero-images/office-remodeling-construction-workers-interior.jpg", alt: "Construction crew during office remodel", caption: "Active work phase — crew on-site during phased execution" },
-            { image: "/companies/tso-texas/hero-images/commercial-interior-build-out-construction.png", alt: "Commercial interior build-out in progress", caption: "Framing and drywall phase during the build-out" },
+            {
+              image: "/companies/top-tier-renovations/service-cards/service-1.jpg",
+              alt: "Updated flooring installation",
+              caption: "Completed flooring upgrade with a clean, lasting finish",
+            },
+            {
+              image: "/companies/top-tier-renovations/service-cards/service-3.webp",
+              alt: "Kitchen with new flooring throughout",
+              caption: "New flooring carried throughout the kitchen and living areas",
+            },
+            {
+              image: "/companies/top-tier-renovations/images/service-cta-image.png",
+              alt: "Finished renovation project",
+              caption: "Final result — cohesive flooring across the entire space",
+            },
           ],
         },
         layout: { colStart: 1, rowStart: 1, colSpan: 2, rowSpan: 2 },
       },
       {
-        slug: "structured-cabling",
-        title: "Structured Cabling Upgrade",
-        projectName: "Westside Commercial Cabling Overhaul",
+        slug: "custom-showers",
+        title: "Custom Showers",
+        projectName: "Custom Walk-In Shower Remodel",
         description:
-          "Improved network organization with data drops, cabling, and rack cleanup across a commercial facility.",
-        image: "/companies/tso-texas/hero-images/cat6-cable-installation-commercial-building.webp",
-        category: "Low Voltage",
-        icon: "Network",
-        href: "/case-studies/structured-cabling",
+          "Bathroom upgrades designed around comfort, function, and long-lasting finishes.",
+        image: "/companies/top-tier-renovations/service-cards/service-2.png",
+        category: "Luxury Bath",
+        icon: "Bath",
+        href: "/case-studies/custom-showers",
         snapshot: [
-          { label: "Service", value: "Low Voltage", icon: "Network" },
+          { label: "Service", value: "Custom Showers", icon: "Bath" },
           { label: "Location", value: "San Antonio, TX", icon: "MapPin" },
           { label: "Timeline", value: "Demo Project", icon: "Clock" },
-          { label: "Scope", value: "Cabling & infrastructure", icon: "Layers" },
+          { label: "Scope", value: "Shower remodel", icon: "Layers" },
         ],
         caseStudy: {
           eyebrow: "Case Study",
-          title: "Bringing Order to a Tangled Network Infrastructure",
-          description: "A commercial facility needed a full cabling overhaul to support growing network demands.",
+          title: "Custom Showers Built Around Comfort and Function",
+          description:
+            "A bathroom was upgraded with a custom shower designed for everyday use and long-term durability.",
           challenge: {
             label: "Challenge",
-            title: "Disorganized, Unreliable Cabling",
-            description: "Years of ad-hoc additions left the facility with unlabeled runs, poor rack organization, and frequent connectivity failures across departments.",
+            title: "Limited Function and Outdated Finishes",
+            description:
+              "The existing shower lacked comfort, style, and the waterproofing needed for long-term performance.",
             icon: "AlertTriangle",
           },
           solution: {
             label: "Solution",
-            title: "Structured Cabling Overhaul",
-            description: "TSO Texas replaced and organized all runs with Cat6 cabling, installed proper rack management, and labeled every data drop for easy future maintenance.",
-            icon: "Network",
-          },
-          result: {
-            label: "Result",
-            title: "Stable Network, Clean Infrastructure",
-            description: "Connectivity issues were eliminated. The facility now has a fully documented, organized network that supports current operations and future growth.",
-            icon: "CheckCircle",
-          },
-          gallery: [
-            { image: "/companies/tso-texas/hero-images/cat6-cable-installation-commercial-building.webp", alt: "Cat6 cable installation in commercial building", caption: "Cat6 runs installed and dressed across the facility" },
-            { image: "/companies/tso-texas/hero-images/office-renovation-modern-workspace.jpeg", alt: "Organized workspace post-installation", caption: "Clean, functional workspace following network upgrade" },
-          ],
-        },
-        layout: { colSpan: 1 },
-      },
-      {
-        slug: "commercial-build-out",
-        title: "Commercial Build-Out",
-        projectName: "Northside Retail Space Build-Out",
-        description:
-          "Multi-trade interior build-out from framing and drywall to finish work and paint.",
-        image: "/companies/tso-texas/hero-images/commercial-interior-build-out-construction.png",
-        category: "Renovation",
-        icon: "Layers",
-        href: "/case-studies/commercial-build-out",
-        snapshot: [
-          { label: "Service", value: "Renovation", icon: "Layers" },
-          { label: "Location", value: "San Antonio, TX", icon: "MapPin" },
-          { label: "Timeline", value: "Demo Project", icon: "Clock" },
-          { label: "Scope", value: "Interior build-out", icon: "Hammer" },
-        ],
-        caseStudy: {
-          eyebrow: "Case Study",
-          title: "Turning an Empty Shell Into a Move-In-Ready Retail Space",
-          description: "A retail tenant needed a full interior build-out completed before their lease start date.",
-          challenge: {
-            label: "Challenge",
-            title: "Raw Space, Hard Deadline",
-            description: "The space was an unfinished shell requiring framing, drywall, paint, and finish work — all within a fixed move-in window.",
-            icon: "AlertTriangle",
-          },
-          solution: {
-            label: "Solution",
-            title: "Single-Vendor Multi-Trade Execution",
-            description: "TSO Texas handled framing, drywall, texture, paint, and finish carpentry under one contract, coordinating all trades internally to hit the deadline.",
-            icon: "Layers",
-          },
-          result: {
-            label: "Result",
-            title: "On-Time, Move-In Ready",
-            description: "The tenant moved in on schedule with a fully finished, professional space ready for business from day one.",
-            icon: "CheckCircle",
-          },
-          gallery: [
-            { image: "/companies/tso-texas/hero-images/commercial-interior-build-out-construction.png", alt: "Commercial interior build-out in progress", caption: "Mid-project — drywall and framing phase" },
-            { image: "/companies/tso-texas/hero-images/office-renovation-modern-workspace.jpeg", alt: "Finished commercial workspace", caption: "Completed space ready for tenant move-in" },
-            { image: "/companies/tso-texas/hero-images/commercial-drywall-and-construction.png", alt: "Drywall and construction work", caption: "Finish drywall and texture before paint" },
-          ],
-        },
-        layout: { colSpan: 1 },
-      },
-      {
-        slug: "custom-fabrication",
-        title: "Custom Fabrication Installation",
-        projectName: "Industrial Equipment Mounting System",
-        description:
-          "Fabricated mounting and support solutions designed and installed entirely in-house.",
-        image: "/companies/tso-texas/hero-images/photo-metal-fabrication-shop-with-welding-equipment-sparks-flying.png",
-        category: "Fabrication",
-        icon: "Wrench",
-        href: "/case-studies/custom-fabrication",
-        snapshot: [
-          { label: "Service", value: "Fabrication", icon: "Wrench" },
-          { label: "Location", value: "San Antonio, TX", icon: "MapPin" },
-          { label: "Timeline", value: "Demo Project", icon: "Clock" },
-          { label: "Scope", value: "Custom metalwork", icon: "Layers" },
-        ],
-        caseStudy: {
-          eyebrow: "Case Study",
-          title: "Building a Custom Mounting Solution No Off-the-Shelf Product Could Match",
-          description: "An industrial client needed secure, custom mounting for oversized equipment in a non-standard facility layout.",
-          challenge: {
-            label: "Challenge",
-            title: "No Standard Solution Available",
-            description: "The facility's equipment dimensions and anchor points didn't match any available commercial mounting products, requiring a fully custom approach.",
-            icon: "AlertTriangle",
-          },
-          solution: {
-            label: "Solution",
-            title: "In-House Design and Fabrication",
-            description: "TSO Texas designed, fabricated, and installed a custom steel mounting system built to the exact specifications of the client's equipment and facility.",
+            title: "Custom Tile, Waterproofing, and Fixtures",
+            description:
+              "Top Tier Renovations rebuilt the shower with proper waterproofing, updated tile, improved drainage, and modern finishes.",
             icon: "Wrench",
           },
           result: {
             label: "Result",
-            title: "Secure Fit, Long-Term Stability",
-            description: "The equipment is securely mounted and has operated without issue since installation. The client has since requested additional fabrication work.",
+            title: "A Cleaner, More Comfortable Bathroom",
+            description:
+              "The finished shower improved both the look and daily function of the bathroom.",
             icon: "CheckCircle",
           },
           gallery: [
-            { image: "/companies/tso-texas/hero-images/photo-metal-fabrication-shop-with-welding-equipment-sparks-flying.png", alt: "Welding and fabrication shop in operation", caption: "In-house fabrication — custom mounting system in production" },
-            { image: "/companies/tso-texas/hero-images/commercial-interior-build-out-construction.png", alt: "Installation phase on-site", caption: "On-site installation of fabricated mounting hardware" },
+            {
+              image: "/companies/top-tier-renovations/service-cards/service-2.png",
+              alt: "Custom shower remodel",
+              caption: "Completed custom shower with updated finishes",
+            },
+            {
+              image: "/companies/top-tier-renovations/service-cards/service-4.png",
+              alt: "Bathroom as part of a full home remodel",
+              caption: "Shower and bathroom improvements as part of a larger remodel",
+            },
+            {
+              image: "/companies/top-tier-renovations/service-cards/service-1.jpg",
+              alt: "Coordinated flooring and bathroom upgrade",
+              caption: "Flooring and bath upgrades completed together",
+            },
           ],
         },
         layout: { colSpan: 1 },
       },
       {
-        slug: "drywall-patching",
-        title: "Drywall & Patching",
-        projectName: "Multi-Unit Residential Wall Restoration",
+        slug: "kitchen-renovations",
+        title: "Kitchen Renovations",
+        projectName: "Functional Kitchen Upgrade",
         description:
-          "Patch, texture, and paint for commercial and residential walls after repairs or renovations.",
-        image: "/companies/tso-texas/hero-images/commercial-drywall-and-construction.png",
-        category: "Maintenance",
-        icon: "Hammer",
+          "Functional kitchen improvements built around better layouts, cleaner finishes, and everyday use.",
+        image: "/companies/top-tier-renovations/service-cards/service-3.webp",
+        category: "Modern Living",
+        icon: "CookingPot",
+        href: "/case-studies/kitchen-renovations",
         snapshot: [
-          { label: "Service", value: "Maintenance", icon: "Hammer" },
+          { label: "Service", value: "Kitchen Renovation", icon: "CookingPot" },
           { label: "Location", value: "San Antonio, TX", icon: "MapPin" },
           { label: "Timeline", value: "Demo Project", icon: "Clock" },
-          { label: "Scope", value: "Patch, texture & paint", icon: "Layers" },
+          { label: "Scope", value: "Kitchen upgrades", icon: "Layers" },
         ],
         caseStudy: {
           eyebrow: "Case Study",
-          title: "Restoring Walls Across a Multi-Unit Residential Property",
-          description: "A property management company needed wall repairs completed across multiple units to prepare for new tenants.",
+          title: "Kitchen Renovations That Improve Everyday Living",
+          description:
+            "A homeowner needed a more functional kitchen with better flow, cleaner finishes, and improved everyday usability.",
           challenge: {
             label: "Challenge",
-            title: "Damage Across Multiple Units",
-            description: "Walls across several units had holes, cracks, and inconsistent texture from previous repairs — all requiring matching and repainting.",
+            title: "Poor Flow and Outdated Details",
+            description:
+              "The kitchen felt closed off and inefficient, making daily cooking, cleaning, and hosting more difficult.",
             icon: "AlertTriangle",
           },
           solution: {
             label: "Solution",
-            title: "Systematic Unit-by-Unit Restoration",
-            description: "TSO Texas worked through each unit methodically, patching, matching texture, and repainting to a consistent finish across the entire property.",
-            icon: "Hammer",
+            title: "Targeted Layout and Finish Updates",
+            description:
+              "Top Tier Renovations improved the kitchen with updated finishes, better layout planning, and detail-focused installation.",
+            icon: "Wrench",
           },
           result: {
             label: "Result",
-            title: "Tenant-Ready Units, On Budget",
-            description: "All units were completed within the turnaround window and passed inspection. The property manager has since retained TSO Texas for ongoing maintenance.",
+            title: "A Kitchen Built for Real Life",
+            description:
+              "The finished space became more open, functional, and easier to use every day.",
             icon: "CheckCircle",
           },
           gallery: [
-            { image: "/companies/tso-texas/hero-images/commercial-drywall-and-construction.png", alt: "Drywall and patching work in progress", caption: "Active patching phase across multiple units" },
-            { image: "/companies/tso-texas/hero-images/office-renovation-modern-workspace.jpeg", alt: "Finished unit interior", caption: "Completed unit — ready for new tenant" },
+            {
+              image: "/companies/top-tier-renovations/service-cards/service-3.webp",
+              alt: "Kitchen renovation project",
+              caption: "Updated kitchen with improved function and finishes",
+            },
+            {
+              image: "/companies/top-tier-renovations/service-cards/service-1.jpg",
+              alt: "New flooring installed through the kitchen",
+              caption: "Coordinated flooring update throughout the kitchen area",
+            },
+            {
+              image: "/companies/top-tier-renovations/service-cards/service-4.png",
+              alt: "Kitchen as part of a full home remodel",
+              caption: "Kitchen renovation as part of a broader home transformation",
+            },
+          ],
+        },
+        layout: { colSpan: 1 },
+      },
+      {
+        slug: "full-remodel",
+        title: "Full Home Remodel",
+        projectName: "Complete Home Transformation",
+        description:
+          "Complete interior and exterior renovation services for homeowners ready for a full transformation.",
+        image: "/companies/top-tier-renovations/service-cards/service-4.png",
+        category: "Total Transformation",
+        icon: "Home",
+        href: "/case-studies/full-remodel",
+        snapshot: [
+          { label: "Service", value: "Full Remodel", icon: "Home" },
+          { label: "Location", value: "San Antonio, TX", icon: "MapPin" },
+          { label: "Timeline", value: "Demo Project", icon: "Clock" },
+          { label: "Scope", value: "Whole-home remodel", icon: "Layers" },
+        ],
+        caseStudy: {
+          eyebrow: "Case Study",
+          title: "Complete Home Transformations Done the Right Way",
+          description:
+            "A homeowner needed a full remodel that brought the interior and exterior together into one cohesive vision.",
+          challenge: {
+            label: "Challenge",
+            title: "Disconnected Updates and Aging Finishes",
+            description:
+              "The home needed more than isolated repairs. The layout, finishes, and overall look needed to feel consistent throughout.",
+            icon: "AlertTriangle",
+          },
+          solution: {
+            label: "Solution",
+            title: "Coordinated Renovation From Start to Finish",
+            description:
+              "Top Tier Renovations managed the remodel across multiple areas of the home, keeping the project organized and cohesive.",
+            icon: "Wrench",
+          },
+          result: {
+            label: "Result",
+            title: "A Cohesive, Updated Home",
+            description:
+              "The finished remodel modernized the home, improved function, and created a more polished final result.",
+            icon: "CheckCircle",
+          },
+          gallery: [
+            {
+              image: "/companies/top-tier-renovations/service-cards/service-4.png",
+              alt: "Full home remodel project",
+              caption: "Complete remodel with coordinated finishes and upgrades",
+            },
+            {
+              image: "/companies/top-tier-renovations/service-cards/service-1.jpg",
+              alt: "Flooring upgrade included in the full remodel",
+              caption: "New flooring installed as part of the whole-home renovation",
+            },
+            {
+              image: "/companies/top-tier-renovations/service-cards/service-2.png",
+              alt: "Bathroom updated during the full remodel",
+              caption: "Custom shower and bathroom work completed alongside the remodel",
+            },
+          ],
+        },
+        layout: { colSpan: 1 },
+      },
+      {
+        slug: "maintenance",
+        title: "General Maintenance",
+        projectName: "Home Maintenance & Repair Support",
+        description:
+          "Reliable maintenance services to keep your home looking and working the way it should.",
+        image: "/companies/top-tier-renovations/service-cards/service-5.jpg",
+        category: "Ongoing Care",
+        icon: "Wrench",
+        href: "/case-studies/maintenance",
+        snapshot: [
+          { label: "Service", value: "Maintenance", icon: "Wrench" },
+          { label: "Location", value: "San Antonio, TX", icon: "MapPin" },
+          { label: "Timeline", value: "Demo Project", icon: "Clock" },
+          { label: "Scope", value: "Repairs & upkeep", icon: "Layers" },
+        ],
+        caseStudy: {
+          eyebrow: "Case Study",
+          title: "Reliable Maintenance That Keeps Everything Running Smoothly",
+          description:
+            "A homeowner needed dependable help with repairs, upkeep, and small fixes before they became bigger problems.",
+          challenge: {
+            label: "Challenge",
+            title: "Small Issues Building Up Over Time",
+            description:
+              "Minor repairs, fixture updates, and touch-ups were starting to pile up and affect the condition of the home.",
+            icon: "AlertTriangle",
+          },
+          solution: {
+            label: "Solution",
+            title: "Reliable Repair and Maintenance Support",
+            description:
+              "Top Tier Renovations handled the needed repairs and upkeep with a practical, preventative approach.",
+            icon: "Wrench",
+          },
+          result: {
+            label: "Result",
+            title: "A Safer, Better-Maintained Home",
+            description:
+              "The home was brought back into better condition, helping prevent larger repairs down the road.",
+            icon: "CheckCircle",
+          },
+          gallery: [
+            {
+              image: "/companies/top-tier-renovations/service-cards/service-5.jpg",
+              alt: "General home maintenance project",
+              caption: "Maintenance and repair work completed for ongoing home care",
+            },
+            {
+              image: "/companies/top-tier-renovations/service-cards/service-3.webp",
+              alt: "Kitchen maintenance and upkeep",
+              caption: "Kitchen fixture updates and repairs handled during the visit",
+            },
+            {
+              image: "/companies/top-tier-renovations/service-cards/service-4.png",
+              alt: "Interior maintenance and touch-ups",
+              caption: "Interior touch-ups and repairs to keep the home in good condition",
+            },
           ],
         },
         layout: { colSpan: 2 },
@@ -912,6 +1006,7 @@ export const topTierRenovationsCompany: Company = {
       icon: "#1E90FF",
       link: "#55a2f0",
       accent: "#1E90FF",
+      ctaBackground: "#0B0F14",
     }
   },
   testimonials: {

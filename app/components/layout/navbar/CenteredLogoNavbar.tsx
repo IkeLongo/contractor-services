@@ -102,16 +102,18 @@ const DesktopNav = ({ company }: NavbarProps) => {
               {child.label}
             </HoveredLink>
           ))}
-          <div className="border-t pt-2 mt-1" style={{ borderColor: navbarStyles.border, background: navbarStyles.dropdownBackground, }}>
-            <Link
-              href={item.viewAllHref ?? item.href ?? "/services"}
-              className="flex items-center justify-between text-sm font-semibold transition-colors text-[var(--nav-link)] hover:text-[var(--nav-link-hover)]"
-              style={{ background: navbarStyles.dropdownBackground }}
-            >
-              View All Services
-              <span className="ml-2 text-base leading-none">→</span>
-            </Link>
-          </div>
+          {item.viewAllHref && (
+            <div className="border-t pt-2 mt-1" style={{ borderColor: navbarStyles.border, background: navbarStyles.dropdownBackground, }}>
+              <Link
+                href={item.viewAllHref}
+                className="flex items-center justify-between text-sm font-semibold transition-colors text-[var(--nav-link)] hover:text-[var(--nav-link-hover)]"
+                style={{ background: navbarStyles.dropdownBackground }}
+              >
+                View All Services
+                <span className="ml-2 text-base leading-none">→</span>
+              </Link>
+            </div>
+          )}
         </div>
       </MenuItem>
     ) : (
@@ -304,16 +306,18 @@ const MobileNav = ({ company }: NavbarProps) => {
                               muted
                             />
                           ))}
-                          <div className="border-t mt-1 pt-2 pb-1" style={{ borderColor: ms.border }}>
-                            <Link
-                              href={item.viewAllHref ?? "/services"}
-                              onClick={() => setOpen(false)}
-                              className="flex items-center justify-between py-2 text-sm font-semibold transition-colors text-[var(--m-link)] hover:text-[var(--m-link-hover)]"
-                            >
-                              View All Services
-                              <span className="ml-2 text-base leading-none">→</span>
-                            </Link>
-                          </div>
+                          {item.viewAllHref && (
+                            <div className="border-t mt-1 pt-2 pb-1" style={{ borderColor: ms.border }}>
+                              <Link
+                                href={item.viewAllHref}
+                                onClick={() => setOpen(false)}
+                                className="flex items-center justify-between py-2 text-sm font-semibold transition-colors text-[var(--m-link)] hover:text-[var(--m-link-hover)]"
+                              >
+                                View All Services
+                                <span className="ml-2 text-base leading-none">→</span>
+                              </Link>
+                            </div>
+                          )}
                         </motion.div>
                       )}
                     </AnimatePresence>
