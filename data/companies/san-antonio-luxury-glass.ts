@@ -52,7 +52,7 @@ export const sanAntonioLuxuryGlassCompany: Company = {
     og: {
       image: "/images/og/top-tier-renovations-og.jpg", // TODO: generate dynamic OG image later
       tintColor: "#0B0F14", // dark overlay to match brand
-      tintOpacity: 0.6,
+      tintOpacity: 0.6,   
       gradientDirection: "to bottom",
       logo: "/logos/top-tier-renovations.png", // TODO: add logo
       title: "Top Tier Renovations | San Antonio Remodeling Experts",
@@ -1449,7 +1449,7 @@ export const sanAntonioLuxuryGlassCompany: Company = {
     },
     styles: {
       background: "#0B0F14",
-      cardBackground: "#202020",
+      cardBackground: "#151B22",
       border: "#363636",
       title: "#F8FAFC",
       gradientFrom: "#0B0F14",

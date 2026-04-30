@@ -13,7 +13,7 @@ export function AboutHero({ company }: AboutHeroProps) {
 
   return (
     <section
-      className="px-4 sm:px-6 lg:px-8 pb-8 md:pb-9 pt-[calc(var(--hero-offset-mobile)+32px)] lg:pt-[calc(var(--hero-offset-desktop)+36px)]"
+      className="px-4 sm:px-6 lg:px-8 pb-8 md:pb-9 pt-[calc(var(--hero-offset-mobile)+64px)] lg:pt-[calc(var(--hero-offset-desktop)+36px)]"
       style={{
         backgroundColor: t.background ?? "#F3F6FA",
         "--hero-offset-desktop": navbarOffset.desktop,
