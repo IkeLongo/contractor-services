@@ -1251,6 +1251,20 @@ export const topTierRenovationsCompany: Company = {
       },
       contact: {
         background: "linear-gradient(to bottom, #1E90FF 0%, #0B0F14 100%)",
+        formBg: "#0B0F14",
+        text: "#F8FAFC",
+        mutedText: "#8b99ad",
+        buttonBg: "#1E90FF",
+        buttonText: "#FFFFFF",
+        input: {
+          background: "#202020",
+          text: "#F8FAFC",
+          placeholder: "#8b99ad",
+          label: "#F8FAFC",
+          ring: "#363636",
+          focusOutline: "#1E90FF",
+          activeRing: "#1E90FF",
+        }
       },
     },
   },

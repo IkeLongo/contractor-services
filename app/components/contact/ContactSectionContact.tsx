@@ -21,6 +21,12 @@ export function ContactSection({ company }: ContactSectionProps) {
     buttonText: s?.buttonText ?? "#ffffff",
   };
 
+  const resolvedInputBg = s?.input?.background ?? "#ffffff";
+  const resolvedInputText = s?.input?.text ?? "#000000";
+  const resolvedInputLabel = s?.input?.label ?? styles.text;
+  const resolvedInputRing = s?.input?.ring ?? "rgb(0 0 0 / 0.1)";
+  const resolvedFocusOutline = s?.input?.focusOutline ?? resolvedInputRing;
+
   return (
     <section
       id="contact"
@@ -63,8 +69,8 @@ export function ContactSection({ company }: ContactSectionProps) {
         </div>
 
         {/* ── Right: Form Card ── */}
-        <div className="rounded-xl border border-slate-200 bg-white p-6 shadow-lg md:p-8"
-          style={{ backgroundColor: styles.formBg }}
+        <div className="rounded-xl border p-6 shadow-lg md:p-8"
+          style={{ backgroundColor: styles.formBg, borderColor: resolvedInputRing }}
         >
           <div className="mb-6 space-y-1">
             <h3
@@ -91,7 +97,7 @@ export function ContactSection({ company }: ContactSectionProps) {
 
           <form className="flex flex-col gap-4">
             <div className="flex flex-col gap-1.5">
-              <label htmlFor="contact-name" className="text-sm font-medium text-slate-700">
+              <label htmlFor="contact-name" className="text-sm font-medium" style={{ color: resolvedInputLabel }}>
                 Name
               </label>
               <input
@@ -100,12 +106,12 @@ export function ContactSection({ company }: ContactSectionProps) {
                 name="name"
                 placeholder="Alison Burgers"
                 autoComplete="name"
-                className="w-full rounded-md border border-slate-200 bg-white px-4 py-2.5 text-sm text-black placeholder:text-neutral-400 focus:outline-none focus:ring-2"
-                style={{ "--tw-ring-color": t.secondary } as React.CSSProperties}
+                className="w-full rounded-md border px-4 py-2.5 text-sm focus:outline-none focus:ring-2"
+                style={{ backgroundColor: resolvedInputBg, color: resolvedInputText, borderColor: resolvedInputRing, "--tw-ring-color": resolvedFocusOutline } as React.CSSProperties}
               />
             </div>
             <div className="flex flex-col gap-1.5">
-              <label htmlFor="contact-email" className="text-sm font-medium text-slate-700">
+              <label htmlFor="contact-email" className="text-sm font-medium" style={{ color: resolvedInputLabel }}>
                 Email
               </label>
               <input
@@ -114,11 +120,12 @@ export function ContactSection({ company }: ContactSectionProps) {
                 name="email"
                 placeholder="you@email.com"
                 autoComplete="email"
-                className="w-full rounded-md border border-slate-200 bg-white px-4 py-2.5 text-sm text-black placeholder:text-neutral-400 focus:outline-none focus:ring-2"
+                className="w-full rounded-md border px-4 py-2.5 text-sm focus:outline-none focus:ring-2"
+                style={{ backgroundColor: resolvedInputBg, color: resolvedInputText, borderColor: resolvedInputRing, "--tw-ring-color": resolvedFocusOutline } as React.CSSProperties}
               />
             </div>
             <div className="flex flex-col gap-1.5">
-              <label htmlFor="contact-phone" className="text-sm font-medium text-slate-700">
+              <label htmlFor="contact-phone" className="text-sm font-medium" style={{ color: resolvedInputLabel }}>
                 Phone
               </label>
               <input
@@ -127,31 +134,33 @@ export function ContactSection({ company }: ContactSectionProps) {
                 name="phone"
                 placeholder="(555) 123-4567"
                 autoComplete="tel"
-                className="w-full rounded-md border border-slate-200 bg-white px-4 py-2.5 text-sm text-black placeholder:text-neutral-400 focus:outline-none focus:ring-2"
+                className="w-full rounded-md border px-4 py-2.5 text-sm focus:outline-none focus:ring-2"
+                style={{ backgroundColor: resolvedInputBg, color: resolvedInputText, borderColor: resolvedInputRing, "--tw-ring-color": resolvedFocusOutline } as React.CSSProperties}
               />
             </div>
             <div className="flex flex-col gap-1.5">
-              <label htmlFor="contact-service" className="text-sm font-medium text-slate-700">
+              <label htmlFor="contact-service" className="text-sm font-medium" style={{ color: resolvedInputLabel }}>
                 Service Needed
               </label>
               <select
                 id="contact-service"
                 name="service"
                 defaultValue=""
-                className="w-full rounded-md border border-slate-200 bg-white px-4 py-2.5 text-sm text-black focus:outline-none focus:ring-2"
+                className="w-full rounded-md border px-4 py-2.5 text-sm focus:outline-none focus:ring-2"
+                style={{ backgroundColor: resolvedInputBg, color: resolvedInputText, borderColor: resolvedInputRing, "--tw-ring-color": resolvedFocusOutline } as React.CSSProperties}
               >
-                <option value="" disabled>
+                <option value="" disabled style={{ backgroundColor: resolvedInputBg, color: resolvedInputText }}>
                   Select a service
                 </option>
                 {contact.form.services.map((service) => (
-                  <option key={service.value} value={service.value}>
+                  <option key={service.value} value={service.value} style={{ backgroundColor: resolvedInputBg, color: resolvedInputText }}>
                     {service.label}
                   </option>
                 ))}
               </select>
             </div>
             <div className="flex flex-col gap-1.5">
-              <label htmlFor="contact-message" className="text-sm font-medium text-slate-700">
+              <label htmlFor="contact-message" className="text-sm font-medium" style={{ color: resolvedInputLabel }}>
                 Message
               </label>
               <textarea
@@ -159,7 +168,8 @@ export function ContactSection({ company }: ContactSectionProps) {
                 name="message"
                 rows={4}
                 placeholder="How can we help you?"
-                className="w-full resize-none rounded-md border border-slate-200 bg-white px-4 py-2.5 text-sm text-black placeholder:text-neutral-400 focus:outline-none focus:ring-2"
+                className="w-full resize-none rounded-md border px-4 py-2.5 text-sm focus:outline-none focus:ring-2"
+                style={{ backgroundColor: resolvedInputBg, color: resolvedInputText, borderColor: resolvedInputRing, "--tw-ring-color": resolvedFocusOutline } as React.CSSProperties}
               />
             </div>
             <button
