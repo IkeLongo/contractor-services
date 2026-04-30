@@ -1093,12 +1093,9 @@ export const topTierRenovationsCompany: Company = {
   },
   faq: {
     eyebrow: "Common Questions",
-
     title: "What Homeowners Ask Before Getting Started",
-
     description:
       "Here are some of the most common questions about our remodeling services, timelines, and what to expect when working with Top Tier Renovations.",
-
     items: [
       {
         question: "Do you offer free estimates?",
@@ -1133,15 +1130,15 @@ export const topTierRenovationsCompany: Company = {
     ],
 
     styles: {
-      background: "#F3F6FA",
-      eyebrow: "#1E90FF",
-      title: "#0F172A",
-      description: "#475569",
+      background: "#0B0F14",
+      eyebrow: "#55a2f0",
+      title: "#F8FAFC",
+      description: "#8b99ad",
       itemBackground: "#FFFFFF",
       itemBorder: "#E2E8F0",
       question: "#0F172A",
       answer: "#475569",
-      icon: "#1E90FF",
+      icon: "#F8FAFC",
       accent: "#1E90FF",
     },
   },

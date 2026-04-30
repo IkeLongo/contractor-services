@@ -395,10 +395,12 @@ export const tsoTexasCompany: Company = {
     },
   },
   services: {
-    eyebrow: "What We Do",
-    title: "Core Services",
-    description:
-      "Built to support both ongoing needs and one-time projects across residential and commercial properties.",
+    hero: {
+      eyebrow: "What We Do",
+      title: "Core Services",
+      description:
+        "Built to support both ongoing needs and one-time projects across residential and commercial properties.",
+    },
     columns: 2,
     items: [
       {
