@@ -1032,8 +1032,106 @@ export const topTierRenovationsCompany: Company = {
       modalBackground: "linear-gradient(180deg, #202020 0%, #363636 70%, #202020 100%)",
       modalBorder: "#363636",
     },
-
-    // intentionally no items yet
+    items: [
+      {
+        name: "Martin G.",
+        quote:
+          "Top Tier Renovations replaced the flooring in our main living areas, and it completely changed the feel of the house. The crew was clean, professional, and paid attention to the details.",
+        image: "https://i.pravatar.cc/150?img=1",
+        role: "Homeowner, San Antonio TX",
+      },
+      {
+        name: "James R.",
+        quote:
+          "We hired them for a bathroom update, and the custom shower came out better than we expected. The tile work was clean, the communication was clear, and the space feels brand new.",
+        image: "https://i.pravatar.cc/150?img=2",
+        role: "Homeowner, San Antonio TX",
+      },
+      {
+        name: "John L.",
+        quote:
+          "Our kitchen needed a better layout and updated finishes. Top Tier Renovations helped us make smart choices and delivered a kitchen that looks great and works better every day.",
+        image: "https://i.pravatar.cc/150?img=3",
+        role: "Homeowner, San Antonio TX",
+      },
+      {
+        name: "Carlos M.",
+        quote:
+          "These guys are the real deal. They showed up when they said they would, explained the process, and handled our remodel without the runaround we have had with other contractors.",
+        image: "https://i.pravatar.cc/150?img=4",
+        role: "Homeowner, San Antonio TX",
+      },
+      {
+        name: "Patricia H.",
+        quote:
+          "We needed several repairs and updates done before listing our home. Top Tier Renovations handled everything quickly, kept the work areas clean, and helped the house show much better.",
+        image: "https://i.pravatar.cc/150?img=5",
+        role: "Home Seller, San Antonio TX",
+      },
+      {
+        name: "David W.",
+        quote:
+          "They helped us with flooring, trim, and a few repair items around the house. It was nice having one team that could handle multiple parts of the project without us chasing people down.",
+        image: "https://i.pravatar.cc/150?img=6",
+        role: "Homeowner, San Antonio TX",
+      },
+      {
+        name: "Lance T.",
+        quote:
+          "Our full remodel felt overwhelming at first, but their team helped us break it down and kept the project moving. The finished home feels more open, updated, and comfortable.",
+        image: "https://i.pravatar.cc/150?img=7",
+        role: "Homeowner, San Antonio TX",
+      },
+      {
+        name: "Robert K.",
+        quote:
+          "The quote was clear, the schedule was realistic, and the work matched what they promised. That kind of transparency is hard to find during a renovation project.",
+        image: "https://i.pravatar.cc/150?img=8",
+        role: "Homeowner, San Antonio TX",
+      },
+      {
+        name: "Angela F.",
+        quote:
+          "We brought Top Tier Renovations in for a kitchen and flooring update. They made the process easier than expected and the final result made the whole house feel more modern.",
+        image: "https://i.pravatar.cc/150?img=9",
+        role: "Homeowner, San Antonio TX",
+      },
+      {
+        name: "Maria D.",
+        quote:
+          "I appreciated that they did not overcomplicate the job. They explained what needed to be done, gave us a fair estimate, and completed the work without surprises.",
+        image: "https://i.pravatar.cc/150?img=10",
+        role: "Homeowner, San Antonio TX",
+      },
+      {
+        name: "Steven B.",
+        quote:
+          "They updated our bathroom with a new shower, fixtures, and tile. The craftsmanship was solid, and the space now feels cleaner, brighter, and much more comfortable.",
+        image: "https://i.pravatar.cc/150?img=11",
+        role: "Homeowner, San Antonio TX",
+      },
+      {
+        name: "Kevin O.",
+        quote:
+          "Great communication from start to finish. We knew when the crew was arriving, what work was being completed, and what to expect before each phase of the remodel.",
+        image: "https://i.pravatar.cc/150?img=12",
+        role: "Homeowner, San Antonio TX",
+      },
+      {
+        name: "Nancy C.",
+        quote:
+          "We use Top Tier Renovations because they can handle repairs, updates, and larger projects without making us call a different contractor for every little thing.",
+        image: "https://i.pravatar.cc/150?img=13",
+        role: "Homeowner, San Antonio TX",
+      },
+      {
+        name: "Tony V.",
+        quote:
+          "They came out for a second opinion on a repair and gave us a practical solution instead of trying to sell a larger project. Honest, skilled, and dependable.",
+        image: "https://i.pravatar.cc/150?img=14",
+        role: "Homeowner, San Antonio TX",
+      },
+    ],
   },
   about: {
     title: "Quality Renovations. Clean Work. Reliable Service.",
@@ -1053,7 +1151,7 @@ export const topTierRenovationsCompany: Company = {
         },
         {
           name: "Glennfiddich Doe",
-          role: "Lead Technician",
+          role: "Lead Remodel Technician",
           avatar: "https://assets.aceternity.com/avatars/2.webp",
         },
         {
@@ -1063,27 +1161,27 @@ export const topTierRenovationsCompany: Company = {
         },
         {
           name: "Johnny Walker",
-          role: "Operations Coordinator",
+          role: "Operations Manager",
           avatar: "https://assets.aceternity.com/avatars/4.webp",
         },
         {
           name: "Jack Daniels",
-          role: "Site Manager",
+          role: "Site Superintendent",
           avatar: "https://assets.aceternity.com/avatars/5.webp",
         },
         {
           name: "Samantha Rives",
-          role: "Client Relations",
+          role: "Client Experience Coordinator",
           avatar: "https://assets.aceternity.com/avatars/6.webp",
         },
         {
           name: "Evelyn Martinez",
-          role: "Quality Control",
+          role: "Quality Assurance Specialist",
           avatar: "https://assets.aceternity.com/avatars/7.webp",
         },
         {
           name: "Priya Patel",
-          role: "Scheduling & Logistics",
+          role: "Scheduling & Project Coordination",
           avatar: "https://assets.aceternity.com/avatars/8.webp",
         },
       ],
