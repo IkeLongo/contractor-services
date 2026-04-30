@@ -1623,28 +1623,36 @@ export const sanAntonioLuxuryGlassCompany: Company = {
   },
   footer: {
     shortDescription:
-      "Top Tier Renovations provides reliable interior and exterior remodeling services in San Antonio, TX. From flooring and custom showers to full home renovations, we help homeowners revamp, renew, and refresh their space.",
-    serviceArea: "San Antonio, TX and surrounding areas", // TODO: expand if needed
+      "San Antonio Luxury Glass provides custom glass installations for homes and businesses. From frameless shower enclosures to railings, mirrors, and storefront glass, we deliver clean, precise work that elevates every space.",
+
+    serviceArea: "San Antonio, TX and surrounding areas",
+
     socials: [
-        { platform: "facebook", url: "https://facebook.com/" },
-        { platform: "instagram", url: "https://instagram.com/" },
-        { platform: "linkedin", url: "https://linkedin.com/company/" },
-        { platform: "twitter", url: "https://twitter.com/" },
-        { platform: "youtube", url: "https://youtube.com/" },
+      { platform: "facebook", url: "https://facebook.com/" },
+      { platform: "instagram", url: "https://instagram.com/" },
+      { platform: "linkedin", url: "https://linkedin.com/company/" },
+      { platform: "twitter", url: "https://twitter.com/" },
+      { platform: "youtube", url: "https://youtube.com/" },
     ],
+
     styles: {
       background: "#0B0F14",
+
       text: "#F8FAFC",
-      mutedText: "#8b99ad",
+      mutedText: "#A0A8B0",
       headingText: "#F8FAFC",
-      linkText: "#8b99ad",
-      linkHover: "#1E90FF",
-      childLinkText: "#8b99ad",
-      childLinkHover: "#1E90FF",
-      border: "#8b99ad",
-      bottomText: "#8b99ad",
+
+      linkText: "#A0A8B0",
+      linkHover: "#C8A96A",
+
+      childLinkText: "#A0A8B0",
+      childLinkHover: "#C8A96A",
+
+      border: "#2A333D",
+      bottomText: "#A0A8B0",
+
       socialIcon: "#F8FAFC",
-      socialIconHover: "#1E90FF",
-    }
+      socialIconHover: "#C8A96A",
+    },
   },
 };
