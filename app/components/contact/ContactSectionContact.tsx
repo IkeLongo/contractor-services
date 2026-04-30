@@ -1,5 +1,6 @@
 import type { Company } from "@/lib/types/company";
 import { ContactTestimonialsCarousel } from "./contact-testimonials-carousel";
+import { getNavbarHeroOffset } from "@/lib/navbar-layout";
 
 interface ContactSectionProps {
   company: Company;
@@ -9,6 +10,7 @@ export function ContactSection({ company }: ContactSectionProps) {
   const { contact } = company;
   const t = company.branding.theme;
   const s = contact.styles?.contact;
+  const navbarOffset = getNavbarHeroOffset(company);
 
   const styles = {
     background: s?.background ?? t.primary,
@@ -22,8 +24,12 @@ export function ContactSection({ company }: ContactSectionProps) {
   return (
     <section
       id="contact"
-      className="relative py-16 md:py-24 px-4 sm:px-6 lg:px-8"
-      style={{ background: styles.background }}
+      className="relative px-4 sm:px-6 lg:px-8 pb-16 md:pb-24 pt-[calc(var(--hero-offset-mobile)+64px)] lg:pt-[calc(var(--hero-offset-desktop)+80px)]"
+      style={{
+        background: styles.background,
+        "--hero-offset-desktop": navbarOffset.desktop,
+        "--hero-offset-mobile": navbarOffset.mobile,
+      } as React.CSSProperties}
     >
       <div className="absolute inset-0 bg-black/10" aria-hidden="true" />
 

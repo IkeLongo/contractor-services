@@ -1,4 +1,5 @@
 import type { Company } from "@/lib/types/company";
+import { getNavbarHeroOffset } from "@/lib/navbar-layout";
 
 interface AboutHeroProps {
   company: Company;
@@ -8,11 +9,16 @@ export function AboutHero({ company }: AboutHeroProps) {
   const about = company.about;
   const s = about.styles;
   const t = company.branding.theme;
+  const navbarOffset = getNavbarHeroOffset(company);
 
   return (
     <section
-      className="py-8 px-4 sm:px-6 lg:px-8 md:py-9 md:pt-18"
-      style={{ backgroundColor: s?.background ?? "#F3F6FA" }}
+      className="px-4 sm:px-6 lg:px-8 pb-8 md:pb-9 pt-[calc(var(--hero-offset-mobile)+32px)] lg:pt-[calc(var(--hero-offset-desktop)+36px)]"
+      style={{
+        backgroundColor: t.background ?? "#F3F6FA",
+        "--hero-offset-desktop": navbarOffset.desktop,
+        "--hero-offset-mobile": navbarOffset.mobile,
+      } as React.CSSProperties}
     >
       {/* Hero card — image is the container background */}
       <div
@@ -23,14 +29,14 @@ export function AboutHero({ company }: AboutHeroProps) {
           backgroundPosition: "center right",
           backgroundRepeat: "no-repeat",
           minHeight: "100px",
-          borderColor: s?.border ?? t.border,
+          borderColor: t.border,
         }}
       >
         {/* Left-to-right gradient for text readability */}
         <div
           className="absolute inset-0"
           style={{
-            background: `linear-gradient(to right, ${s?.gradientFrom ?? "rgba(255,255,255,0.98)"} 0%, ${s?.gradientFrom ?? "rgba(255,255,255,0.9)"} 42%, ${s?.gradientTo ?? "rgba(255,255,255,0.15)"} 72%)`,
+            background: `linear-gradient(to right, ${t.background + "FA"} 0%, ${t.background + "E6"} 42%, ${t.background + "26"} 72%)`,
           }}
         />
 
@@ -38,7 +44,7 @@ export function AboutHero({ company }: AboutHeroProps) {
         <div className="relative z-10 flex min-h-[100px] max-w-xl items-center md:min-h-[100px]">
           <h1
               className="text-2xl font-black leading-tight md:text-4xl"
-              style={{ color: s?.title ?? t.text }}
+              style={{ color: t.title ?? t.text }}
             >
               {/* Mobile: line break after each sentence */}
               <span className="block md:hidden">

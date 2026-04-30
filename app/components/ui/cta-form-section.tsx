@@ -8,9 +8,7 @@ interface CtaFormSectionProps {
   eyebrow?: string;
   title: string;
   description?: string;
-  image?: string;
   imageAlt?: string;
-  background?: string;
   formBackground?: string;
   buttonBg?: string;
   buttonText?: string;
@@ -23,9 +21,7 @@ export function CtaFormSection({
   eyebrow,
   title,
   description,
-  image,
   imageAlt,
-  background,
   formBackground,
   buttonBg,
   buttonText,
@@ -33,24 +29,23 @@ export function CtaFormSection({
   shouldPreselectService = false,
 }: CtaFormSectionProps) {
   const t = company.branding.theme;
-  const cs = company.contact.styles?.services;
+  const s = company.contact.styles?.services;
 
-  const resolvedImage =
-    image ?? company.finalCta.image ?? company.contact.backgroundImage;
+  const brackgroundColor = s?.background ?? t.background;
+  const contactCtaImage = company.finalCta.image ?? company.contact.backgroundImage;
+
   const resolvedImageAlt = imageAlt ?? company.general.name;
-  const resolvedBg = background ?? cs?.background ?? t.background;
-  const resolvedSectionBg = cs?.sectionBg ?? resolvedBg;
-  const resolvedFormBg = formBackground ?? cs?.formBg ?? "#ffffff";
-  const resolvedButtonBg = buttonBg ?? cs?.buttonBg ?? t.primary;
-  const resolvedButtonText = buttonText ?? cs?.buttonText ?? "#ffffff";
-  const resolvedText = cs?.text ?? t.text;
-  const resolvedMutedText = cs?.mutedText ?? t.mutedText;
-  const resolvedInputBg = cs?.input?.background ?? "white";
-  const resolvedInputText = cs?.input?.text ?? "black";
-  const resolvedInputPlaceholder = cs?.input?.placeholder;
-  const resolvedInputLabel = cs?.input?.label ?? resolvedText;
-  const resolvedInputRing = cs?.input?.ring ?? "rgb(0 0 0 / 0.1)";
-  const resolvedFocusOutline = cs?.input?.focusOutline ?? "rgb(163 163 163)";
+  const resolvedFormBg = formBackground ?? s?.formBg ?? "#ffffff";
+  const resolvedButtonBg = buttonBg ?? s?.buttonBg ?? t.primary;
+  const resolvedButtonText = buttonText ?? s?.buttonText ?? "#ffffff";
+  const resolvedText = s?.text ?? t.text;
+  const resolvedMutedText = s?.mutedText ?? t.mutedText;
+  const resolvedInputBg = s?.input?.background ?? "white";
+  const resolvedInputText = s?.input?.text ?? "black";
+  const resolvedInputPlaceholder = s?.input?.placeholder;
+  const resolvedInputLabel = s?.input?.label ?? resolvedText;
+  const resolvedInputRing = s?.input?.ring ?? "rgb(0 0 0 / 0.1)";
+  const resolvedFocusOutline = s?.input?.focusOutline ?? "rgb(163 163 163)";
 
   const inputClass = "w-full rounded-lg border-0 px-4 py-2.5 text-sm shadow-sm ring-1 shadow-black/10 focus:outline-2 focus:-outline-offset-1";
 
@@ -59,7 +54,7 @@ export function CtaFormSection({
   return (
     <section
       className="scroll-mt-24 py-16 px-4 sm:px-6 lg:px-8 md:py-20"
-      style={{ backgroundColor: resolvedSectionBg }}
+      style={{ backgroundColor: brackgroundColor }}
     >
       <div className="mx-auto max-w-6xl">
         <div className="grid items-stretch gap-10 lg:grid-cols-2 lg:gap-14">
@@ -67,7 +62,7 @@ export function CtaFormSection({
           {/* Left: image */}
           <div className="relative min-h-[320px] overflow-hidden rounded-2xl shadow-lg lg:min-h-0">
             <Image
-              src={resolvedImage}
+              src={contactCtaImage}
               alt={resolvedImageAlt}
               fill
               sizes="(min-width: 1024px) 50vw, 100vw"
@@ -78,13 +73,13 @@ export function CtaFormSection({
           {/* Right: form card */}
           <div
             className="flex flex-col justify-center rounded-2xl border p-8 shadow-sm sm:p-10"
-            style={{ backgroundColor: resolvedFormBg, borderColor: cs?.input?.ring ?? t.border }}
+            style={{ backgroundColor: resolvedFormBg, borderColor: s?.input?.ring ?? t.border }}
           >
             {/* Header */}
             {eyebrow && (
               <p
                 className="mb-2 text-xs font-bold uppercase tracking-widest"
-                style={{ color: cs?.text ?? t.secondary }}
+                style={{ color: s?.text ?? t.secondary }}
               >
                 {eyebrow}
               </p>

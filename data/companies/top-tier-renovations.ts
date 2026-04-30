@@ -24,8 +24,9 @@ export const topTierRenovationsCompany: Company = {
       surface: "#FFFFFF",      // cards / containers
       text: "#F8FAFC",         // slightly softer than pure black (better UX)
       mutedText: "#8b99ad",    // secondary text
-      border: "#E2E8F0",       // subtle borders/dividers
+      border: "#363636",       // subtle borders/dividers
       eyebrow: "#55a2f0",      // lighter blue for eyebrow text and accents
+      title: "#F8FAFC",        // white for main titles
       buttons: {
         primary: {
           background: "#1E90FF",
@@ -941,17 +942,67 @@ export const topTierRenovationsCompany: Company = {
   },
   about: {
     title: "Quality Renovations. Clean Work. Reliable Service.",
-
-    image: "/companies/top-tier-renovations/contact/top-tier-renovation-bg.png", // TODO: replace with real image
+    image: "/companies/top-tier-renovations/images/about-fade-image.png",
     imageAlt: "Top Tier Renovations remodeling project",
-
+    team: {
+      members: [
+        {
+          name: "Manu Arora",
+          role: "Owner & General Contractor",
+          avatar: "https://assets.aceternity.com/avatars/manu.webp",
+        },
+        {
+          name: "John Doe",
+          role: "Project Manager",
+          avatar: "https://assets.aceternity.com/avatars/1.webp",
+        },
+        {
+          name: "Glennfiddich Doe",
+          role: "Lead Technician",
+          avatar: "https://assets.aceternity.com/avatars/2.webp",
+        },
+        {
+          name: "Jameson Beam",
+          role: "Field Supervisor",
+          avatar: "https://assets.aceternity.com/avatars/3.webp",
+        },
+        {
+          name: "Johnny Walker",
+          role: "Operations Coordinator",
+          avatar: "https://assets.aceternity.com/avatars/4.webp",
+        },
+        {
+          name: "Jack Daniels",
+          role: "Site Manager",
+          avatar: "https://assets.aceternity.com/avatars/5.webp",
+        },
+        {
+          name: "Samantha Rives",
+          role: "Client Relations",
+          avatar: "https://assets.aceternity.com/avatars/6.webp",
+        },
+        {
+          name: "Evelyn Martinez",
+          role: "Quality Control",
+          avatar: "https://assets.aceternity.com/avatars/7.webp",
+        },
+        {
+          name: "Priya Patel",
+          role: "Scheduling & Logistics",
+          avatar: "https://assets.aceternity.com/avatars/8.webp",
+        },
+      ],
+      styles: {
+        background: "#F3F6FA",
+        nameColor: "#0B1F4D",
+        roleColor: "#64748B",
+      },
+    },
     storyTitle: "Built to Revamp, Renew, and Refresh",
-
     story: [
       "Top Tier Renovations helps homeowners transform their spaces with reliable interior and exterior remodeling services. From flooring and custom showers to kitchens and full home remodels, the goal is simple: quality work that improves the way your home looks and feels.",
       "Based in San Antonio, Top Tier Renovations focuses on clear communication, detailed craftsmanship, and dependable service from the first estimate to the final walkthrough. Whether it’s a small upgrade or a larger renovation, every project is handled with care.",
     ],
-
     highlights: [
       {
         title: "Free Estimates",
@@ -970,34 +1021,35 @@ export const topTierRenovationsCompany: Company = {
         description: "Locally serving homeowners throughout San Antonio and surrounding areas.",
       },
     ],
-
     quote: {
       text: "Our goal is to help homeowners revamp, renew, and refresh their space with work they can feel confident in.",
       author: "Top Tier Renovations Team",
       avatar: "https://i.pravatar.cc/150?img=13", // TODO: replace with owner/team photo
     },
-
     images: {
-      main: "/companies/top-tier-renovations/contact/top-tier-team-or-project.png", // TODO
+      main: "/companies/top-tier-renovations/images/service-cta-image.png",
       secondary: [
         "/companies/top-tier-renovations/contact/remodeling-project-bg.png", // TODO
       ],
       tertiary: [
-        "/companies/top-tier-renovations/contact/kitchen-or-bathroom-remodel.png", // TODO
+        "/companies/top-tier-renovations/images/tertiary-image.png", // TODO
       ],
     },
-
-    styles: {
-      background: "#F3F6FA",
-      cardBackground: "#ffffff",
-      border: "#E2E8F0",
-      title: "#0F172A",
-      gradientFrom: "rgba(255,255,255,1)",
-      gradientTo: "rgba(255,255,255,0)",
-      text: "#1e293b",
-      mutedText: "#64748b",
+    stats: {
+      items: [
+        { value: 5, suffix: "+", label: "Core remodeling services" },
+        { value: 1, label: "Local renovation team" },
+        { value: 100, suffix: "%", label: "Focused on quality work" },
+        { value: 0, label: "Project details to confirm" }, // TODO: replace with real stat
+      ],
+      styles: {
+        background: "#0B0F14",
+        containerBg: "#202020",
+        border: "#363636",
+        numberColor: "#1E90FF",
+        labelColor: "#475569",
+      },
     },
-
     process: {
       eyebrow: "Our Process",
       title: "A Simple Way to Start Your Renovation",
@@ -1040,41 +1092,9 @@ export const topTierRenovationsCompany: Company = {
       ],
 
       styles: {
-        background: "#F3F6FA",
+        
       },
     },
-
-    stats: {
-      items: [
-        { value: 5, suffix: "+", label: "Core remodeling services" },
-        { value: 1, label: "Local renovation team" },
-        { value: 100, suffix: "%", label: "Focused on quality work" },
-        { value: 0, label: "Project details to confirm" }, // TODO: replace with real stat
-      ],
-      styles: {
-        background: "#F3F6FA",
-        containerBg: "#ffffff",
-        border: "#E2E8F0",
-        numberColor: "#1E90FF",
-        labelColor: "#475569",
-      },
-    },
-
-    team: {
-      members: [
-        {
-          name: "Top Tier Renovations Team",
-          role: "Remodeling Specialists",
-          avatar: "https://i.pravatar.cc/150?img=13", // TODO: replace with real team image
-        },
-      ],
-      styles: {
-        background: "#F3F6FA",
-        nameColor: "#0F172A",
-        roleColor: "#64748B",
-      },
-    },
-
     differentiators: {
       items: [
         {
@@ -1126,23 +1146,22 @@ export const topTierRenovationsCompany: Company = {
           icon: "MapPin",
         },
       ],
-
       title: "What Sets Top Tier Renovations Apart",
-
       description:
         "Top Tier Renovations focuses on quality remodeling, clear communication, and dependable service for homeowners who want their space upgraded the right way. From small improvements to larger renovation projects, the work is built around your goals and your home.",
-
       styles: {
-        background: "#F3F6FA",
-        sectionTitle: "#0F172A",
-        sectionDescription: "#475569",
-        icon: "#1E90FF",
-        title: "#0F172A",
-        description: "#475569",
-        border: "#E2E8F0",
-        hoverGradientFrom: "#ffffff",
-        accent: "#1E90FF",
+        hoverGradientFrom: "#1E90FF",
       },
+    },
+    styles: {
+      background: "#0B0F14",
+      cardBackground: "#202020",
+      border: "#363636",
+      title: "#F8FAFC",
+      gradientFrom: "#0B0F14",
+      gradientTo: "rgba(255,255,255,0)",
+      text: "#1e293b",
+      mutedText: "#8b99ad",
     },
   },
   finalCta: {
@@ -1161,7 +1180,7 @@ export const topTierRenovationsCompany: Company = {
       href: "tel:2106129114",
     },
 
-    image: "/companies/top-tier-renovations/cta/remodeling-project.jpg", // TODO: replace with real project image
+    image: "/companies/top-tier-renovations/images/service-cta-image.png",
     imageAlt: "Top Tier Renovations home remodeling project",
 
     styles: {
@@ -1173,7 +1192,7 @@ export const topTierRenovationsCompany: Company = {
     },
   },
   contact: {
-    backgroundImage: "/companies/top-tier-renovations/images/home-contact.png", // TODO: replace with real image
+    backgroundImage: "/companies/top-tier-renovations/images/service-cta-image.png",
     title: "Get Your Free Estimate",
     description:
       "Ready to revamp, renew, or refresh your home? Tell us about your project and we'll get back to you quickly.",

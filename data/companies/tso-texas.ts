@@ -26,6 +26,7 @@ export const tsoTexasCompany: Company = {
       mutedText: "#475569",
       border: "#E2E8F0",
       eyebrow: "#C62828",
+      title: "#111827",
       buttons: {
         primary: {
           background: "#C62828",
@@ -33,6 +34,14 @@ export const tsoTexasCompany: Company = {
           hoverBackground: "#B71C1C",
           hoverText: "#FFFFFF",
         },
+      },
+      cards: {
+        background: "#FFFFFF",
+        border: "#E2E8F0",
+        hoverBackground: "#F8FAFC",
+        hoverBorder: "#C62828",
+        title: "#111827",
+        description: "#475569",
       },
     },
   },
@@ -1140,9 +1149,7 @@ export const tsoTexasCompany: Company = {
         "Our clients choose us because we provide a level of reliability, versatility, and professionalism that’s hard to find in the trades industry. We’re not just another contractor — we’re a team that delivers consistent results across multiple service categories, all under one roof.",
       styles: {
         background: "#F3F6FA",
-        sectionTitle: "#0B1F4D",
-        sectionDescription: "#475569",
-        icon: "#C62828",
+        icon: "#070606",
         title: "#0B1F4D",
         description: "#475569",
         border: "#E2E8F0",
@@ -1164,7 +1171,7 @@ export const tsoTexasCompany: Company = {
       href: "tel:2104655077",
     },
     image:
-      "/companies/tso-texas/contact/tso-texas-team-posing-in-front-of-job-site.png",
+      "/companies/top-tier-renovations/images/service-cta-image.png",
     imageAlt:
       "TSO Texas crew posing in front of a completed office renovation project, showcasing their multi-trade capabilities and commitment to quality work.",
       styles: {

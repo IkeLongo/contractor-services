@@ -8,6 +8,7 @@ export type Theme = {
   mutedText: string;
   border: string;
   eyebrow: string;
+  title: string;
   buttons: {
     primary: {
       background: string;

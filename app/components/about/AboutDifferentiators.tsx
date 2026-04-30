@@ -37,10 +37,18 @@ export function AboutDifferentiators({ company }: { company: Company }) {
 
   if (!section || !section.items || section.items.length === 0) return null;
 
+  const brackgroundColor = s?.background ?? t.background;
+  const titleColor = s?.title ?? t.title;
+  const descriptionColor = s?.description ?? t.mutedText;
+  const accentColor = s?.accent ?? t.secondary;
+  const cardBorderColor = s?.border ?? t.border;
+  const hoverGradientFrom = s?.hoverGradientFrom ?? t.surface;
+  const iconColor = s?.icon ?? t.primary;
+
   return (
     <section
       className="w-full py-14"
-      style={{ backgroundColor: s?.background ?? t.background }}
+      style={{ backgroundColor: brackgroundColor }}
     >
       <div className="mx-auto max-w-7xl">
         {(section.title || section.description) && (
@@ -50,7 +58,7 @@ export function AboutDifferentiators({ company }: { company: Company }) {
               {section.title && (
                 <h2
                   className="text-2xl font-black tracking-tight md:text-4xl lg:text-4xl max-w-xl"
-                  style={{ color: s?.sectionTitle ?? s?.title ?? t.text }}
+                  style={{ color: titleColor }}
                 >
                   {section.title}
                 </h2>
@@ -59,7 +67,7 @@ export function AboutDifferentiators({ company }: { company: Company }) {
               {section.description && (
                 <p
                   className="w-full text-base md:text-lg leading-relaxed"
-                  style={{ color: s?.sectionDescription ?? s?.description ?? t.mutedText }}
+                  style={{ color: descriptionColor }}
                 >
                   {section.description}
                 </p>
@@ -80,12 +88,12 @@ export function AboutDifferentiators({ company }: { company: Company }) {
                 icon={<Icon size={24} />}
                 index={index}
                 total={section.items.length}
-                iconColor={s?.icon ?? t.primary}
-                titleColor={s?.title ?? t.text}
-                descriptionColor={s?.description ?? t.mutedText}
-                borderColor={s?.border ?? t.border}
-                hoverGradientFrom={s?.hoverGradientFrom ?? t.surface}
-                accentColor={s?.accent ?? t.secondary}
+                iconColor={iconColor}
+                titleColor={titleColor}
+                descriptionColor={descriptionColor}
+                borderColor={cardBorderColor}
+                hoverGradientFrom={hoverGradientFrom}
+                accentColor={accentColor}
                 spacing={{
                   titleMarginBottom: s?.spacing?.titleMarginBottom,
                   descriptionMarginTop: s?.spacing?.descriptionMarginTop,

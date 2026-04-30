@@ -34,7 +34,7 @@ export function AboutStorySection({ company }: AboutStorySectionProps) {
               <div
                 className="absolute bottom-0 left-0 right-0 h-1/2"
                 style={{
-                  background: `linear-gradient(to bottom, transparent 0%, ${t.secondary} 100%)`,
+                  background: `linear-gradient(to bottom, transparent 0%, ${t.background} 100%)`,
                   opacity: 0.85,
                 }}
               />
@@ -95,8 +95,12 @@ export function AboutStorySection({ company }: AboutStorySectionProps) {
           {about.quote && (
             <div className="flex h-full flex-col lg:col-start-3 lg:row-span-5 lg:row-start-8">
               <div
-                className="flex h-full flex-col justify-between rounded-xl p-6 shadow-md"
-                style={{ backgroundColor: t.secondary, color: "#ffffff" }}
+                className="flex h-full flex-col justify-between rounded-xl p-6 shadow-md border"
+                style={{ 
+                  backgroundColor: t.cards.background,
+                  color: t.cards.title,
+                  borderColor: t.cards.border,
+                }}
               >
                 <p className="text-lg font-semibold leading-snug md:text-2xl">
                   &ldquo;{about.quote.text}&rdquo;
@@ -138,7 +142,10 @@ export function AboutStorySection({ company }: AboutStorySectionProps) {
 
               {/* Color mask overlay */}
               <div
-                className="absolute inset-0 rounded-2xl bg-gradient-to-t from-[#0B1F4D]/50 via-white/40 to-white/80"
+                className="absolute inset-0 rounded-2xl"
+                style={{
+                  background: `linear-gradient(to top, ${t.primary}80 0%, ${t.background}66 50%, ${t.background}CC 100%)`,
+                }}
               />
 
             </div>

@@ -170,10 +170,8 @@ export type Company = {
       }[];
       styles?: {
         background?: string;
-        sectionTitle?: string;
-        sectionDescription?: string;
-        icon?: string;
         title?: string;
+        icon?: string;
         description?: string;
         border?: string;
         hoverGradientFrom?: string;

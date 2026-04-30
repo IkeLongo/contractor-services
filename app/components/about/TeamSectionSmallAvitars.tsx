@@ -11,7 +11,7 @@ export function TeamSectionWithSmallAvatars({ company }: { company: Company }) {
   return (
     <section
       className="mx-auto w-full px-4 py-10 md:px-8 md:py-16 lg:py-12"
-      style={{ backgroundColor: s?.background ?? t.background }}
+      style={{ backgroundColor:   t.background }}
     >
       <div className="mx-auto grid max-w-4xl grid-cols-1 gap-4 md:grid-cols-2 md:gap-12 xl:max-w-7xl xl:grid-cols-3">
         {team.members.map((member) => (
@@ -28,14 +28,14 @@ export function TeamSectionWithSmallAvatars({ company }: { company: Company }) {
             />
             <p
               className="text-base font-semibold tracking-tight text-balance"
-              style={{ color: s?.nameColor ?? t.text }}
+              style={{ color: t.title }}
             >
               {member.name}
             </p>
             <div className="size-1 shrink-0 rounded-full" style={{ backgroundColor: t.border }}></div>
             <p
               className="text-sm"
-              style={{ color: s?.roleColor ?? t.mutedText }}
+              style={{ color: t.mutedText }}
             >
               {member.role}
             </p>

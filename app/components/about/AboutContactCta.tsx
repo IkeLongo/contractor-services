@@ -22,10 +22,8 @@ export function AboutCtaSection({ company }: AboutCtaSectionProps) {
       eyebrow="Get in Touch"
       title={title}
       description={description}
-      image={image}
       imageAlt={imageAlt}
       shouldPreselectService={false}
-      background="#F3F6FA"
     />
   );
 }

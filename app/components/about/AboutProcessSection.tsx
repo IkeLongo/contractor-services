@@ -43,14 +43,14 @@ export function AboutProcessSection({ company }: AboutProcessSectionProps) {
 
   const ps = process.styles;
 
-  const eyebrowColor = ps?.eyebrow ?? t.secondary;
-  const titleColor = ps?.title ?? t.text;
+  const eyebrowColor = ps?.eyebrow ?? t.eyebrow;
+  const titleColor = ps?.title ?? t.title;
   const descColor = ps?.description ?? t.mutedText;
-  const cardBg = ps?.cardBackground ?? "#ffffff";
+  const cardBg = ps?.cardBackground ?? t.cards.background;
   const cardBorder = ps?.cardBorder ?? t.border;
   const cardText = ps?.cardText ?? t.text;
   const cardMuted = ps?.cardMutedText ?? t.mutedText;
-  const accent = ps?.accent ?? t.secondary;
+  const accent = ps?.accent ?? t.eyebrow;
 
   return (
     <section
@@ -109,7 +109,10 @@ export function AboutProcessSection({ company }: AboutProcessSectionProps) {
               >
                 <div
                   className="relative flex min-h-[220px] flex-col justify-between overflow-hidden rounded-2xl border p-5 shadow-sm"
-                  style={{ backgroundColor: cardBg, borderColor: cardBorder }}
+                  style={{ 
+                    backgroundColor: cardBg,
+                    borderColor: cardBorder 
+                  }}
                 >
                   {/* Step label */}
                   <p
