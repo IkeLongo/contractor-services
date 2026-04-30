@@ -1445,6 +1445,7 @@ export const sanAntonioLuxuryGlassCompany: Company = {
         "We focus on precision, clean design, and high-quality materials to deliver glass installations that elevate your space. Every project is custom-measured and installed with attention to detail, giving you a seamless finish that stands out from standard, off-the-shelf solutions.",
       styles: {
         hoverGradientFrom: "#C8A96A",
+        accent: "#ffffff",
       },
     },
     styles: {
