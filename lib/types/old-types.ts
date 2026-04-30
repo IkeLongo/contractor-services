@@ -133,33 +133,6 @@ export type HeroStyles = {
   title?: string;
   subtitle?: string;
 };
-  
-export type ServicesStyles = {
-  background?: string;
-  eyebrow?: string;
-  title?: string;
-  description?: string;
-  cardBackground?: string;
-  cardBorder?: string;
-  cardTitle?: string;
-  cardDescription?: string;
-  accent?: string;
-  imageOverlay?: string;
-  gallery?: {
-    cardBackground?: string;
-    cardBorder?: string;
-    titleColor?: string;
-    descriptionColor?: string;
-    overlay?: string;
-  };
-  narrative?: {
-    background?: string;
-    eyebrow?: string;
-    title?: string;
-    text?: string;
-    accent?: string;
-    scopeCardColors?: string[];
-    scopeCardText?: string;
-    scopeCardIcon?: string;
-  };
-};
+
+// ServicesStyles has moved to lib/types/services.ts
+export type { ServicesStyles } from "./services";

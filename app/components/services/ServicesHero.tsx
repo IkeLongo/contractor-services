@@ -13,12 +13,29 @@ interface ServicesHeroProps {
 export function ServicesHero({ company }: ServicesHeroProps) {
   const { services, contact } = company;
   const t = company.branding.theme;
+  const s = services.styles;
+  const sh = company.contact.styles?.services
   const navbarOffset = getNavbarHeroOffset(company);
+  const hero = services.hero;
 
   const bgImage =
+    hero?.backgroundImage ??
     contact.backgroundImage ??
     company.pages.home.hero.images?.[0]?.src ??
     "";
+
+  const formTitle = hero?.form?.title ?? "Get a Free Quote";
+  const formDescription =
+    hero?.form?.description ?? "Tell us about your project and we'll be in touch.";
+  const submitLabel = hero?.form?.submitLabel ?? "Send Request";
+  const servicePlaceholder =
+    hero?.form?.defaultServicePlaceholder ?? "Select a service…";
+
+  const primaryCta = hero?.primaryCta ?? { label: "Request a Quote", href: "#contact" };
+  const secondaryCta = hero?.secondaryCta ?? {
+    label: "View Core Services",
+    href: "#services-list",
+  };
 
   const [formData, setFormData] = useState({
     name: "",
@@ -49,52 +66,55 @@ export function ServicesHero({ company }: ServicesHeroProps) {
       <div
         className="relative z-10 w-full max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 pt-[calc(var(--hero-offset-mobile)+80px)] pb-20 lg:pt-[calc(var(--hero-offset-desktop)+112px)] lg:pb-28"
         style={{
-          "--hero-offset-desktop": `${navbarOffset.desktop}px`,
-          "--hero-offset-mobile": `${navbarOffset.mobile}px`,
+          "--hero-offset-desktop": navbarOffset.desktop,
+          "--hero-offset-mobile": navbarOffset.mobile,
         } as React.CSSProperties}
       >
         <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 lg:gap-16 items-center">
           {/* ── Left: hero copy ──────────────────────────────── */}
           <div className="flex flex-col gap-6">
-            {services.eyebrow && (
+            {hero?.eyebrow && (
               <p
                 className="text-xs font-bold uppercase tracking-widest"
-                style={{ color: t.secondary }}
+                style={{ color: s?.eyebrow }}
               >
-                {services.eyebrow}
+                {hero.eyebrow}
               </p>
             )}
 
             <h1 className="text-3xl md:text-4xl lg:text-5xl font-black leading-tight text-white">
-              {services.title}
+              {hero?.title}
             </h1>
 
-            {services.description && (
+            {hero?.description && (
               <p className="text-base md:text-lg leading-relaxed text-white/70 max-w-lg">
-                {services.description}
+                {hero.description}
               </p>
             )}
 
             <div className="flex flex-wrap items-center gap-4 pt-2">
               <Link
-                href="#contact"
+                href={primaryCta.href}
                 className="inline-flex items-center gap-2 rounded-xl px-7 py-4 text-sm font-bold uppercase tracking-wider transition-all duration-200 hover:-translate-y-0.5"
                 style={{
-                  backgroundColor: t.secondary,
-                  color: "#ffffff",
-                  boxShadow: `0 4px 18px ${t.secondary}55`,
+                  backgroundColor: s?.primaryCtaButtonBg,
+                  color: s?.primaryCtaButtonText,
+                  boxShadow: `0 4px 18px ${s?.primaryCtaButtonBg}55`,
                 }}
               >
-                Request a Quote
+                {primaryCta.label}
                 <ArrowRight className="size-4" />
               </Link>
 
               <Link
-                href="#services-list"
-                className="inline-flex items-center gap-2 rounded-xl border px-7 py-4 text-sm font-bold uppercase tracking-wider text-white/90 transition-all duration-200 hover:bg-white/10"
-                style={{ borderColor: "rgba(255,255,255,0.3)" }}
+                href={secondaryCta.href}
+                className="inline-flex items-center gap-2 rounded-xl border px-7 py-4 text-sm font-bold uppercase tracking-wider transition-all duration-200 hover:bg-white/10"
+                style={{
+                  borderColor: s?.secondaryCtaButtonText,
+                  color: s?.secondaryCtaButtonText,
+                }}
               >
-                View Core Services
+                {secondaryCta.label}
               </Link>
             </div>
           </div>
@@ -103,16 +123,16 @@ export function ServicesHero({ company }: ServicesHeroProps) {
           <div
             id="contact"
             className="rounded-2xl p-7 md:p-8 shadow-2xl backdrop-blur-sm"
-            style={{ backgroundColor: "rgba(255,255,255,0.97)" }}
+            style={{ backgroundColor: sh?.formBg ?? "rgba(255,255,255,0.97)" }}
           >
             <h2
               className="text-lg font-black mb-1"
-              style={{ color: t.primary }}
+              style={{ color: sh?.text ?? t.primary }}
             >
-              Get a Free Quote
+              {formTitle}
             </h2>
-            <p className="text-sm mb-6" style={{ color: t.mutedText }}>
-              Tell us about your project and we'll be in touch.
+            <p className="text-sm mb-6" style={{ color: sh?.mutedText ?? t.mutedText }}>
+              {formDescription}
             </p>
 
             <form
@@ -125,7 +145,7 @@ export function ServicesHero({ company }: ServicesHeroProps) {
                   <label
                     htmlFor="hero-name"
                     className="text-xs font-semibold uppercase tracking-wider"
-                    style={{ color: t.mutedText }}
+                    style={{ color: sh?.mutedText ?? t.mutedText }}
                   >
                     Name
                   </label>
@@ -139,10 +159,10 @@ export function ServicesHero({ company }: ServicesHeroProps) {
                     }
                     className="rounded-lg border px-3.5 py-2.5 text-sm outline-none transition focus:ring-2"
                     style={{
-                      borderColor: t.border,
-                      color: t.text,
+                      borderColor: sh?.input?.ring ?? t.border,
+                      color: sh?.input?.text ?? t.text,
                       // @ts-expect-error CSS custom property
-                      "--tw-ring-color": t.secondary,
+                      "--tw-ring-color": sh?.input?.ring ?? t.secondary,
                     }}
                   />
                 </div>
@@ -150,7 +170,7 @@ export function ServicesHero({ company }: ServicesHeroProps) {
                   <label
                     htmlFor="hero-email"
                     className="text-xs font-semibold uppercase tracking-wider"
-                    style={{ color: t.mutedText }}
+                    style={{ color: sh?.mutedText ?? t.mutedText }}
                   >
                     Email
                   </label>
@@ -164,10 +184,10 @@ export function ServicesHero({ company }: ServicesHeroProps) {
                     }
                     className="rounded-lg border px-3.5 py-2.5 text-sm outline-none transition focus:ring-2"
                     style={{
-                      borderColor: t.border,
-                      color: t.text,
+                      borderColor: sh?.input?.ring ?? t.border,
+                      color: sh?.input?.text ?? t.text,
                       // @ts-expect-error CSS custom property
-                      "--tw-ring-color": t.secondary,
+                      "--tw-ring-color": sh?.input?.ring ?? t.secondary,
                     }}
                   />
                 </div>
@@ -178,7 +198,7 @@ export function ServicesHero({ company }: ServicesHeroProps) {
                 <label
                   htmlFor="hero-phone"
                   className="text-xs font-semibold uppercase tracking-wider"
-                  style={{ color: t.mutedText }}
+                  style={{ color: sh?.mutedText ?? t.mutedText }}
                 >
                   Phone
                 </label>
@@ -192,10 +212,10 @@ export function ServicesHero({ company }: ServicesHeroProps) {
                   }
                   className="rounded-lg border px-3.5 py-2.5 text-sm outline-none transition focus:ring-2"
                   style={{
-                    borderColor: t.border,
-                    color: t.text,
+                    borderColor: sh?.input?.ring ?? t.border,
+                    color: sh?.input?.text ?? t.text,
                     // @ts-expect-error CSS custom property
-                    "--tw-ring-color": t.secondary,
+                    "--tw-ring-color": sh?.input?.ring ?? t.secondary,
                   }}
                 />
               </div>
@@ -205,7 +225,7 @@ export function ServicesHero({ company }: ServicesHeroProps) {
                 <label
                   htmlFor="hero-service"
                   className="text-xs font-semibold uppercase tracking-wider"
-                  style={{ color: t.mutedText }}
+                  style={{ color: sh?.mutedText ?? t.mutedText }}
                 >
                   Service Needed
                 </label>
@@ -215,19 +235,28 @@ export function ServicesHero({ company }: ServicesHeroProps) {
                   onChange={(e) =>
                     setFormData((p) => ({ ...p, service: e.target.value }))
                   }
-                  className="rounded-lg border px-3.5 py-2.5 text-sm outline-none transition focus:ring-2 bg-white"
+                  className="rounded-lg border px-3.5 py-2.5 text-sm outline-none transition focus:ring-2"
                   style={{
-                    borderColor: t.border,
-                    color: formData.service ? t.text : t.mutedText,
+                    backgroundColor: sh?.formBg ?? "transparent",
+                    borderColor: sh?.input?.ring ?? t.border,
+                    color: formData.service ? (sh?.input?.text ?? t.text) : (sh?.input?.text ?? t.mutedText),
                     // @ts-expect-error CSS custom property
-                    "--tw-ring-color": t.secondary,
+                    "--tw-ring-color": sh?.input?.ring ?? t.secondary,
                   }}
                 >
-                  <option value="" disabled>
-                    Select a service…
+                  <option
+                    value=""
+                    disabled
+                    style={{ backgroundColor: sh?.input?.background ?? "#1c1c1c", color: sh?.input?.text ?? "#ffffff" }}
+                  >
+                    {servicePlaceholder}
                   </option>
                   {serviceOptions.map((opt) => (
-                    <option key={opt.value} value={opt.value}>
+                    <option
+                      key={opt.value}
+                      value={opt.value}
+                      style={{ backgroundColor: sh?.input?.background ?? "#1c1c1c", color: sh?.input?.text ?? "#ffffff" }}
+                    >
                       {opt.label}
                     </option>
                   ))}
@@ -239,7 +268,7 @@ export function ServicesHero({ company }: ServicesHeroProps) {
                 <label
                   htmlFor="hero-message"
                   className="text-xs font-semibold uppercase tracking-wider"
-                  style={{ color: t.mutedText }}
+                  style={{ color: sh?.mutedText ?? t.mutedText }}
                 >
                   Message
                 </label>
@@ -253,10 +282,10 @@ export function ServicesHero({ company }: ServicesHeroProps) {
                   }
                   className="rounded-lg border px-3.5 py-2.5 text-sm outline-none transition focus:ring-2 resize-none"
                   style={{
-                    borderColor: t.border,
-                    color: t.text,
+                    borderColor: sh?.input?.ring ?? t.border,
+                    color: sh?.input?.text ?? t.text,
                     // @ts-expect-error CSS custom property
-                    "--tw-ring-color": t.secondary,
+                    "--tw-ring-color": sh?.input?.ring ?? t.secondary,
                   }}
                 />
               </div>
@@ -266,11 +295,12 @@ export function ServicesHero({ company }: ServicesHeroProps) {
                 type="submit"
                 className="mt-1 inline-flex items-center justify-center gap-2 rounded-xl px-6 py-3.5 text-sm font-bold uppercase tracking-wider text-white transition-all duration-200 hover:-translate-y-0.5"
                 style={{
-                  backgroundColor: t.primary,
-                  boxShadow: `0 4px 14px ${t.primary}44`,
+                  backgroundColor: sh?.buttonBg ?? t.primary,
+                  boxShadow: `0 4px 14px ${sh?.buttonBg ?? t.primary}44`,
+                  color: sh?.buttonText ?? "#ffffff",
                 }}
               >
-                Send Request
+                {submitLabel}
                 <ArrowRight className="size-4" />
               </button>
             </form>

@@ -7,7 +7,7 @@ export function getNavbarHeroOffset(company: Company): {
   const navbar = company.layout.navbar;
 
   if (navbar.variant !== "centeredLogo") {
-    return { desktop: "140px", mobile: "96px" };
+    return { desktop: "0px", mobile: "0px" };
   }
 
   return {

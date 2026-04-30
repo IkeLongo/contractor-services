@@ -464,11 +464,25 @@ export const topTierRenovationsCompany: Company = {
     },
   },
   services: {
-    eyebrow: "What We Do",
-    title: "Our Remodeling Services",
-    description:
-      "From flooring and custom showers to full home remodels, we handle the work from start to finish.",
+    hero: {
+      eyebrow: "What We Do",
+      title: "Our Remodeling Services",
+      description:
+        "From flooring and custom showers to full home remodels, we handle the work from start to finish.",
+    },
     columns: 2,
+    styles: {
+      background: "#F3F6FA",
+      eyebrow: "#55a2f0",
+      primaryCtaButtonBg: "#1E90FF",
+      primaryCtaButtonText: "#FFFFFF",
+      secondaryCtaButtonText: "#FFFFFF",
+      cardBackground: "#FFFFFF",
+      cardBorder: "#E2E8F0",
+      cardTitle: "#0F172A",
+      cardDescription: "#475569",
+      accent: "#1E90FF",
+    },
     items: [
       {
         title: "Flooring",
@@ -506,14 +520,6 @@ export const topTierRenovationsCompany: Company = {
         icon: "Wrench",
       },
     ],
-    styles: {
-      background: "#F3F6FA",
-      cardBackground: "#FFFFFF",
-      cardBorder: "#E2E8F0",
-      cardTitle: "#0F172A",
-      cardDescription: "#475569",
-      accent: "#1E90FF",
-    },
   },
   portfolio: {
     eyebrow: "Our Work",
@@ -1049,6 +1055,22 @@ export const topTierRenovationsCompany: Company = {
     },
     styles: {
       home: {
+        formBg: "#0B0F14",
+        text: "#F8FAFC",
+        mutedText: "#8b99ad",
+        buttonBg: "#1E90FF",
+        buttonText: "#FFFFFF",
+        input: {
+          background: "#202020",
+          text: "#F8FAFC",
+          placeholder: "#8b99ad",
+          label: "#F8FAFC",
+          ring: "#363636",
+          focusOutline: "#1E90FF",
+          activeRing: "#1E90FF",
+        }
+      },
+      services: {
         formBg: "#0B0F14",
         text: "#F8FAFC",
         mutedText: "#8b99ad",

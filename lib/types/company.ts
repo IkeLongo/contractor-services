@@ -1,7 +1,8 @@
 import type { Theme } from "./design";
 import type { HomePage } from "./pages";
 import type { Layout } from "./layout";
-import { PortfolioItem, PortfolioStyles, ServiceItem, ServicesStyles, TestimonialItem } from "./old-types";
+import { PortfolioItem, PortfolioStyles, TestimonialItem } from "./old-types";
+import type { ServicesPage } from "./services";
 
 export type General = {
   slug: string;
@@ -46,14 +47,7 @@ export type Company = {
   pages: {
     home: HomePage;
   };
-  services: {
-    eyebrow?: string;
-    title: string;
-    description?: string;
-    styles?: ServicesStyles;
-    columns?: 2 | 3 | 4;
-    items: ServiceItem[];
-  };
+  services: ServicesPage;
   portfolio: {
     eyebrow?: string;
     title: string;
@@ -234,6 +228,25 @@ export type Company = {
     };
     styles?: {
       home?: {
+        background?: string;
+        sectionBg?: string;
+        formBg?: string;
+        text?: string;
+        mutedText?: string;
+        buttonBg?: string;
+        buttonText?: string;
+        overlayGradient?: string;
+        input?: {
+          background?: string;
+          text?: string;
+          placeholder?: string;
+          label?: string;
+          ring?: string;
+          focusOutline?: string;
+          activeRing?: string;
+        };
+      };
+      services?: {
         background?: string;
         sectionBg?: string;
         formBg?: string;
