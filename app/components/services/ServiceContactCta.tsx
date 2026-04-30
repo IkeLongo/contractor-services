@@ -34,7 +34,6 @@ export function ServiceContactCta({ company, service }: ServiceContactCtaProps) 
       eyebrow="Get in Touch"
       title={headline}
       description={description}
-      image={image}
       imageAlt={imageAlt}
       selectedServiceSlug={service.slug}
       shouldPreselectService={true}
